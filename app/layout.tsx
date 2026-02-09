@@ -4,12 +4,12 @@ import { DM_Serif_Display, Inter } from "next/font/google";
 
 import "./globals.css";
 
-const _dmSerif = DM_Serif_Display({
+const dmSerif = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-dm-serif",
 });
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Form & Matter",
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
