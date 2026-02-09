@@ -40,8 +40,8 @@ export function Hero() {
           Architecture & Sculpture
         </p>
         <h1 className="text-center font-serif text-6xl leading-none tracking-tight text-background sm:text-7xl md:text-8xl lg:text-[10rem]">
-          Form &<br />
-          Matter
+          Abhigyan<br />
+          x Vishal
         </h1>
         <p className="mt-6 max-w-md text-center text-sm leading-relaxed text-background/70 md:text-base">
           Where structure meets expression. A collaboration between architecture

@@ -11,7 +11,7 @@ export function Nav() {
         href="#"
         className="text-sm tracking-[0.2em] uppercase text-background"
       >
-        Form & Matter
+        Abhigyan x Vishal
       </a>
 
       <div className="hidden md:flex items-center gap-10">

@@ -12,9 +12,9 @@ const dmSerif = DM_Serif_Display({
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Form & Matter",
+  title: "Abhigyan x Vishal",
   description:
-    "A collaboration between architecture and sculpture. Where structure meets expression.",
+    "A collaboration between architecture and sculpture. Abhigyan x Vishal Gupta.",
 };
 
 export const viewport: Viewport = {

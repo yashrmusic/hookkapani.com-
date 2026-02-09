@@ -38,7 +38,7 @@ export function Manifesto() {
         <div className="mt-12 flex items-center justify-center gap-8">
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">
-              Elena Vasquez
+              Abhigyan
             </p>
             <p className="mt-1 text-xs tracking-[0.15em] uppercase text-muted-foreground">
               Architect
@@ -47,7 +47,7 @@ export function Manifesto() {
           <div className="h-8 w-px bg-border" />
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">
-              Kai Morimoto
+              Vishal Gupta
             </p>
             <p className="mt-1 text-xs tracking-[0.15em] uppercase text-muted-foreground">
               Sculptor

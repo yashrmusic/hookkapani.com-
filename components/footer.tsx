@@ -4,11 +4,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <div>
-            <p className="font-serif text-lg text-foreground">Form & Matter</p>
+            <p className="font-serif text-lg text-foreground">Abhigyan x Vishal</p>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
               Architecture & Sculpture
-              <br />
-              Studio based in Lisbon & Tokyo
             </p>
           </div>
 
@@ -26,13 +24,7 @@ export function Footer() {
               href="#"
               className="text-sm text-foreground transition-opacity hover:opacity-60"
             >
-              studio@formandmatter.co
-            </a>
-            <a
-              href="#"
-              className="text-sm text-foreground transition-opacity hover:opacity-60"
-            >
-              +351 912 345 678
+              abhigyanxvishal@gmail.com
             </a>
           </div>
 
@@ -54,7 +46,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-            {"Form & Matter Studio 2024. All rights reserved."}
+            {"Abhigyan x Vishal 2025. All rights reserved."}
           </p>
           <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
             A collaboration in material and space
