@@ -15,7 +15,9 @@ export function Footer() {
               Connect
             </p>
             <a
-              href="#"
+              href="https://www.instagram.com/hookkapani/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-foreground transition-opacity hover:opacity-60"
             >
               Instagram
@@ -30,13 +32,13 @@ export function Footer() {
 
           <div className="flex flex-col gap-2 md:items-end">
             <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground">
-              Studio Hours
+              Studio
             </p>
             <p className="text-sm text-foreground">
-              Monday - Friday
+              New Delhi, India
             </p>
             <p className="text-sm text-foreground">
-              {"10:00 - 18:00"}
+              Hookkapani Studio
             </p>
             <p className="text-sm text-muted-foreground">
               By appointment only
@@ -49,7 +51,7 @@ export function Footer() {
             {"Abhigyan x Vishal 2025. All rights reserved."}
           </p>
           <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-            A collaboration in material and space
+            Crafting movement. Carving meaning.
           </p>
         </div>
       </div>

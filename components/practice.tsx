@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "12", label: "Years of Practice" },
-  { value: "34", label: "Completed Works" },
-  { value: "8", label: "Countries" },
-  { value: "6", label: "Residencies" },
+  { value: "5+", label: "Services Offered" },
+  { value: "50+", label: "Completed Works" },
+  { value: "1", label: "Studio, New Delhi" },
+  { value: "2", label: "Creative Disciplines" },
 ];
 
 export function Practice() {
@@ -50,12 +50,12 @@ export function Practice() {
           </div>
           <div className="flex flex-col justify-end">
             <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
-              Our practice operates at the intersection of architecture and
-              sculptural art. Each project begins as a material study — an
-              investigation into how stone, steel, and concrete can hold space,
-              capture light, and evoke the monumental in the everyday. We design
-              structures that are experienced as objects and sculptures that
-              function as spaces.
+              Based in the heart of New Delhi, this collaboration fuses
+              traditional craftsmanship with experimental thinking. From kinetic
+              sculptures and wooden installations to large-scale architectural
+              art and custom fabrication — we create works that move, react, and
+              resonate. Every project bridges poetic concept and
+              production-grade reality.
             </p>
           </div>
         </div>

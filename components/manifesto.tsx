@@ -31,9 +31,9 @@ export function Manifesto() {
           Manifesto
         </p>
         <blockquote className="font-serif text-3xl leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          We believe that the boundary between architecture and sculpture is not
-          a line but a conversation — a dialogue between void and volume,
-          material and meaning.
+          We don{"'"}t just make art — we engineer experience. Where
+          architecture gives form to space, sculpture breathes life into it.
+          What if art could breathe?
         </blockquote>
         <div className="mt-12 flex items-center justify-center gap-8">
           <div className="text-center">
@@ -50,7 +50,7 @@ export function Manifesto() {
               Vishal Gupta
             </p>
             <p className="mt-1 text-xs tracking-[0.15em] uppercase text-muted-foreground">
-              Sculptor
+              Founder, Hookkapani Studio
             </p>
           </div>
         </div>

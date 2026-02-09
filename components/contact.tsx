@@ -26,8 +26,9 @@ export function Contact() {
           Begin a conversation
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-          Whether you are a gallery, institution, or private collector — we
-          welcome inquiries about commissions, exhibitions, and collaborations.
+          Whether you{"'"}re a gallery, architect, public space curator, or
+          private collector — if your project needs soul and structure, we{"'"}re
+          here.
         </p>
 
         <form
