@@ -111,12 +111,12 @@ export function Practice() {
             }}
           >
             <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
-              Based in the heart of New Delhi, this collaboration fuses
-              traditional craftsmanship with experimental thinking. From kinetic
-              sculptures and wooden installations to large-scale architectural
-              art and custom fabrication — we create works that move, react, and
-              resonate. Every project bridges poetic concept and
-              production-grade reality.
+              Operating at the intersection of architectural precision and sculptural fluidity,
+              our New Delhi-based collaboration redefines the boundary of space. We fuse
+              traditional craftsmanship with experimental material science to create
+              site-specific installations that challenge the viewer's perception of stability
+              and motion. From private collections in Italy to public spaces in Delhi,
+              every work is a dialogue between the permanence of form and the ephemerality of experience.
             </p>
           </div>
         </div>

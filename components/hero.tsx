@@ -27,8 +27,8 @@ export function Hero() {
         }}
       >
         <Image
-          src="/images/hero.jpg"
-          alt="Architectural sculpture installation in a concrete gallery space"
+          src="/images/hero.png"
+          alt="Golden kinetic sculpture in eternal dialogue with the horizon"
           fill
           className="object-cover"
           priority
@@ -45,7 +45,7 @@ export function Hero() {
           className={`mb-6 text-xs tracking-[0.4em] uppercase text-background/80 md:text-sm ${mounted ? "animate-letter-spacing" : "opacity-0"}`}
           style={{ animationDelay: "0.4s" }}
         >
-          Architecture x Kinetic Sculpture
+          Structural Poetry x Kinetic Motion
         </p>
         <h1
           className={`text-center font-serif text-6xl leading-none tracking-tight text-background sm:text-7xl md:text-8xl lg:text-[10rem] ${mounted ? "animate-fade-up" : "opacity-0"}`}
@@ -59,8 +59,8 @@ export function Hero() {
           className={`mt-6 max-w-md text-center text-sm leading-relaxed text-background/70 md:text-base ${mounted ? "animate-fade-up" : "opacity-0"}`}
           style={{ animationDelay: "0.9s" }}
         >
-          Crafting movement. Carving meaning. Where architecture meets kinetic
-          art and site-specific installations.
+          Engineering silence through movement. Curating spaces where
+          architecture dissolves into art.
         </p>
       </div>
 
