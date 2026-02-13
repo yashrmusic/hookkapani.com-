@@ -22,13 +22,17 @@ export function CustomCursor() {
     };
 
     const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+      const target = e.target as Element;
+      if (!target || typeof target.closest !== 'function') {
+        setIsPointer(false);
+        return;
+      }
       const isClickable =
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
         target.closest('a') ||
         target.closest('button') ||
-        window.getComputedStyle(target).cursor === 'pointer';
+        (target instanceof HTMLElement && window.getComputedStyle(target).cursor === 'pointer');
 
       setIsPointer(!!isClickable);
     };
@@ -90,8 +94,12 @@ export function CustomCursor() {
     }
   }, []);
 
-  const hasTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
-  if (hasTouch) return null;
+  // Moved touch detection to avoid SSR window access
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(hover: none)').matches);
+  }, []);
+  if (isTouchDevice) return null;
 
   return (
     <>

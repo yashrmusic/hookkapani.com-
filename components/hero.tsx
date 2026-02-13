@@ -5,9 +5,16 @@ import { useInView } from '@/hooks/use-intersection-observer';
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [titleRef, titleInView] = useInView({ threshold: 0.3 });
+  const [titleRef, titleInView] = useInView({ threshold: 0.1 });
   const [scrollY, setScrollY] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after a short delay to ensure visibility
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +51,7 @@ export function Hero() {
           {/* Main title */}
           <div
             ref={titleRef}
-            className={`transition-all duration-700 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <h1 className="text-display mb-6 md:mb-8">
               <span className="block glitch" data-text="HOOKKAPAANI">
@@ -55,7 +62,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <div
-            className={`mb-8 md:mb-12 transition-all duration-700 delay-200 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <p className="text-headline text-muted-foreground max-w-4xl">
               Kinetic sculpture studio exploring the intersection of{' '}
@@ -65,25 +72,11 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Download Portfolio Button */}
-          <div
-            className={`mb-12 md:mb-16 transition-all duration-700 delay-300 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <a
-              href="/portfolio.pdf"
-              download="Hookkapaani-Portfolio-2024.pdf"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-all duration-300 border-2 border-accent"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Download Portfolio
-            </a>
-          </div>
+
 
           {/* Info grid */}
           <div
-            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl transition-all duration-700 delay-500 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl transition-all duration-700 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <InfoCard
               number="01"
@@ -104,7 +97,7 @@ export function Hero() {
 
           {/* Scroll indicator */}
           <div
-            className={`mt-20 md:mt-32 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${titleInView ? 'opacity-100' : 'opacity-0'}`}
+            className={`mt-20 md:mt-32 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
           >
             <p className="text-label text-muted-foreground">Explore Works</p>
             <div className="w-[2px] h-16 bg-accent origin-top animate-pulse" />

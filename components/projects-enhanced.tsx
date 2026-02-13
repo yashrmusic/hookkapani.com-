@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { artworks } from '../data/artworks';
 import { ArtworkCard } from './artwork-image';
 import { ArtworkFilters } from './artwork-filters';
 import { Lightbox } from './lightbox';
 import { useInView } from '../hooks/use-intersection-observer';
+import { MasonryGrid } from './masonry-grid';
 
 export function ProjectsEnhanced() {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.05 });
@@ -60,12 +62,22 @@ export function ProjectsEnhanced() {
             />
           </div>
 
-          {/* Artwork Grid - Simple 3-column responsive */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+
+          {/* Artwork Grid - Masonry Layout for "Coherent/Eye-Candy" Look */}
+          <MasonryGrid
+            gap={24}
+            columnCount={{ mobile: 1, tablet: 2, desktop: 3 }}
+            className="mb-12"
+          >
             {filteredArtworks.map((artwork, index) => (
-              <div
+              <motion.div
                 key={artwork.id}
-                className="cursor-pointer group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: (index % 12) * 0.05 }}
+                className="cursor-pointer group mb-6"
                 onClick={() => openLightbox(artwork)}
               >
                 <ArtworkCard
@@ -74,9 +86,9 @@ export function ProjectsEnhanced() {
                   compact={false}
                   priority={index < 6}
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </MasonryGrid>
 
           {/* No results */}
           {filteredArtworks.length === 0 && (

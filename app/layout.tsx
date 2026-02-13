@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -20,8 +20,19 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant-garamond",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Hookkapaani | Kinetic Sculpture Studio",
+  metadataBase: new URL('https://hookkapaani.com'),
+  title: {
+    default: "Hookkapaani | Kinetic Sculpture Studio",
+    template: "%s | Hookkapaani Studio"
+  },
   description: "A kinetic sculpture studio exploring industrial materials, mechanical motion, and temporal transformation through honest construction and material research.",
   keywords: [
     "kinetic sculpture",
@@ -31,10 +42,13 @@ export const metadata: Metadata = {
     "contemporary art",
     "installation art",
     "kinetic art",
-    "India"
+    "India",
+    "Delhi Artist",
+    "Mechanical Art"
   ],
-  authors: [{ name: "Vishal Gupta" }],
+  authors: [{ name: "Vishal Gupta", url: "https://hookkapaani.com" }],
   creator: "Hookkapaani",
+  publisher: "Hookkapaani Studio",
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -42,15 +56,35 @@ export const metadata: Metadata = {
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
     siteName: "Hookkapaani",
+    images: [
+      {
+        url: "/images/new-work-45.png", // Luminous Leviathan as OG Image
+        width: 1200,
+        height: 800,
+        alt: "Luminous Leviathan - Kinetic Sculpture by Hookkapaani",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
+    images: ["/images/new-work-45.png"],
+    creator: "@hookkapaani", // Placeholder or fetch real handle if known
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 
@@ -81,6 +115,32 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ArtGallery",
+              "name": "Hookkapaani Studio",
+              "image": "https://hookkapaani.com/images/new-work-45.png",
+              "url": "https://hookkapaani.com",
+              "telephone": "+91 98765 43210",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "New Delhi",
+                "addressCountry": "IN"
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "Vishal Gupta",
+                "jobTitle": "Kinetic Sculptor"
+              },
+              "sameAs": [
+                "https://instagram.com/hookkapaani"
+              ]
+            })
+          }}
+        />
         {/* Clear timeout on hydration */}
         <HydrationHandler />
       </body>

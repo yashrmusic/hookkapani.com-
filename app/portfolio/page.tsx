@@ -1,30 +1,17 @@
-
-'use client';
-
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { artworks } from '@/data/artworks';
+import { Metadata } from 'next';
+import { AutoPrint } from '@/components/auto-print';
+
+export const metadata: Metadata = {
+    title: "Selected Works | Hookkapaani Studio",
+    description: "Browse our collection of kinetic sculptures, installations, and mechanical art pieces.",
+};
 
 export default function PortfolioPage() {
-    const [mounted, setMounted] = useState(false);
-
-    const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-
-    useEffect(() => {
-        setMounted(true);
-        // Auto-trigger print if ?print=true is present
-        if (typeof window !== 'undefined' && window.location.search.includes('print=true')) {
-            // Slight delay to allow images to load (simplified)
-            setTimeout(() => {
-                window.print();
-            }, 1000);
-        }
-    }, [])
-
-    if (!mounted) return null;
-
     return (
         <div className="min-h-screen bg-white text-black font-sans p-8 md:p-16 print:p-0">
+            <AutoPrint />
             {/* Print Controls */}
             {/* Print Controls removed - handled by Nav button */}
 

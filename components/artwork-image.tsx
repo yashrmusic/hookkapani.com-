@@ -43,6 +43,7 @@ export function ArtworkImage({
         `}
         onClick={onClick}
         onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
       />
 
       {onClick && (

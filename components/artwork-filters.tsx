@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { Artwork } from '../data/artworks';
 
 interface FilterOption {
@@ -102,7 +102,7 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
   }, [artworks, searchQuery, selectedCategory, selectedMaterials, selectedYears, sortBy]);
 
   // Update parent when filters change
-  useMemo(() => {
+  useEffect(() => {
     onFilterChange(filteredArtworks);
   }, [filteredArtworks, onFilterChange]);
 
@@ -196,10 +196,9 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
             className={`
               px-6 py-3 text-sm font-medium uppercase tracking-wider
               border-2 transition-all duration-300 touch-target
-              ${
-                selectedCategory === cat.value
-                  ? 'bg-accent text-accent-foreground border-accent'
-                  : 'bg-transparent text-foreground border-border hover:border-accent hover:text-accent'
+              ${selectedCategory === cat.value
+                ? 'bg-accent text-accent-foreground border-accent'
+                : 'bg-transparent text-foreground border-border hover:border-accent hover:text-accent'
               }
             `}
           >
