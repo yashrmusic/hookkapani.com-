@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { value: 5, suffix: "+", label: "Services Offered" },
-  { value: 50, suffix: "+", label: "Completed Works" },
+  { value: 28, suffix: "+", label: "Works Created" },
+  { value: 3, suffix: "", label: "Categories" },
+  { value: 5, suffix: "", label: "Years Active" },
   { value: 1, suffix: "", label: "Studio, New Delhi" },
-  { value: 2, suffix: "", label: "Creative Disciplines" },
 ];
 
 function AnimatedStat({
@@ -93,12 +93,12 @@ export function Practice() {
             }}
           >
             <p className="mb-3 text-xs tracking-[0.4em] uppercase text-accent-foreground/50">
-              About the Practice
+              About the Studio
             </p>
             <h2 className="font-serif text-4xl tracking-tight text-accent-foreground md:text-5xl">
-              Two disciplines,
+              Industrial materials,
               <br />
-              one language.
+              kinetic poetry.
             </h2>
           </div>
           <div
@@ -111,12 +111,11 @@ export function Practice() {
             }}
           >
             <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
-              Operating at the intersection of architectural precision and sculptural fluidity,
-              our New Delhi-based collaboration redefines the boundary of space. We fuse
-              traditional craftsmanship with experimental material science to create
-              site-specific installations that challenge the viewer's perception of stability
-              and motion. From private collections in Italy to public spaces in Delhi,
-              every work is a dialogue between the permanence of form and the ephemerality of experience.
+              Operating from our workshop in New Delhi, Hookkapaani explores the intersection 
+              of industrial fabrication and artistic expression. We work with steel, bronze, 
+              aluminum, and found materials to create sculptures that move, breathe, and evolve. 
+              Each piece is a dialogue between mechanical precision and organic fluidity—
+              celebrating the beauty of raw materials, honest construction, and the passage of time.
             </p>
           </div>
         </div>

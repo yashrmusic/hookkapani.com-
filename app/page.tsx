@@ -1,21 +1,21 @@
-import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
+import { ProjectsEnhanced } from "@/components/projects-enhanced";
+import { StudioGallery } from "@/components/studio-gallery";
+import { CommissionForm } from "@/components/commission-form";
 import { Manifesto } from "@/components/manifesto";
-import { Projects } from "@/components/projects";
 import { Practice } from "@/components/practice";
 import { Contact } from "@/components/contact";
-import { Footer } from "@/components/footer";
 
-export default function Page() {
+export default function Home() {
   return (
-    <main>
-      <Nav />
+    <>
       <Hero />
+      <ProjectsEnhanced />
+      <StudioGallery />
       <Manifesto />
-      <Projects />
       <Practice />
+      <CommissionForm />
       <Contact />
-      <Footer />
-    </main>
+    </>
   );
 }
