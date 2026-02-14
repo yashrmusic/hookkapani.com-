@@ -33,9 +33,9 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${isScrolled
         ? 'bg-background/95 backdrop-blur-md border-b border-border'
-        : 'bg-background/80 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none'
+        : 'bg-background/90 backdrop-blur-sm'
         }`}
       style={{
         paddingTop: 'env(safe-area-inset-top)',
@@ -46,7 +46,8 @@ export function Nav() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors min-h-[44px] min-w-[44px] flex items-center"
+            className="text-xl sm:text-2xl font-bold tracking-tighter text-foreground hover:text-accent transition-colors min-h-[44px] min-w-[44px] flex items-center"
+            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
           >
             HOOKKAPAANI
           </Link>
