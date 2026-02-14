@@ -6,7 +6,10 @@ export function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -21,13 +24,41 @@ export function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && name) {
+    if (!email || !name) return;
+
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/commission', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          description: message || 'General inquiry from contact form.',
+          projectType: 'contact',
+          budget: 'not-specified',
+          timeline: 'not-specified',
+          website,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
       setSubmitted(true);
       setName('');
       setEmail('');
       setMessage('');
+      setWebsite('');
+    } catch {
+      setSubmitError('Could not send your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -38,7 +69,7 @@ export function Contact() {
           className="mb-3 text-xs tracking-[0.4em] uppercase text-muted-foreground transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(8px)",
+            transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
           }}
         >
           Get in Touch
@@ -47,8 +78,8 @@ export function Contact() {
           className="font-serif text-4xl tracking-tight text-foreground md:text-5xl lg:text-6xl transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(12px)",
-            transitionDelay: "150ms",
+            transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
+            transitionDelay: '150ms',
           }}
         >
           Start a Conversation
@@ -57,12 +88,12 @@ export function Contact() {
           className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted-foreground transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(12px)",
-            transitionDelay: "300ms",
+            transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
+            transitionDelay: '300ms',
           }}
         >
           Whether you&apos;re a gallery curator, interior designer, collector, or
-          simply curious about kinetic sculpture — we&apos;d love to hear from you.
+          simply curious about kinetic sculpture - we&apos;d love to hear from you.
         </p>
 
         <form
@@ -70,8 +101,8 @@ export function Contact() {
           className="mx-auto mt-12 flex max-w-lg flex-col gap-6 transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(20px)",
-            transitionDelay: "500ms",
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transitionDelay: '500ms',
           }}
         >
           <div className="flex flex-col gap-6 sm:flex-row">
@@ -105,6 +136,16 @@ export function Contact() {
             </div>
           </div>
           <div>
+            <input
+              type="text"
+              name="website"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <label htmlFor="message-input" className="sr-only">
               Message
             </label>
@@ -119,15 +160,21 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="self-center border border-foreground/20 bg-transparent px-10 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:border-accent active:bg-accent/80 min-h-[44px] touch-manipulation"
+            disabled={isSubmitting}
+            className="self-center border border-foreground/20 bg-transparent px-10 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:border-accent active:bg-accent/80 min-h-[44px] touch-manipulation disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {submitted ? "Sent" : "Send Message"}
+            {isSubmitting ? 'Sending...' : submitted ? 'Sent' : 'Send Message'}
           </button>
         </form>
 
         {submitted && (
           <p className="mt-6 text-xs tracking-[0.15em] uppercase text-accent animate-fade-up">
             Thank you. We&apos;ll be in touch soon.
+          </p>
+        )}
+        {submitError && (
+          <p className="mt-6 text-xs tracking-[0.12em] uppercase text-red-400">
+            {submitError}
           </p>
         )}
       </div>

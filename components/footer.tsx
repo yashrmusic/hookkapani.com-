@@ -26,7 +26,6 @@ export function Footer() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
           <div
             className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
@@ -36,7 +35,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/hookkapani"
+                href="https://instagram.com/hookkapaani"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent transition-colors"
@@ -49,7 +48,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div
             className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
@@ -78,7 +76,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div
             className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
@@ -94,20 +91,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
           <div
             className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Studio Hours</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>Monday – Friday</li>
-              <li>10:00 AM – 6:00 PM IST</li>
+              <li>Monday - Friday</li>
+              <li>10:00 AM - 6:00 PM IST</li>
               <li className="pt-2 text-sm">Visits by appointment</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div
           className={`mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -118,7 +113,6 @@ export function Footer() {
             Crafting movement. Carving meaning.
           </p>
         </div>
-        {/* Safe area bottom padding for notched devices */}
         <div style={{ paddingBottom: 'env(safe-area-inset-bottom)' }} />
       </div>
     </footer>

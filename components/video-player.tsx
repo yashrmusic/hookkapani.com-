@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 
-export function VideoPlayer({ video }: { video: any }) {
+type StudioVideo = {
+    videoUrl: string;
+};
+
+export function VideoPlayer({ video }: { video: StudioVideo }) {
     const [hasError, setHasError] = useState(false);
 
     if (hasError) {
@@ -32,6 +36,7 @@ export function VideoPlayer({ video }: { video: any }) {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 onError={() => setHasError(true)}
                 className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0 z-10"
             />

@@ -84,7 +84,7 @@ export function ProjectsEnhanced() {
                   artwork={artwork}
                   showInfo={true}
                   compact={false}
-                  priority={index < 6}
+                  priority={index < 2}
                 />
               </motion.div>
             ))}
@@ -115,5 +115,4 @@ export function ProjectsEnhanced() {
     </>
   );
 }
-
 

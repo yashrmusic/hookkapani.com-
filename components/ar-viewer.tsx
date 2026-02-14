@@ -1,15 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-
-// Declaration for custom element to satisfy TS
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'model-viewer': any;
-        }
-    }
-}
+import type { ComponentType } from 'react';
 
 interface ARViewerProps {
     src: string;
@@ -18,6 +10,8 @@ interface ARViewerProps {
     poster?: string;
     className?: string;
 }
+
+const ModelViewer = 'model-viewer' as unknown as ComponentType<Record<string, unknown>>;
 
 export default function ARViewer({ src, iosSrc, alt, poster, className = '' }: ARViewerProps) {
     const [modelViewerLoaded, setModelViewerLoaded] = useState(false);
@@ -40,7 +34,7 @@ export default function ARViewer({ src, iosSrc, alt, poster, className = '' }: A
 
     return (
         <div ref={containerRef} className={`relative group ${className}`}>
-            <model-viewer
+            <ModelViewer
                 src={src}
                 ios-src={iosSrc}
                 alt={alt}
@@ -67,7 +61,7 @@ export default function ARViewer({ src, iosSrc, alt, poster, className = '' }: A
                 <div className="absolute top-0 left-0 w-full h-1 bg-white/10 overflow-hidden">
                     <div className="h-full bg-accent animate-[progress_2s_ease-in-out_infinite]" />
                 </div>
-            </model-viewer>
+            </ModelViewer>
 
             <style jsx>{`
         @keyframes progress {

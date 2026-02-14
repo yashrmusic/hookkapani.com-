@@ -2,17 +2,31 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+type CommissionFormData = {
+  name: string;
+  email: string;
+  projectType: string;
+  budget: string;
+  timeline: string;
+  description: string;
+  website: string;
+};
+
+const initialFormData: CommissionFormData = {
+  name: '',
+  email: '',
+  projectType: '',
+  budget: '',
+  timeline: '',
+  description: '',
+  website: '',
+};
+
 export function CommissionForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
-    description: '',
-  });
+  const [formData, setFormData] = useState<CommissionFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -37,29 +51,30 @@ export function CommissionForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        description: '',
+    try {
+      const response = await fetch('/api/commission', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      setIsSubmitted(true);
+      setFormData(initialFormData);
+    } catch {
+      setSubmitError('Could not send your inquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -75,7 +90,6 @@ export function CommissionForm() {
         className={`max-w-4xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         <div className="text-center mb-16">
-
           <h2 className="text-headline mb-6">Commission a Work</h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
             Each piece is developed through dialogue. Share your vision, space, and intentions,
@@ -91,6 +105,17 @@ export function CommissionForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-8">
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative z-40">
                 <label htmlFor="name" className="block text-label mb-2">
@@ -159,10 +184,10 @@ export function CommissionForm() {
                   style={{ colorScheme: 'dark' }}
                 >
                   <option value="" disabled className="bg-black text-white">Select range</option>
-                  <option value="under-50k" className="bg-black text-white">Under ₹50,000</option>
-                  <option value="50k-2l" className="bg-black text-white">₹50,000 - ₹2,00,000</option>
-                  <option value="2l-5l" className="bg-black text-white">₹2,00,000 - ₹5,00,000</option>
-                  <option value="5l+" className="bg-black text-white">Above ₹5,00,000</option>
+                  <option value="under-50k" className="bg-black text-white">Under INR 50,000</option>
+                  <option value="50k-2l" className="bg-black text-white">INR 50,000 - INR 2,00,000</option>
+                  <option value="2l-5l" className="bg-black text-white">INR 2,00,000 - INR 5,00,000</option>
+                  <option value="5l+" className="bg-black text-white">Above INR 5,00,000</option>
                 </select>
               </div>
             </div>
@@ -211,6 +236,9 @@ export function CommissionForm() {
             >
               {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
             </button>
+            {submitError && (
+              <p className="text-sm text-red-400">{submitError}</p>
+            )}
           </form>
         )}
       </div>

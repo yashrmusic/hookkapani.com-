@@ -142,7 +142,7 @@ function SectionHeader() {
         </h2>
       </div>
       <a
-        href="https://www.instagram.com/hookkapani/"
+        href="https://www.instagram.com/hookkapaani/"
         target="_blank"
         rel="noopener noreferrer"
         className="hidden text-xs tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:text-foreground md:block"

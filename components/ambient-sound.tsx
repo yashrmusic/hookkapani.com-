@@ -11,62 +11,15 @@ export function AmbientSound() {
   const gainNodeRef = useRef<GainNode | null>(null);
   const filterNodeRef = useRef<BiquadFilterNode | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-    const timer = setTimeout(() => setIsVisible(true), 1500);
-
-    const savedSound = localStorage.getItem('hookkapaani-sound');
-    const shouldPlay = savedSound === 'true';
-
-    const handleFirstInteraction = () => {
-      if (shouldPlay && audioRef.current && !isPlaying) {
-        resumeAudio();
-      }
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-    };
-
-    window.addEventListener('click', handleFirstInteraction);
-    window.addEventListener('touchstart', handleFirstInteraction);
-
-    // Scroll-based modulation
-    const handleScroll = () => {
-      if (!gainNodeRef.current || !filterNodeRef.current) return;
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY;
-      const progress = scrollHeight > 0 ? scrolled / scrollHeight : 0;
-
-      // Modulate low-pass filter frequency based on scroll
-      // As you scroll down, the sound gets "brighter" (more high frequencies)
-      const baseFreq = 400;
-      const maxFreq = 2000;
-      filterNodeRef.current.frequency.setTargetAtTime(baseFreq + (progress * (maxFreq - baseFreq)), 0, 0.1);
-
-      // Subtle volume pulse on scroll
-      const baseGain = 0.25;
-      gainNodeRef.current.gain.setTargetAtTime(baseGain + (Math.sin(progress * Math.PI * 4) * 0.05), 0, 0.1);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isPlaying]);
-
   const resumeAudio = useCallback(async () => {
     if (!audioRef.current) return;
 
     if (!audioContextRef.current) {
-      const AudioContextClass = (window.AudioContext || (window as any).webkitAudioContext);
+      const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
       if (AudioContextClass) {
         const ctx = new AudioContextClass();
         audioContextRef.current = ctx;
 
-        // Create nodes
         const source = ctx.createMediaElementSource(audioRef.current);
         const gainNode = ctx.createGain();
         const filterNode = ctx.createBiquadFilter();
@@ -98,6 +51,47 @@ export function AmbientSound() {
     }
   }, []);
 
+  useEffect(() => {
+    setMounted(true);
+    const timer = setTimeout(() => setIsVisible(true), 1500);
+
+    const savedSound = localStorage.getItem('hookkapaani-sound');
+    const shouldPlay = savedSound === 'true';
+
+    const handleFirstInteraction = () => {
+      if (shouldPlay && audioRef.current && !isPlaying) {
+        void resumeAudio();
+      }
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
+
+    const handleScroll = () => {
+      if (!gainNodeRef.current || !filterNodeRef.current) return;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const progress = scrollHeight > 0 ? scrolled / scrollHeight : 0;
+
+      const baseFreq = 400;
+      const maxFreq = 2000;
+      filterNodeRef.current.frequency.setTargetAtTime(baseFreq + progress * (maxFreq - baseFreq), 0, 0.1);
+
+      const baseGain = 0.25;
+      gainNodeRef.current.gain.setTargetAtTime(baseGain + Math.sin(progress * Math.PI * 4) * 0.05, 0, 0.1);
+    };
+
+    window.addEventListener('click', handleFirstInteraction);
+    window.addEventListener('touchstart', handleFirstInteraction);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isPlaying, resumeAudio]);
+
   const toggleSound = useCallback(async (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
     if (!audioRef.current) return;
@@ -126,9 +120,7 @@ export function AmbientSound() {
         onClick={toggleSound}
         onPointerDown={(e) => e.stopPropagation()}
         className={`fixed bottom-6 right-6 z-[70] w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-background/90 backdrop-blur-md border-2 border-accent/50 flex items-center justify-center hover:bg-accent hover:border-accent text-accent transition-all duration-500 shadow-lg touch-manipulation ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
-        style={{
-          WebkitTapHighlightColor: 'transparent',
-        }}
+        style={{ WebkitTapHighlightColor: 'transparent' }}
         aria-label={isPlaying ? 'Mute' : 'Unmute'}
       >
         {!isPlaying ? (

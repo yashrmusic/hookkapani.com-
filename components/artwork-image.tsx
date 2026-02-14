@@ -34,7 +34,7 @@ export function ArtworkImage({
         fill
         sizes={sizes}
         priority={priority}
-        quality={75}
+        quality={68}
         loading={priority ? 'eager' : 'lazy'}
         className={`
           object-contain

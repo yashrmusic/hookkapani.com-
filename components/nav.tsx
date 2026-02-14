@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/#work', label: 'Works' },
   { href: '/#commission', label: 'Commission' },
   { href: '/#contact', label: 'Contact' },
-  { href: '/portfolio', label: 'Download Catalogue' },
+  { href: '/portfolio', label: 'Download Portfolio' },
 ];
 
 export function Nav() {

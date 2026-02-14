@@ -188,7 +188,7 @@ export function StudioGallery() {
                 alt={lightboxImage.title}
                 fill
                 className="object-contain"
-                quality={100}
+                quality={82}
               />
             </div>
             <div className="bg-secondary p-6">

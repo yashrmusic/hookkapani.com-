@@ -30,9 +30,8 @@ export function Lightbox({
   const [isVisible, setIsVisible] = useState(false);
   const [showAR, setShowAR] = useState(false);
   const scrollPosRef = useRef(0);
-  const animationRef = useRef<number | undefined>(undefined);
 
-  const currentIndex = artwork ? allArtworks.findIndex(a => a.id === artwork.id) : -1;
+  const currentIndex = artwork ? allArtworks.findIndex((a) => a.id === artwork.id) : -1;
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < allArtworks.length - 1;
 
@@ -64,7 +63,6 @@ export function Lightbox({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
-  // iOS-safe scroll lock: use position fixed + save/restore scroll
   useEffect(() => {
     if (isOpen) {
       scrollPosRef.current = window.scrollY;
@@ -101,7 +99,6 @@ export function Lightbox({
     };
   }, [isOpen]);
 
-  // Swipe gesture support for mobile
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
@@ -111,28 +108,29 @@ export function Lightbox({
     };
   }, []);
 
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    if (!touchStartRef.current) return;
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (!touchStartRef.current) return;
 
-    const deltaX = e.changedTouches[0].clientX - touchStartRef.current.x;
-    const deltaY = e.changedTouches[0].clientY - touchStartRef.current.y;
+      const deltaX = e.changedTouches[0].clientX - touchStartRef.current.x;
+      const deltaY = e.changedTouches[0].clientY - touchStartRef.current.y;
 
-    // Only trigger if horizontal swipe is dominant and significant
-    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
-      if (deltaX > 0 && hasPrev && onPrev) {
-        onPrev();
-      } else if (deltaX < 0 && hasNext && onNext) {
-        onNext();
+      if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+        if (deltaX > 0 && hasPrev && onPrev) {
+          onPrev();
+        } else if (deltaX < 0 && hasNext && onNext) {
+          onNext();
+        }
       }
-    }
 
-    // Swipe down to close
-    if (deltaY > 100 && Math.abs(deltaY) > Math.abs(deltaX) * 1.5) {
-      onClose();
-    }
+      if (deltaY > 100 && Math.abs(deltaY) > Math.abs(deltaX) * 1.5) {
+        onClose();
+      }
 
-    touchStartRef.current = null;
-  }, [hasPrev, hasNext, onPrev, onNext, onClose]);
+      touchStartRef.current = null;
+    },
+    [hasPrev, hasNext, onPrev, onNext, onClose]
+  );
 
   if (!artwork) return null;
 
@@ -143,14 +141,12 @@ export function Lightbox({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       style={{
-        /* Ensure lightbox covers notch/Dynamic Island area */
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
         paddingLeft: 'env(safe-area-inset-left)',
         paddingRight: 'env(safe-area-inset-right)',
       }}
     >
-      {/* Toolbar */}
       <div
         className="absolute top-4 right-4 z-50 flex items-center gap-3"
         style={{
@@ -172,7 +168,7 @@ export function Lightbox({
 
         <ShareButton
           title={artwork.title}
-          text={`${artwork.title} — ${artwork.description}`}
+          text={`${artwork.title} - ${artwork.description}`}
           url={`/work/${artwork.id}`}
           variant="icon"
         />
@@ -192,7 +188,6 @@ export function Lightbox({
         </button>
       </div>
 
-      {/* Previous */}
       {hasPrev && onPrev && (
         <button
           onClick={(e) => {
@@ -209,7 +204,6 @@ export function Lightbox({
         </button>
       )}
 
-      {/* Next */}
       {hasNext && onNext && (
         <button
           onClick={(e) => {
@@ -226,16 +220,12 @@ export function Lightbox({
         </button>
       )}
 
-      {/* Content */}
       <div
         className="w-full h-full flex flex-col md:flex-row overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Image - Filling maximum space on mobile */}
         <div className="flex-1 flex items-center justify-center p-2 pt-16 md:p-8 min-h-0 bg-black/40">
-          <div
-            className={`relative w-full h-full ${isZoomed ? 'overflow-auto' : ''}`}
-          >
+          <div className={`relative w-full h-full ${isZoomed ? 'overflow-auto' : ''}`}>
             {showAR && artwork.modelUrl ? (
               <ARViewer
                 src={artwork.modelUrl}
@@ -254,7 +244,7 @@ export function Lightbox({
                   alt={artwork.title}
                   fill
                   className={`object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  quality={85}
+                  quality={80}
                   priority
                   onLoad={() => setImageLoaded(true)}
                   sizes="(max-width: 768px) 100vw, 70vw"
@@ -264,7 +254,6 @@ export function Lightbox({
           </div>
         </div>
 
-        {/* Info Panel - Below image on mobile, side on desktop */}
         <div
           className="w-full md:w-80 lg:w-96 bg-[#141414] md:bg-[#141414]/90 p-4 md:p-6 overflow-y-auto flex-shrink-0"
           style={{ maxHeight: '35vh' }}
@@ -292,7 +281,6 @@ export function Lightbox({
         </div>
       </div>
 
-      {/* Counter */}
       <div
         className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50"
         style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}

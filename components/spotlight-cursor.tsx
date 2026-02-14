@@ -1,21 +1,37 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function SpotlightCursor() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isVisible, setIsVisible] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const isTouchRef = useRef(false);
+    const visibleRef = useRef(false);
 
     useEffect(() => {
+        const hasTouch = window.matchMedia('(hover: none)').matches;
+        isTouchRef.current = hasTouch;
+        setIsTouchDevice(hasTouch);
+        if (isTouchRef.current) return;
+
         const updatePosition = (e: MouseEvent) => {
-            // Use requestAnimationFrame for smoother performance if needed, 
-            // but direct state update is usually fine for simple cursors in React 18+
+            if (isTouchRef.current) return;
             setPosition({ x: e.clientX, y: e.clientY });
-            if (!isVisible) setIsVisible(true);
+            if (!visibleRef.current) {
+                visibleRef.current = true;
+                setIsVisible(true);
+            }
         };
 
-        const handleMouseLeave = () => setIsVisible(false);
-        const handleMouseEnter = () => setIsVisible(true);
+        const handleMouseLeave = () => {
+            visibleRef.current = false;
+            setIsVisible(false);
+        };
+        const handleMouseEnter = () => {
+            visibleRef.current = true;
+            setIsVisible(true);
+        };
 
         window.addEventListener('mousemove', updatePosition);
         document.addEventListener('mouseleave', handleMouseLeave);
@@ -26,7 +42,9 @@ export function SpotlightCursor() {
             document.removeEventListener('mouseleave', handleMouseLeave);
             document.removeEventListener('mouseenter', handleMouseEnter);
         };
-    }, [isVisible]);
+    }, []);
+
+    if (isTouchDevice) return null;
 
     return (
         <div
