@@ -36,5 +36,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Vercel
-.vercel
+# Build logs
+build.log
+build_utf8.txt
