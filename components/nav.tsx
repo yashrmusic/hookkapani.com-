@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#studio', label: 'Studio' },
   { href: '#commission', label: 'Commission' },
   { href: '#contact', label: 'Contact' },
+  { href: '/portfolio', label: 'Download Catalogue' },
 ];
 
 export function Nav() {
