@@ -33,6 +33,10 @@ const initialFormData: ProjectBriefData = {
   website: '',
 };
 
+const selectClassName =
+  'w-full bg-transparent border-b-2 border-white/20 focus:border-accent py-3 px-0 outline-none transition-colors text-white cursor-pointer';
+const optionClassName = 'bg-white text-black';
+
 export function CommissionForm() {
   const [formData, setFormData] = useState<ProjectBriefData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -153,22 +157,22 @@ export function CommissionForm() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <Field label="Your Role in Decision" id="decisionRole">
-                <select id="decisionRole" name="decisionRole" required value={formData.decisionRole} onChange={handleChange} className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer" style={{ colorScheme: 'dark' }}>
-                  <option value="" disabled>Select role</option>
-                  <option value="owner">Owner / Founder</option>
-                  <option value="curator">Curator</option>
-                  <option value="designer">Architect / Designer</option>
-                  <option value="procurement">Procurement</option>
-                  <option value="other">Other</option>
+                <select id="decisionRole" name="decisionRole" required value={formData.decisionRole} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
+                  <option value="" disabled className={optionClassName}>Select role</option>
+                  <option value="owner" className={optionClassName}>Owner / Founder</option>
+                  <option value="curator" className={optionClassName}>Curator</option>
+                  <option value="designer" className={optionClassName}>Architect / Designer</option>
+                  <option value="procurement" className={optionClassName}>Procurement</option>
+                  <option value="other" className={optionClassName}>Other</option>
                 </select>
               </Field>
               <Field label="Project Type" id="projectType">
-                <select id="projectType" name="projectType" required value={formData.projectType} onChange={handleChange} className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer" style={{ colorScheme: 'dark' }}>
-                  <option value="" disabled>Select type</option>
-                  <option value="private-commission">Private Commission</option>
-                  <option value="public-installation">Public Installation</option>
-                  <option value="gallery-exhibition">Gallery Exhibition</option>
-                  <option value="hospitality">Hospitality / Commercial</option>
+                <select id="projectType" name="projectType" required value={formData.projectType} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
+                  <option value="" disabled className={optionClassName}>Select type</option>
+                  <option value="private-commission" className={optionClassName}>Private Commission</option>
+                  <option value="public-installation" className={optionClassName}>Public Installation</option>
+                  <option value="gallery-exhibition" className={optionClassName}>Gallery Exhibition</option>
+                  <option value="hospitality" className={optionClassName}>Hospitality / Commercial</option>
                 </select>
               </Field>
             </div>
@@ -184,21 +188,21 @@ export function CommissionForm() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <Field label="Budget Range" id="budget">
-                <select id="budget" name="budget" required value={formData.budget} onChange={handleChange} className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer" style={{ colorScheme: 'dark' }}>
-                  <option value="" disabled>Select range</option>
-                  <option value="under-200k">Under INR 2,00,000</option>
-                  <option value="200k-500k">INR 2,00,000 - INR 5,00,000</option>
-                  <option value="500k-2m">INR 5,00,000 - INR 20,00,000</option>
-                  <option value="2m-plus">Above INR 20,00,000</option>
+                <select id="budget" name="budget" required value={formData.budget} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
+                  <option value="" disabled className={optionClassName}>Select range</option>
+                  <option value="under-200k" className={optionClassName}>Under INR 2,00,000</option>
+                  <option value="200k-500k" className={optionClassName}>INR 2,00,000 - INR 5,00,000</option>
+                  <option value="500k-2m" className={optionClassName}>INR 5,00,000 - INR 20,00,000</option>
+                  <option value="2m-plus" className={optionClassName}>Above INR 20,00,000</option>
                 </select>
               </Field>
               <Field label="Target Timeline" id="timeline">
-                <select id="timeline" name="timeline" required value={formData.timeline} onChange={handleChange} className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer" style={{ colorScheme: 'dark' }}>
-                  <option value="" disabled>Select timeline</option>
-                  <option value="1-3-months">1-3 months</option>
-                  <option value="3-6-months">3-6 months</option>
-                  <option value="6-12-months">6-12 months</option>
-                  <option value="12-plus-months">12+ months</option>
+                <select id="timeline" name="timeline" required value={formData.timeline} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
+                  <option value="" disabled className={optionClassName}>Select timeline</option>
+                  <option value="1-3-months" className={optionClassName}>1-3 months</option>
+                  <option value="3-6-months" className={optionClassName}>3-6 months</option>
+                  <option value="6-12-months" className={optionClassName}>6-12 months</option>
+                  <option value="12-plus-months" className={optionClassName}>12+ months</option>
                 </select>
               </Field>
             </div>
