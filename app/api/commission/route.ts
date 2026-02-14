@@ -3,7 +3,12 @@ import { NextRequest, NextResponse } from 'next/server';
 type CommissionPayload = {
   name: string;
   email: string;
+  phone?: string;
+  companyName?: string;
+  decisionRole?: string;
   projectType: string;
+  location?: string;
+  dimensions?: string;
   budget: string;
   timeline: string;
   description: string;
@@ -55,7 +60,12 @@ function hasValidLengths(payload: CommissionPayload) {
   return (
     payload.name.length <= 120 &&
     payload.email.length <= 160 &&
+    (payload.phone?.length ?? 0) <= 40 &&
+    (payload.companyName?.length ?? 0) <= 160 &&
+    (payload.decisionRole?.length ?? 0) <= 80 &&
     payload.projectType.length <= 60 &&
+    (payload.location?.length ?? 0) <= 180 &&
+    (payload.dimensions?.length ?? 0) <= 180 &&
     payload.budget.length <= 60 &&
     payload.timeline.length <= 60 &&
     payload.description.length <= 4000
@@ -111,6 +121,11 @@ export async function POST(request: NextRequest) {
             name: payload.name,
             email: payload.email,
             projectType: payload.projectType,
+            phone: payload.phone || '',
+            companyName: payload.companyName || '',
+            decisionRole: payload.decisionRole || '',
+            location: payload.location || '',
+            dimensions: payload.dimensions || '',
             budget: payload.budget,
             timeline: payload.timeline,
             description: payload.description,
@@ -130,6 +145,8 @@ export async function POST(request: NextRequest) {
     console.info('[commission] inquiry received', {
       email: payload.email,
       projectType: payload.projectType,
+      phone: payload.phone || '',
+      companyName: payload.companyName || '',
       budget: payload.budget,
       timeline: payload.timeline,
       ip,

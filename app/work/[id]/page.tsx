@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const url = `https://hookkapaani.com/work/${artwork.id}`;
+  const ogImageUrl = `${url}/opengraph-image`;
 
   return {
     title: `${artwork.title} | Hookkapaani Studio`,
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: 'Hookkapaani Studio',
       images: [
         {
-          url: artwork.imageUrl,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: artwork.title,
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: `${artwork.title} - Hookkapaani`,
       description: artwork.description,
-      images: [artwork.imageUrl],
+      images: [ogImageUrl],
     },
   };
 }

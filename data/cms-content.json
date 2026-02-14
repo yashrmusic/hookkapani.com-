@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "HOOKKAPAANI",
+    "subtitle": "Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.",
+    "infoCards": [
+      {
+        "number": "01",
+        "title": "Kinetic Sculpture",
+        "description": "Large-scale mechanical sculptures that explore motion, balance, and material properties."
+      },
+      {
+        "number": "02",
+        "title": "Industrial Aesthetic",
+        "description": "Raw materials and honest construction celebrating manufacturing heritage."
+      },
+      {
+        "number": "03",
+        "title": "Temporal Art",
+        "description": "Works that evolve through oxidation, wear, and environmental interaction."
+      }
+    ]
+  }
+}

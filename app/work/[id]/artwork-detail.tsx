@@ -6,6 +6,7 @@ import { ShareButton } from '@/components/share-button';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import type { Artwork } from '@/data/artworks';
+import { trackEvent } from '@/lib/client-analytics';
 
 const ARViewer = dynamic(() => import('@/components/ar-viewer'), { ssr: false });
 
@@ -139,7 +140,20 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
               </div>
             )}
 
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-border space-y-3">
+              <Link
+                href={`/work/${artwork.id}/spec-sheet`}
+                prefetch={false}
+                onClick={() =>
+                  trackEvent('spec_sheet_download_requested', {
+                    artworkId: artwork.id,
+                    artworkTitle: artwork.title,
+                  })
+                }
+                className="block text-center py-3 px-6 border border-border text-sm font-medium uppercase tracking-wider hover:border-accent hover:text-accent transition-colors min-h-[44px]"
+              >
+                Download Spec Sheet
+              </Link>
               <Link
                 href="/#commission"
                 className="block text-center py-3 px-6 bg-accent text-accent-foreground text-sm font-medium uppercase tracking-wider hover:bg-accent/90 transition-colors min-h-[44px]"
@@ -156,7 +170,7 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
               href={`/work/${prevArtwork.id}`}
               className="group flex flex-col gap-1 hover:text-accent transition-colors"
             >
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">← Previous</span>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">Previous</span>
               <span className="font-medium group-hover:text-accent transition-colors line-clamp-1">
                 {prevArtwork.title}
               </span>
@@ -168,7 +182,7 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
               href={`/work/${nextArtwork.id}`}
               className="group flex flex-col gap-1 text-right hover:text-accent transition-colors"
             >
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Next →</span>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">Next</span>
               <span className="font-medium group-hover:text-accent transition-colors line-clamp-1">
                 {nextArtwork.title}
               </span>

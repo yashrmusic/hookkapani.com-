@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SpotlightCursor } from "@/components/spotlight-cursor";
 import { AmbientSound } from "@/components/ambient-sound";
+import { SiteTelemetry } from "@/components/site-telemetry";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -162,6 +163,7 @@ export default function RootLayout({
             })
           }}
         />
+        <SiteTelemetry />
         {/* Clear timeout on hydration */}
         <HydrationHandler />
       </body>

@@ -29,5 +29,11 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "components/ui/**/*", "hooks/use-toast.ts"]
+  "exclude": [
+    "node_modules",
+    "components/ui/**/*",
+    "hooks/use-toast.ts",
+    "tests/**/*",
+    "playwright.config.ts"
+  ]
 }
