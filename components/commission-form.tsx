@@ -37,13 +37,13 @@ export function CommissionForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -71,14 +71,14 @@ export function CommissionForm() {
       id="commission"
       className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-background"
     >
-      <div 
+      <div
         className={`max-w-4xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         <div className="text-center mb-16">
-          <p className="text-label text-accent mb-4">Start a Conversation</p>
+
           <h2 className="text-headline mb-6">Commission a Work</h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-            Each piece is developed through dialogue. Share your vision, space, and intentions, 
+            Each piece is developed through dialogue. Share your vision, space, and intentions,
             and we&apos;ll explore how kinetic sculpture can transform your environment.
           </p>
         </div>
@@ -92,7 +92,7 @@ export function CommissionForm() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
+              <div className="relative z-40">
                 <label htmlFor="name" className="block text-label mb-2">
                   Name
                 </label>
@@ -103,7 +103,7 @@ export function CommissionForm() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground placeholder:text-muted-foreground"
+                  className="w-full bg-transparent border-b-2 border-white/20 focus:border-accent py-3 px-0 outline-none transition-colors text-white placeholder:text-white/40"
                   placeholder="Your name"
                 />
               </div>
@@ -118,14 +118,14 @@ export function CommissionForm() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground placeholder:text-muted-foreground"
+                  className="w-full bg-transparent border-b-2 border-white/20 focus:border-accent py-3 px-0 outline-none transition-colors text-white placeholder:text-white/40"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
+              <div className="relative z-40">
                 <label htmlFor="projectType" className="block text-label mb-2">
                   Project Type
                 </label>
@@ -136,15 +136,16 @@ export function CommissionForm() {
                   onChange={handleChange}
                   required
                   className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer"
+                  style={{ colorScheme: 'dark' }}
                 >
-                  <option value="" disabled>Select type</option>
-                  <option value="sculpture">Kinetic Sculpture</option>
-                  <option value="installation">Site Installation</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="other">Other</option>
+                  <option value="" disabled className="bg-black text-white">Select type</option>
+                  <option value="sculpture" className="bg-black text-white">Kinetic Sculpture</option>
+                  <option value="installation" className="bg-black text-white">Site Installation</option>
+                  <option value="collaboration" className="bg-black text-white">Collaboration</option>
+                  <option value="other" className="bg-black text-white">Other</option>
                 </select>
               </div>
-              <div>
+              <div className="relative z-40">
                 <label htmlFor="budget" className="block text-label mb-2">
                   Budget Range
                 </label>
@@ -155,12 +156,13 @@ export function CommissionForm() {
                   onChange={handleChange}
                   required
                   className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer"
+                  style={{ colorScheme: 'dark' }}
                 >
-                  <option value="" disabled>Select range</option>
-                  <option value="under-50k">Under ₹50,000</option>
-                  <option value="50k-2l">₹50,000 - ₹2,00,000</option>
-                  <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
-                  <option value="5l+">Above ₹5,00,000</option>
+                  <option value="" disabled className="bg-black text-white">Select range</option>
+                  <option value="under-50k" className="bg-black text-white">Under ₹50,000</option>
+                  <option value="50k-2l" className="bg-black text-white">₹50,000 - ₹2,00,000</option>
+                  <option value="2l-5l" className="bg-black text-white">₹2,00,000 - ₹5,00,000</option>
+                  <option value="5l+" className="bg-black text-white">Above ₹5,00,000</option>
                 </select>
               </div>
             </div>
@@ -176,12 +178,13 @@ export function CommissionForm() {
                 onChange={handleChange}
                 required
                 className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground cursor-pointer"
+                style={{ colorScheme: 'dark' }}
               >
-                <option value="" disabled>Select timeline</option>
-                <option value="1-3-months">1-3 months</option>
-                <option value="3-6-months">3-6 months</option>
-                <option value="6-12-months">6-12 months</option>
-                <option value="flexible">Flexible</option>
+                <option value="" disabled className="bg-black text-white">Select timeline</option>
+                <option value="1-3-months" className="bg-black text-white">1-3 months</option>
+                <option value="3-6-months" className="bg-black text-white">3-6 months</option>
+                <option value="6-12-months" className="bg-black text-white">6-12 months</option>
+                <option value="flexible" className="bg-black text-white">Flexible</option>
               </select>
             </div>
 
@@ -196,7 +199,7 @@ export function CommissionForm() {
                 onChange={handleChange}
                 rows={5}
                 required
-                className="w-full bg-transparent border-b-2 border-border focus:border-accent py-3 px-0 outline-none transition-colors text-foreground placeholder:text-muted-foreground resize-none"
+                className="w-full bg-transparent border-b-2 border-white/20 focus:border-accent py-3 px-0 outline-none transition-colors text-white placeholder:text-white/40 resize-none"
                 placeholder="Describe your vision, space, and any specific requirements..."
               />
             </div>

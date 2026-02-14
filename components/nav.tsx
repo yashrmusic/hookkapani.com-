@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { MagneticButton } from '@/components/magnetic-button';
 
 const navLinks = [
-  { href: '#work', label: 'Works' },
-  { href: '#studio', label: 'Studio' },
-  { href: '#commission', label: 'Commission' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#work', label: 'Works' },
+  { href: '/#commission', label: 'Commission' },
+  { href: '/#contact', label: 'Contact' },
   { href: '/portfolio', label: 'Download Catalogue' },
 ];
 
@@ -56,13 +56,14 @@ export function Nav() {
           {/* Desktop Nav — only visible on lg (1024px+) */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
-              >
-                {link.label}
-              </Link>
+              <MagneticButton key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
+                >
+                  {link.label}
+                </Link>
+              </MagneticButton>
             ))}
           </div>
 

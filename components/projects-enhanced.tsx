@@ -99,13 +99,7 @@ export function ProjectsEnhanced() {
             </div>
           )}
 
-          {/* Stats */}
-          <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-12">
-            <Stat number={artworks.length.toString()} label="Works Created" />
-            <Stat number="3" label="Categories" />
-            <Stat number="2019" label="Studio Founded" />
-            <Stat number="∞" label="Iterations" />
-          </div>
+
         </div>
       </section>
 
@@ -122,15 +116,4 @@ export function ProjectsEnhanced() {
   );
 }
 
-function Stat({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="text-center md:text-left">
-      <div className="text-4xl md:text-5xl font-bold text-accent mb-2 font-mono">
-        {number}
-      </div>
-      <div className="text-sm text-muted-foreground uppercase tracking-wider">
-        {label}
-      </div>
-    </div>
-  );
-}
+

@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { artworks } from '../data/artworks';
+
 const stats = [
-  { value: 28, suffix: "+", label: "Works Created" },
+  { value: artworks.length, suffix: "", label: "Works Created" },
   { value: 3, suffix: "", label: "Categories" },
-  { value: 5, suffix: "", label: "Years Active" },
+  { value: 6, suffix: "+", label: "Years Active" },
   { value: 1, suffix: "", label: "Studio, New Delhi" },
 ];
 
@@ -111,9 +113,9 @@ export function Practice() {
             }}
           >
             <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
-              Operating from our workshop in New Delhi, Hookkapaani explores the intersection 
-              of industrial fabrication and artistic expression. We work with steel, bronze, 
-              aluminum, and found materials to create sculptures that move, breathe, and evolve. 
+              Operating from our workshop in New Delhi, Hookkapaani explores the intersection
+              of industrial fabrication and artistic expression. We work with steel, bronze,
+              aluminum, and found materials to create sculptures that move, breathe, and evolve.
               Each piece is a dialogue between mechanical precision and organic fluidity—
               celebrating the beauty of raw materials, honest construction, and the passage of time.
             </p>

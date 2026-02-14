@@ -3,7 +3,10 @@
 import { useEffect, useCallback, useState, useRef } from 'react';
 import Image from 'next/image';
 import { ShareButton } from './share-button';
+import dynamic from 'next/dynamic';
 import type { Artwork } from '../data/artworks';
+
+const ARViewer = dynamic(() => import('./ar-viewer'), { ssr: false });
 
 interface LightboxProps {
   artwork: Artwork | null;
@@ -25,6 +28,7 @@ export function Lightbox({
   const [isZoomed, setIsZoomed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [showAR, setShowAR] = useState(false);
   const scrollPosRef = useRef(0);
   const animationRef = useRef<number | undefined>(undefined);
 
@@ -84,6 +88,7 @@ export function Lightbox({
         window.scrollTo(0, scrollPosRef.current);
         setIsZoomed(false);
         setImageLoaded(false);
+        setShowAR(false);
       }, 200);
     }
     return () => {
@@ -153,6 +158,18 @@ export function Lightbox({
           right: 'max(1rem, env(safe-area-inset-right))',
         }}
       >
+        {artwork.modelUrl && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowAR(!showAR);
+            }}
+            className={`px-4 h-12 flex items-center justify-center gap-2 rounded-full transition-all font-mono text-xs uppercase tracking-widest ${showAR ? 'bg-accent text-white' : 'bg-white/10 text-white hover:bg-white/20'}`}
+          >
+            {showAR ? 'View Image' : 'View in 3D'}
+          </button>
+        )}
+
         <ShareButton
           title={artwork.title}
           text={`${artwork.title} — ${artwork.description}`}
@@ -219,21 +236,31 @@ export function Lightbox({
           <div
             className={`relative w-full h-full ${isZoomed ? 'overflow-auto' : ''}`}
           >
-            {!imageLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              </div>
+            {showAR && artwork.modelUrl ? (
+              <ARViewer
+                src={artwork.modelUrl}
+                alt={artwork.title}
+                className="w-full h-full"
+              />
+            ) : (
+              <>
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  </div>
+                )}
+                <Image
+                  src={artwork.imageUrl}
+                  alt={artwork.title}
+                  fill
+                  className={`object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  quality={85}
+                  priority
+                  onLoad={() => setImageLoaded(true)}
+                  sizes="(max-width: 768px) 100vw, 70vw"
+                />
+              </>
             )}
-            <Image
-              src={artwork.imageUrl}
-              alt={artwork.title}
-              fill
-              className={`object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-              quality={85}
-              priority
-              onLoad={() => setImageLoaded(true)}
-              sizes="(max-width: 768px) 100vw, 70vw"
-            />
           </div>
         </div>
 

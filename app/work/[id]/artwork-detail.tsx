@@ -3,7 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShareButton } from '@/components/share-button';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import type { Artwork } from '@/data/artworks';
+
+const ARViewer = dynamic(() => import('@/components/ar-viewer'), { ssr: false });
 
 interface ArtworkDetailProps {
     artwork: Artwork;
@@ -12,6 +16,7 @@ interface ArtworkDetailProps {
 }
 
 export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDetailProps) {
+    const [showAR, setShowAR] = useState(false);
     return (
         <main className="min-h-screen bg-background text-foreground">
             {/* Back link */}
@@ -43,21 +48,41 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
             <div className="pt-16 bg-[#111]">
                 <div className="w-full max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
                     <div
-                        className="relative w-full mx-auto"
+                        className="relative w-full mx-auto group"
                         style={{
                             aspectRatio: artwork.aspectRatio || '3/4',
                             maxHeight: '85vh',
                         }}
                     >
-                        <Image
-                            src={artwork.imageUrl}
-                            alt={artwork.title}
-                            fill
-                            className="object-contain"
-                            quality={90}
-                            priority
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
-                        />
+                        {artwork.modelUrl && (
+                            <button
+                                onClick={() => setShowAR(!showAR)}
+                                className="absolute top-4 right-4 z-40 px-6 py-3 bg-accent text-white rounded-full font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                            >
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                                </svg>
+                                {showAR ? 'View Static Image' : 'Explore in 3D'}
+                            </button>
+                        )}
+
+                        {showAR && artwork.modelUrl ? (
+                            <ARViewer
+                                src={artwork.modelUrl}
+                                alt={artwork.title}
+                                className="w-full h-full"
+                            />
+                        ) : (
+                            <Image
+                                src={artwork.imageUrl}
+                                alt={artwork.title}
+                                fill
+                                className="object-contain"
+                                quality={90}
+                                priority
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+                            />
+                        )}
                     </div>
                 </div>
             </div>

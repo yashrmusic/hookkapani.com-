@@ -8,22 +8,20 @@ export function AmbientSound() {
   const [isVisible, setIsVisible] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+  const filterNodeRef = useRef<BiquadFilterNode | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    // Delay visibility to let the page settle
     const timer = setTimeout(() => setIsVisible(true), 1500);
 
-    // Check local storage for preference
     const savedSound = localStorage.getItem('hookkapaani-sound');
     const shouldPlay = savedSound === 'true';
 
-    // Wake up audio on first user interaction if they previously had it on
     const handleFirstInteraction = () => {
       if (shouldPlay && audioRef.current && !isPlaying) {
         resumeAudio();
       }
-      // Remove listeners after first interaction
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
     };
@@ -31,25 +29,61 @@ export function AmbientSound() {
     window.addEventListener('click', handleFirstInteraction);
     window.addEventListener('touchstart', handleFirstInteraction);
 
+    // Scroll-based modulation
+    const handleScroll = () => {
+      if (!gainNodeRef.current || !filterNodeRef.current) return;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const progress = scrollHeight > 0 ? scrolled / scrollHeight : 0;
+
+      // Modulate low-pass filter frequency based on scroll
+      // As you scroll down, the sound gets "brighter" (more high frequencies)
+      const baseFreq = 400;
+      const maxFreq = 2000;
+      filterNodeRef.current.frequency.setTargetAtTime(baseFreq + (progress * (maxFreq - baseFreq)), 0, 0.1);
+
+      // Subtle volume pulse on scroll
+      const baseGain = 0.25;
+      gainNodeRef.current.gain.setTargetAtTime(baseGain + (Math.sin(progress * Math.PI * 4) * 0.05), 0, 0.1);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isPlaying]);
 
   const resumeAudio = useCallback(async () => {
     if (!audioRef.current) return;
 
-    // Initialize AudioContext on first play/resume to satisfy mobile browser requirements
     if (!audioContextRef.current) {
       const AudioContextClass = (window.AudioContext || (window as any).webkitAudioContext);
       if (AudioContextClass) {
-        audioContextRef.current = new AudioContextClass();
+        const ctx = new AudioContextClass();
+        audioContextRef.current = ctx;
+
+        // Create nodes
+        const source = ctx.createMediaElementSource(audioRef.current);
+        const gainNode = ctx.createGain();
+        const filterNode = ctx.createBiquadFilter();
+
+        filterNode.type = 'lowpass';
+        filterNode.frequency.value = 400;
+        gainNode.gain.value = 0.25;
+
+        source.connect(filterNode);
+        filterNode.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        gainNodeRef.current = gainNode;
+        filterNodeRef.current = filterNode;
       }
     }
 
-    // Explicitly resume the context if it's suspended (mobile Safari behavior)
     if (audioContextRef.current?.state === 'suspended') {
       await audioContextRef.current.resume();
     }
@@ -66,7 +100,6 @@ export function AmbientSound() {
 
   const toggleSound = useCallback(async (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
-
     if (!audioRef.current) return;
 
     if (isPlaying) {
@@ -86,7 +119,6 @@ export function AmbientSound() {
         ref={audioRef}
         src="/ambient.mp3"
         loop
-        preload="auto"
         className="hidden"
         aria-hidden="true"
       />

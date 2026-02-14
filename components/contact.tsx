@@ -75,7 +75,7 @@ export function Contact() {
           }}
         >
           <div className="flex flex-col gap-6 sm:flex-row">
-            <div className="flex-1">
+            <div className="flex-1 relative z-40">
               <label htmlFor="name-input" className="sr-only">
                 Name
               </label>
@@ -86,7 +86,7 @@ export function Contact() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
                 required
-                className="w-full border-b border-foreground/20 bg-transparent px-0 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors duration-300"
+                className="w-full border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors duration-300"
               />
             </div>
             <div className="flex-1">
@@ -100,7 +100,7 @@ export function Contact() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 required
-                className="w-full border-b border-foreground/20 bg-transparent px-0 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors duration-300"
+                className="w-full border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors duration-300"
               />
             </div>
           </div>
@@ -114,7 +114,7 @@ export function Contact() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell us about your project or inquiry"
               rows={3}
-              className="w-full resize-none border-b border-foreground/20 bg-transparent px-0 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors duration-300"
+              className="w-full resize-none border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors duration-300"
             />
           </div>
           <button

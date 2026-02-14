@@ -116,10 +116,9 @@ export function StudioGallery() {
               className={`
                 px-6 py-3 text-sm font-medium uppercase tracking-wider
                 border-2 transition-all duration-300
-                ${
-                  selectedCategory === cat.value
-                    ? 'bg-accent text-accent-foreground border-accent'
-                    : 'bg-transparent text-foreground border-border hover:border-accent hover:text-accent'
+                ${selectedCategory === cat.value
+                  ? 'bg-accent text-accent-foreground border-accent'
+                  : 'bg-transparent text-foreground border-border hover:border-accent hover:text-accent'
                 }
               `}
             >
@@ -159,24 +158,7 @@ export function StudioGallery() {
           ))}
         </div>
 
-        {/* Info Box */}
-        <div
-          className={`mt-16 bg-secondary/30 p-8 md:p-12 border-l-4 border-accent transition-all duration-600 delay-600 ${sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        >
-          <h3 className="text-2xl font-semibold mb-4">Visit the Studio</h3>
-          <p className="text-muted-foreground mb-6">
-            Interested in seeing the fabrication process in person? We welcome
-            collectors, curators, and fellow artists to visit our workshop by
-            appointment. See works in progress, discuss custom commissions, and
-            experience our approach to kinetic sculpture firsthand.
-          </p>
-          <a
-            href="/#contact"
-            className="inline-block px-8 py-3 bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors"
-          >
-            Schedule a Visit
-          </a>
-        </div>
+
       </div>
 
       {/* Lightbox */}

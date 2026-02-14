@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/hooks/use-intersection-observer';
+import { KineticAnimation } from '@/components/kinetic-lab';
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,30 +56,42 @@ export function Hero() {
         className="container mx-auto px-4 sm:px-6 z-10 pt-20"
         style={{ opacity }}
       >
-        <div className="max-w-7xl mx-auto">
-          {/* Main title */}
-          <div
-            ref={titleRef}
-            className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-          >
-            <h1 className="text-display mb-4 sm:mb-6 md:mb-8">
-              <span className="block glitch" data-text="HOOKKAPAANI">
-                HOOKKAPAANI
-              </span>
-            </h1>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Left Column: Text */}
+          <div className="flex-1 z-20">
+            <div
+              ref={titleRef}
+              className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
+              <h1 className="text-display mb-4 sm:mb-6 md:mb-8">
+                <span className="block glitch" data-text="HOOKKAPAANI">
+                  HOOKKAPAANI
+                </span>
+              </h1>
+            </div>
+
+            {/* Subtitle */}
+            <div
+              className={`mb-6 sm:mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
+              <p className="text-headline text-muted-foreground max-w-4xl">
+                Kinetic sculpture studio exploring the intersection of{' '}
+                <span className="text-accent">industrial materials</span>,{' '}
+                <span className="text-rust">mechanical motion</span>, and{' '}
+                <span className="text-copper">temporal transformation</span>.
+              </p>
+            </div>
           </div>
 
-          {/* Subtitle */}
+          {/* Right Column: Kinetic Animation */}
           <div
-            className={`mb-6 sm:mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`flex-1 w-full h-[400px] md:h-[500px] relative transition-all duration-1000 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
           >
-            <p className="text-headline text-muted-foreground max-w-4xl">
-              Kinetic sculpture studio exploring the intersection of{' '}
-              <span className="text-accent">industrial materials</span>,{' '}
-              <span className="text-rust">mechanical motion</span>, and{' '}
-              <span className="text-copper">temporal transformation</span>.
-            </p>
+            <KineticAnimation className="w-full h-full" />
           </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto mt-12 md:mt-20">
 
           {/* Info grid */}
           <div
