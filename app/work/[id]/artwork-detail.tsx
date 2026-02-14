@@ -45,8 +45,8 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
                     <div
                         className="relative w-full mx-auto"
                         style={{
-                            aspectRatio: artwork.aspectRatio ? `${1 / artwork.aspectRatio}` : '3/4',
-                            maxHeight: '70vh',
+                            aspectRatio: artwork.aspectRatio || '3/4',
+                            maxHeight: '85vh',
                         }}
                     >
                         <Image

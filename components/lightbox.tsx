@@ -214,14 +214,10 @@ export function Lightbox({
         className="w-full h-full flex flex-col md:flex-row overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Image - Full width on mobile */}
-        <div className="flex-1 flex items-center justify-center p-4 pt-16 md:p-8 min-h-0">
+        {/* Image - Filling maximum space on mobile */}
+        <div className="flex-1 flex items-center justify-center p-2 pt-16 md:p-8 min-h-0 bg-black/40">
           <div
-            className={`relative w-full ${isZoomed ? 'overflow-auto' : ''}`}
-            style={{
-              aspectRatio: artwork.aspectRatio ? `${1 / artwork.aspectRatio}` : '3/4',
-              maxHeight: '60vh',
-            }}
+            className={`relative w-full h-full ${isZoomed ? 'overflow-auto' : ''}`}
           >
             {!imageLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
