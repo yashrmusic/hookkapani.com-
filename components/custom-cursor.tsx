@@ -10,7 +10,7 @@ export function CustomCursor() {
   const mousePosition = useRef({ x: 0, y: 0 });
   const currentPosition = useRef({ x: 0, y: 0 });
   const ringPosition = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(undefined);
 
   useEffect(() => {
     const hasTouch = window.matchMedia('(hover: none)').matches;
@@ -105,12 +105,12 @@ export function CustomCursor() {
     <>
       <div
         ref={cursorDotRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference will-change-transform"
+        className="fixed top-0 left-0 w-2 h-2 bg-accent rounded-full pointer-events-none z-[10000] mix-blend-difference will-change-transform"
         style={{ transform: 'translate(-100px, -100px)', opacity: 0 }}
       />
       <div
         ref={cursorRingRef}
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-accent rounded-full pointer-events-none z-50 mix-blend-difference will-change-transform"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-accent rounded-full pointer-events-none z-[10000] mix-blend-difference will-change-transform"
         style={{ transform: 'translate(-100px, -100px)', opacity: 0 }}
       />
     </>

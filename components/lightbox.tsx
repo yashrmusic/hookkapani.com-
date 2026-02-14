@@ -2,6 +2,7 @@
 
 import { useEffect, useCallback, useState, useRef } from 'react';
 import Image from 'next/image';
+import { ShareButton } from './share-button';
 import type { Artwork } from '../data/artworks';
 
 interface LightboxProps {
@@ -25,6 +26,7 @@ export function Lightbox({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const scrollPosRef = useRef(0);
+  const animationRef = useRef<number | undefined>(undefined);
 
   const currentIndex = artwork ? allArtworks.findIndex(a => a.id === artwork.id) : -1;
   const hasPrev = currentIndex > 0;
@@ -143,24 +145,35 @@ export function Lightbox({
         paddingRight: 'env(safe-area-inset-right)',
       }}
     >
-      {/* Close button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-        className="absolute top-4 right-4 z-50 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-full touch-manipulation transition-colors"
+      {/* Toolbar */}
+      <div
+        className="absolute top-4 right-4 z-50 flex items-center gap-3"
         style={{
-          WebkitTapHighlightColor: 'transparent',
           top: 'max(1rem, env(safe-area-inset-top))',
           right: 'max(1rem, env(safe-area-inset-right))',
         }}
-        aria-label="Close"
       >
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+        <ShareButton
+          title={artwork.title}
+          text={`${artwork.title} — ${artwork.description}`}
+          url={`/work/${artwork.id}`}
+          variant="icon"
+        />
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-full touch-manipulation transition-colors"
+          style={{ WebkitTapHighlightColor: 'transparent' }}
+          aria-label="Close"
+        >
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
       {/* Previous */}
       {hasPrev && onPrev && (
