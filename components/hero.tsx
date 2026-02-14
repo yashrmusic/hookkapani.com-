@@ -32,19 +32,27 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background industrial-grid"
+      className="relative flex items-center justify-center overflow-hidden bg-background industrial-grid"
+      style={{
+        /* min-h-screen fallback, then dvh for mobile chrome */
+        minHeight: '100vh',
+        // @ts-ignore — dvh is valid CSS, TS doesn't know it
+        ...({ minHeight: '100dvh' } as React.CSSProperties),
+        /* Push content below safe area (iPhone notch) */
+        paddingTop: 'max(env(safe-area-inset-top), 0px)',
+      }}
     >
       {/* Animated background elements */}
       <div
         className="absolute inset-0 opacity-5"
         style={{ transform: `translateY(${parallaxY}px)` }}
       >
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 border-2 border-accent/20 rotate-45 rounded-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 border-2 border-rust/20 -rotate-12 rounded-none" />
+        <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 border-2 border-accent/20 rotate-45 rounded-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-80 h-40 sm:h-56 md:h-72 lg:h-80 border-2 border-rust/20 -rotate-12 rounded-none" />
       </div>
 
       <div
-        className="container mx-auto px-4 z-10"
+        className="container mx-auto px-4 sm:px-6 z-10 pt-20"
         style={{ opacity }}
       >
         <div className="max-w-7xl mx-auto">
@@ -53,7 +61,7 @@ export function Hero() {
             ref={titleRef}
             className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            <h1 className="text-display mb-6 md:mb-8">
+            <h1 className="text-display mb-4 sm:mb-6 md:mb-8">
               <span className="block glitch" data-text="HOOKKAPAANI">
                 HOOKKAPAANI
               </span>
@@ -62,7 +70,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <div
-            className={`mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`mb-6 sm:mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <p className="text-headline text-muted-foreground max-w-4xl">
               Kinetic sculpture studio exploring the intersection of{' '}
@@ -72,11 +80,9 @@ export function Hero() {
             </p>
           </div>
 
-
-
           {/* Info grid */}
           <div
-            className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl transition-all duration-700 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl transition-all duration-700 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             <InfoCard
               number="01"
@@ -97,10 +103,10 @@ export function Hero() {
 
           {/* Scroll indicator */}
           <div
-            className={`mt-20 md:mt-32 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
+            className={`mt-12 sm:mt-16 md:mt-20 lg:mt-32 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
           >
             <p className="text-label text-muted-foreground">Explore Works</p>
-            <div className="w-[2px] h-16 bg-accent origin-top animate-pulse" />
+            <div className="w-[2px] h-12 sm:h-16 bg-accent origin-top animate-pulse" />
           </div>
         </div>
       </div>
@@ -125,10 +131,10 @@ function InfoCard({ number, title, description }: InfoCardProps) {
       ref={ref}
       className={`relative group transition-all duration-600 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}
     >
-      <div className="text-6xl font-mono font-bold text-accent/20 mb-4 transition-colors group-hover:text-accent/40">
+      <div className="text-4xl sm:text-5xl md:text-6xl font-mono font-bold text-accent/20 mb-2 sm:mb-4 transition-colors group-hover:text-accent/40">
         {number}
       </div>
-      <h3 className="text-xl md:text-2xl font-semibold mb-3 transition-colors group-hover:text-accent">
+      <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 transition-colors group-hover:text-accent">
         {title}
       </h3>
       <p className="text-sm md:text-base text-muted-foreground leading-relaxed">

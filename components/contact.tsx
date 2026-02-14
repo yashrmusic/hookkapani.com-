@@ -61,7 +61,7 @@ export function Contact() {
             transitionDelay: "300ms",
           }}
         >
-          Whether you&apos;re a gallery curator, interior designer, collector, or 
+          Whether you&apos;re a gallery curator, interior designer, collector, or
           simply curious about kinetic sculpture — we&apos;d love to hear from you.
         </p>
 
@@ -119,7 +119,7 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="self-center border border-foreground/20 bg-transparent px-10 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:border-accent"
+            className="self-center border border-foreground/20 bg-transparent px-10 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:border-accent active:bg-accent/80 min-h-[44px] touch-manipulation"
           >
             {submitted ? "Sent" : "Send Message"}
           </button>

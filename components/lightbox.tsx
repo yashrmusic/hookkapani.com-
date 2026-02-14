@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 import Image from 'next/image';
 import type { Artwork } from '../data/artworks';
 
@@ -24,6 +24,7 @@ export function Lightbox({
   const [isZoomed, setIsZoomed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const scrollPosRef = useRef(0);
 
   const currentIndex = artwork ? allArtworks.findIndex(a => a.id === artwork.id) : -1;
   const hasPrev = currentIndex > 0;
@@ -57,25 +58,74 @@ export function Lightbox({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
+  // iOS-safe scroll lock: use position fixed + save/restore scroll
   useEffect(() => {
     if (isOpen) {
+      scrollPosRef.current = window.scrollY;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPosRef.current}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
       setTimeout(() => setIsVisible(true), 10);
     } else {
       setIsVisible(false);
       setTimeout(() => {
-        document.body.style.overflow = 'unset';
-        document.documentElement.style.overflow = 'unset';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.paddingRight = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollPosRef.current);
         setIsZoomed(false);
         setImageLoaded(false);
       }, 200);
     }
     return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.paddingRight = '';
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
+
+  // Swipe gesture support for mobile
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (!touchStartRef.current) return;
+
+    const deltaX = e.changedTouches[0].clientX - touchStartRef.current.x;
+    const deltaY = e.changedTouches[0].clientY - touchStartRef.current.y;
+
+    // Only trigger if horizontal swipe is dominant and significant
+    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+      if (deltaX > 0 && hasPrev && onPrev) {
+        onPrev();
+      } else if (deltaX < 0 && hasNext && onNext) {
+        onNext();
+      }
+    }
+
+    // Swipe down to close
+    if (deltaY > 100 && Math.abs(deltaY) > Math.abs(deltaX) * 1.5) {
+      onClose();
+    }
+
+    touchStartRef.current = null;
+  }, [hasPrev, hasNext, onPrev, onNext, onClose]);
 
   if (!artwork) return null;
 
@@ -83,6 +133,15 @@ export function Lightbox({
     <div
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       onClick={onClose}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      style={{
+        /* Ensure lightbox covers notch/Dynamic Island area */
+        paddingTop: 'env(safe-area-inset-top)',
+        paddingBottom: 'env(safe-area-inset-bottom)',
+        paddingLeft: 'env(safe-area-inset-left)',
+        paddingRight: 'env(safe-area-inset-right)',
+      }}
     >
       {/* Close button */}
       <button
@@ -90,8 +149,12 @@ export function Lightbox({
           e.stopPropagation();
           onClose();
         }}
-        className="absolute top-4 right-4 z-50 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full touch-manipulation transition-colors"
-        style={{ WebkitTapHighlightColor: 'transparent' }}
+        className="absolute top-4 right-4 z-50 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-full touch-manipulation transition-colors"
+        style={{
+          WebkitTapHighlightColor: 'transparent',
+          top: 'max(1rem, env(safe-area-inset-top))',
+          right: 'max(1rem, env(safe-area-inset-right))',
+        }}
         aria-label="Close"
       >
         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,7 +169,7 @@ export function Lightbox({
             e.stopPropagation();
             onPrev();
           }}
-          className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full touch-manipulation transition-colors"
+          className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-full touch-manipulation transition-colors"
           style={{ WebkitTapHighlightColor: 'transparent' }}
           aria-label="Previous"
         >
@@ -123,7 +186,7 @@ export function Lightbox({
             e.stopPropagation();
             onNext();
           }}
-          className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full touch-manipulation transition-colors"
+          className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-full touch-manipulation transition-colors"
           style={{ WebkitTapHighlightColor: 'transparent' }}
           aria-label="Next"
         >
@@ -134,17 +197,17 @@ export function Lightbox({
       )}
 
       {/* Content */}
-      <div 
+      <div
         className="w-full h-full flex flex-col md:flex-row overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image - Full width on mobile */}
         <div className="flex-1 flex items-center justify-center p-4 pt-16 md:p-8 min-h-0">
-          <div 
+          <div
             className={`relative w-full ${isZoomed ? 'overflow-auto' : ''}`}
-            style={{ 
-              aspectRatio: artwork.aspectRatio ? `${1/artwork.aspectRatio}` : '3/4',
-              maxHeight: '65vh'
+            style={{
+              aspectRatio: artwork.aspectRatio ? `${1 / artwork.aspectRatio}` : '3/4',
+              maxHeight: '60vh',
             }}
           >
             {!imageLoaded && (
@@ -160,23 +223,25 @@ export function Lightbox({
               quality={85}
               priority
               onLoad={() => setImageLoaded(true)}
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 70vw"
             />
           </div>
         </div>
 
         {/* Info Panel - Below image on mobile, side on desktop */}
-        <div className="w-full md:w-96 bg-[#141414] md:bg-[#141414]/90 p-4 md:p-6 overflow-y-auto flex-shrink-0"
-             style={{ maxHeight: '40vh' }}>
+        <div
+          className="w-full md:w-80 lg:w-96 bg-[#141414] md:bg-[#141414]/90 p-4 md:p-6 overflow-y-auto flex-shrink-0"
+          style={{ maxHeight: '35vh' }}
+        >
           <h3 className="text-lg md:text-xl font-bold text-white mb-1">{artwork.title}</h3>
-          <p className="text-sm text-white/60 mb-4">{artwork.category} • {artwork.year}</p>
-          
-          <p className="text-sm text-white/70 leading-relaxed mb-4 line-clamp-4 md:line-clamp-none">
+          <p className="text-sm text-white/60 mb-3">{artwork.category} • {artwork.year}</p>
+
+          <p className="text-sm text-white/70 leading-relaxed mb-3 line-clamp-4 md:line-clamp-none">
             {artwork.description}
           </p>
-          
+
           {artwork.materials && artwork.materials.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-3">
               {artwork.materials.slice(0, 3).map((material: string) => (
                 <span key={material} className="px-2 py-1 bg-white/5 text-white/70 text-xs rounded">
                   {material}
@@ -186,13 +251,16 @@ export function Lightbox({
           )}
 
           {artwork.dimensions && (
-            <p className="text-xs text-white/50 mb-4">{artwork.dimensions}</p>
+            <p className="text-xs text-white/50 mb-3">{artwork.dimensions}</p>
           )}
         </div>
       </div>
 
       {/* Counter */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50">
+      <div
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50"
+        style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}
+      >
         {currentIndex + 1} / {allArtworks.length}
       </div>
     </div>

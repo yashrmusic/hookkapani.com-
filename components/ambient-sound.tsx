@@ -95,7 +95,12 @@ export function AmbientSound() {
   return (
     <button
       onClick={toggleSound}
-      className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-background/80 backdrop-blur-sm border-2 border-accent/50 flex items-center justify-center hover:bg-accent/20 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+      className={`fixed z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-background/80 backdrop-blur-sm border-2 border-accent/50 flex items-center justify-center hover:bg-accent/20 active:bg-accent/30 transition-all duration-500 touch-manipulation ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+      style={{
+        bottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))',
+        right: 'max(1.5rem, env(safe-area-inset-right, 1.5rem))',
+        WebkitTapHighlightColor: 'transparent',
+      }}
       aria-label={isPlaying ? 'Mute ambient sound' : 'Enable ambient sound'}
     >
       {!isPlaying ? (

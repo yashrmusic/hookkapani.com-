@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navLinks = [
@@ -15,13 +15,21 @@ export function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
 
   return (
     <nav
@@ -29,85 +37,66 @@ export function Nav() {
         ? 'bg-background/95 backdrop-blur-md border-b border-border'
         : 'bg-background/80 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none'
         }`}
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+      }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link
             href="/"
-            className={`font-bold tracking-tighter transition-colors ${isScrolled ? 'text-foreground' : 'text-foreground'
-              }`}
+            className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors min-h-[44px] min-w-[44px] flex items-center"
           >
-            <span className="text-3xl" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</span>
+            HOOKKAPAANI
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav — only visible on lg (1024px+) */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors hover:text-accent ${isScrolled ? 'text-foreground' : 'text-foreground'
-                  }`}
+                className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/portfolio?print=true"
-              className="inline-flex items-center px-4 py-2 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors"
-            >
-              Download Catalogue
-            </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button — visible below lg */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span
-                className={`w-full h-0.5 bg-foreground transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-                  }`}
-              />
-              <span
-                className={`w-full h-0.5 bg-foreground transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''
-                  }`}
-              />
-              <span
-                className={`w-full h-0.5 bg-foreground transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-                  }`}
-              />
+            <div className="w-6 flex flex-col gap-1.5">
+              <span className={`block h-[2px] w-full bg-foreground transition-all duration-300 origin-center ${isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
+              <span className={`block h-[2px] w-full bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+              <span className={`block h-[2px] w-full bg-foreground transition-all duration-300 origin-center ${isMobileMenuOpen ? '-rotate-45 -translate-y-[5px]' : ''}`} />
             </div>
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu — slides down with solid bg */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-            }`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}
         >
-          <div className="py-4 space-y-4 border-t border-border flex flex-col">
+          <div className="py-4 space-y-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className="block text-foreground hover:text-accent transition-colors"
+                className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/portfolio?print=true"
-              className="inline-block text-accent hover:text-accent/90 font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Download Catalogue
-            </a>
           </div>
+          {/* Extra padding for bottom safe area on notched phones */}
+          <div style={{ paddingBottom: 'env(safe-area-inset-bottom)' }} />
         </div>
       </div>
     </nav>

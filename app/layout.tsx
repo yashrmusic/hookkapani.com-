@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
@@ -27,6 +27,15 @@ const cormorantGaramond = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+// Viewport config for maximum device compatibility
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover', // iPhone notch / Dynamic Island support
+  themeColor: '#0d0d0d',
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://hookkapaani.com'),
   title: {
@@ -49,6 +58,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Vishal Gupta", url: "https://hookkapaani.com" }],
   creator: "Hookkapaani",
   publisher: "Hookkapaani Studio",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: false,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Hookkapaani',
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -58,7 +77,7 @@ export const metadata: Metadata = {
     siteName: "Hookkapaani",
     images: [
       {
-        url: "/images/new-work-45.png", // Luminous Leviathan as OG Image
+        url: "/images/new-work-45.png",
         width: 1200,
         height: 800,
         alt: "Luminous Leviathan - Kinetic Sculpture by Hookkapaani",
@@ -70,7 +89,7 @@ export const metadata: Metadata = {
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
     images: ["/images/new-work-45.png"],
-    creator: "@hookkapaani", // Placeholder or fetch real handle if known
+    creator: "@hookkapaani",
   },
   robots: {
     index: true,
@@ -94,8 +113,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="antialiased">
+    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${cormorantGaramond.variable}`}>
+      <body className="antialiased overscroll-none">
         {/* Fail-safe visibility reveal if JS fails to hydrate */}
         <script
           dangerouslySetInnerHTML={{
