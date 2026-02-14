@@ -50,7 +50,7 @@ export function Nav() {
             className="text-xl sm:text-2xl font-bold tracking-tighter hover:text-accent transition-colors min-h-[44px] min-w-[44px] flex items-center"
             style={{ color: '#fafafa', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
           >
-            HOOKKAPAANI
+            H/K
           </Link>
 
           {/* Desktop Nav — only visible on lg (1024px+) */}
