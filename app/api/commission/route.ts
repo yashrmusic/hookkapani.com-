@@ -1,5 +1,6 @@
+
+
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 type CommissionPayload = {
   name: string;
@@ -144,6 +145,7 @@ export async function POST(request: NextRequest) {
   // Send Email via Nodemailer
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
     try {
+      const nodemailer = (await import('nodemailer')).default;
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: Number(process.env.SMTP_PORT) || 587,
