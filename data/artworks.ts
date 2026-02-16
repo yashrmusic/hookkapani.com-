@@ -73,32 +73,8 @@ export const artworks: Artwork[] = [
     materials: ["Mixed Media"],
     tags: ["New Arrival"]
   },
-  {
-    id: "spheroid-ensemble",
-    title: "Spheroid Ensemble",
-    description: "A vertical accumulation of mirrored spheres, capturing a balanced reflection of the surrounding environment.",
-    longDescription: "A monumental stack of mirror-finished stainless steel spheres. The work explores the tension between individual units and the collective form, creating a shifting map of reflections that changes with the light and the viewer's position.",
-    imageUrl: "/images/new-work-1.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mirror-Finished Stainless Steel", "Internal Support"],
-    dimensions: "320cm x 120cm x 120cm",
-    tags: ["Reflection", "Minimalism", "Verticality"]
-  },
-  {
-    id: "geometric-anatomist",
-    title: "Geometric Anatomist",
-    description: "A faceted study of human form in motion, interacting with a malachite-textured sphere.",
-    longDescription: "A low-poly anatomical study in deep verdigris bronze. The figure captures a moment of dynamic equilibrium, paused at the point of interaction with a perfectly smooth, malachite-patterned orb.",
-    imageUrl: "/images/new-work-2.png",
-    aspectRatio: 0.75,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Verdigris Bronze", "Polished Malachite Resin"],
-    dimensions: "180cm x 120cm x 240cm",
-    tags: ["Anatomy", "Low-Poly", "Interaction"]
-  },
+
+
 
 
 
@@ -118,19 +94,7 @@ export const artworks: Artwork[] = [
   },
 
 
-  {
-    id: "cardiac-ocular",
-    title: "Cardiac Ocular",
-    description: "A heart-shaped sculpture with a realistic eye and botanical top-work, exploring emotion and vision.",
-    longDescription: "A visceral, surrealist sculpture of a heart featuring a central, realistic eye. Topped with intricate floral arrangements, the piece explores the intersection of emotion, vision, and growth, revealing subtle textures under gallery-grade lighting.",
-    imageUrl: "/images/project11.png",
-    aspectRatio: 0.58,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Hand-Painted Resin", "Silk Botanicals", "Steel Base"],
-    dimensions: "240cm x 160cm x 100cm",
-    tags: ["Surrealism", "Floral", "Anatomical"]
-  },
+
 
   {
     id: "banyan-resonance",
@@ -170,18 +134,7 @@ export const artworks: Artwork[] = [
     materials: ["Granite", "Gold Leaf"],
     tags: ["Temple", "Gold", "Precision"]
   },
-  {
-    id: "salt-monolith",
-    title: "Salt Monolith",
-    description: "White marble sculpture disappearing into the white salt marshes.",
-    longDescription: "A sculpture that tracks the sun's path across the infinite horizon of the Rann of Kutch.",
-    imageUrl: "/images/new-work-18.png",
-    aspectRatio: 0.75,
-    year: "2024",
-    category: "sculpture",
-    materials: ["White Marble", "Polished Steel"],
-    tags: ["Minimalism", "Desert", "Light"]
-  },
+
 
   {
     id: "lotus-void",
@@ -196,18 +149,7 @@ export const artworks: Artwork[] = [
     tags: ["Light", "Geometry", "Void"]
   },
 
-  {
-    id: "mist-drift-mesh",
-    title: "Mist Drift Mesh",
-    description: "An aluminum mesh sculpture designed to capture and diffuse mountain mists.",
-    longDescription: "A series of lightweight mesh wings that catch the wind and mist. The semi-transparent surface creates a visual bridge between the solid earth and the atmospheric phenomenon of the mountain valley.",
-    imageUrl: "/images/new-work-22.jpg",
-    aspectRatio: 1.4,
-    year: "2024",
-    category: "kinetic",
-    materials: ["Anodized Aluminum Mesh"],
-    tags: ["Atmosphere", "Wind", "Incorporeal"]
-  },
+
 
 
 
@@ -324,18 +266,7 @@ export const artworks: Artwork[] = [
     tags: ["New Arrival"]
   },
 
-  {
-    id: "new-work-23",
-    title: "Cardiac Vision III",
-    description: "A continuation of the cardiac vision series, blending anatomy and botany.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-23.png",
-    aspectRatio: 0.57,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
+
 
 
 
@@ -417,18 +348,7 @@ export const artworks: Artwork[] = [
     materials: ["Mixed Media"],
     tags: ["New Arrival"]
   },
-  {
-    id: "new-work-39",
-    title: "Workshop Sentinel",
-    description: "The obsidian owl in a workshop setting, revealing its industrial origins.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-39.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
+
   {
     id: "new-work-40",
     title: "Ocular Berry",

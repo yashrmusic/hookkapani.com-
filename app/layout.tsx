@@ -5,9 +5,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { HydrationHandler } from "@/components/hydration-handler";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { CustomCursor } from "@/components/custom-cursor";
-import { SpotlightCursor } from "@/components/spotlight-cursor";
-import { AmbientSound } from "@/components/ambient-sound";
+
 import { SiteTelemetry } from "@/components/site-telemetry";
 
 const spaceGrotesk = Space_Grotesk({
@@ -131,9 +129,7 @@ export default function RootLayout({
           }}
         />
         <ScrollProgress />
-        <CustomCursor />
-        <SpotlightCursor />
-        <AmbientSound />
+
         <Nav />
         <main>{children}</main>
         <Footer />

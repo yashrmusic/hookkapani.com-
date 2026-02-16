@@ -31,7 +31,7 @@ const defaultCards: CmsHeroCard[] = [
 ];
 
 export function Hero({
-  title = 'HOOKKAPAANI',
+  title = 'HOOKKAPANI\nSTUDIO',
   subtitle = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.',
   infoCards = defaultCards,
 }: HeroProps) {
@@ -81,17 +81,19 @@ export function Hero({
               ref={titleRef}
               className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              <h1 className="text-display mb-4 sm:mb-6 md:mb-8">
-                <span className="block glitch" data-text={title}>
-                  {title}
-                </span>
+              <h1 className="text-display mb-4 sm:mb-6 md:mb-8 flex flex-col">
+                {title.split('\n').map((line, i) => (
+                  <span key={i} className="block glitch w-fit" data-text={line}>
+                    {line}
+                  </span>
+                ))}
               </h1>
             </div>
 
             <div
               className={`mb-6 sm:mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              <p className="text-headline text-muted-foreground max-w-4xl">{subtitle}</p>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl">{subtitle}</p>
             </div>
           </div>
 

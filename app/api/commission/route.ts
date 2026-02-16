@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 type CommissionPayload = {
   name: string;
@@ -107,6 +108,7 @@ export async function POST(request: NextRequest) {
   const webhookUrl = process.env.COMMISSION_WEBHOOK_URL;
 
   if (webhookUrl) {
+    // ... webhook logic ...
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 8000);
@@ -134,23 +136,70 @@ export async function POST(request: NextRequest) {
         signal: controller.signal,
       });
       clearTimeout(timeout);
-
-      if (!response.ok) {
-        return NextResponse.json({ error: 'Webhook delivery failed.' }, { status: 502 });
-      }
-    } catch {
-      return NextResponse.json({ error: 'Webhook delivery failed.' }, { status: 502 });
+    } catch (e) {
+      console.error('Webhook delivery failed', e);
     }
-  } else {
-    console.info('[commission] inquiry received', {
-      email: payload.email,
-      projectType: payload.projectType,
-      phone: payload.phone || '',
-      companyName: payload.companyName || '',
-      budget: payload.budget,
-      timeline: payload.timeline,
-      ip,
-    });
+  }
+
+  // Send Email via Nodemailer
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    try {
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT) || 587,
+        secure: Boolean(process.env.SMTP_SECURE) || false, // true for 465, false for other ports
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.SMTP_FROM_EMAIL || '"Hookkapaani Website" <no-reply@hookkapani.com>',
+        to: 'mandeep@hookkapani.com',
+        subject: `New Commission Inquiry: ${payload.name} - ${payload.projectType}`,
+        text: `
+New Commission Inquiry Received
+
+Name: ${payload.name}
+Email: ${payload.email}
+Phone: ${payload.phone || 'N/A'}
+Company: ${payload.companyName || 'N/A'}
+Role: ${payload.decisionRole || 'N/A'}
+
+Project Type: ${payload.projectType}
+Location: ${payload.location || 'N/A'}
+Dimensions: ${payload.dimensions || 'N/A'}
+Budget: ${payload.budget}
+Timeline: ${payload.timeline}
+
+Description:
+${payload.description}
+        `,
+        html: `
+<h2>New Commission Inquiry Received</h2>
+<p><strong>Name:</strong> ${payload.name}</p>
+<p><strong>Email:</strong> ${payload.email}</p>
+<p><strong>Phone:</strong> ${payload.phone || 'N/A'}</p>
+<p><strong>Company:</strong> ${payload.companyName || 'N/A'}</p>
+<p><strong>Role:</strong> ${payload.decisionRole || 'N/A'}</p>
+<hr />
+<p><strong>Project Type:</strong> ${payload.projectType}</p>
+<p><strong>Location:</strong> ${payload.location || 'N/A'}</p>
+<p><strong>Dimensions:</strong> ${payload.dimensions || 'N/A'}</p>
+<p><strong>Budget:</strong> ${payload.budget}</p>
+<p><strong>Timeline:</strong> ${payload.timeline}</p>
+<hr />
+<h3>Description:</h3>
+<p>${payload.description.replace(/\n/g, '<br>')}</p>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      // Don't fail the request if email fails, just log it.
+    }
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });
