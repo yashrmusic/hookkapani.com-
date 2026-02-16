@@ -8,7 +8,6 @@ import { Practice } from "@/components/practice";
 import { CapabilityProof } from "@/components/capability-proof";
 import { ClientsCollaborations } from "@/components/clients-collaborations";
 import { CaseStudiesPreview } from "@/components/case-studies-preview";
-import { AvailabilityBlock } from "@/components/availability-block";
 import { getCmsContent } from "@/lib/cms-content";
 
 export default async function Home() {
@@ -28,7 +27,6 @@ export default async function Home() {
       <Manifesto />
       <StudioGallery />
       <Practice />
-      <AvailabilityBlock />
       <CommissionForm />
       <TextMarquee />
     </>

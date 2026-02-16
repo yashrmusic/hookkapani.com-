@@ -39,3 +39,5 @@ next-env.d.ts
 # Build logs
 build.log
 build_utf8.txt
+
+.vercel
