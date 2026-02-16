@@ -9,6 +9,9 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   serverExternalPackages: ['nodemailer'],
+  experimental: {
+    serverComponentsExternalPackages: ['nodemailer'],
+  },
   async headers() {
     return [
       {
