@@ -212,18 +212,7 @@ export const artworks: Artwork[] = [
     materials: ["Mixed Media"],
     tags: ["New Arrival"]
   },
-  {
-    id: "new-work-13",
-    title: "Aerodynamic Bronze",
-    description: "A dynamic abstract bronze form, suggesting flight and motion.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-13.png",
-    aspectRatio: 1.37,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
+
   {
     id: "new-work-14",
     title: "Aquatic Copper Array",
@@ -236,18 +225,7 @@ export const artworks: Artwork[] = [
     materials: ["Mixed Media"],
     tags: ["New Arrival"]
   },
-  {
-    id: "new-work-15",
-    title: "Folded Bronze Wave",
-    description: "A folded bronze wall sculpture, mimicking the fluidity of fabric.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-15.png",
-    aspectRatio: 0.73,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
+
 
 
 
