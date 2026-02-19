@@ -34,8 +34,8 @@ export function ArtworkImage({
         fill
         sizes={sizes}
         priority={priority}
-        quality={68}
-        loading={priority ? 'eager' : 'lazy'}
+        quality={75}
+        loading="eager"
         className={`
           object-contain
           transition-transform duration-500
@@ -44,6 +44,7 @@ export function ArtworkImage({
         onClick={onClick}
         onLoad={() => setIsLoaded(true)}
         onError={() => setIsLoaded(true)}
+        unoptimized
       />
 
       {onClick && (

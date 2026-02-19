@@ -12,405 +12,598 @@ export interface Artwork {
   tags: string[];
   modelUrl?: string;
 }
+
 export const artworks: Artwork[] = [
   {
-    id: "new-work-45",
-    title: "Luminous Leviathan",
-    description: "A luminous fish sculpture, suspended as if swimming through air.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-45.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
-  {
-    id: "sitar-silhouette",
-    title: "Sitar Silhouette",
-    description: "A weightless wireframe silhouette that captures the ethereal resonance of classical music.",
-    longDescription: "An intricate metallic wireframe sculpture of a sitar player. The hand-drawn mesh creates a visual representation of sound waves and musical vibrations, appearing almost weightless in a gallery setting.",
-    imageUrl: "/images/project4.png",
-    aspectRatio: 0.8,
-    year: "2023",
-    category: "sculpture",
-    materials: ["Hand-Drawn Copper Wire", "Steel Mesh"],
-    tags: ["Sound", "Transparency", "Wireframe"]
-  },
-  {
-    id: "new-work-33",
-    title: "Crimson Lattice",
-    description: "A geometric red apple sculpture with a lattice structure.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-33.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
-  {
-    id: "new-work-26",
-    title: "Azure Icon",
-    description: "A blue urban vinyl figure, standing with a distinct street art aesthetic.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-26.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
-  {
-    id: "new-work-16",
-    title: "Viscous Moment",
-    description: "A floor installation capturing the moment of a liquid droplet's impact.",
-    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-16.png",
-    aspectRatio: 0.73,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Mixed Media"],
-    tags: ["New Arrival"]
-  },
-
-
-
-
-
-
-
-  {
-    id: "ethereal-weave",
-    title: "Ethereal Weave",
-    description: "A contemporary reinterpretation of Rajputana Jali work with intricate brass wire patterns.",
-    longDescription: "The brass weave creates intricate shadows that dance with the movement of the sun, inspired by traditional Indian architecture.",
-    imageUrl: "/images/project8.png",
-    aspectRatio: 1.0,
-    year: "2023",
-    category: "sculpture",
-    materials: ["Polished Brass"],
-    tags: ["Jali", "Light", "Shadow"]
-  },
-
-
-
-
-  {
-    id: "banyan-resonance",
-    title: "Banyan Resonance",
-    description: "Iron and copper sculpture inspired by the aerial roots of the Great Banyan.",
-    longDescription: "A heavy, grounded form that breathes through a network of copper veins, inspired by the organic root systems.",
-    imageUrl: "/images/new-work-13.png",
-    aspectRatio: 0.75,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Cast Iron", "Copper Rootwork"],
-    tags: ["Organic", "Roots", "Nature"]
-  },
-
-  {
-    id: "ghat-rhythm",
-    title: "Ghat Rhythm",
-    description: "Steel kinetic sculpture capturing the relentless flow of the Ganges.",
-    longDescription: "Steel blades rotate with the updrafts from the river valley, capturing the motion of water and air.",
-    imageUrl: "/images/new-work-15.png",
-    aspectRatio: 0.8,
-    year: "2024",
-    category: "kinetic",
-    materials: ["Brushed Steel", "River Stone"],
-    tags: ["River", "Motion", "Nature"]
-  },
-
-  {
-    id: "temple-geometry",
-    title: "Temple Geometry",
-    description: "Granite monolith with intricate gold leaf patterns.",
-    longDescription: "The precision of Dravidian architecture distilled into a single, gold-veined monolith.",
-    imageUrl: "/images/new-work-17.png",
-    aspectRatio: 0.67,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Granite", "Gold Leaf"],
-    tags: ["Temple", "Gold", "Precision"]
-  },
-
-
-  {
-    id: "lotus-void",
-    title: "Lotus Void",
-    description: "White concrete geometric petals creating a void that fills with light.",
-    longDescription: "A study in unfolding. The geometric petals create a void that fills with light during twilight hours.",
-    imageUrl: "/images/new-work-20.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["White Concrete", "LED"],
-    tags: ["Light", "Geometry", "Void"]
-  },
-
-
-
-
-
-
-
-
-  {
     id: "new-work-1",
-    title: "Cardiac Vision I",
-    description: "A surrealist heart sculpture featuring a central eye and floral crown.",
+    title: "Artwork 1",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-1.png",
-    aspectRatio: 0.56,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-2",
-    title: "Cardiac Vision II",
-    description: "A variation of the cardiac series, exploring organic and anatomical fusion.",
+    title: "Artwork 2",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-2.png",
-    aspectRatio: 0.56,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-3",
-    title: "Cobalt Pneumatic",
-    description: "A blue metallic balloon dog sculpture, reflecting pop art influences.",
+    title: "Artwork 3",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-3.png",
-    aspectRatio: 0.73,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
-
-
-
-
-
-
-
+  {
+    id: "new-work-4",
+    title: "Artwork 4",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-4.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-5",
+    title: "Artwork 5",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-5.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-6",
+    title: "Artwork 6",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-6.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-7",
+    title: "Artwork 7",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-7.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-8",
+    title: "Artwork 8",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-8.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-9",
+    title: "Artwork 9",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-9.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-10",
+    title: "Artwork 10",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-10.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-11",
+    title: "Artwork 11",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-11.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-12",
-    title: "Chromalith Disc",
-    description: "A circular wall relief with textured, colorful weaving.",
+    title: "Artwork 12",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-12.png",
-    aspectRatio: 0.73,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
+  {
+    id: "new-work-13",
+    title: "Artwork 13",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-13.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-14",
-    title: "Aquatic Copper Array",
-    description: "A wall installation of copper elements arranged in an aquatic school.",
+    title: "Artwork 14",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-14.png",
-    aspectRatio: 0.73,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
-
-
-
-
-
+  {
+    id: "new-work-15",
+    title: "Artwork 15",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-15.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-16",
+    title: "Artwork 16",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-16.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-17",
+    title: "Artwork 17",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-17.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-18",
+    title: "Artwork 18",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-18.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-19",
+    title: "Artwork 19",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-19.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-20",
+    title: "Artwork 20",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-20.jpg",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-21",
-    title: "Fissured Feline",
-    description: "A weathered lion's head sculpture with glowing internal fractures.",
+    title: "Artwork 21",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-21.png",
-    aspectRatio: 1.5,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
-
-
-
-
-
-
-
-
+  {
+    id: "new-work-22",
+    title: "Artwork 22",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-22.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-23",
+    title: "Artwork 23",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-23.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-24",
+    title: "Artwork 24",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-24.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-25",
+    title: "Artwork 25",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-25.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-26",
+    title: "Artwork 26",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-26.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-27",
+    title: "Artwork 27",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-27.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-28",
+    title: "Artwork 28",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-28.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-29",
+    title: "Artwork 29",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-29.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-30",
+    title: "Artwork 30",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-30.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-31",
-    title: "Soaring Bronze",
-    description: "A golden abstract form soaring over a landscape, capturing light and movement.",
+    title: "Artwork 31",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-31.png",
-    aspectRatio: 1.5,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
-
+  {
+    id: "new-work-32",
+    title: "Artwork 32",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-32.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-33",
+    title: "Artwork 33",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-33.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-34",
-    title: "Regal Iron",
-    description: "A detailed iron throne replica, evoking themes of power and legacy.",
+    title: "Artwork 34",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-34.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-35",
-    title: "Prismatic Ursine",
-    description: "A low-poly colorful bear sculpture, sitting in a reflective pose.",
+    title: "Artwork 35",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-35.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-36",
-    title: "Polychrome Bear",
-    description: "A studio study of the polychrome bear, highlighting its geometric facets.",
+    title: "Artwork 36",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-36.png",
-    aspectRatio: 1.5,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-37",
-    title: "Scuderia Kinetic",
-    description: "A kinetic model of a Formula 1 car, capturing speed in a static form.",
+    title: "Artwork 37",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-37.png",
-    aspectRatio: 1.5,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-38",
-    title: "Obsidian Sentinel",
-    description: "A black metal owl sculpture, standing as a silent sentinel.",
+    title: "Artwork 38",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-38.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
+  {
+    id: "new-work-39",
+    title: "Artwork 39",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-39.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-40",
-    title: "Ocular Berry",
-    description: "A surreal strawberry sculpture with multiple eyes, challenging perception.",
+    title: "Artwork 40",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-40.png",
-    aspectRatio: 0.67,
+    imageUrl: "/images/new-work-40.jpg",
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-41",
-    title: "Mythic Hybrid",
-    description: "A hybrid bust combining human features with an owl headdress and glowing eyes.",
+    title: "Artwork 41",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-41.png",
-    aspectRatio: 0.8,
+    imageUrl: "/images/new-work-41.jpg",
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-42",
-    title: "Golden Break",
-    description: "A golden owl figure in a casual pose, blending myth with modernity.",
+    title: "Artwork 42",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-42.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-43",
-    title: "Bronze Rhetoric",
-    description: "A bronze figure caught in a moment of rhetorical oration.",
+    title: "Artwork 43",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
-    imageUrl: "/images/new-work-43.png",
-    aspectRatio: 0.67,
+    imageUrl: "/images/new-work-43.jpg",
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
   {
     id: "new-work-44",
-    title: "Recycled Gioconda",
-    description: "A large-scale mosaic of the Mona Lisa, constructed from recycled materials.",
+    title: "Artwork 44",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-44.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
   },
-
+  {
+    id: "new-work-45",
+    title: "Artwork 45",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-45.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
   {
     id: "new-work-46",
-    title: "Void Form",
-    description: "A glossy black humanoid figure sitting in contemplation.",
+    title: "Artwork 46",
+    description: "A sculptural work exploring form and material.",
     longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
     imageUrl: "/images/new-work-46.png",
-    aspectRatio: 0.67,
+    aspectRatio: 1.0,
     year: "2024",
     category: "sculpture",
     materials: ["Mixed Media"],
-    tags: ["New Arrival"]
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-47",
+    title: "Artwork 47",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-47.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
+  },
+  {
+    id: "new-work-48",
+    title: "Artwork 48",
+    description: "A sculptural work exploring form and material.",
+    longDescription: "A recently documented work from the studio, showcasing current explorations in material and form.",
+    imageUrl: "/images/new-work-48.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Mixed Media"],
+    tags: ["New Work"]
   }
-
 ];
+
 export function getArtworksByCategory(category: Artwork['category']): Artwork[] {
   return artworks.filter(artwork => artwork.category === category);
 }
+
 export function getArtworkById(id: string): Artwork | undefined {
   return artworks.find(artwork => artwork.id === id);
 }
+
 export function getFeaturedArtworks(count: number = 6): Artwork[] {
   return artworks.slice(0, count);
 }
+
 export const categories = [
   { value: 'all', label: 'All Works' },
   { value: 'sculpture', label: 'Sculpture' },

@@ -46,7 +46,8 @@ export default function PortfolioContent() {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
-                quality={65}
+                quality={75}
+                unoptimized
               />
             </div>
 

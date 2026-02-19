@@ -9,7 +9,7 @@ const projects = [
     year: "2024",
     location: "Kashmir, India",
     category: "Stainless Steel Installation",
-    image: "/images/project-1.png",
+    image: "/images/new-work-7.png",
     alt: "A stack of mirror-finished stainless steel spheres reflecting a serene lakeside horizon",
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     year: "2024",
     location: "Milan, Italy",
     category: "Polyhedral Sculpture",
-    image: "/images/project-2.png",
+    image: "/images/new-work-8.png",
     alt: "A faceted anatomical study in teal bronze with a malachite core in a modern gallery",
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     year: "2023",
     location: "Lake Como, Italy",
     category: "Kinetic Sculpture",
-    image: "/images/project-3.png",
+    image: "/images/new-work-9.png",
     alt: "Large-scale red kinetic installation in a manicured lakeside garden",
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     year: "2023",
     location: "New Delhi, India",
     category: "Wireframe Installation",
-    image: "/images/project-4.png",
+    image: "/images/new-work-10.png",
     alt: "Intricate metallic wireframe sculpture of a sitar player in a minimalist white space",
   },
 ];
@@ -83,6 +83,8 @@ function ProjectCard({
           fill
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
+          unoptimized
+          loading="eager"
         />
         <div className="absolute inset-0 bg-accent/0 transition-colors duration-500 group-hover:bg-accent/20" />
       </div>

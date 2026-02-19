@@ -15,42 +15,42 @@ interface StudioImage {
 const studioImages: StudioImage[] = [
   {
     id: '1',
-    src: '/images/project1.png',
+    src: '/images/new-work-1.png',
     title: 'Orbital Equilibrium',
     description: 'Mirror-finished stainless steel spheres creating shifting reflections.',
     category: 'workspace',
   },
   {
     id: '2',
-    src: '/images/project2.png',
+    src: '/images/new-work-2.png',
     title: 'Prismatic Anatomy',
     description: 'Bronze facets exploring organic structural logic.',
     category: 'process',
   },
   {
     id: '3',
-    src: '/images/project3.png',
+    src: '/images/new-work-3.png',
     title: 'Crimson Resonance',
     description: 'Wave-like red planes creating rhythmic visual pulse.',
     category: 'tools',
   },
   {
     id: '4',
-    src: '/images/project4.png',
+    src: '/images/new-work-4.png',
     title: 'Echo of the Sitar',
     description: 'Wireframe sculpture capturing musical vibrations.',
     category: 'process',
   },
   {
     id: '5',
-    src: '/images/project5.png',
+    src: '/images/new-work-5.png',
     title: 'Obsidian Pulse',
     description: 'Black monolithic kinetic sculpture in ancient ruins.',
     category: 'process',
   },
   {
     id: '6',
-    src: '/images/project6.png',
+    src: '/images/new-work-6.png',
     title: 'Lunar Dialogue',
     description: 'Stark white monoliths in high-altitude desert.',
     category: 'detail',
@@ -143,6 +143,8 @@ export function StudioGallery() {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                unoptimized
+                loading="eager"
               />
 
               {/* Overlay */}
@@ -189,6 +191,7 @@ export function StudioGallery() {
                 fill
                 className="object-contain"
                 quality={82}
+                unoptimized
               />
             </div>
             <div className="bg-secondary p-6">
