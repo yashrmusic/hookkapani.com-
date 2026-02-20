@@ -275,6 +275,18 @@ export const artworks: Artwork[] = [
 
 
   {
+    id: "new-work-28",
+    title: "The Red Robin",
+    description: "A delicate splash of color and life.",
+    longDescription: "A small, vibrant red bird sculpture that serves as an accent of vitality in any space.",
+    imageUrl: "/images/new-work-28.png",
+    aspectRatio: 1.0,
+    year: "2024",
+    category: "sculpture",
+    materials: ["Glass-Reinforced Plastic"],
+    tags: ["New Work", "Avian"]
+  },
+  {
     id: "new-work-31",
     title: "Velocity Red",
     description: "Capturing the high-speed essence of automotive engineering.",
