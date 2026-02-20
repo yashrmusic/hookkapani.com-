@@ -26,18 +26,7 @@ export const artworks: Artwork[] = [
     materials: ["Ceramic", "Gold Leaf"],
     tags: ["New Work", "Whimsical"]
   },
-  {
-    id: "new-work-2",
-    title: "Crimson Whisper",
-    description: "An evocative study of expression and silence.",
-    longDescription: "A large, vibrant red set of lips on a minimalist pedestal, questioning the power of the spoken word versus the unspoken.",
-    imageUrl: "/images/new-work-2.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Resin", "Auto Paint"],
-    tags: ["New Work", "Bold"]
-  },
+
   {
     id: "new-work-3",
     title: "Ephemeral Echo",
@@ -122,18 +111,7 @@ export const artworks: Artwork[] = [
     materials: ["Gold-Plated Steel"],
     tags: ["New Work", "Luminous"]
   },
-  {
-    id: "new-work-10",
-    title: "Unison",
-    description: "A study of human connection and synchronized form.",
-    longDescription: "Two intertwined white figures that merge into a single flowing entity, representing partnership and shared destiny.",
-    imageUrl: "/images/new-work-10.png",
-    aspectRatio: 0.778,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Marble Dust Resin"],
-    tags: ["New Work", "Connection"]
-  },
+
   {
     id: "new-work-11",
     title: "The All-Seeing Root",
@@ -206,18 +184,7 @@ export const artworks: Artwork[] = [
     materials: ["Cast Iron", "Obsidian"],
     tags: ["New Work", "Mythic"]
   },
-  {
-    id: "new-work-17",
-    title: "Golden Requiem",
-    description: "A bold memento mori blending mortality with opulence.",
-    longDescription: "A giant red skull adorned with intricate golden details, celebrating the beauty found in the cycle of life and death.",
-    imageUrl: "/images/new-work-17.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Bronze", "Gold Leaf", "Enamel"],
-    tags: ["New Work", "Memento Mori"]
-  },
+
   {
     id: "new-work-18",
     title: "Chromatic Blast",
@@ -242,18 +209,7 @@ export const artworks: Artwork[] = [
     materials: ["Fiberglass", "Auto Finish"],
     tags: ["New Work", "Wonder"]
   },
-  {
-    id: "new-work-20",
-    title: "Global Equilibrium",
-    description: "Finding stable ground on a spinning world.",
-    longDescription: "A metallic figure carefully balancing atop a large spherical orb, symbolizing the human struggle for stability.",
-    imageUrl: "/images/new-work-20.jpg",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Polished Chrome", "Steel"],
-    tags: ["New Work", "Balance"]
-  },
+
   {
     id: "new-work-21",
     title: "Amethyst Bloom",
@@ -290,30 +246,8 @@ export const artworks: Artwork[] = [
     materials: ["Engineered Wood", "Plaster"],
     tags: ["New Work", "Conceptual"]
   },
-  {
-    id: "new-work-24",
-    title: "Infinite Loop",
-    description: "Cycles of energy represented through continuous golden bands.",
-    longDescription: "An abstract sculpture of interlocking circles that create a never-ending path for the eye to follow.",
-    imageUrl: "/images/new-work-24.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Gold-Anodized Aluminum"],
-    tags: ["New Work", "Infinity"]
-  },
-  {
-    id: "new-work-25",
-    title: "Inner Sanctuary",
-    description: "Exploring the internal landscape of a meditative soul.",
-    longDescription: "A large blue figure in a lotus position, with a garden emerging from its hollow torso, representing internal peace.",
-    imageUrl: "/images/new-work-25.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "installation",
-    materials: ["Concrete", "Preserved Moss"],
-    tags: ["New Work", "Zen"]
-  },
+
+
   {
     id: "new-work-26",
     title: "The Transmitted Soul",
@@ -338,42 +272,8 @@ export const artworks: Artwork[] = [
     materials: ["Carved Limestone"],
     tags: ["New Work", "Haunting"]
   },
-  {
-    id: "new-work-28",
-    title: "The Red Robin",
-    description: "A delicate splash of color and life.",
-    longDescription: "A small, vibrant red bird sculpture that serves as an accent of vitality in any space.",
-    imageUrl: "/images/new-work-28.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Glass-Reinforced Plastic"],
-    tags: ["New Work", "Avian"]
-  },
-  {
-    id: "new-work-29",
-    title: "Multiplicities",
-    description: "The many paths of action and potential within one form.",
-    longDescription: "An abstract white sculpture with numerous radiating arms, symbolizing the endless choices we face.",
-    imageUrl: "/images/new-work-29.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Powder-Coated Steel"],
-    tags: ["New Work", "Complexity"]
-  },
-  {
-    id: "new-work-30",
-    title: "Obsidian Serpent",
-    description: "The powerful, winding form of an ancient myth made real.",
-    longDescription: "A large black serpent sculpture that winds through the space, combining grace with a sense of danger.",
-    imageUrl: "/images/new-work-30.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "installation",
-    materials: ["Polished Stone", "Steel Skeleton"],
-    tags: ["New Work", "Mythology"]
-  },
+
+
   {
     id: "new-work-31",
     title: "Velocity Red",
@@ -386,18 +286,7 @@ export const artworks: Artwork[] = [
     materials: ["Aluminum", "Carbon Fiber"],
     tags: ["New Work", "Automotive"]
   },
-  {
-    id: "new-work-32",
-    title: "Nocturnal Guardian",
-    description: "The silent wisdom of the night bird.",
-    longDescription: "A majestic black owl sculpture with an intense gaze, representing ancient knowledge and protective presence.",
-    imageUrl: "/images/new-work-32.png",
-    aspectRatio: 1.0,
-    year: "2024",
-    category: "sculpture",
-    materials: ["Cast Bronze", "Patina"],
-    tags: ["New Work", "Wisdom"]
-  },
+
   {
     id: "new-work-33",
     title: "Owl in Reflection",
