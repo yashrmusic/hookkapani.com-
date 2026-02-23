@@ -6,7 +6,7 @@ import Image from "next/image";
 const projects = [
   {
     title: "Orbital Equilibrium",
-    year: "2024",
+    year: "2026",
     location: "Kashmir, India",
     category: "Stainless Steel Installation",
     image: "/images/new-work-7.png",
@@ -14,7 +14,7 @@ const projects = [
   },
   {
     title: "Prismatic Anatomy",
-    year: "2024",
+    year: "2026",
     location: "Milan, Italy",
     category: "Polyhedral Sculpture",
     image: "/images/new-work-8.png",

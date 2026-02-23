@@ -21,7 +21,7 @@ export const artworks: Artwork[] = [
     longDescription: "A small white figurine with a gold crown, reminiscent of 'The Little Prince', exploring themes of leadership and childhood wonder.",
     imageUrl: "/images/new-work-1.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Ceramic", "Gold Leaf"],
     tags: ["New Work", "Whimsical"]
@@ -34,7 +34,7 @@ export const artworks: Artwork[] = [
     longDescription: "A metallic mesh figure in a contemplative pose, using transparency to suggest the weight of memory.",
     imageUrl: "/images/new-work-3.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Steel Mesh"],
     tags: ["New Work", "Contemplative"]
@@ -46,7 +46,7 @@ export const artworks: Artwork[] = [
     longDescription: "An abstract white organic sculpture that flows like liquid, challenging the rigid nature of solid material.",
     imageUrl: "/images/new-work-4.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Polished Plaster"],
     tags: ["New Work", "Minimalist"]
@@ -58,7 +58,7 @@ export const artworks: Artwork[] = [
     longDescription: "A green goddess head that seems to grow directly from the soil, symbolizing the cyclical nature of life.",
     imageUrl: "/images/new-work-5.png",
     aspectRatio: 0.73,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Mixed Media", "Living Flora"],
     tags: ["New Work", "Nature"]
@@ -70,7 +70,7 @@ export const artworks: Artwork[] = [
     longDescription: "A small astronaut figurine standing on a moon-like base, celebrating the spirit of space exploration.",
     imageUrl: "/images/new-work-6.png",
     aspectRatio: 1.75,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Bronze", "Stone"],
     tags: ["New Work", "Space"]
@@ -82,7 +82,7 @@ export const artworks: Artwork[] = [
     longDescription: "An abstract geometric sculpture using blue and yellow planes to create a dynamic sense of intersection.",
     imageUrl: "/images/new-work-7.png",
     aspectRatio: 0.73,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Acrylic", "Steel"],
     tags: ["New Work", "Geometric"]
@@ -94,7 +94,7 @@ export const artworks: Artwork[] = [
     longDescription: "A black minimalist bust that emphasizes silhouette and form over detail, inviting the viewer's interpretation.",
     imageUrl: "/images/new-work-8.png",
     aspectRatio: 0.73,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Ebonized Wood"],
     tags: ["New Work", "Monochrome"]
@@ -106,7 +106,7 @@ export const artworks: Artwork[] = [
     longDescription: "A golden abstract flame-like sculpture that reflects and distorts light, mimicking the sun's volatile beauty.",
     imageUrl: "/images/new-work-9.png",
     aspectRatio: 0.73,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Gold-Plated Steel"],
     tags: ["New Work", "Luminous"]
@@ -119,7 +119,7 @@ export const artworks: Artwork[] = [
     longDescription: "A surreal eyeball integrated into a complex tree trunk structure, exploring the sentience of nature.",
     imageUrl: "/images/new-work-11.png",
     aspectRatio: 0.778,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Wood", "Glass Eyeball"],
     tags: ["New Work", "Surreal"]
@@ -131,7 +131,7 @@ export const artworks: Artwork[] = [
     longDescription: "A red abstract sculpture with jagged, crystalline edges that seems to have shattered and reformed.",
     imageUrl: "/images/new-work-12.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Cast Glass"],
     tags: ["New Work", "Energy"]
@@ -143,7 +143,7 @@ export const artworks: Artwork[] = [
     longDescription: "A blue wave-like form that uses layering to create depth and the illusion of constant movement.",
     imageUrl: "/images/new-work-13.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Layered Acrylic"],
     tags: ["New Work", "Oceanic"]
@@ -155,7 +155,7 @@ export const artworks: Artwork[] = [
     longDescription: "A white minimalist character in a seated pose, emphasizing negative space and tranquility.",
     imageUrl: "/images/new-work-14.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Matte Ceramic"],
     tags: ["New Work", "Peace"]
@@ -167,7 +167,7 @@ export const artworks: Artwork[] = [
     longDescription: "A green abstract crystalline form that explores the bridge between organic growth and geometric precision.",
     imageUrl: "/images/new-work-15.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Resin", "Pigment"],
     tags: ["New Work", "Geometric"]
@@ -179,7 +179,7 @@ export const artworks: Artwork[] = [
     longDescription: "A large black figure with a circular head holding a symbolic staff, acting as a boundary marker between reality and imagination.",
     imageUrl: "/images/new-work-16.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Cast Iron", "Obsidian"],
     tags: ["New Work", "Mythic"]
@@ -192,7 +192,7 @@ export const artworks: Artwork[] = [
     longDescription: "An abstract sculpture that seems to radiate from a central point, using a spectrum of colors to represent pure energy.",
     imageUrl: "/images/new-work-18.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Mixed Media"],
     tags: ["New Work", "Color"]
@@ -204,7 +204,7 @@ export const artworks: Artwork[] = [
     longDescription: "A giant white rabbit-like figure that invites viewers to question scale and their own sense of reality.",
     imageUrl: "/images/new-work-19.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Fiberglass", "Auto Finish"],
     tags: ["New Work", "Wonder"]
@@ -217,7 +217,7 @@ export const artworks: Artwork[] = [
     longDescription: "A purple abstract organic form that mimics the unfolding petals of a nocturnal flower.",
     imageUrl: "/images/new-work-21.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Bioplastic"],
     tags: ["New Work", "Organic"]
@@ -229,7 +229,7 @@ export const artworks: Artwork[] = [
     longDescription: "A giant black panther sculpture that emphasizes muscular tension and the quiet power of the feline form.",
     imageUrl: "/images/new-work-22.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Carbon Fiber", "Matte Resin"],
     tags: ["New Work", "Power"]
@@ -241,7 +241,7 @@ export const artworks: Artwork[] = [
     longDescription: "A large white human figure with a complex tree structure growing from its mind, representing the birth of ideas.",
     imageUrl: "/images/new-work-23.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Engineered Wood", "Plaster"],
     tags: ["New Work", "Conceptual"]
@@ -255,7 +255,7 @@ export const artworks: Artwork[] = [
     longDescription: "A sculptural figure with a television for a head, questioning how much of our identity is broadcasted versus inherent.",
     imageUrl: "/images/new-work-26.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Vintage Electronics", "Steel"],
     tags: ["New Work", "Digital"]
@@ -267,7 +267,7 @@ export const artworks: Artwork[] = [
     longDescription: "A large white abstract sculpture of a face that uses subtle shadows to convey deep emotion.",
     imageUrl: "/images/new-work-27.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Carved Limestone"],
     tags: ["New Work", "Haunting"]
@@ -281,7 +281,7 @@ export const artworks: Artwork[] = [
     longDescription: "A small, vibrant red bird sculpture that serves as an accent of vitality in any space.",
     imageUrl: "/images/new-work-28.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Glass-Reinforced Plastic"],
     tags: ["New Work", "Avian"]
@@ -293,7 +293,7 @@ export const artworks: Artwork[] = [
     longDescription: "A stylized representation of a Formula 1 car, emphasizing the sleek lines and aggressive posture of speed.",
     imageUrl: "/images/new-work-31.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Aluminum", "Carbon Fiber"],
     tags: ["New Work", "Automotive"]
@@ -306,7 +306,7 @@ export const artworks: Artwork[] = [
     longDescription: "An alternative perspective of the Nocturnal Guardian, captured in the raw environment of the studio.",
     imageUrl: "/images/new-work-33.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Cast Bronze"],
     tags: ["New Work", "Process"]
@@ -318,7 +318,7 @@ export const artworks: Artwork[] = [
     longDescription: "A giant strawberry sculpture covered in numerous eyes, challenging the viewer's gaze and the nature of observation.",
     imageUrl: "/images/new-work-34.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Fiberglass", "Acrylic Paint"],
     tags: ["New Work", "Surrealism"]
@@ -330,7 +330,7 @@ export const artworks: Artwork[] = [
     longDescription: "A golden owl character sitting casually on a bench, bridging the gap between mythic beings and everyday life.",
     imageUrl: "/images/new-work-35.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Bronze", "Gold Leaf"],
     tags: ["New Work", "Whimsical"]
@@ -342,7 +342,7 @@ export const artworks: Artwork[] = [
     longDescription: "A bronze statue of a contemplative man pointing upwards, inviting viewers to look beyond the material world.",
     imageUrl: "/images/new-work-36.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Bronze"],
     tags: ["New Work", "Philosophical"]
@@ -354,7 +354,7 @@ export const artworks: Artwork[] = [
     longDescription: "A mosaic of the Mona Lisa constructed from thousands of small found objects, celebrating reinterpretation.",
     imageUrl: "/images/new-work-37.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Found Objects", "Mixed Media"],
     tags: ["New Work", "Mosaic"]
@@ -366,7 +366,7 @@ export const artworks: Artwork[] = [
     longDescription: "A large hanging fish sculpture with glowing red eyes, representing the mysteries of the unexplored ocean.",
     imageUrl: "/images/new-work-38.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "kinetic",
     materials: ["Plexiglass", "LEDs"],
     tags: ["New Work", "Luminous"]
@@ -378,7 +378,7 @@ export const artworks: Artwork[] = [
     longDescription: "A black alien-like figure sitting stoically, exploring themes of isolation and extraterrestrial life.",
     imageUrl: "/images/new-work-39.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Cast Resin", "Matte Black Paint"],
     tags: ["New Work", "Alien"]
@@ -390,7 +390,7 @@ export const artworks: Artwork[] = [
     longDescription: "An abstract bronze sculpture of a seated figure made of horizontal layers, suggesting the passage of time.",
     imageUrl: "/images/new-work-40.jpg",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Bronze"],
     tags: ["New Work", "Time"]
@@ -402,7 +402,7 @@ export const artworks: Artwork[] = [
     longDescription: "A giant goddess head interwoven with vines and flora, featuring glowing green eyes that represent the spirit of life.",
     imageUrl: "/images/new-work-41.jpg",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Terracotta", "LEDs", "Silk Plants"],
     tags: ["New Work", "Goddess"]
@@ -414,7 +414,7 @@ export const artworks: Artwork[] = [
     longDescription: "A character with a majestic tiger's head wearing a sharp white suit, satirizing modern ambition.",
     imageUrl: "/images/new-work-42.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Cast Resin", "Fabric"],
     tags: ["New Work", "Satire"]
@@ -426,7 +426,7 @@ export const artworks: Artwork[] = [
     longDescription: "A black bunny-eared astronaut figure sitting on a golden throne-like armchair, blending pop culture with royalty.",
     imageUrl: "/images/new-work-43.jpg",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Gilded Wood", "Lacquer"],
     tags: ["New Work", "Astro-Bunny"]
@@ -438,7 +438,7 @@ export const artworks: Artwork[] = [
     longDescription: "A group of multiple white-headed characters in different poses, exploring social dynamics and individual isolation.",
     imageUrl: "/images/new-work-44.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Soft-Touch Vinyl", "Fiberglass"],
     tags: ["New Work", "Social"]
@@ -450,7 +450,7 @@ export const artworks: Artwork[] = [
     longDescription: "A blue humanoid figure with a hollow torso filled with white and golden spheres, representing the burdens of creation.",
     imageUrl: "/images/new-work-45.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Polyurethane", "Glass Spheres"],
     tags: ["New Work", "Cosmic"]
@@ -462,7 +462,7 @@ export const artworks: Artwork[] = [
     longDescription: "A purple and white bioluminescent-looking shell structure that seems to pulse with its own internal light.",
     imageUrl: "/images/new-work-46.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "installation",
     materials: ["Optical Fiber", "Translucent Resin"],
     tags: ["New Work", "Light"]
@@ -474,7 +474,7 @@ export const artworks: Artwork[] = [
     longDescription: "A sleek, black animal-form table that captures the dynamic power of a galloping horse in a furniture piece.",
     imageUrl: "/images/new-work-47.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["High-Gloss Carbon Fiber"],
     tags: ["New Work", "Functional"]
@@ -486,7 +486,7 @@ export const artworks: Artwork[] = [
     longDescription: "A large-scale Medusa head with snakes for hair and glowing red eyes, reimagining the myth in a modern sculptural context.",
     imageUrl: "/images/new-work-48.png",
     aspectRatio: 1.0,
-    year: "2024",
+    year: "2026",
     category: "sculpture",
     materials: ["Corroded Steel", "Neon"],
     tags: ["New Work", "Legend"]

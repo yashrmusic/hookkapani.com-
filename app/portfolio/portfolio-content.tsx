@@ -18,7 +18,7 @@ export default function PortfolioContent() {
         <div className="w-full flex justify-between items-end text-sm uppercase tracking-wider">
           <div>
             <p>New Delhi, India</p>
-            <p>est. 2024</p>
+            <p>est. 2026</p>
           </div>
           <div className="text-right">
             <p>Selected Works</p>
@@ -66,8 +66,8 @@ export default function PortfolioContent() {
       <div className="mt-24 pt-12 border-t-2 border-black break-before-page flex flex-col items-center justify-center text-center h-[50vh]">
         <h1 className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
         <p className="text-xl mb-2 font-serif">contact@hookkapaani.com</p>
-        <p className="text-xl font-serif">+91 98765 43210</p>
-        <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© 2024 Hookkapaani Studio</p>
+        <p className="text-xl font-serif">+91-9540026221</p>
+        <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© 2026 Hookkapaani Studio</p>
       </div>
 
       <style jsx global>{`

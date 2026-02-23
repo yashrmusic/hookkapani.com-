@@ -142,7 +142,7 @@ export default function RootLayout({
               "name": "Hookkapaani Studio",
               "image": "https://hookkapaani.com/images/new-work-45.png",
               "url": "https://hookkapaani.com",
-              "telephone": "+91 98765 43210",
+              "telephone": "+91-9540026221",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "New Delhi",

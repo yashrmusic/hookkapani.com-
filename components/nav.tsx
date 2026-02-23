@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/#work', label: 'Works' },
   { href: '/#commission', label: 'Commission' },
   { href: '/#contact', label: 'Contact' },
-  { href: '/portfolio', label: 'Download Portfolio' },
+  { href: '/portfolio.pdf', label: 'Download Portfolio', download: true },
 ];
 
 export function Nav() {
@@ -57,12 +57,22 @@ export function Nav() {
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <MagneticButton key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
-                >
-                  {link.label}
-                </Link>
+                {link.download ? (
+                  <a
+                    href={link.href}
+                    download
+                    className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </MagneticButton>
             ))}
           </div>
@@ -88,14 +98,26 @@ export function Nav() {
         >
           <div className="py-4 space-y-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              link.download ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  download
+                  className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
           {/* Extra padding for bottom safe area on notched phones */}
