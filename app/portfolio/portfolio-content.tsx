@@ -2,13 +2,16 @@
 
 import Image from 'next/image';
 import { artworks } from '@/data/artworks';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function PortfolioContent() {
+function PortfolioInner() {
+  const searchParams = useSearchParams();
+  const isPrintMode = searchParams.get('print') === 'true';
+
   return (
     <div className="min-h-screen bg-white text-black font-sans p-8 md:p-16 print:p-0">
-
-
-      <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page">
+      <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page section-page">
         <div className="mt-20">
           <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
           <h2 className="text-4xl font-light tracking-widest uppercase">Hookkapaani Studio</h2>
@@ -26,7 +29,7 @@ export default function PortfolioContent() {
         </div>
       </div>
 
-      <div className="mb-16 max-w-2xl break-after-auto">
+      <div className="mb-16 max-w-2xl break-after-auto section-page">
         <h3 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>Manifesto</h3>
         <p className="text-lg leading-relaxed text-gray-800 mb-4 font-serif">
           We are a kinetic sculpture studio exploring the intersection of industrial materials,
@@ -35,9 +38,9 @@ export default function PortfolioContent() {
         </p>
       </div>
 
-      <div className="columns-1 md:columns-2 gap-8 space-y-8">
+      <div className="columns-1 md:columns-2 gap-8 space-y-8 artwork-grid">
         {artworks.map((artwork) => (
-          <div key={artwork.id} className="break-inside-avoid mb-12 group">
+          <div key={artwork.id} className="break-inside-avoid-page mb-12 group artwork-item">
             <div className="relative mb-4 w-full" style={{ aspectRatio: artwork.aspectRatio }}>
               <Image
                 src={artwork.imageUrl}
@@ -45,8 +48,10 @@ export default function PortfolioContent() {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
-                quality={75}
+                quality={90}
                 unoptimized
+                loading={isPrintMode ? "eager" : "lazy"}
+                priority={isPrintMode}
               />
             </div>
 
@@ -62,7 +67,7 @@ export default function PortfolioContent() {
         ))}
       </div>
 
-      <div className="mt-24 pt-12 border-t-2 border-black break-before-page flex flex-col items-center justify-center text-center h-[50vh]">
+      <div className="mt-24 pt-12 border-t-2 border-black break-before-page flex flex-col items-center justify-center text-center h-[50vh] section-page">
         <h1 className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
         <p className="text-xl mb-2 font-serif">contact@hookkapaani.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
@@ -73,25 +78,45 @@ export default function PortfolioContent() {
         @media print {
           @page {
             size: A4;
-            margin: 10mm;
+            margin: 0;
           }
           body {
-            background: white;
-            color: black;
+            background: white !important;
+            color: black !important;
             -webkit-print-color-adjust: exact;
           }
-          .break-after-page {
-            page-break-after: always;
+          .artwork-grid {
+             display: block !important;
+             columns: 1 !important;
           }
-          .break-before-page {
-            page-break-before: always;
+          .artwork-item {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            height: 100vh !important;
+            page-break-after: always !important;
+            break-after: page !important;
+            margin: 0 !important;
+            padding: 20mm !important;
+            box-sizing: border-box !important;
           }
-          .break-inside-avoid {
-            page-break-inside: avoid;
+          .section-page {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            height: 100vh !important;
+            page-break-after: always !important;
+            break-after: page !important;
+            margin: 0 !important;
+            padding: 20mm !important;
+            box-sizing: border-box !important;
           }
+           /* Hide specific elements */
           .print\\:hidden {
             display: none !important;
           }
+           /* Remove header/footer timestamps provided by browser if possible */
+          header, footer { display: none !important; }
         }
       `}</style>
 
@@ -120,5 +145,13 @@ export default function PortfolioContent() {
         Download Portfolio
       </a>
     </div>
+  );
+}
+
+export default function PortfolioContent() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <PortfolioInner />
+    </Suspense>
   );
 }
