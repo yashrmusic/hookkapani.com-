@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "optimize:images": "python scripts/optimize_images.py",
+    "generate:portfolio": "node scripts/capture-portfolio-pdf.mjs",
     "test:e2e": "playwright test",
     "check:perf-budget": "node scripts/check-perf-budget.mjs"
   },
@@ -19,7 +20,6 @@
     "framer-motion": "^12.34.0",
     "next": "16.1.6",
     "nodemailer": "^8.0.1",
-    "pdfkit": "^0.17.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwindcss-animate": "^1.0.7",
