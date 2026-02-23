@@ -93,25 +93,32 @@ function PortfolioInner() {
              columns: 1 !important;
           }
           .artwork-item {
-            display: block !important;
-            width: 100% !important;
-            page-break-inside: avoid !important;
-            break-inside: avoid !important;
-            margin-bottom: 20mm !important;
-            padding: 10mm !important;
-            box-sizing: border-box !important;
-            border-bottom: 1px solid #eee !important;
-          }
-          .section-page {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
-            min-height: 250mm !important;
+            height: 100vh !important;
             page-break-after: always !important;
             break-after: page !important;
             margin: 0 !important;
             padding: 20mm !important;
             box-sizing: border-box !important;
+            overflow: hidden !important;
+          }
+          .artwork-item .relative {
+            max-height: 65vh !important;
+            margin-bottom: 2rem !important;
+          }
+          .section-page {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            height: 100vh !important;
+            page-break-after: always !important;
+            break-after: page !important;
+            margin: 0 !important;
+            padding: 20mm !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
           }
            /* Hide specific elements */
           .print\\:hidden {
