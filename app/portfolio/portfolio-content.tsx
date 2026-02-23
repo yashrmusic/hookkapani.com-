@@ -2,12 +2,11 @@
 
 import Image from 'next/image';
 import { artworks } from '@/data/artworks';
-import { AutoPrint } from '@/components/auto-print';
 
 export default function PortfolioContent() {
   return (
     <div className="min-h-screen bg-white text-black font-sans p-8 md:p-16 print:p-0">
-      <AutoPrint />
+
 
       <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page">
         <div className="mt-20">
@@ -97,8 +96,9 @@ export default function PortfolioContent() {
       `}</style>
 
       {/* Floating Download Button */}
-      <button
-        onClick={() => window.print()}
+      <a
+        href="/portfolio.pdf"
+        download="Hookkapaani_Portfolio_2026.pdf"
         className="fixed bottom-8 right-8 bg-black text-white px-6 py-4 rounded-full print:hidden z-50 hover:bg-neutral-800 transition-all shadow-2xl font-bold uppercase tracking-widest text-sm flex items-center gap-3 border border-white/10 group active:scale-95"
       >
         <svg
@@ -117,8 +117,8 @@ export default function PortfolioContent() {
           <polyline points="7 10 12 15 17 10" />
           <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-        Download PDF
-      </button>
+        Download Portfolio
+      </a>
     </div>
   );
 }
