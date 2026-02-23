@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/#commission', label: 'Commission' },
   { href: '/#contact', label: 'Contact' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/portfolio?print=true', label: 'Download PDF' },
+  { href: '/portfolio.pdf', label: 'Download PDF' },
 ];
 
 export function Nav() {
@@ -58,9 +58,10 @@ export function Nav() {
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <MagneticButton key={link.href}>
-                {link.href.includes('print=true') ? (
+                {link.href.endsWith('.pdf') ? (
                   <a
                     href={link.href}
+                    download="Hookkapaani_Portfolio_2026.pdf"
                     className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
                   >
                     {link.label}
@@ -98,10 +99,11 @@ export function Nav() {
         >
           <div className="py-4 space-y-1">
             {navLinks.map((link) => (
-              link.href.includes('print=true') ? (
+              link.href.endsWith('.pdf') ? (
                 <a
                   key={link.href}
                   href={link.href}
+                  download="Hookkapaani_Portfolio_2026.pdf"
                   className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

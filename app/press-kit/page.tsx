@@ -38,9 +38,13 @@ export default function PressKitPage() {
         </section>
 
         <div className="flex flex-wrap gap-4">
-          <Link href="/portfolio?print=true" className="px-5 py-3 bg-accent text-accent-foreground text-sm uppercase tracking-wider">
+          <a
+            href="/portfolio.pdf"
+            download="Hookkapaani_Portfolio_2026.pdf"
+            className="px-5 py-3 bg-accent text-accent-foreground text-sm uppercase tracking-wider"
+          >
             Download Portfolio
-          </Link>
+          </a>
           <Link href="/" className="px-5 py-3 border border-border text-sm uppercase tracking-wider">
             Back to Website
           </Link>

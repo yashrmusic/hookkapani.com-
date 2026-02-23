@@ -69,9 +69,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio.pdf" className="text-muted-foreground hover:text-accent transition-colors">
+                <a
+                  href="/portfolio.pdf"
+                  download="Hookkapaani_Portfolio_2026.pdf"
+                  className="text-muted-foreground hover:text-accent transition-colors"
+                >
                   Download Portfolio
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
