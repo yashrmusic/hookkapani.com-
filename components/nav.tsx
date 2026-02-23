@@ -8,7 +8,8 @@ const navLinks = [
   { href: '/#work', label: 'Works' },
   { href: '/#commission', label: 'Commission' },
   { href: '/#contact', label: 'Contact' },
-  { href: '/portfolio.pdf', label: 'Download Portfolio', download: true },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/portfolio?print=true', label: 'Download PDF' },
 ];
 
 export function Nav() {
@@ -57,10 +58,9 @@ export function Nav() {
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <MagneticButton key={link.href}>
-                {link.download ? (
+                {link.href.includes('print=true') ? (
                   <a
                     href={link.href}
-                    download
                     className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
                   >
                     {link.label}
@@ -98,11 +98,10 @@ export function Nav() {
         >
           <div className="py-4 space-y-1">
             {navLinks.map((link) => (
-              link.download ? (
+              link.href.includes('print=true') ? (
                 <a
                   key={link.href}
                   href={link.href}
-                  download
                   className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
