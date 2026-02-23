@@ -1,5 +1,6 @@
 {
   "version": 2,
   "name": "hookkapaani-app",
-  "scope": "yashrmusics-projects"
+  "scope": "yashrmusics-projects",
+  "installCommand": "pnpm install --no-frozen-lockfile"
 }
