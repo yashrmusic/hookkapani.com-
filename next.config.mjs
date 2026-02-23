@@ -20,6 +20,12 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
+      {
+        source: '/:path*.pdf',
+        headers: [
+          { key: 'Cache-Control', value: 'public, no-cache, must-revalidate' },
+        ],
+      },
     ];
   },
 }
