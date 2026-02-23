@@ -124,7 +124,7 @@ function PortfolioInner() {
 
       {/* Floating Download Button */}
       <a
-        href="/portfolio_v1.pdf"
+        href="/portfolio.pdf"
         download="Hookkapaani_Portfolio_2026.pdf"
         className="fixed bottom-8 right-8 bg-black text-white px-6 py-4 rounded-full print:hidden z-50 hover:bg-neutral-800 transition-all shadow-2xl font-bold uppercase tracking-widest text-sm flex items-center gap-3 border border-white/10 group active:scale-95"
       >
