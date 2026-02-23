@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
-const outputPath = path.join(rootDir, 'public', 'portfolio.pdf');
+const outputPath = path.join(rootDir, 'public', 'portfolio_v1.pdf');
 
 // Use capture=true to avoid triggering window.print() and enable print-specific styles
 const DEV_URL = 'http://localhost:3000/portfolio?print=true&capture=true';

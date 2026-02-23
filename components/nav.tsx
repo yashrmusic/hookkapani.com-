@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/#commission', label: 'Commission' },
   { href: '/#contact', label: 'Contact' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/portfolio.pdf', label: 'Download PDF' },
+  { href: '/portfolio_v1.pdf', label: 'Download PDF' },
 ];
 
 export function Nav() {
