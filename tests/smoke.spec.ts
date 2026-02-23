@@ -25,10 +25,13 @@ test('commission form submits', async ({ page }) => {
   await page.locator('#commission').scrollIntoViewIfNeeded();
   await page.fill('#name', 'Smoke Test');
   await page.fill('#email', 'smoke@example.com');
-  await page.selectOption('#projectType', 'sculpture');
-  await page.selectOption('#budget', 'under-50k');
+  await page.selectOption('#decisionRole', 'owner');
+  await page.selectOption('#projectType', 'private-commission');
+  await page.fill('#location', 'New Delhi');
+  await page.fill('#dimensions', '2m x 2m');
+  await page.selectOption('#budget', 'under-200k');
   await page.selectOption('#timeline', '1-3-months');
   await page.fill('#description', 'Automated smoke test submission.');
-  await page.getByRole('button', { name: 'Submit Inquiry' }).click();
-  await expect(page.getByText('Inquiry Received')).toBeVisible();
+  await page.getByRole('button', { name: 'Send Project Brief' }).click();
+  await expect(page.getByText('Project Brief Received')).toBeVisible();
 });

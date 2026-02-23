@@ -4,13 +4,16 @@ import Image from 'next/image';
 import { artworks } from '@/data/artworks';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
+import { AutoPrint } from '@/components/auto-print';
 
 function PortfolioInner() {
   const searchParams = useSearchParams();
   const isPrintMode = searchParams.get('print') === 'true';
+  const isCaptureMode = searchParams.get('capture') === 'true';
 
   return (
     <div className="min-h-screen bg-white text-black font-sans p-8 md:p-16 print:p-0">
+      {!isCaptureMode && <AutoPrint />}
       <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page section-page">
         <div className="mt-20">
           <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
@@ -90,21 +93,20 @@ function PortfolioInner() {
              columns: 1 !important;
           }
           .artwork-item {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            height: 100vh !important;
-            page-break-after: always !important;
-            break-after: page !important;
-            margin: 0 !important;
-            padding: 20mm !important;
+            display: block !important;
+            width: 100% !important;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            margin-bottom: 20mm !important;
+            padding: 10mm !important;
             box-sizing: border-box !important;
+            border-bottom: 1px solid #eee !important;
           }
           .section-page {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
-            height: 100vh !important;
+            min-height: 250mm !important;
             page-break-after: always !important;
             break-after: page !important;
             margin: 0 !important;

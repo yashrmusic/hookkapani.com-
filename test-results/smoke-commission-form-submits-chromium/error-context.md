@@ -1,0 +1,828 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - link "H/K" [ref=e7] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e8]:
+        - link "Works" [ref=e10] [cursor=pointer]:
+          - /url: /#work
+        - link "Commission" [ref=e12] [cursor=pointer]:
+          - /url: /#commission
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: /#contact
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Download PDF" [ref=e18] [cursor=pointer]:
+          - /url: /portfolio.pdf
+  - main [ref=e19]:
+    - generic [ref=e24]:
+      - generic [ref=e26]:
+        - heading "HOOKKAPANI HOOKKAPANI HOOKKAPANI STUDIO STUDIO STUDIO" [level=1] [ref=e28]:
+          - generic [ref=e29]: HOOKKAPANI HOOKKAPANI HOOKKAPANI
+          - generic [ref=e30]: STUDIO STUDIO STUDIO
+        - paragraph [ref=e32]: Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: "01"
+            - heading "Kinetic Sculpture" [level=3] [ref=e42]
+            - paragraph [ref=e43]: Large-scale mechanical sculptures that explore motion, balance, and material properties.
+          - generic [ref=e45]:
+            - generic [ref=e46]: "02"
+            - heading "Industrial Aesthetic" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Raw materials and honest construction celebrating manufacturing heritage.
+          - generic [ref=e50]:
+            - generic [ref=e51]: "03"
+            - heading "Temporal Art" [level=3] [ref=e52]
+            - paragraph [ref=e53]: Works that evolve through oxidation, wear, and environmental interaction.
+        - paragraph [ref=e56]: Explore Works
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - heading "Selected Works" [level=2] [ref=e62]
+        - paragraph [ref=e63]: A collection of kinetic sculptures, installations, and explorations in industrial materials.
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - textbox "Search artworks, materials, tags..." [ref=e68]
+            - img [ref=e69]
+          - combobox [ref=e71]:
+            - option "Newest First" [selected]
+            - option "Oldest First"
+            - option "By Title"
+          - button "Show Filters" [ref=e72]
+        - generic [ref=e73]:
+          - button "All Works(39)" [ref=e74]:
+            - text: All Works
+            - generic [ref=e75]: (39)
+          - button "Sculpture(31)" [ref=e76]:
+            - text: Sculpture
+            - generic [ref=e77]: (31)
+          - button "Installation(7)" [ref=e78]:
+            - text: Installation
+            - generic [ref=e79]: (7)
+          - button "Kinetic(1)" [ref=e80]:
+            - text: Kinetic
+            - generic [ref=e81]: (1)
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - heading "Materials" [level=3] [ref=e84]
+            - generic [ref=e85]:
+              - generic [ref=e86] [cursor=pointer]:
+                - checkbox "Acrylic (1)" [ref=e87]
+                - generic [ref=e88]: Acrylic (1)
+              - generic [ref=e89] [cursor=pointer]:
+                - checkbox "Acrylic Paint (1)" [ref=e90]
+                - generic [ref=e91]: Acrylic Paint (1)
+              - generic [ref=e92] [cursor=pointer]:
+                - checkbox "Aluminum (1)" [ref=e93]
+                - generic [ref=e94]: Aluminum (1)
+              - generic [ref=e95] [cursor=pointer]:
+                - checkbox "Auto Finish (1)" [ref=e96]
+                - generic [ref=e97]: Auto Finish (1)
+              - generic [ref=e98] [cursor=pointer]:
+                - checkbox "Bioplastic (1)" [ref=e99]
+                - generic [ref=e100]: Bioplastic (1)
+              - generic [ref=e101] [cursor=pointer]:
+                - checkbox "Bronze (4)" [ref=e102]
+                - generic [ref=e103]: Bronze (4)
+              - generic [ref=e104] [cursor=pointer]:
+                - checkbox "Carbon Fiber (2)" [ref=e105]
+                - generic [ref=e106]: Carbon Fiber (2)
+              - generic [ref=e107] [cursor=pointer]:
+                - checkbox "Carved Limestone (1)" [ref=e108]
+                - generic [ref=e109]: Carved Limestone (1)
+              - generic [ref=e110] [cursor=pointer]:
+                - checkbox "Cast Bronze (1)" [ref=e111]
+                - generic [ref=e112]: Cast Bronze (1)
+              - generic [ref=e113] [cursor=pointer]:
+                - checkbox "Cast Glass (1)" [ref=e114]
+                - generic [ref=e115]: Cast Glass (1)
+              - generic [ref=e116] [cursor=pointer]:
+                - checkbox "Cast Iron (1)" [ref=e117]
+                - generic [ref=e118]: Cast Iron (1)
+              - generic [ref=e119] [cursor=pointer]:
+                - checkbox "Cast Resin (2)" [ref=e120]
+                - generic [ref=e121]: Cast Resin (2)
+              - generic [ref=e122] [cursor=pointer]:
+                - checkbox "Ceramic (1)" [ref=e123]
+                - generic [ref=e124]: Ceramic (1)
+              - generic [ref=e125] [cursor=pointer]:
+                - checkbox "Corroded Steel (1)" [ref=e126]
+                - generic [ref=e127]: Corroded Steel (1)
+              - generic [ref=e128] [cursor=pointer]:
+                - checkbox "Ebonized Wood (1)" [ref=e129]
+                - generic [ref=e130]: Ebonized Wood (1)
+              - generic [ref=e131] [cursor=pointer]:
+                - checkbox "Engineered Wood (1)" [ref=e132]
+                - generic [ref=e133]: Engineered Wood (1)
+              - generic [ref=e134] [cursor=pointer]:
+                - checkbox "Fabric (1)" [ref=e135]
+                - generic [ref=e136]: Fabric (1)
+              - generic [ref=e137] [cursor=pointer]:
+                - checkbox "Fiberglass (3)" [ref=e138]
+                - generic [ref=e139]: Fiberglass (3)
+              - generic [ref=e140] [cursor=pointer]:
+                - checkbox "Found Objects (1)" [ref=e141]
+                - generic [ref=e142]: Found Objects (1)
+              - generic [ref=e143] [cursor=pointer]:
+                - checkbox "Gilded Wood (1)" [ref=e144]
+                - generic [ref=e145]: Gilded Wood (1)
+              - generic [ref=e146] [cursor=pointer]:
+                - checkbox "Glass Eyeball (1)" [ref=e147]
+                - generic [ref=e148]: Glass Eyeball (1)
+              - generic [ref=e149] [cursor=pointer]:
+                - checkbox "Glass Spheres (1)" [ref=e150]
+                - generic [ref=e151]: Glass Spheres (1)
+              - generic [ref=e152] [cursor=pointer]:
+                - checkbox "Glass-Reinforced Plastic (1)" [ref=e153]
+                - generic [ref=e154]: Glass-Reinforced Plastic (1)
+              - generic [ref=e155] [cursor=pointer]:
+                - checkbox "Gold Leaf (2)" [ref=e156]
+                - generic [ref=e157]: Gold Leaf (2)
+              - generic [ref=e158] [cursor=pointer]:
+                - checkbox "Gold-Plated Steel (1)" [ref=e159]
+                - generic [ref=e160]: Gold-Plated Steel (1)
+              - generic [ref=e161] [cursor=pointer]:
+                - checkbox "High-Gloss Carbon Fiber (1)" [ref=e162]
+                - generic [ref=e163]: High-Gloss Carbon Fiber (1)
+              - generic [ref=e164] [cursor=pointer]:
+                - checkbox "LEDs (2)" [ref=e165]
+                - generic [ref=e166]: LEDs (2)
+              - generic [ref=e167] [cursor=pointer]:
+                - checkbox "Lacquer (1)" [ref=e168]
+                - generic [ref=e169]: Lacquer (1)
+              - generic [ref=e170] [cursor=pointer]:
+                - checkbox "Layered Acrylic (1)" [ref=e171]
+                - generic [ref=e172]: Layered Acrylic (1)
+              - generic [ref=e173] [cursor=pointer]:
+                - checkbox "Living Flora (1)" [ref=e174]
+                - generic [ref=e175]: Living Flora (1)
+              - generic [ref=e176] [cursor=pointer]:
+                - checkbox "Matte Black Paint (1)" [ref=e177]
+                - generic [ref=e178]: Matte Black Paint (1)
+              - generic [ref=e179] [cursor=pointer]:
+                - checkbox "Matte Ceramic (1)" [ref=e180]
+                - generic [ref=e181]: Matte Ceramic (1)
+              - generic [ref=e182] [cursor=pointer]:
+                - checkbox "Matte Resin (1)" [ref=e183]
+                - generic [ref=e184]: Matte Resin (1)
+              - generic [ref=e185] [cursor=pointer]:
+                - checkbox "Mixed Media (3)" [ref=e186]
+                - generic [ref=e187]: Mixed Media (3)
+              - generic [ref=e188] [cursor=pointer]:
+                - checkbox "Neon (1)" [ref=e189]
+                - generic [ref=e190]: Neon (1)
+              - generic [ref=e191] [cursor=pointer]:
+                - checkbox "Obsidian (1)" [ref=e192]
+                - generic [ref=e193]: Obsidian (1)
+              - generic [ref=e194] [cursor=pointer]:
+                - checkbox "Optical Fiber (1)" [ref=e195]
+                - generic [ref=e196]: Optical Fiber (1)
+              - generic [ref=e197] [cursor=pointer]:
+                - checkbox "Pigment (1)" [ref=e198]
+                - generic [ref=e199]: Pigment (1)
+              - generic [ref=e200] [cursor=pointer]:
+                - checkbox "Plaster (1)" [ref=e201]
+                - generic [ref=e202]: Plaster (1)
+              - generic [ref=e203] [cursor=pointer]:
+                - checkbox "Plexiglass (1)" [ref=e204]
+                - generic [ref=e205]: Plexiglass (1)
+              - generic [ref=e206] [cursor=pointer]:
+                - checkbox "Polished Plaster (1)" [ref=e207]
+                - generic [ref=e208]: Polished Plaster (1)
+              - generic [ref=e209] [cursor=pointer]:
+                - checkbox "Polyurethane (1)" [ref=e210]
+                - generic [ref=e211]: Polyurethane (1)
+              - generic [ref=e212] [cursor=pointer]:
+                - checkbox "Resin (1)" [ref=e213]
+                - generic [ref=e214]: Resin (1)
+              - generic [ref=e215] [cursor=pointer]:
+                - checkbox "Silk Plants (1)" [ref=e216]
+                - generic [ref=e217]: Silk Plants (1)
+              - generic [ref=e218] [cursor=pointer]:
+                - checkbox "Soft-Touch Vinyl (1)" [ref=e219]
+                - generic [ref=e220]: Soft-Touch Vinyl (1)
+              - generic [ref=e221] [cursor=pointer]:
+                - checkbox "Steel (2)" [ref=e222]
+                - generic [ref=e223]: Steel (2)
+              - generic [ref=e224] [cursor=pointer]:
+                - checkbox "Steel Mesh (1)" [ref=e225]
+                - generic [ref=e226]: Steel Mesh (1)
+              - generic [ref=e227] [cursor=pointer]:
+                - checkbox "Stone (1)" [ref=e228]
+                - generic [ref=e229]: Stone (1)
+              - generic [ref=e230] [cursor=pointer]:
+                - checkbox "Terracotta (1)" [ref=e231]
+                - generic [ref=e232]: Terracotta (1)
+              - generic [ref=e233] [cursor=pointer]:
+                - checkbox "Translucent Resin (1)" [ref=e234]
+                - generic [ref=e235]: Translucent Resin (1)
+              - generic [ref=e236] [cursor=pointer]:
+                - checkbox "Vintage Electronics (1)" [ref=e237]
+                - generic [ref=e238]: Vintage Electronics (1)
+              - generic [ref=e239] [cursor=pointer]:
+                - checkbox "Wood (1)" [ref=e240]
+                - generic [ref=e241]: Wood (1)
+          - generic [ref=e242]:
+            - heading "Year" [level=3] [ref=e243]
+            - generic [ref=e245] [cursor=pointer]:
+              - checkbox "2026 (39)" [ref=e246]
+              - generic [ref=e247]: 2026 (39)
+        - generic [ref=e248]: Showing 39 of 39 artworks
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - generic [ref=e253] [cursor=pointer]:
+            - img "The Little Monarch" [ref=e255]
+            - generic [ref=e256]:
+              - heading "The Little Monarch" [level=3] [ref=e257]
+              - paragraph [ref=e258]: 2026 • sculpture
+              - paragraph [ref=e259]: A whimsical exploration of innocence and authority.
+              - link "View Full Detail →" [ref=e260]:
+                - /url: /work/new-work-1
+          - generic [ref=e263] [cursor=pointer]:
+            - img "Verdant Muse" [ref=e265]
+            - generic [ref=e266]:
+              - heading "Verdant Muse" [level=3] [ref=e267]
+              - paragraph [ref=e268]: 2026 • sculpture
+              - paragraph [ref=e269]: The face of nature emerging from the earth.
+              - link "View Full Detail →" [ref=e270]:
+                - /url: /work/new-work-5
+          - generic [ref=e273] [cursor=pointer]:
+            - img "Midnight Silhouette" [ref=e275]
+            - generic [ref=e276]:
+              - heading "Midnight Silhouette" [level=3] [ref=e277]
+              - paragraph [ref=e278]: 2026 • sculpture
+              - paragraph [ref=e279]: A stark representation of human form in shadow.
+              - link "View Full Detail →" [ref=e280]:
+                - /url: /work/new-work-8
+          - generic [ref=e283] [cursor=pointer]:
+            - img "Scarlet Fragment" [ref=e285]
+            - generic [ref=e286]:
+              - heading "Scarlet Fragment" [level=3] [ref=e287]
+              - paragraph [ref=e288]: 2026 • sculpture
+              - paragraph [ref=e289]: A sharp interrogation of color and broken symmetry.
+              - link "View Full Detail →" [ref=e290]:
+                - /url: /work/new-work-12
+          - generic [ref=e293] [cursor=pointer]:
+            - img "Emerald Crystal" [ref=e295]
+            - generic [ref=e296]:
+              - heading "Emerald Crystal" [level=3] [ref=e297]
+              - paragraph [ref=e298]: 2026 • sculpture
+              - paragraph [ref=e299]: Sharp geometric growth mimicking natural minerals.
+              - link "View Full Detail →" [ref=e300]:
+                - /url: /work/new-work-15
+          - generic [ref=e303] [cursor=pointer]:
+            - img "The White Rabbit's Rebirth" [ref=e305]
+            - generic [ref=e306]:
+              - heading "The White Rabbit's Rebirth" [level=3] [ref=e307]
+              - paragraph [ref=e308]: 2026 • sculpture
+              - paragraph [ref=e309]: A surreal, larger-than-life tribute to curiosities and wonder.
+              - link "View Full Detail →" [ref=e310]:
+                - /url: /work/new-work-19
+          - generic [ref=e313] [cursor=pointer]:
+            - img "Cognitive Forest" [ref=e315]
+            - generic [ref=e316]:
+              - heading "Cognitive Forest" [level=3] [ref=e317]
+              - paragraph [ref=e318]: 2026 • installation
+              - paragraph [ref=e319]: The intersection of human thought and natural growth.
+              - link "View Full Detail →" [ref=e320]:
+                - /url: /work/new-work-23
+          - generic [ref=e323] [cursor=pointer]:
+            - img "The Red Robin" [ref=e325]
+            - generic [ref=e326]:
+              - heading "The Red Robin" [level=3] [ref=e327]
+              - paragraph [ref=e328]: 2026 • sculpture
+              - paragraph [ref=e329]: A delicate splash of color and life.
+              - link "View Full Detail →" [ref=e330]:
+                - /url: /work/new-work-28
+          - generic [ref=e333] [cursor=pointer]:
+            - img "The Watchful Berry" [ref=e335]
+            - generic [ref=e336]:
+              - heading "The Watchful Berry" [level=3] [ref=e337]
+              - paragraph [ref=e338]: 2026 • sculpture
+              - paragraph [ref=e339]: A surrealist hallucination blending fruit and perception.
+              - link "View Full Detail →" [ref=e340]:
+                - /url: /work/new-work-34
+          - generic [ref=e343] [cursor=pointer]:
+            - img "Found Memories" [ref=e345]
+            - generic [ref=e346]:
+              - heading "Found Memories" [level=3] [ref=e347]
+              - paragraph [ref=e348]: 2026 • installation
+              - paragraph [ref=e349]: A portrait of history rebuilt from the fragments of the present.
+              - link "View Full Detail →" [ref=e350]:
+                - /url: /work/new-work-37
+          - generic [ref=e353] [cursor=pointer]:
+            - img "Layered Existence" [ref=e355]
+            - generic [ref=e356]:
+              - heading "Layered Existence" [level=3] [ref=e357]
+              - paragraph [ref=e358]: 2026 • sculpture
+              - paragraph [ref=e359]: The human experience seen as a series of geological strata.
+              - link "View Full Detail →" [ref=e360]:
+                - /url: /work/new-work-40
+          - generic [ref=e363] [cursor=pointer]:
+            - img "Stellar Monarch" [ref=e365]
+            - generic [ref=e366]:
+              - heading "Stellar Monarch" [level=3] [ref=e367]
+              - paragraph [ref=e368]: 2026 • sculpture
+              - paragraph [ref=e369]: The cosmic traveler who claimed the golden seat.
+              - link "View Full Detail →" [ref=e370]:
+                - /url: /work/new-work-43
+          - generic [ref=e373] [cursor=pointer]:
+            - img "Starlight Bloom" [ref=e375]
+            - generic [ref=e376]:
+              - heading "Starlight Bloom" [level=3] [ref=e377]
+              - paragraph [ref=e378]: 2026 • installation
+              - paragraph [ref=e379]: An organic cocoon glowing with the light of distant nebulas.
+              - link "View Full Detail →" [ref=e380]:
+                - /url: /work/new-work-46
+        - generic [ref=e381]:
+          - generic [ref=e384] [cursor=pointer]:
+            - img "Ephemeral Echo" [ref=e386]
+            - generic [ref=e387]:
+              - heading "Ephemeral Echo" [level=3] [ref=e388]
+              - paragraph [ref=e389]: 2026 • sculpture
+              - paragraph [ref=e390]: A delicate balance between presence and absence.
+              - link "View Full Detail →" [ref=e391]:
+                - /url: /work/new-work-3
+          - generic [ref=e394] [cursor=pointer]:
+            - img "Lunar Explorer" [ref=e396]
+            - generic [ref=e397]:
+              - heading "Lunar Explorer" [level=3] [ref=e398]
+              - paragraph [ref=e399]: 2026 • sculpture
+              - paragraph [ref=e400]: A miniature tribute to human curiosity and discovery.
+              - link "View Full Detail →" [ref=e401]:
+                - /url: /work/new-work-6
+          - generic [ref=e404] [cursor=pointer]:
+            - img "Solar Flare" [ref=e406]
+            - generic [ref=e407]:
+              - heading "Solar Flare" [level=3] [ref=e408]
+              - paragraph [ref=e409]: 2026 • sculpture
+              - paragraph [ref=e410]: Radiating energy captured in polished metal.
+              - link "View Full Detail →" [ref=e411]:
+                - /url: /work/new-work-9
+          - generic [ref=e414] [cursor=pointer]:
+            - img "Azure Surge" [ref=e416]
+            - generic [ref=e417]:
+              - heading "Azure Surge" [level=3] [ref=e418]
+              - paragraph [ref=e419]: 2026 • installation
+              - paragraph [ref=e420]: Capturing the dynamic energy of the ocean.
+              - link "View Full Detail →" [ref=e421]:
+                - /url: /work/new-work-13
+          - generic [ref=e424] [cursor=pointer]:
+            - img "Sentinel of the Gate" [ref=e426]
+            - generic [ref=e427]:
+              - heading "Sentinel of the Gate" [level=3] [ref=e428]
+              - paragraph [ref=e429]: 2026 • sculpture
+              - paragraph [ref=e430]: A stoic guardian standing watch at the threshold of perception.
+              - link "View Full Detail →" [ref=e431]:
+                - /url: /work/new-work-16
+          - generic [ref=e434] [cursor=pointer]:
+            - img "Amethyst Bloom" [ref=e436]
+            - generic [ref=e437]:
+              - heading "Amethyst Bloom" [level=3] [ref=e438]
+              - paragraph [ref=e439]: 2026 • sculpture
+              - paragraph [ref=e440]: An organic unfolding of deep violet textures.
+              - link "View Full Detail →" [ref=e441]:
+                - /url: /work/new-work-21
+          - generic [ref=e444] [cursor=pointer]:
+            - img "The Transmitted Soul" [ref=e446]
+            - generic [ref=e447]:
+              - heading "The Transmitted Soul" [level=3] [ref=e448]
+              - paragraph [ref=e449]: 2026 • sculpture
+              - paragraph [ref=e450]: A commentary on the digital age and human identity.
+              - link "View Full Detail →" [ref=e451]:
+                - /url: /work/new-work-26
+          - generic [ref=e454] [cursor=pointer]:
+            - img "Velocity Red" [ref=e456]
+            - generic [ref=e457]:
+              - heading "Velocity Red" [level=3] [ref=e458]
+              - paragraph [ref=e459]: 2026 • sculpture
+              - paragraph [ref=e460]: Capturing the high-speed essence of automotive engineering.
+              - link "View Full Detail →" [ref=e461]:
+                - /url: /work/new-work-31
+          - generic [ref=e464] [cursor=pointer]:
+            - img "The Gilded Pedestrian" [ref=e466]
+            - generic [ref=e467]:
+              - heading "The Gilded Pedestrian" [level=3] [ref=e468]
+              - paragraph [ref=e469]: 2026 • installation
+              - paragraph [ref=e470]: A whimsical traveler resting on the journey between worlds.
+              - link "View Full Detail →" [ref=e471]:
+                - /url: /work/new-work-35
+          - generic [ref=e474] [cursor=pointer]:
+            - img "Luminous Leviathan" [ref=e476]
+            - generic [ref=e477]:
+              - heading "Luminous Leviathan" [level=3] [ref=e478]
+              - paragraph [ref=e479]: 2026 • kinetic
+              - paragraph [ref=e480]: A bioluminescent wonder from the deep gallery seas.
+              - link "View Full Detail →" [ref=e481]:
+                - /url: /work/new-work-38
+          - generic [ref=e484] [cursor=pointer]:
+            - img "Gaia's Gaze" [ref=e486]
+            - generic [ref=e487]:
+              - heading "Gaia's Gaze" [level=3] [ref=e488]
+              - paragraph [ref=e489]: 2026 • sculpture
+              - paragraph [ref=e490]: The ancient earth mother watching through emerald eyes.
+              - link "View Full Detail →" [ref=e491]:
+                - /url: /work/new-work-41
+          - generic [ref=e494] [cursor=pointer]:
+            - img "The Collective" [ref=e496]
+            - generic [ref=e497]:
+              - heading "The Collective" [level=3] [ref=e498]
+              - paragraph [ref=e499]: 2026 • installation
+              - paragraph [ref=e500]: A gathering of silent souls in varying states of contemplation.
+              - link "View Full Detail →" [ref=e501]:
+                - /url: /work/new-work-44
+          - generic [ref=e504] [cursor=pointer]:
+            - img "Galloping Surface" [ref=e506]
+            - generic [ref=e507]:
+              - heading "Galloping Surface" [level=3] [ref=e508]
+              - paragraph [ref=e509]: 2026 • sculpture
+              - paragraph [ref=e510]: The speed of a stallion transformed into functional sculpture.
+              - link "View Full Detail →" [ref=e511]:
+                - /url: /work/new-work-47
+        - generic [ref=e512]:
+          - generic [ref=e515] [cursor=pointer]:
+            - img "Pure Fluidity" [ref=e517]
+            - generic [ref=e518]:
+              - heading "Pure Fluidity" [level=3] [ref=e519]
+              - paragraph [ref=e520]: 2026 • sculpture
+              - paragraph [ref=e521]: Capturing the essence of motion in a static form.
+              - link "View Full Detail →" [ref=e522]:
+                - /url: /work/new-work-4
+          - generic [ref=e525] [cursor=pointer]:
+            - img "Vibrant Nexus" [ref=e527]
+            - generic [ref=e528]:
+              - heading "Vibrant Nexus" [level=3] [ref=e529]
+              - paragraph [ref=e530]: 2026 • sculpture
+              - paragraph [ref=e531]: A collision of primary colors and sharp angles.
+              - link "View Full Detail →" [ref=e532]:
+                - /url: /work/new-work-7
+          - generic [ref=e535] [cursor=pointer]:
+            - img "The All-Seeing Root" [ref=e537]
+            - generic [ref=e538]:
+              - heading "The All-Seeing Root" [level=3] [ref=e539]
+              - paragraph [ref=e540]: 2026 • sculpture
+              - paragraph [ref=e541]: Watching eyes emerge from the heart of the forest.
+              - link "View Full Detail →" [ref=e542]:
+                - /url: /work/new-work-11
+          - generic [ref=e545] [cursor=pointer]:
+            - img "Silent Meditation" [ref=e547]
+            - generic [ref=e548]:
+              - heading "Silent Meditation" [level=3] [ref=e549]
+              - paragraph [ref=e550]: 2026 • sculpture
+              - paragraph [ref=e551]: A peaceful form finding balance in minimalism.
+              - link "View Full Detail →" [ref=e552]:
+                - /url: /work/new-work-14
+          - generic [ref=e555] [cursor=pointer]:
+            - img "Chromatic Blast" [ref=e557]
+            - generic [ref=e558]:
+              - heading "Chromatic Blast" [level=3] [ref=e559]
+              - paragraph [ref=e560]: 2026 • installation
+              - paragraph [ref=e561]: An explosion of color frozen in a chaotic yet balanced state.
+              - link "View Full Detail →" [ref=e562]:
+                - /url: /work/new-work-18
+          - generic [ref=e565] [cursor=pointer]:
+            - img "Midnight Prowler" [ref=e567]
+            - generic [ref=e568]:
+              - heading "Midnight Prowler" [level=3] [ref=e569]
+              - paragraph [ref=e570]: 2026 • sculpture
+              - paragraph [ref=e571]: The stealthy grace of the forest captured in matte black.
+              - link "View Full Detail →" [ref=e572]:
+                - /url: /work/new-work-22
+          - generic [ref=e575] [cursor=pointer]:
+            - img "Enigma" [ref=e577]
+            - generic [ref=e578]:
+              - heading "Enigma" [level=3] [ref=e579]
+              - paragraph [ref=e580]: 2026 • sculpture
+              - paragraph [ref=e581]: A simplified, hauntingly beautiful interpretation of the human gaze.
+              - link "View Full Detail →" [ref=e582]:
+                - /url: /work/new-work-27
+          - generic [ref=e585] [cursor=pointer]:
+            - img "Owl in Reflection" [ref=e587]
+            - generic [ref=e588]:
+              - heading "Owl in Reflection" [level=3] [ref=e589]
+              - paragraph [ref=e590]: 2026 • sculpture
+              - paragraph [ref=e591]: A study of the midnight hunter in its creative birthplace.
+              - link "View Full Detail →" [ref=e592]:
+                - /url: /work/new-work-33
+          - generic [ref=e595] [cursor=pointer]:
+            - img "The Oracle" [ref=e597]
+            - generic [ref=e598]:
+              - heading "The Oracle" [level=3] [ref=e599]
+              - paragraph [ref=e600]: 2026 • sculpture
+              - paragraph [ref=e601]: A wise figure pointing towards celestial truths.
+              - link "View Full Detail →" [ref=e602]:
+                - /url: /work/new-work-36
+          - generic [ref=e605] [cursor=pointer]:
+            - img "Void Walker" [ref=e607]
+            - generic [ref=e608]:
+              - heading "Void Walker" [level=3] [ref=e609]
+              - paragraph [ref=e610]: 2026 • sculpture
+              - paragraph [ref=e611]: A silent explorer emerging from the shadows of existence.
+              - link "View Full Detail →" [ref=e612]:
+                - /url: /work/new-work-39
+          - generic [ref=e615] [cursor=pointer]:
+            - img "Corporate Predator" [ref=e617]
+            - generic [ref=e618]:
+              - heading "Corporate Predator" [level=3] [ref=e619]
+              - paragraph [ref=e620]: 2026 • sculpture
+              - paragraph [ref=e621]: A dapper hunter navigating the concrete jungle.
+              - link "View Full Detail →" [ref=e622]:
+                - /url: /work/new-work-42
+          - generic [ref=e625] [cursor=pointer]:
+            - img "The Sphere Bearer" [ref=e627]
+            - generic [ref=e628]:
+              - heading "The Sphere Bearer" [level=3] [ref=e629]
+              - paragraph [ref=e630]: 2026 • sculpture
+              - paragraph [ref=e631]: Holding the universe within the core of their being.
+              - link "View Full Detail →" [ref=e632]:
+                - /url: /work/new-work-45
+          - generic [ref=e635] [cursor=pointer]:
+            - img "Lithos Whisper" [ref=e637]
+            - generic [ref=e638]:
+              - heading "Lithos Whisper" [level=3] [ref=e639]
+              - paragraph [ref=e640]: 2026 • sculpture
+              - paragraph [ref=e641]: The legendary gorgon with a gaze that freezes time and spirit.
+              - link "View Full Detail →" [ref=e642]:
+                - /url: /work/new-work-48
+    - generic [ref=e644]:
+      - heading "Proof of Capability" [level=2] [ref=e645]
+      - paragraph [ref=e646]: "A studio process designed for real-world delivery: technical clarity, fabrication discipline, and installation reliability."
+      - generic [ref=e647]:
+        - generic [ref=e648]:
+          - heading "Engineering & Fabrication" [level=3] [ref=e649]
+          - list [ref=e650]:
+            - listitem [ref=e651]: "- Material testing"
+            - listitem [ref=e652]: "- Load-aware structure"
+            - listitem [ref=e653]: "- Serviceable assemblies"
+        - generic [ref=e654]:
+          - heading "Installation Readiness" [level=3] [ref=e655]
+          - list [ref=e656]:
+            - listitem [ref=e657]: "- Site drawings"
+            - listitem [ref=e658]: "- Power and anchoring specs"
+            - listitem [ref=e659]: "- Transport and rigging support"
+        - generic [ref=e660]:
+          - heading "Operational Reliability" [level=3] [ref=e661]
+          - list [ref=e662]:
+            - listitem [ref=e663]: "- Maintenance guidance"
+            - listitem [ref=e664]: "- Replacement part strategy"
+            - listitem [ref=e665]: "- Post-install review"
+    - generic [ref=e667]:
+      - heading "Clients & Collaborations" [level=2] [ref=e668]
+      - paragraph [ref=e669]: We collaborate across architecture, curation, and fabrication teams to deliver reliable installations from concept to commissioning.
+      - generic [ref=e670]:
+        - generic [ref=e671]: Design Studios
+        - generic [ref=e672]: Hospitality Groups
+        - generic [ref=e673]: Corporate Atriums
+        - generic [ref=e674]: Private Collectors
+        - generic [ref=e675]: Contemporary Galleries
+        - generic [ref=e676]: Public Art Programs
+    - generic [ref=e678]:
+      - generic [ref=e679]:
+        - generic [ref=e680]:
+          - heading "Case Studies" [level=2] [ref=e681]
+          - paragraph [ref=e682]: Structured project breakdowns for collectors, curators, and design teams evaluating fit.
+        - link "View All" [ref=e683] [cursor=pointer]:
+          - /url: /case-studies
+      - generic [ref=e684]:
+        - article [ref=e685]:
+          - heading "Corporate Atrium Kinetic Installation" [level=3] [ref=e686]
+          - paragraph [ref=e687]: Commissioned large-format suspended sculpture for a high-traffic corporate atrium.
+          - paragraph [ref=e688]: Delivered in 14 weeks, with low-maintenance motion system and night-lighting mode.
+          - link "Read Case Study" [ref=e689] [cursor=pointer]:
+            - /url: /case-studies#atrium-kinetic-installation
+        - article [ref=e690]:
+          - heading "Gallery Motion Series" [level=3] [ref=e691]
+          - paragraph [ref=e692]: Three-part kinetic series for a contemporary gallery program.
+          - paragraph [ref=e693]: Improved visitor dwell time and press pickup through process-driven curation.
+          - link "Read Case Study" [ref=e694] [cursor=pointer]:
+            - /url: /case-studies#gallery-motion-series
+    - generic [ref=e696]:
+      - paragraph [ref=e697]: Manifesto
+      - blockquote [ref=e698]:
+        - generic [ref=e699]: We
+        - generic [ref=e700]: don't
+        - generic [ref=e701]: just
+        - generic [ref=e702]: make
+        - generic [ref=e703]: sculptures
+        - generic [ref=e704]: —
+        - generic [ref=e705]: we
+        - generic [ref=e706]: engineer
+        - generic [ref=e707]: motion.
+        - generic [ref=e708]: Where
+        - generic [ref=e709]: steel
+        - generic [ref=e710]: meets
+        - generic [ref=e711]: soul,
+        - generic [ref=e712]: and
+        - generic [ref=e713]: mechanics
+        - generic [ref=e714]: become
+        - generic [ref=e715]: poetry.
+        - generic [ref=e716]: Art
+        - generic [ref=e717]: that
+        - generic [ref=e718]: breathes,
+        - generic [ref=e719]: moves,
+        - generic [ref=e720]: and
+        - generic [ref=e721]: transforms.
+      - generic [ref=e722]:
+        - generic [ref=e723]:
+          - paragraph [ref=e724]: Vishal Gupta
+          - paragraph [ref=e725]: Founder & Lead Artist
+        - generic [ref=e726]:
+          - paragraph [ref=e727]: Hookkapaani Studio
+          - paragraph [ref=e728]: New Delhi, India
+    - generic [ref=e730]:
+      - generic [ref=e731]:
+        - heading "Inside the Studio" [level=2] [ref=e732]
+        - paragraph [ref=e733]: A glimpse into our workshop in New Delhi—where raw materials transform into kinetic sculptures through hands-on fabrication, welding, and mechanical assembly.
+      - generic [ref=e734]:
+        - button "All" [ref=e735]
+        - button "Workspace" [ref=e736]
+        - button "Process" [ref=e737]
+        - button "Tools" [ref=e738]
+        - button "Details" [ref=e739]
+      - generic [ref=e740]:
+        - generic [ref=e741] [cursor=pointer]:
+          - img "Orbital Equilibrium" [ref=e742]
+          - generic [ref=e744]:
+            - heading "Orbital Equilibrium" [level=3] [ref=e745]
+            - paragraph [ref=e746]: Mirror-finished stainless steel spheres creating shifting reflections.
+        - generic [ref=e747] [cursor=pointer]:
+          - img "Prismatic Anatomy" [ref=e748]
+          - generic [ref=e750]:
+            - heading "Prismatic Anatomy" [level=3] [ref=e751]
+            - paragraph [ref=e752]: Bronze facets exploring organic structural logic.
+        - generic [ref=e753] [cursor=pointer]:
+          - img "Crimson Resonance" [ref=e754]
+          - generic [ref=e756]:
+            - heading "Crimson Resonance" [level=3] [ref=e757]
+            - paragraph [ref=e758]: Wave-like red planes creating rhythmic visual pulse.
+        - generic [ref=e759] [cursor=pointer]:
+          - img "Echo of the Sitar" [ref=e760]
+          - generic [ref=e762]:
+            - heading "Echo of the Sitar" [level=3] [ref=e763]
+            - paragraph [ref=e764]: Wireframe sculpture capturing musical vibrations.
+        - generic [ref=e765] [cursor=pointer]:
+          - img "Obsidian Pulse" [ref=e766]
+          - generic [ref=e768]:
+            - heading "Obsidian Pulse" [level=3] [ref=e769]
+            - paragraph [ref=e770]: Black monolithic kinetic sculpture in ancient ruins.
+        - generic [ref=e771] [cursor=pointer]:
+          - img "Lunar Dialogue" [ref=e772]
+          - generic [ref=e774]:
+            - heading "Lunar Dialogue" [level=3] [ref=e775]
+            - paragraph [ref=e776]: Stark white monoliths in high-altitude desert.
+    - generic [ref=e778]:
+      - generic [ref=e779]:
+        - generic [ref=e780]:
+          - paragraph [ref=e781]: About the Studio
+          - heading "Industrial materials, kinetic poetry." [level=2] [ref=e782]:
+            - text: Industrial materials,
+            - text: kinetic poetry.
+        - paragraph [ref=e784]: Operating from our workshop in New Delhi, Hookkapaani explores the intersection of industrial fabrication and artistic expression. We work with steel, bronze, aluminum, and found materials to create sculptures that move, breathe, and evolve. Each piece is a dialogue between mechanical precision and organic fluidity— celebrating the beauty of raw materials, honest construction, and the passage of time.
+      - generic [ref=e785]:
+        - generic [ref=e786]:
+          - paragraph [ref=e787]: "0"
+          - paragraph [ref=e788]: Works Created
+        - generic [ref=e789]:
+          - paragraph [ref=e790]: "0"
+          - paragraph [ref=e791]: Categories
+        - generic [ref=e792]:
+          - paragraph [ref=e793]: 0+
+          - paragraph [ref=e794]: Years Active
+        - generic [ref=e795]:
+          - paragraph [ref=e796]: "0"
+          - paragraph [ref=e797]: Studio, New Delhi
+    - generic [ref=e799]:
+      - generic [ref=e800]:
+        - heading "Submit a Project Brief" [level=2] [ref=e801]
+        - paragraph [ref=e802]: For serious commissioning inquiries. Share project scope, constraints, timeline, and budget so we can respond with a clear next-step proposal.
+      - generic [ref=e803]:
+        - generic [ref=e804]:
+          - generic [ref=e805]:
+            - generic [ref=e806]: Full Name
+            - textbox "Full Name" [ref=e807]:
+              - /placeholder: Your name
+              - text: Smoke Test
+          - generic [ref=e808]:
+            - generic [ref=e809]: Work Email
+            - textbox "Work Email" [ref=e810]:
+              - /placeholder: name@company.com
+              - text: smoke@example.com
+        - generic [ref=e811]:
+          - generic [ref=e812]:
+            - generic [ref=e813]: Phone
+            - textbox "Phone" [ref=e814]:
+              - /placeholder: +91 ...
+          - generic [ref=e815]:
+            - generic [ref=e816]: Company / Institution
+            - textbox "Company / Institution" [ref=e817]:
+              - /placeholder: Organization name
+        - generic [ref=e818]:
+          - generic [ref=e819]:
+            - generic [ref=e820]: Your Role in Decision
+            - combobox "Your Role in Decision" [ref=e821] [cursor=pointer]:
+              - option "Select role" [disabled]
+              - option "Owner / Founder" [selected]
+              - option "Curator"
+              - option "Architect / Designer"
+              - option "Procurement"
+              - option "Other"
+          - generic [ref=e822]:
+            - generic [ref=e823]: Project Type
+            - combobox "Project Type" [active] [ref=e824] [cursor=pointer]:
+              - option "Select type" [disabled] [selected]
+              - option "Private Commission"
+              - option "Public Installation"
+              - option "Gallery Exhibition"
+              - option "Hospitality / Commercial"
+        - generic [ref=e825]:
+          - generic [ref=e826]:
+            - generic [ref=e827]: Project Location
+            - textbox "Project Location" [ref=e828]:
+              - /placeholder: City, Country
+          - generic [ref=e829]:
+            - generic [ref=e830]: Available Installation Dimensions
+            - textbox "Available Installation Dimensions" [ref=e831]:
+              - /placeholder: e.g. 4m x 3m x 2m
+              - text: 2m x 2m
+        - generic [ref=e832]:
+          - generic [ref=e833]:
+            - generic [ref=e834]: Budget Range
+            - combobox "Budget Range" [ref=e835] [cursor=pointer]:
+              - option "Select range" [disabled]
+              - option "Under INR 2,00,000" [selected]
+              - option "INR 2,00,000 - INR 5,00,000"
+              - option "INR 5,00,000 - INR 20,00,000"
+              - option "Above INR 20,00,000"
+          - generic [ref=e836]:
+            - generic [ref=e837]: Target Timeline
+            - combobox "Target Timeline" [ref=e838] [cursor=pointer]:
+              - option "Select timeline" [disabled]
+              - option "1-3 months" [selected]
+              - option "3-6 months"
+              - option "6-12 months"
+              - option "12+ months"
+        - generic [ref=e839]:
+          - generic [ref=e840]: Project Goals, Constraints, and Context
+          - textbox "Project Goals, Constraints, and Context" [ref=e841]:
+            - /placeholder: Describe the site, context, curatorial direction, technical constraints, and desired outcome...
+        - button "Send Project Brief" [ref=e842]
+    - generic [ref=e844]:
+      - generic [ref=e845]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e846]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e847]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e848]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e849]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e850]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e851]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e852]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e853]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+      - generic [ref=e854]: MATERIAL LOGIC • HONEST CONSTRUCTION • MECHANICAL TENSION •
+  - contentinfo [ref=e855]:
+    - generic [ref=e856]:
+      - generic [ref=e857]:
+        - generic [ref=e858]:
+          - heading "Hookkapaani" [level=3] [ref=e859]
+          - paragraph [ref=e860]: Kinetic sculpture studio exploring industrial materials, mechanical motion, and temporal transformation.
+          - link "Instagram" [ref=e862] [cursor=pointer]:
+            - /url: https://instagram.com/hookkapaani
+            - img [ref=e863]
+        - generic [ref=e865]:
+          - heading "Navigation" [level=4] [ref=e866]
+          - list [ref=e867]:
+            - listitem [ref=e868]:
+              - link "Works" [ref=e869] [cursor=pointer]:
+                - /url: "#work"
+            - listitem [ref=e870]:
+              - link "Studio" [ref=e871] [cursor=pointer]:
+                - /url: "#studio"
+            - listitem [ref=e872]:
+              - link "Commission" [ref=e873] [cursor=pointer]:
+                - /url: "#commission"
+            - listitem [ref=e874]:
+              - link "Download Portfolio" [ref=e875] [cursor=pointer]:
+                - /url: /portfolio.pdf
+        - generic [ref=e876]:
+          - heading "Contact" [level=4] [ref=e877]
+          - list [ref=e878]:
+            - listitem [ref=e879]: New Delhi, India
+            - listitem [ref=e880]:
+              - link "studio@hookkapaani.com" [ref=e881] [cursor=pointer]:
+                - /url: mailto:studio@hookkapaani.com
+            - listitem [ref=e882]: By appointment only
+        - generic [ref=e883]:
+          - heading "Studio Hours" [level=4] [ref=e884]
+          - list [ref=e885]:
+            - listitem [ref=e886]: Monday - Friday
+            - listitem [ref=e887]: 10:00 AM - 6:00 PM IST
+            - listitem [ref=e888]: Visits by appointment
+      - generic [ref=e889]:
+        - paragraph [ref=e890]: (c) 2026 Hookkapaani. All rights reserved.
+        - paragraph [ref=e891]: Crafting movement. Carving meaning.
+  - button "Open Next.js Dev Tools" [ref=e897] [cursor=pointer]:
+    - img [ref=e898]
+  - alert [ref=e901]
+```

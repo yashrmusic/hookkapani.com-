@@ -15,8 +15,8 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
 const outputPath = path.join(rootDir, 'public', 'portfolio.pdf');
 
-// Use print=true to trigger eager loading and print-specific styles
-const DEV_URL = 'http://localhost:3000/portfolio?print=true';
+// Use capture=true to avoid triggering window.print() and enable print-specific styles
+const DEV_URL = 'http://localhost:3000/portfolio?print=true&capture=true';
 
 async function generatePDF() {
     console.log('🚀 Launching browser...');
@@ -24,7 +24,7 @@ async function generatePDF() {
     const page = await browser.newPage();
 
     // Set a wide viewport 
-    await page.setViewportSize({ width: 1280, height: 1600 });
+    await page.setViewportSize({ width: 1280, height: 2400 });
 
     console.log(`📄 Navigating to ${DEV_URL}...`);
     // Increased timeout and waited for networkidle
