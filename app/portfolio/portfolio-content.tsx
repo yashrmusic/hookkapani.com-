@@ -90,7 +90,7 @@ export default function PortfolioContent() {
           .break-inside-avoid {
             page-break-inside: avoid;
           }
-          .print\:hidden {
+          .print\\:hidden {
             display: none !important;
           }
         }
