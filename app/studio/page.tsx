@@ -9,14 +9,14 @@ const processVideos = [
     id: 1,
     title: 'Kinetic Motion I',
     caption: 'Motion as medium, time as material.',
-    videoUrl: '/videos/kinetic-motion-1.mp4',
+    videoUrl: '/videos/video1.mp4',
     tag: 'Studio',
   },
   {
     id: 2,
     title: 'Kinetic Motion II',
     caption: 'The poetry of mechanical movement.',
-    videoUrl: '/videos/kinetic-motion-2.mp4',
+    videoUrl: '/videos/video2.mp4',
     tag: 'Process',
   },
 ];
