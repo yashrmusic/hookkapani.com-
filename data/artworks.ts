@@ -58,7 +58,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-6",
-    title: "Organic Fusion",
+    title: "Bronze Whispers",
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -67,7 +67,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-7",
-    title: "Midnight Bloom",
+    title: "Metamorphosis",
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -85,7 +85,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-9",
-    title: "Crystal Vision",
+    title: "Cosmic Drift",
     imageUrl: "/images/new-work-9.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -94,7 +94,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-10",
-    title: "Shadow Dancer",
+    title: "Liquid Time",
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
@@ -103,7 +103,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-11",
-    title: "Neon Pulse",
+    title: "Shadow Play",
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -112,7 +112,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-12",
-    title: "Prismatic Core",
+    title: "Orbital Dance",
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -121,7 +121,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-13",
-    title: "Lunar Reflection",
+    title: "Prismatic Dream",
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -130,7 +130,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-14",
-    title: "Cosmic Nest",
+    title: "Crimson Wave",
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -139,7 +139,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-15",
-    title: "Silent Observer",
+    title: "Sitar Whisper",
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -148,7 +148,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-16",
-    title: "Flow State",
+    title: "Root Vision",
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -157,7 +157,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Ancient Future",
+    title: "Gravity Well",
     imageUrl: "/images/new-work-17.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -166,7 +166,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-18",
-    title: "Tidal Memory",
+    title: "Silent Meditation",
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -175,7 +175,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-19",
-    title: "Metallic Flora",
+    title: "Emerald Crystal",
     imageUrl: "/images/new-work-19.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -184,7 +184,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-20",
-    title: "Void Structure",
+    title: "Sentinel",
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -193,7 +193,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-21",
-    title: "Chromatic Ring",
+    title: "Chromatic Blast",
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -202,7 +202,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-22",
-    title: "Serpentine Form",
+    title: "White Rabbit",
     imageUrl: "/images/new-work-22.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -211,7 +211,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-23",
-    title: "Solar Wind",
+    title: "Amethyst Bloom",
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -220,7 +220,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-24",
-    title: "Emerald Depths",
+    title: "Midnight Prowler",
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -229,7 +229,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-25",
-    title: "Glass Cathedral",
+    title: "Cognitive Forest",
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -238,7 +238,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-26",
-    title: "Night Garden",
+    title: "Neon Desire",
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -247,7 +247,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-27",
-    title: "Kinetic Poetry",
+    title: "Enigma",
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
@@ -256,7 +256,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-28",
-    title: "Mercury Rise",
+    title: "Red Robin",
     imageUrl: "/images/new-work-28.jpg",
     aspectRatio: 0.667,
     category: "kinetic",
@@ -265,7 +265,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-29",
-    title: "Stone Whisper",
+    title: "Velocity",
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -310,7 +310,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-34",
-    title: "Ruby Cascade",
+    title: "Oracle",
     imageUrl: "/images/new-work-34.jpg",
     aspectRatio: 1.339,
     category: "installation",
@@ -319,7 +319,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-35",
-    title: "Sapphire Current",
+    title: "Luminous Leviathan",
     imageUrl: "/images/new-work-35.jpg",
     aspectRatio: 0.705,
     category: "sculpture",
@@ -328,7 +328,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-36",
-    title: "Platinum Edge",
+    title: "Void Walker",
     imageUrl: "/images/new-work-36.jpg",
     aspectRatio: 1.5,
     category: "installation",
@@ -337,7 +337,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-37",
-    title: "Hollow Light",
+    title: "Stellar Monarch",
     imageUrl: "/images/new-work-37.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -346,7 +346,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-38",
-    title: "Ivory Tower",
+    title: "Infinite Horizon",
     imageUrl: "/images/new-work-38.jpg",
     aspectRatio: 1.0,
     category: "sculpture",
