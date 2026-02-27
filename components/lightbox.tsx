@@ -168,7 +168,7 @@ export function Lightbox({
 
         <ShareButton
           title={artwork.title}
-          text={`${artwork.title} - ${artwork.description}`}
+          text={artwork.title}
           url={`/work/${artwork.id}`}
           variant="icon"
         />
@@ -259,11 +259,7 @@ export function Lightbox({
           style={{ maxHeight: '35vh' }}
         >
           <h3 className="text-lg md:text-xl font-bold text-white mb-1">{artwork.title}</h3>
-          <p className="text-sm text-white/60 mb-3">{artwork.category} • {artwork.year}</p>
-
-          <p className="text-sm text-white/70 leading-relaxed mb-3 line-clamp-4 md:line-clamp-none">
-            {artwork.description}
-          </p>
+          <p className="text-sm text-white/60 mb-3">{artwork.category}</p>
 
           {artwork.materials && artwork.materials.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-3">

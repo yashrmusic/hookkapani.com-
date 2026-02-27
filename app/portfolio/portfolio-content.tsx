@@ -23,7 +23,6 @@ function PortfolioInner() {
         <div className="w-full flex justify-between items-end text-sm uppercase tracking-wider">
           <div>
             <p>New Delhi, India</p>
-            <p>est. 2026</p>
           </div>
           <div className="text-right">
             <p>Selected Works</p>
@@ -59,12 +58,8 @@ function PortfolioInner() {
             </div>
 
             <div className="border-t border-black pt-3">
-              <div className="flex justify-between items-baseline mb-1">
-                <h4 className="text-xl font-bold uppercase" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>{artwork.title}</h4>
-                <span className="text-sm text-gray-500 font-mono">{artwork.year}</span>
-              </div>
+              <h4 className="text-xl font-bold uppercase" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>{artwork.title}</h4>
               <p className="text-sm font-medium text-gray-600 uppercase tracking-wide text-xs mb-2">{artwork.category} - {artwork.materials.join(', ')}</p>
-              <p className="text-sm text-gray-800 leading-snug">{artwork.longDescription || artwork.description}</p>
             </div>
           </div>
         ))}
@@ -74,7 +69,7 @@ function PortfolioInner() {
         <h1 className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
         <p className="text-xl mb-2 font-serif">contact@hookkapaani.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
-        <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© 2026 Hookkapaani Studio</p>
+        <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© Hookkapaani Studio</p>
       </div>
 
       <style jsx global>{`
@@ -132,7 +127,7 @@ function PortfolioInner() {
       {/* Floating Download Button */}
       <a
         href="/portfolio.pdf"
-        download="Hookkapaani_Portfolio_2026.pdf"
+        download="Hookkapaani_Portfolio.pdf"
         className="fixed bottom-8 right-8 bg-black text-white px-6 py-4 rounded-full print:hidden z-50 hover:bg-neutral-800 transition-all shadow-2xl font-bold uppercase tracking-widest text-sm flex items-center gap-3 border border-white/10 group active:scale-95"
       >
         <svg
@@ -153,7 +148,7 @@ function PortfolioInner() {
         </svg>
         Download Portfolio
       </a>
-    </div>
+    </div >
   );
 }
 

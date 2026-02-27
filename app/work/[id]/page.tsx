@@ -24,12 +24,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const url = `https://hookkapaani.com/work/${artwork.id}`;
   const ogImageUrl = `${url}/opengraph-image`;
 
+  const studioDescription = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.';
+
   return {
     title: `${artwork.title} | Hookkapaani Studio`,
-    description: artwork.description,
+    description: studioDescription,
     openGraph: {
       title: `${artwork.title} - Hookkapaani Studio`,
-      description: artwork.description,
+      description: studioDescription,
       url,
       siteName: 'Hookkapaani Studio',
       images: [
@@ -45,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: `${artwork.title} - Hookkapaani`,
-      description: artwork.description,
+      description: studioDescription,
       images: [ogImageUrl],
     },
   };

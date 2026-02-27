@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     siteName: "Hookkapaani",
     images: [
       {
-        url: "/images/new-work-45.png",
+        url: "/images/new-work-1.jpg",
         width: 1200,
         height: 800,
         alt: "Luminous Leviathan - Kinetic Sculpture by Hookkapaani",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
-    images: ["/images/new-work-45.png"],
+    images: ["/images/new-work-1.jpg"],
     creator: "@hookkapaani",
   },
   robots: {
@@ -140,7 +140,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ArtGallery",
               "name": "Hookkapaani Studio",
-              "image": "https://hookkapaani.com/images/new-work-45.png",
+              "image": "https://hookkapaani.com/images/new-work-1.jpg",
               "url": "https://hookkapaani.com",
               "telephone": "+91-9540026221",
               "address": {

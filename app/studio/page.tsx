@@ -7,23 +7,16 @@ import { VideoPlayer } from '@/components/video-player';
 const processVideos = [
   {
     id: 1,
-    title: 'The Initial Strike',
-    caption: 'Metal forging in the early hours.',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-sparks-flying-from-welding-2680-large.mp4',
+    title: 'Kinetic Motion I',
+    caption: 'Motion as medium, time as material.',
+    videoUrl: '/videos/kinetic-motion-1.mp4',
     tag: 'Studio',
   },
   {
     id: 2,
-    title: 'Linear Precision',
-    caption: "Precision welding of the Sitar player's frame.",
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-welder-working-in-a-workshop-40545-large.mp4',
-    tag: 'Metal',
-  },
-  {
-    id: 3,
-    title: 'Material Memory',
-    caption: 'Bending hand-drawn copper wire into form.',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-factory-machine-working-on-a-production-line-43896-large.mp4',
+    title: 'Kinetic Motion II',
+    caption: 'The poetry of mechanical movement.',
+    videoUrl: '/videos/kinetic-motion-2.mp4',
     tag: 'Process',
   },
 ];

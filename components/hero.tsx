@@ -15,18 +15,14 @@ const defaultCards: CmsHeroCard[] = [
   {
     number: '01',
     title: 'Kinetic Sculpture',
-    description:
-      'Large-scale mechanical sculptures that explore motion, balance, and material properties.',
   },
   {
     number: '02',
     title: 'Industrial Aesthetic',
-    description: 'Raw materials and honest construction celebrating manufacturing heritage.',
   },
   {
     number: '03',
     title: 'Temporal Art',
-    description: 'Works that evolve through oxidation, wear, and environmental interaction.',
   },
 ];
 
@@ -113,7 +109,6 @@ export function Hero({
                 key={`${card.number}-${card.title}`}
                 number={card.number}
                 title={card.title}
-                description={card.description}
               />
             ))}
           </div>
@@ -135,10 +130,9 @@ export function Hero({
 interface InfoCardProps {
   number: string;
   title: string;
-  description: string;
 }
 
-function InfoCard({ number, title, description }: InfoCardProps) {
+function InfoCard({ number, title }: InfoCardProps) {
   const [ref, inView] = useInView({ threshold: 0.5 });
 
   return (
@@ -152,7 +146,6 @@ function InfoCard({ number, title, description }: InfoCardProps) {
       <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 transition-colors group-hover:text-accent">
         {title}
       </h3>
-      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{description}</p>
       <div className="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 translate-x-2 translate-y-2" />
     </div>
   );

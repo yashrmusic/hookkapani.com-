@@ -71,7 +71,7 @@ export function Footer() {
               <li>
                 <a
                   href="/portfolio.pdf"
-                  download="Hookkapaani_Portfolio_2026.pdf"
+                  download="Hookkapaani_Portfolio.pdf"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Download Portfolio

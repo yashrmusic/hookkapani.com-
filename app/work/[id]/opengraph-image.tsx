@@ -18,7 +18,7 @@ export default async function OpengraphImage({ params }: Props) {
 
   const title = artwork?.title ?? 'Hookkapaani Studio';
   const subtitle = artwork
-    ? `${artwork.category.toUpperCase()} • ${artwork.year}`
+    ? artwork.category.toUpperCase()
     : 'Kinetic Sculpture Studio';
 
   return new ImageResponse(

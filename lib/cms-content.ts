@@ -4,7 +4,6 @@ import path from 'node:path';
 export interface CmsHeroCard {
   number: string;
   title: string;
-  description: string;
 }
 
 export interface CmsContent {
@@ -24,20 +23,14 @@ const defaultContent: CmsContent = {
       {
         number: '01',
         title: 'Kinetic Sculpture',
-        description:
-          'Large-scale mechanical sculptures that explore motion, balance, and material properties.',
       },
       {
         number: '02',
         title: 'Industrial Aesthetic',
-        description:
-          'Raw materials and honest construction celebrating manufacturing heritage.',
       },
       {
         number: '03',
         title: 'Temporal Art',
-        description:
-          'Works that evolve through oxidation, wear, and environmental interaction.',
       },
     ],
   },

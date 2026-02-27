@@ -6,34 +6,30 @@ import Image from "next/image";
 const projects = [
   {
     title: "Orbital Equilibrium",
-    year: "2026",
     location: "Kashmir, India",
     category: "Stainless Steel Installation",
-    image: "/images/new-work-7.png",
+    image: "/images/new-work-7.jpg",
     alt: "A stack of mirror-finished stainless steel spheres reflecting a serene lakeside horizon",
   },
   {
     title: "Prismatic Anatomy",
-    year: "2026",
     location: "Milan, Italy",
     category: "Polyhedral Sculpture",
-    image: "/images/new-work-8.png",
+    image: "/images/new-work-8.jpg",
     alt: "A faceted anatomical study in teal bronze with a malachite core in a modern gallery",
   },
   {
     title: "Crimson Resonance",
-    year: "2023",
     location: "Lake Como, Italy",
     category: "Kinetic Sculpture",
-    image: "/images/new-work-9.png",
+    image: "/images/new-work-9.jpg",
     alt: "Large-scale red kinetic installation in a manicured lakeside garden",
   },
   {
     title: "Echo of the Sitar",
-    year: "2023",
     location: "New Delhi, India",
     category: "Wireframe Installation",
-    image: "/images/new-work-10.png",
+    image: "/images/new-work-10.jpg",
     alt: "Intricate metallic wireframe sculpture of a sitar player in a minimalist white space",
   },
 ];
@@ -101,7 +97,6 @@ function ProjectCard({
           <p className="text-xs tracking-[0.15em] uppercase text-muted-foreground">
             {project.location}
           </p>
-          <p className="mt-1 text-xs text-muted-foreground">{project.year}</p>
         </div>
       </div>
     </div>

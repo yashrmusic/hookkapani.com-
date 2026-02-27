@@ -93,10 +93,7 @@ export function ArtworkCard({
           {!compact && (
             <>
               <p className="text-sm text-muted-foreground mb-2">
-                {artwork.year} • {artwork.category}
-              </p>
-              <p className="text-sm text-foreground/80 line-clamp-2 mb-3">
-                {artwork.description}
+                {artwork.category}
               </p>
               <Link
                 href={`/work/${artwork.id}`}

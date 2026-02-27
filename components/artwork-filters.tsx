@@ -18,8 +18,7 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
-  const [selectedYears, setSelectedYears] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'title'>('newest');
+  const [sortBy, setSortBy] = useState<'title'>('title');
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Extract unique values for filters
@@ -42,15 +41,6 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
     }));
   }, [artworks]);
 
-  const years = useMemo(() => {
-    const unique = [...new Set(artworks.map(a => a.year))].sort().reverse();
-    return unique.map(year => ({
-      value: year,
-      label: year,
-      count: artworks.filter(a => a.year === year).length,
-    }));
-  }, [artworks]);
-
   // Apply filters
   const filteredArtworks = useMemo(() => {
     let filtered = [...artworks];
@@ -61,8 +51,6 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
       filtered = filtered.filter(
         a =>
           a.title.toLowerCase().includes(query) ||
-          a.description.toLowerCase().includes(query) ||
-          a.longDescription.toLowerCase().includes(query) ||
           a.tags?.some((tag: string) => tag.toLowerCase().includes(query))
       );
     }
@@ -79,27 +67,16 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
       );
     }
 
-    // Years filter
-    if (selectedYears.length > 0) {
-      filtered = filtered.filter(a => selectedYears.includes(a.year));
-    }
-
     // Sort
     filtered.sort((a, b) => {
-      switch (sortBy) {
-        case 'newest':
-          return b.year.localeCompare(a.year);
-        case 'oldest':
-          return a.year.localeCompare(b.year);
-        case 'title':
-          return a.title.localeCompare(b.title);
-        default:
-          return 0;
+      if (sortBy === 'title') {
+        return a.title.localeCompare(b.title);
       }
+      return 0;
     });
 
     return filtered;
-  }, [artworks, searchQuery, selectedCategory, selectedMaterials, selectedYears, sortBy]);
+  }, [artworks, searchQuery, selectedCategory, selectedMaterials, sortBy]);
 
   // Update parent when filters change
   useEffect(() => {
@@ -114,24 +91,16 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
     );
   };
 
-  const handleYearToggle = (year: string) => {
-    setSelectedYears(prev =>
-      prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]
-    );
-  };
-
   const clearAllFilters = () => {
     setSearchQuery('');
     setSelectedCategory('all');
     setSelectedMaterials([]);
-    setSelectedYears([]);
-    setSortBy('newest');
+    setSortBy('title');
   };
 
   const activeFilterCount =
     (selectedCategory !== 'all' ? 1 : 0) +
     selectedMaterials.length +
-    selectedYears.length +
     (searchQuery ? 1 : 0);
 
   return (
@@ -165,11 +134,9 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
         {/* Sort */}
         <select
           value={sortBy}
-          onChange={e => setSortBy(e.target.value as 'newest' | 'oldest' | 'title')}
+          onChange={e => setSortBy(e.target.value as 'title')}
           className="px-4 py-3 bg-secondary border-2 border-border focus:border-accent focus:outline-none transition-colors"
         >
-          <option value="newest">Newest First</option>
-          <option value="oldest">Oldest First</option>
           <option value="title">By Title</option>
         </select>
 
@@ -194,13 +161,13 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
             key={cat.value}
             onClick={() => setSelectedCategory(cat.value)}
             className={`
-              px-6 py-3 text-sm font-medium uppercase tracking-wider
-              border-2 transition-all duration-300 touch-target
-              ${selectedCategory === cat.value
+                px-6 py-3 text-sm font-medium uppercase tracking-wider
+                border-2 transition-all duration-300 touch-target
+                ${selectedCategory === cat.value
                 ? 'bg-accent text-accent-foreground border-accent'
                 : 'bg-transparent text-foreground border-border hover:border-accent hover:text-accent'
               }
-            `}
+              `}
           >
             {cat.label}
             <span className="ml-2 text-xs opacity-70">({cat.count})</span>
@@ -232,31 +199,6 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
                   />
                   <span className="text-sm">
                     {mat.label} ({mat.count})
-                  </span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Years Filter */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Year
-            </h3>
-            <div className="space-y-2 max-h-48 overflow-y-auto">
-              {years.map(year => (
-                <label
-                  key={year.value}
-                  className="flex items-center gap-3 cursor-pointer hover:text-accent transition-colors touch-target"
-                >
-                  <input
-                    type="checkbox"
-                    checked={selectedYears.includes(year.value)}
-                    onChange={() => handleYearToggle(year.value)}
-                    className="w-5 h-5 accent-accent"
-                  />
-                  <span className="text-sm">
-                    {year.label} ({year.count})
                   </span>
                 </label>
               ))}

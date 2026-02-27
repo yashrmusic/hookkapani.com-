@@ -71,10 +71,6 @@ export function KineticAnimation({ className = "h-full w-full" }: { className?: 
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
                 <pointLight position={[-10, -10, -10]} intensity={0.5} color="#f72585" />
 
-                <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-                    <InteractiveSculpture />
-                </Float>
-
                 <WireframeOctahedron />
 
                 <Environment preset="city" />

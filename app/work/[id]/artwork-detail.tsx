@@ -38,7 +38,7 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
 
           <ShareButton
             title={artwork.title}
-            text={`${artwork.title} - ${artwork.description}`}
+            text={artwork.title}
             url={`/work/${artwork.id}`}
             variant="button"
           />
@@ -93,17 +93,9 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
               {artwork.title}
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              {artwork.longDescription || artwork.description}
-            </p>
           </div>
 
           <div className="space-y-6">
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Year</h3>
-              <p className="text-lg font-medium">{artwork.year}</p>
-            </div>
-
             <div>
               <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Category</h3>
               <p className="text-lg font-medium capitalize">{artwork.category}</p>

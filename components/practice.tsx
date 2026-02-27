@@ -7,7 +7,7 @@ import { artworks } from '../data/artworks';
 const stats = [
   { value: artworks.length, suffix: "", label: "Works Created" },
   { value: 3, suffix: "", label: "Categories" },
-  { value: 6, suffix: "+", label: "Years Active" },
+  { value: 6, suffix: "+", label: "Years Experience" },
   { value: 1, suffix: "", label: "Studio, New Delhi" },
 ];
 
