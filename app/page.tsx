@@ -23,7 +23,7 @@ const homeVideos = [
     id: 2,
     title: 'Kinetic Motion II',
     caption: 'The poetry of mechanical movement.',
-    videoUrl: '/videos/video2.mp4',
+    videoUrl: '/videos/video1.mp4',
     tag: 'Process',
   },
 ];
