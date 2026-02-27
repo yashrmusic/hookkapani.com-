@@ -274,7 +274,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-30",
-    title: "Untitled Study 30",
+    title: "Midnight Bloom",
     imageUrl: "/images/new-work-30.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -283,7 +283,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-31",
-    title: "Untitled Study 31",
+    title: "Crystal Vision",
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -292,7 +292,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-32",
-    title: "Untitled Study 32",
+    title: "Shadow Dancer",
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -301,7 +301,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-33",
-    title: "Untitled Study 33",
+    title: "Neon Pulse",
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
@@ -355,7 +355,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-39",
-    title: "Untitled Study 39",
+    title: "Prismatic Core",
     imageUrl: "/images/new-work-39.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -364,7 +364,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-40",
-    title: "Untitled Study 40",
+    title: "Lunar Reflection",
     imageUrl: "/images/new-work-40.jpg",
     aspectRatio: 0.905,
     category: "sculpture",
