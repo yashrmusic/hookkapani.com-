@@ -14,7 +14,7 @@ export interface Artwork {
 export const artworks: Artwork[] = [
   {
     id: "new-work-1",
-    title: "Two Tiger Resin",
+    title: "Form in Motion",
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -23,7 +23,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-2",
-    title: "Steel Balls",
+    title: "Liquid Dreams",
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -32,7 +32,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-3",
-    title: "Reclining Buddha",
+    title: "Rebirth in Silence",
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -41,7 +41,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-4",
-    title: "Drowning Man",
+    title: "Obsidian Dream",
     imageUrl: "/images/new-work-4.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -50,7 +50,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-5",
-    title: "The Open Gate of Soul",
+    title: "Terra Nova",
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -59,7 +59,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-6",
-    title: "Throne of Steel",
+    title: "Steel Balls",
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -68,7 +68,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-7",
-    title: "Golden Petals",
+    title: "Metamorphosis",
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -77,7 +77,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-8",
-    title: "Rebirth in Silence",
+    title: "Golden Ratio",
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -86,7 +86,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-9",
-    title: "Gesture of Genius",
+    title: "The Open Gate of Soul",
     imageUrl: "/images/new-work-9.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -95,7 +95,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-10",
-    title: "Table Horse",
+    title: "Liquid Time",
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
@@ -104,7 +104,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-11",
-    title: "The Strawberry",
+    title: "Shadow Play",
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -113,7 +113,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-12",
-    title: "Sitting Monkey",
+    title: "Orbital Dance",
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -122,7 +122,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-13",
-    title: "The Monk",
+    title: "Prismatic Dream",
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -131,7 +131,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-14",
-    title: "The Cactus",
+    title: "Throne of Steel",
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -140,7 +140,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-15",
-    title: "The Bear",
+    title: "Sitar Whisper",
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -149,7 +149,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-16",
-    title: "Metal Sphere",
+    title: "Root Vision",
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -158,7 +158,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Forest Panther",
+    title: "Table Horse",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -168,7 +168,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-18",
-    title: "The Color of Fabric",
+    title: "Silent Meditation",
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -177,7 +177,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-19",
-    title: "The Bull",
+    title: "Gesture of Genius",
     imageUrl: "/images/new-work-19.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -186,7 +186,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-20",
-    title: "The Yearning Heart",
+    title: "Sentinel",
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -195,7 +195,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-21",
-    title: "The Bunny",
+    title: "Reclining Buddha",
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -214,7 +214,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-23",
-    title: "The Apple Cage",
+    title: "Two Tiger Resin",
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -232,7 +232,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-25",
-    title: "Cognitive Forest",
+    title: "Drowning Man",
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -250,7 +250,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-27",
-    title: "Enigma",
+    title: "The Strawberry",
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
@@ -288,7 +288,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-31",
-    title: "Crystal Vision",
+    title: "Golden Petals",
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
