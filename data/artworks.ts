@@ -86,15 +86,6 @@ export const artworks: Artwork[] = [
     tags: ["New Work", "Luminous"]
   },
   {
-    id: "new-work-9",
-    title: "Cosmic Drift",
-    imageUrl: "/images/new-work-9.jpg",
-    aspectRatio: 0.778,
-    category: "sculpture",
-    materials: ["Wood", "Glass Eyeball"],
-    tags: ["New Work", "Surreal"]
-  },
-  {
     id: "new-work-10",
     title: "Formless",
     imageUrl: "/images/new-work-10.jpg",
