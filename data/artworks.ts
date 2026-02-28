@@ -19,7 +19,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Ceramic", "Gold Leaf"],
+    materials: ["Resin"],
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -28,7 +28,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Steel Mesh"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Contemplative"]
   },
   {
@@ -37,7 +37,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Terracotta", "LEDs", "Silk Plants"],
+    materials: ["Metal Casting"],
     tags: ["New Work", "Goddess"]
   },
   {
@@ -46,7 +46,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Cast Resin", "Fabric"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Satire"]
   },
   {
@@ -55,7 +55,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Acrylic", "Steel"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Geometric"]
   },
   {
@@ -64,7 +64,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Ebonized Wood"],
+    materials: ["Metal Casting"],
     tags: ["New Work", "Monochrome"]
   },
   {
@@ -159,7 +159,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Resin", "Chrome"],
+    materials: ["Scrap Metal"],
     tags: ["New Work", "Conceptual"]
   },
   {
@@ -177,7 +177,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Chrome"],
+    materials: ["Scrap Metal"],
     dimensions: "7 ft",
     description: "A resin-and-chrome reinterpretation of an iconic face, balancing reflective finish with sculptural mass.",
     tags: ["New Work", "Haunting"]
@@ -188,7 +188,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Glass-Reinforced Plastic"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Avian"]
   },
   {
@@ -290,7 +290,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Acrylic Sheet"],
     tags: ["New Work", "Study"]
   },
   {
@@ -308,7 +308,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-34.jpg",
     aspectRatio: 1.339,
     category: "installation",
-    materials: ["Soft-Touch Vinyl", "Fiberglass"],
+    materials: ["Stainless Steel", "Copper"],
     tags: ["New Work", "Social"]
   },
   {
@@ -335,7 +335,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-37.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["High-Gloss Carbon Fiber"],
+    materials: ["Cardboard"],
     tags: ["New Work", "Functional"]
   },
   {
