@@ -163,7 +163,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Table Horse",
+    title: "The Strawberry",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -322,7 +322,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-34",
-    title: "Oracle",
+    title: "Metalic Wave",
     imageUrl: "/images/new-work-34.jpg",
     aspectRatio: 1.339,
     category: "installation",
@@ -367,7 +367,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-39",
-    title: "Prismatic Core",
+    title: "Astronaut",
     imageUrl: "/images/new-work-39.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
