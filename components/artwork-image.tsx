@@ -25,7 +25,7 @@ export function ArtworkImage({
 
   return (
     <div
-      className={`relative w-full overflow-hidden bg-secondary ${className} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      className={`relative w-full overflow-hidden bg-secondary shadow-[0_0_0_0_rgba(0,0,0,0)] group-hover:shadow-2xl ${className} transition-all duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       style={{ paddingBottom }}
     >
       <Image
@@ -69,7 +69,7 @@ export function ArtworkCard({
 
   return (
     <div
-      className="group relative"
+      className="group relative transition-transform duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 hover:z-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
