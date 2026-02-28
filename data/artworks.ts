@@ -14,7 +14,7 @@ export interface Artwork {
 export const artworks: Artwork[] = [
   {
     id: "new-work-1",
-    title: "Form in Motion",
+    title: "Sitting Monkey",
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -23,7 +23,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-2",
-    title: "Liquid Dreams",
+    title: "The Bear",
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -68,7 +68,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-7",
-    title: "Metamorphosis",
+    title: "Metal Sphere",
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -77,7 +77,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-8",
-    title: "Golden Ratio",
+    title: "The Open Gates Soul",
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -324,7 +324,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-35",
-    title: "Luminous Leviathan",
+    title: "Forrest Panther",
     imageUrl: "/images/new-work-35.jpg",
     aspectRatio: 0.705,
     category: "sculpture",
@@ -351,7 +351,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-38",
-    title: "Infinite Horizon",
+    title: "The Cactus",
     imageUrl: "/images/new-work-38.jpg",
     aspectRatio: 1.0,
     category: "sculpture",
