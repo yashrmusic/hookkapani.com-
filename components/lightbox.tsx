@@ -264,31 +264,50 @@ export function Lightbox({
           </div>
         </div>
 
-        <div
-          className="w-full md:w-80 lg:w-96 bg-[#141414] md:bg-[#141414]/90 p-4 md:p-6 overflow-y-auto flex-shrink-0"
-          style={{ maxHeight: '35vh' }}
+        <aside
+          className="w-full md:w-[23rem] lg:w-[26rem] bg-gradient-to-b from-[#191919]/95 via-[#131313]/95 to-[#0f0f0f]/95 border-l border-white/10 overflow-y-auto flex-shrink-0"
+          style={{ maxHeight: '40vh' }}
+          aria-label="Artwork details"
         >
-          <h3 className="text-lg md:text-xl font-bold text-white mb-1">{artwork.title}</h3>
-          <p className="text-sm text-white/60 mb-3">{artwork.category}</p>
-
-          {artwork.materials && artwork.materials.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-3">
-              {artwork.materials.slice(0, 3).map((material: string) => (
-                <span key={material} className="px-2 py-1 bg-white/5 text-white/70 text-xs rounded">
-                  {material}
-                </span>
-              ))}
+          <div className="p-4 md:p-6">
+            <div className="border border-white/10 bg-white/[0.03] rounded-2xl p-4 md:p-5">
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/45 mb-2">{artwork.category}</p>
+              <h3 className="text-xl md:text-2xl font-semibold text-white leading-tight">{artwork.title}</h3>
             </div>
-          )}
 
-          {artwork.dimensions && (
-            <p className="text-xs text-white/50 mb-3">{artwork.dimensions}</p>
-          )}
+            <div className="mt-4 md:mt-5 space-y-4">
+              {artwork.materials && artwork.materials.length > 0 && (
+                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Materials</p>
+                  <div className="flex flex-wrap gap-2">
+                    {artwork.materials.map((material: string) => (
+                      <span
+                        key={material}
+                        className="px-2.5 py-1 rounded-full border border-white/15 bg-white/[0.04] text-[11px] text-white/85"
+                      >
+                        {material}
+                      </span>
+                    ))}
+                  </div>
+                </section>
+              )}
 
-          {artwork.description && (
-            <p className="text-xs text-white/65 leading-relaxed">{artwork.description}</p>
-          )}
-        </div>
+              {artwork.dimensions && (
+                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Scale</p>
+                  <p className="text-sm text-white/85">{artwork.dimensions}</p>
+                </section>
+              )}
+
+              {artwork.description && (
+                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Narrative</p>
+                  <p className="text-sm text-white/75 leading-relaxed">{artwork.description}</p>
+                </section>
+              )}
+            </div>
+          </div>
+        </aside>
       </div>
 
       <div
