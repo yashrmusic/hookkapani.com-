@@ -51,7 +51,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-5",
-    title: "Terra Nova",
+    title: "Sitting Bear",
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -87,7 +87,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-9",
-    title: "The Open Gate of Soul",
+    title: "Cosmic Drift",
     imageUrl: "/images/new-work-9.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -163,7 +163,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "The Strawberry",
+    title: "Table Horse",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -221,7 +221,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-23",
-    title: "Two Tiger Resin",
+    title: "Tiger Man",
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
