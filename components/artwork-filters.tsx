@@ -18,8 +18,15 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<'title'>('title');
+  const [sortBy, setSortBy] = useState<'material' | 'title'>('material');
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const materialPriority = (materials: string[]) => {
+    const normalized = materials.map((m) => m.toLowerCase());
+    if (normalized.includes('stainless steel')) return 0;
+    if (normalized.includes('resin') || normalized.includes('clear resin')) return 1;
+    return 2;
+  };
 
   // Extract unique values for filters
   const categories = useMemo(() => {
@@ -69,10 +76,14 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
 
     // Sort
     filtered.sort((a, b) => {
+      if (sortBy === 'material') {
+        const byMaterial = materialPriority(a.materials) - materialPriority(b.materials);
+        if (byMaterial !== 0) return byMaterial;
+      }
       if (sortBy === 'title') {
         return a.title.localeCompare(b.title);
       }
-      return 0;
+      return a.title.localeCompare(b.title);
     });
 
     return filtered;
@@ -95,7 +106,7 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
     setSearchQuery('');
     setSelectedCategory('all');
     setSelectedMaterials([]);
-    setSortBy('title');
+    setSortBy('material');
   };
 
   const activeFilterCount =
@@ -134,9 +145,10 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
         {/* Sort */}
         <select
           value={sortBy}
-          onChange={e => setSortBy(e.target.value as 'title')}
+          onChange={e => setSortBy(e.target.value as 'material' | 'title')}
           className="px-4 py-3 bg-secondary border-2 border-border focus:border-accent focus:outline-none transition-colors"
         >
+          <option value="material">By Material Group</option>
           <option value="title">By Title</option>
         </select>
 
