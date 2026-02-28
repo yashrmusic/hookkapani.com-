@@ -80,7 +80,6 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
                 loop
                 muted
                 playsInline
-                controls
                 className="w-full h-full object-contain"
               />
             ) : (

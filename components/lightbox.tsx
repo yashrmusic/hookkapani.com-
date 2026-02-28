@@ -240,7 +240,6 @@ export function Lightbox({
                 loop
                 muted
                 playsInline
-                controls
                 className="w-full h-full object-contain"
               />
             ) : (
