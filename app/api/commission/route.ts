@@ -36,6 +36,10 @@ function parseBooleanEnv(value: string | undefined) {
   return normalized === '1' || normalized === 'true' || normalized === 'yes';
 }
 
+function getEnv(name: string) {
+  return process.env[name]?.trim();
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -112,10 +116,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Field length exceeds allowed limits.' }, { status: 400 });
   }
 
-  const webhookUrl = process.env.COMMISSION_WEBHOOK_URL;
-  const smtpConfigured = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+  const webhookUrl = getEnv('COMMISSION_WEBHOOK_URL');
+  const smtpHost = getEnv('SMTP_HOST');
+  const smtpPort = Number(getEnv('SMTP_PORT')) || 587;
+  const smtpSecure = parseBooleanEnv(getEnv('SMTP_SECURE'));
+  const smtpUser = getEnv('SMTP_USER');
+  const smtpPass = getEnv('SMTP_PASS');
+  const smtpFrom = getEnv('SMTP_FROM_EMAIL');
+  const smtpConfigured = Boolean(smtpHost && smtpUser && smtpPass);
   const hasDeliveryChannel = Boolean(webhookUrl) || smtpConfigured;
-  const recipientEmail = process.env.COMMISSION_TO_EMAIL || 'hookkapani.15@gmail.com';
+  const recipientEmail = getEnv('COMMISSION_TO_EMAIL') || 'hookkapani.15@gmail.com';
   let delivered = false;
 
   if (!hasDeliveryChannel) {
@@ -167,17 +177,17 @@ export async function POST(request: NextRequest) {
     try {
       const nodemailer = (await import('nodemailer')).default;
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT) || 587,
-        secure: parseBooleanEnv(process.env.SMTP_SECURE), // true for 465, false for other ports
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpSecure, // true for 465, false for other ports
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: smtpUser,
+          pass: smtpPass,
         },
       });
 
       const mailOptions = {
-        from: process.env.SMTP_FROM_EMAIL || '"Hookkapaani Website" <no-reply@hookkapani.com>',
+        from: smtpFrom || '"Hookkapaani Website" <no-reply@hookkapani.com>',
         to: recipientEmail,
         replyTo: payload.email,
         subject: `New Commission Inquiry: ${payload.name} - ${payload.projectType}`,
