@@ -284,6 +284,10 @@ export function Lightbox({
           {artwork.dimensions && (
             <p className="text-xs text-white/50 mb-3">{artwork.dimensions}</p>
           )}
+
+          {artwork.description && (
+            <p className="text-xs text-white/65 leading-relaxed">{artwork.description}</p>
+          )}
         </div>
       </div>
 

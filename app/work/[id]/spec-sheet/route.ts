@@ -23,6 +23,7 @@ export async function GET(_: Request, { params }: Params) {
     `Category: ${artwork.category}`,
     `Materials: ${artwork.materials.join(', ')}`,
     `Dimensions: ${artwork.dimensions || 'Custom / On request'}`,
+    `Description: ${artwork.description || 'N/A'}`,
     '',
     'Installation Notes:',
     '- Site and load requirements to be finalized after technical survey.',

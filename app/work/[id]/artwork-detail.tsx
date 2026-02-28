@@ -129,6 +129,13 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
               </div>
             )}
 
+            {artwork.description && (
+              <div>
+                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Description</h3>
+                <p className="text-sm text-foreground/80 leading-relaxed">{artwork.description}</p>
+              </div>
+            )}
+
             {artwork.tags && artwork.tags.length > 0 && (
               <div>
                 <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Tags</h3>

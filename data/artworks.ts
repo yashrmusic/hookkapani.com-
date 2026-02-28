@@ -7,6 +7,7 @@ export interface Artwork {
   category: 'sculpture' | 'installation' | 'kinetic';
   materials: string[];
   dimensions?: string;
+  description?: string;
   tags: string[];
   modelUrl?: string;
 }
@@ -117,7 +118,9 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Resin", "Pigment"],
+    materials: ["Stainless Steel", "Resin"],
+    dimensions: "8 ft",
+    description: "A kinetic-inspired figure balancing industrial heft and fluid posture, built in stainless steel and resin.",
     tags: ["New Work", "Geometric"]
   },
   {
@@ -126,7 +129,9 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Cast Iron", "Obsidian"],
+    materials: ["Stainless Steel"],
+    dimensions: "12 ft",
+    description: "A vertical stainless-steel statement at monumental scale, designed as a musical and spatial anchor.",
     tags: ["New Work", "Mythic"]
   },
   {
@@ -190,7 +195,9 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Carved Limestone"],
+    materials: ["Resin", "Chrome"],
+    dimensions: "7 ft",
+    description: "A resin-and-chrome reinterpretation of an iconic face, balancing reflective finish with sculptural mass.",
     tags: ["New Work", "Haunting"]
   },
   {
