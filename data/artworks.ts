@@ -73,7 +73,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
-    materials: ["Gold-Plated Steel"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Luminous"]
   },
   {
@@ -122,7 +122,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Mixed Media"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Color"]
   },
   {
@@ -140,7 +140,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Bioplastic"],
+    materials: ["Resin"],
     tags: ["New Work", "Organic"]
   },
   {
@@ -150,7 +150,7 @@ export const artworks: Artwork[] = [
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Carbon Fiber", "Matte Resin"],
+    materials: ["Resin", "Mechanism"],
     tags: ["New Work", "Power"]
   },
   {
@@ -207,7 +207,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Cast Bronze"],
+    materials: ["Resin"],
     tags: ["New Work", "Process"]
   },
   {
@@ -216,7 +216,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Fiberglass", "Acrylic Paint"],
+    materials: ["Resin", "Chrome"],
     tags: ["New Work", "Surrealism"]
   },
   {
@@ -234,7 +234,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Bronze"],
+    materials: ["Resin"],
     tags: ["New Work", "Philosophical"]
   },
   {
@@ -243,7 +243,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
-    materials: ["Found Objects", "Mixed Media"],
+    materials: ["Resin"],
     tags: ["New Work", "Mosaic"]
   },
   {
@@ -262,7 +262,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Cast Resin", "Matte Black Paint"],
+    materials: ["Clear Resin"],
     tags: ["New Work", "Alien"]
   },
   {
@@ -272,7 +272,7 @@ export const artworks: Artwork[] = [
     videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Stainless Steel"],
+    materials: ["Resin", "Mechanism"],
     tags: ["New Work", "Study"]
   },
   {
@@ -299,7 +299,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Resin", "Stainless Steel"],
     tags: ["New Work", "Study"]
   },
   {
@@ -344,7 +344,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-38.jpg",
     aspectRatio: 1.0,
     category: "sculpture",
-    materials: ["Corroded Steel", "Neon"],
+    materials: ["Clear Resin"],
     tags: ["New Work", "Legend"]
   },
   {
@@ -362,7 +362,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-40.jpg",
     aspectRatio: 0.905,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Resin", "Fabric"],
     tags: ["New Work", "Study"]
   },
 ];
