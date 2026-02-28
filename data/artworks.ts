@@ -163,7 +163,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Table Horse",
+    title: "The Strawberry",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -257,7 +257,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-27",
-    title: "The Strawberry",
+    title: "Table Horse",
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
