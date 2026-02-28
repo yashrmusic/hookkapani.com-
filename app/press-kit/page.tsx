@@ -33,7 +33,7 @@ export default function PressKitPage() {
 
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Media Contact</h2>
-          <p className="text-sm">Email: <a className="text-accent" href="mailto:studio@hookkapaani.com">studio@hookkapaani.com</a></p>
+          <p className="text-sm">Email: <a className="text-accent" href="mailto:hookkapani.15@gmail.com">hookkapani.15@gmail.com</a></p>
           <p className="text-sm">Location: New Delhi, India</p>
         </section>
 

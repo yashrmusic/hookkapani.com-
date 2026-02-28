@@ -87,8 +87,8 @@ export function Footer() {
             <ul className="space-y-2 text-muted-foreground">
               <li>New Delhi, India</li>
               <li>
-                <a href="mailto:studio@hookkapaani.com" className="hover:text-accent transition-colors">
-                  studio@hookkapaani.com
+                <a href="mailto:hookkapani.15@gmail.com" className="hover:text-accent transition-colors">
+                  hookkapani.15@gmail.com
                 </a>
               </li>
               <li>By appointment only</li>
@@ -100,8 +100,8 @@ export function Footer() {
           >
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Studio Hours</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>Monday - Friday</li>
-              <li>10:00 AM - 6:00 PM IST</li>
+              <li>Monday - Saturday</li>
+              <li>10:00 AM - 7:00 PM IST</li>
               <li className="pt-2 text-sm">Visits by appointment</li>
             </ul>
           </div>

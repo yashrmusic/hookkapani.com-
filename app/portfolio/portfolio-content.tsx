@@ -67,7 +67,7 @@ function PortfolioInner() {
 
       <div className="mt-24 pt-12 border-t-2 border-black break-before-page flex flex-col items-center justify-center text-center h-[50vh] section-page">
         <h1 className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
-        <p className="text-xl mb-2 font-serif">contact@hookkapaani.com</p>
+        <p className="text-xl mb-2 font-serif">hookkapani.15@gmail.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
         <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© Hookkapaani Studio</p>
       </div>

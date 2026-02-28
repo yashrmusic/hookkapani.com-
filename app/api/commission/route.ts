@@ -158,7 +158,7 @@ export async function POST(request: NextRequest) {
 
       const mailOptions = {
         from: process.env.SMTP_FROM_EMAIL || '"Hookkapaani Website" <no-reply@hookkapani.com>',
-        to: 'mandeep.hookkapani@gmail.com',
+        to: 'hookkapani.15@gmail.com',
         subject: `New Commission Inquiry: ${payload.name} - ${payload.projectType}`,
         text: `
 New Commission Inquiry Received

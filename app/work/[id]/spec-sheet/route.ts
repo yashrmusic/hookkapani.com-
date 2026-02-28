@@ -30,7 +30,7 @@ export async function GET(_: Request, { params }: Params) {
     '- Indoor / outdoor suitability depends on selected material finish.',
     '',
     'Studio Contact:',
-    'studio@hookkapaani.com',
+    'hookkapani.15@gmail.com',
     'New Delhi, India',
   ];
 
