@@ -82,7 +82,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Layered Acrylic"],
+    materials: ["Resin"],
     tags: ["New Work", "Oceanic"]
   },
   {
@@ -91,7 +91,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Matte Ceramic"],
+    materials: ["Stainless Steel", "Chrome"],
     tags: ["New Work", "Peace"]
   },
   {
@@ -100,7 +100,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Stainless Steel", "Resin"],
+    materials: ["Stainless Steel"],
     dimensions: "8 ft",
     description: "A kinetic-inspired figure balancing industrial heft and fluid posture, built in stainless steel and resin.",
     tags: ["New Work", "Geometric"]
@@ -131,7 +131,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Fiberglass", "Auto Finish"],
+    materials: ["Stainless Steel", "Resin"],
     tags: ["New Work", "Wonder"]
   },
   {
@@ -159,7 +159,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Engineered Wood", "Plaster"],
+    materials: ["Resin", "Chrome"],
     tags: ["New Work", "Conceptual"]
   },
   {
@@ -168,7 +168,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-19.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Vintage Electronics", "Steel"],
+    materials: ["Resin"],
     tags: ["New Work", "Digital"]
   },
   {
@@ -198,7 +198,7 @@ export const artworks: Artwork[] = [
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Aluminum", "Carbon Fiber"],
+    materials: ["Resin", "Mechanism"],
     tags: ["New Work", "Automotive"]
   },
   {
@@ -225,7 +225,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Bronze", "Gold Leaf"],
+    materials: ["Resin"],
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -253,7 +253,7 @@ export const artworks: Artwork[] = [
     videoUrl: "/videos/video1.mp4",
     aspectRatio: 0.667,
     category: "kinetic",
-    materials: ["Plexiglass", "LEDs"],
+    materials: ["Resin", "Mechanism"],
     tags: ["New Work", "Luminous"]
   },
   {
@@ -272,7 +272,7 @@ export const artworks: Artwork[] = [
     videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Study"]
   },
   {
@@ -281,7 +281,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Stainless Steel"],
     tags: ["New Work", "Study"]
   },
   {
@@ -317,7 +317,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-35.jpg",
     aspectRatio: 0.705,
     category: "sculpture",
-    materials: ["Polyurethane", "Glass Spheres"],
+    materials: ["Resin"],
     tags: ["New Work", "Cosmic"]
   },
   {
@@ -326,7 +326,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-36.jpg",
     aspectRatio: 1.5,
     category: "installation",
-    materials: ["Optical Fiber", "Translucent Resin"],
+    materials: ["Resin"],
     tags: ["New Work", "Light"]
   },
   {
@@ -353,7 +353,7 @@ export const artworks: Artwork[] = [
     imageUrl: "/images/new-work-39.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Mixed Media"],
+    materials: ["Resin", "Chrome"],
     tags: ["New Work", "Study"]
   },
   {
