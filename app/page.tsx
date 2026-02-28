@@ -26,6 +26,20 @@ const homeVideos = [
     videoUrl: '/videos/video2.mp4',
     tag: 'Process',
   },
+  {
+    id: 3,
+    title: 'The Trippy Strawberry',
+    caption: 'Kinetic form in playful tension.',
+    videoUrl: '/videos/trippy-strawberry.mp4',
+    tag: 'New Work',
+  },
+  {
+    id: 4,
+    title: 'The Yearning Heart',
+    caption: 'An ode to instinct and personal belief.',
+    videoUrl: '/videos/yearning-heart.mov',
+    tag: 'New Work',
+  },
 ];
 
 export default async function Home() {
