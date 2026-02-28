@@ -14,7 +14,7 @@ export interface Artwork {
 export const artworks: Artwork[] = [
   {
     id: "new-work-1",
-    title: "Form in Motion",
+    title: "Two Tiger Resin",
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -23,7 +23,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-2",
-    title: "Liquid Dreams",
+    title: "Steel Balls",
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -32,7 +32,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-3",
-    title: "Echoes of Light",
+    title: "Reclining Buddha",
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -41,7 +41,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-4",
-    title: "Obsidian Dream",
+    title: "Drowning Man",
     imageUrl: "/images/new-work-4.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -50,7 +50,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-5",
-    title: "Terra Nova",
+    title: "The Open Gate of Soul",
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -59,7 +59,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-6",
-    title: "Bronze Whispers",
+    title: "Throne of Steel",
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -68,7 +68,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-7",
-    title: "Metamorphosis",
+    title: "Golden Petals",
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -77,7 +77,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-8",
-    title: "Golden Ratio",
+    title: "Rebirth in Silence",
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -86,7 +86,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-9",
-    title: "Cosmic Drift",
+    title: "Gesture of Genius",
     imageUrl: "/images/new-work-9.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -95,7 +95,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-10",
-    title: "Liquid Time",
+    title: "Table Horse",
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
@@ -104,7 +104,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-11",
-    title: "Shadow Play",
+    title: "The Strawberry",
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -113,7 +113,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-12",
-    title: "Orbital Dance",
+    title: "Sitting Monkey",
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -122,7 +122,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-13",
-    title: "Prismatic Dream",
+    title: "The Monk",
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -131,7 +131,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-14",
-    title: "Crimson Wave",
+    title: "The Cactus",
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -140,7 +140,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-15",
-    title: "Sitar Whisper",
+    title: "The Bear",
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -149,7 +149,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-16",
-    title: "Root Vision",
+    title: "Metal Sphere",
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -158,7 +158,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Gravity Well",
+    title: "Forest Panther",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -168,7 +168,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-18",
-    title: "Silent Meditation",
+    title: "The Color of Fabric",
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -177,7 +177,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-19",
-    title: "Emerald Crystal",
+    title: "The Bull",
     imageUrl: "/images/new-work-19.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -186,7 +186,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-20",
-    title: "Sentinel",
+    title: "The Yearning Heart",
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -195,7 +195,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-21",
-    title: "Chromatic Blast",
+    title: "The Bunny",
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -214,7 +214,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-23",
-    title: "Amethyst Bloom",
+    title: "The Apple Cage",
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
