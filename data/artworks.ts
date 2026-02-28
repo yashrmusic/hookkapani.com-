@@ -2,6 +2,7 @@ export interface Artwork {
   id: string;
   title: string;
   imageUrl: string;
+  videoUrl?: string;
   aspectRatio: number;
   category: 'sculpture' | 'installation' | 'kinetic';
   materials: string[];
@@ -159,6 +160,7 @@ export const artworks: Artwork[] = [
     id: "new-work-17",
     title: "Gravity Well",
     imageUrl: "/images/new-work-17.jpg",
+    videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Carbon Fiber", "Matte Resin"],
@@ -204,6 +206,7 @@ export const artworks: Artwork[] = [
     id: "new-work-22",
     title: "White Rabbit",
     imageUrl: "/images/new-work-22.jpg",
+    videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Aluminum", "Carbon Fiber"],
@@ -258,6 +261,7 @@ export const artworks: Artwork[] = [
     id: "new-work-28",
     title: "Red Robin",
     imageUrl: "/images/new-work-28.jpg",
+    videoUrl: "/videos/video1.mp4",
     aspectRatio: 0.667,
     category: "kinetic",
     materials: ["Plexiglass", "LEDs"],
@@ -276,6 +280,7 @@ export const artworks: Artwork[] = [
     id: "new-work-30",
     title: "Midnight Bloom",
     imageUrl: "/images/new-work-30.jpg",
+    videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Mixed Media"],

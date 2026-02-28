@@ -72,6 +72,17 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
                 alt={artwork.title}
                 className="w-full h-full"
               />
+            ) : artwork.videoUrl ? (
+              <video
+                src={artwork.videoUrl}
+                poster={artwork.imageUrl}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-full object-contain"
+              />
             ) : (
               <Image
                 src={artwork.imageUrl}
