@@ -96,7 +96,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-10",
-    title: "Liquid Time",
+    title: "Formless",
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
@@ -211,7 +211,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-22",
-    title: "Forrest Lady",
+    title: "Forest Lady",
     imageUrl: "/images/new-work-22.jpg",
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
@@ -331,7 +331,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-35",
-    title: "Forrest Panther",
+    title: "Forest Panther",
     imageUrl: "/images/new-work-35.jpg",
     aspectRatio: 0.705,
     category: "sculpture",
