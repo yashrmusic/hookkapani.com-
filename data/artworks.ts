@@ -41,7 +41,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-4",
-    title: "Obsidian Dream",
+    title: "The Sitting Bear",
     imageUrl: "/images/new-work-4.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -113,7 +113,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-12",
-    title: "Orbital Dance",
+    title: "Bowling Man",
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -122,7 +122,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-13",
-    title: "Prismatic Dream",
+    title: "Sangeeta",
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -186,7 +186,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-20",
-    title: "Sentinel",
+    title: "Mona Lisa",
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -223,7 +223,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-24",
-    title: "Midnight Prowler",
+    title: "The Bunny",
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -241,7 +241,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-26",
-    title: "Neon Desire",
+    title: "The Bull",
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -259,7 +259,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-28",
-    title: "Red Robin",
+    title: "Medusa",
     imageUrl: "/images/new-work-28.jpg",
     videoUrl: "/videos/video1.mp4",
     aspectRatio: 0.667,
@@ -278,7 +278,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-30",
-    title: "Midnight Bloom",
+    title: "The Hearing Heart",
     imageUrl: "/images/new-work-30.jpg",
     videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
@@ -306,7 +306,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-33",
-    title: "Neon Pulse",
+    title: "The Apple Cage",
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
@@ -369,7 +369,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-40",
-    title: "Lunar Reflection",
+    title: "The Color of Fabric",
     imageUrl: "/images/new-work-40.jpg",
     aspectRatio: 0.905,
     category: "sculpture",
