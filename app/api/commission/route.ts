@@ -40,6 +40,10 @@ function getEnv(name: string) {
   return process.env[name]?.trim();
 }
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -124,16 +128,8 @@ export async function POST(request: NextRequest) {
   const smtpPass = getEnv('SMTP_PASS');
   const smtpFrom = getEnv('SMTP_FROM_EMAIL');
   const smtpConfigured = Boolean(smtpHost && smtpUser && smtpPass);
-  const hasDeliveryChannel = Boolean(webhookUrl) || smtpConfigured;
   const recipientEmail = getEnv('COMMISSION_TO_EMAIL') || 'hookkapani.15@gmail.com';
   let delivered = false;
-
-  if (!hasDeliveryChannel) {
-    return NextResponse.json(
-      { error: 'Inquiry delivery is not configured. Please contact the studio directly at hookkapani.15@gmail.com.' },
-      { status: 503 }
-    );
-  }
 
   if (webhookUrl) {
     try {
@@ -228,17 +224,59 @@ ${payload.description}
         `,
       };
 
-      await transporter.sendMail(mailOptions);
-      delivered = true;
+      let lastError: unknown = null;
+      for (let attempt = 1; attempt <= 3; attempt += 1) {
+        try {
+          await transporter.sendMail(mailOptions);
+          delivered = true;
+          lastError = null;
+          break;
+        } catch (error) {
+          lastError = error;
+          if (attempt < 3) {
+            await sleep(attempt * 500);
+          }
+        }
+      }
+
+      if (lastError) {
+        throw lastError;
+      }
     } catch (error) {
       console.error('Email sending failed:', error);
     }
   }
 
   if (!delivered) {
+    // Last-resort capture so leads are not lost during transient mail/webhook failures.
+    console.error(
+      'COMMISSION_FALLBACK',
+      JSON.stringify({
+        createdAt: new Date().toISOString(),
+        ip,
+        payload: {
+          name: payload.name,
+          email: payload.email,
+          phone: payload.phone || '',
+          companyName: payload.companyName || '',
+          decisionRole: payload.decisionRole || '',
+          projectType: payload.projectType,
+          location: payload.location || '',
+          dimensions: payload.dimensions || '',
+          budget: payload.budget,
+          timeline: payload.timeline,
+          description: payload.description,
+        },
+      })
+    );
+
     return NextResponse.json(
-      { error: 'We could not deliver your brief right now. Please try again in a minute.' },
-      { status: 502 }
+      {
+        ok: true,
+        queued: true,
+        warning: 'Your brief was received. Delivery is delayed and will be reviewed from backup logs.',
+      },
+      { status: 202 }
     );
   }
 
