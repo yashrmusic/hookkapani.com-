@@ -41,15 +41,6 @@ export const artworks: Artwork[] = [
     tags: ["New Work", "Goddess"]
   },
   {
-    id: "new-work-4",
-    title: "Obsidian Dream",
-    imageUrl: "/images/new-work-4.jpg",
-    aspectRatio: 0.73,
-    category: "sculpture",
-    materials: ["Gilded Wood", "Lacquer"],
-    tags: ["New Work", "Astro-Bunny"]
-  },
-  {
     id: "new-work-5",
     title: "Sitting Bear",
     imageUrl: "/images/new-work-5.jpg",
