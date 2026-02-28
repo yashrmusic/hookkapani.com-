@@ -104,7 +104,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-11",
-    title: "Shadow Play",
+    title: "Chrome Drop",
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -140,7 +140,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-15",
-    title: "Sitar Whisper",
+    title: "Formula 1",
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -149,7 +149,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-16",
-    title: "Root Vision",
+    title: "The Owl",
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -168,7 +168,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-18",
-    title: "Silent Meditation",
+    title: "Chilled Owl",
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -297,7 +297,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-32",
-    title: "Shadow Dancer",
+    title: "Koi Fish",
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -342,7 +342,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-37",
-    title: "Stellar Monarch",
+    title: "King Kong",
     imageUrl: "/images/new-work-37.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
