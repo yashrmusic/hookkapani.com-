@@ -22,6 +22,7 @@ export function ProjectsEnhanced() {
 
   const closeLightbox = () => {
     setIsLightboxOpen(false);
+    setTimeout(() => setLightboxArtwork(null), 220);
   };
 
   const handleNext = () => {
@@ -115,4 +116,3 @@ export function ProjectsEnhanced() {
     </>
   );
 }
-

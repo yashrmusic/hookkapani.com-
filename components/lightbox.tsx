@@ -136,7 +136,7 @@ export function Lightbox({
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'} ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       onClick={onClose}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
