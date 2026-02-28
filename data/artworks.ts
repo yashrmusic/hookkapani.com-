@@ -12,7 +12,7 @@ export interface Artwork {
   modelUrl?: string;
 }
 
-export const artworks: Artwork[] = [
+const artworksRaw: Artwork[] = [
   {
     id: "new-work-1",
     title: "Sitting Monkey",
@@ -366,6 +366,19 @@ export const artworks: Artwork[] = [
     tags: ["New Work", "Study"]
   },
 ];
+
+function materialPriority(materials: string[]) {
+  const normalized = materials.map((m) => m.toLowerCase());
+  if (normalized.includes('stainless steel')) return 0;
+  if (normalized.includes('resin') || normalized.includes('clear resin')) return 1;
+  return 2;
+}
+
+export const artworks: Artwork[] = [...artworksRaw].sort((a, b) => {
+  const byPriority = materialPriority(a.materials) - materialPriority(b.materials);
+  if (byPriority !== 0) return byPriority;
+  return a.title.localeCompare(b.title);
+});
 
 export function getArtworksByCategory(category: Artwork['category']): Artwork[] {
   return artworks.filter(artwork => artwork.category === category);
