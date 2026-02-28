@@ -74,9 +74,10 @@ export function CommissionForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+      const result = await response.json().catch(() => null);
 
       if (!response.ok) {
-        throw new Error('Submission failed');
+        throw new Error(result?.error || 'Submission failed');
       }
 
       trackEvent('project_brief_submitted', {
@@ -87,8 +88,8 @@ export function CommissionForm() {
 
       setIsSubmitted(true);
       setFormData(initialFormData);
-    } catch {
-      setSubmitError('Could not send your project brief. Please try again.');
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Could not send your project brief. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

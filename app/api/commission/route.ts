@@ -30,6 +30,12 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const rateLimitStore = new Map<string, { count: number; windowStart: number }>();
 
+function parseBooleanEnv(value: string | undefined) {
+  if (!value) return false;
+  const normalized = value.trim().toLowerCase();
+  return normalized === '1' || normalized === 'true' || normalized === 'yes';
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -107,9 +113,19 @@ export async function POST(request: NextRequest) {
   }
 
   const webhookUrl = process.env.COMMISSION_WEBHOOK_URL;
+  const smtpConfigured = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+  const hasDeliveryChannel = Boolean(webhookUrl) || smtpConfigured;
+  const recipientEmail = process.env.COMMISSION_TO_EMAIL || 'hookkapani.15@gmail.com';
+  let delivered = false;
+
+  if (!hasDeliveryChannel) {
+    return NextResponse.json(
+      { error: 'Inquiry delivery is not configured. Please contact the studio directly at hookkapani.15@gmail.com.' },
+      { status: 503 }
+    );
+  }
 
   if (webhookUrl) {
-    // ... webhook logic ...
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 8000);
@@ -137,19 +153,23 @@ export async function POST(request: NextRequest) {
         signal: controller.signal,
       });
       clearTimeout(timeout);
+      if (!response.ok) {
+        throw new Error(`Webhook responded with status ${response.status}`);
+      }
+      delivered = true;
     } catch (e) {
       console.error('Webhook delivery failed', e);
     }
   }
 
   // Send Email via Nodemailer
-  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+  if (smtpConfigured) {
     try {
       const nodemailer = (await import('nodemailer')).default;
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: Number(process.env.SMTP_PORT) || 587,
-        secure: Boolean(process.env.SMTP_SECURE) || false, // true for 465, false for other ports
+        secure: parseBooleanEnv(process.env.SMTP_SECURE), // true for 465, false for other ports
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
@@ -158,7 +178,8 @@ export async function POST(request: NextRequest) {
 
       const mailOptions = {
         from: process.env.SMTP_FROM_EMAIL || '"Hookkapaani Website" <no-reply@hookkapani.com>',
-        to: 'hookkapani.15@gmail.com',
+        to: recipientEmail,
+        replyTo: payload.email,
         subject: `New Commission Inquiry: ${payload.name} - ${payload.projectType}`,
         text: `
 New Commission Inquiry Received
@@ -198,10 +219,17 @@ ${payload.description}
       };
 
       await transporter.sendMail(mailOptions);
+      delivered = true;
     } catch (error) {
       console.error('Email sending failed:', error);
-      // Don't fail the request if email fails, just log it.
     }
+  }
+
+  if (!delivered) {
+    return NextResponse.json(
+      { error: 'We could not deliver your brief right now. Please try again in a minute.' },
+      { status: 502 }
+    );
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });
