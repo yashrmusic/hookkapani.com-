@@ -42,7 +42,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-4",
-    title: "The Sitting Bear",
+    title: "Obsidian Dream",
     imageUrl: "/images/new-work-4.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
