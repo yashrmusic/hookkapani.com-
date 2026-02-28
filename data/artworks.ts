@@ -204,7 +204,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-22",
-    title: "White Rabbit",
+    title: "Forrest Lady",
     imageUrl: "/images/new-work-22.jpg",
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
@@ -269,7 +269,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-29",
-    title: "Velocity",
+    title: "The Moon",
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -333,7 +333,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "new-work-36",
-    title: "Void Walker",
+    title: "Fish in Spectrum",
     imageUrl: "/images/new-work-36.jpg",
     aspectRatio: 1.5,
     category: "installation",
