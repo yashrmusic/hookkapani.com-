@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/hooks/use-intersection-observer';
-import { KineticAnimation } from '@/components/kinetic-lab';
 import type { CmsHeroCard } from '@/lib/cms-content';
 
 interface HeroProps {
@@ -71,8 +70,8 @@ export function Hero({
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 z-10 pt-20" style={{ opacity }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 z-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="z-20">
             <div
               ref={titleRef}
               className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
@@ -93,11 +92,6 @@ export function Hero({
             </div>
           </div>
 
-          <div
-            className={`flex-1 w-full h-[400px] md:h-[500px] relative transition-all duration-1000 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
-          >
-            <KineticAnimation className="w-full h-full" />
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 md:mt-20">
