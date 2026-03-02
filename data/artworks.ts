@@ -29,7 +29,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "7 feet",
     tags: ["New Work", "Contemplative"]
   },
@@ -39,7 +39,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "5 feet",
     tags: ["New Work", "Goddess"]
   },
@@ -59,7 +59,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "12x15 feet",
     tags: ["New Work", "Satire"]
   },
@@ -69,7 +69,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "6 feet",
     tags: ["New Work", "Geometric"]
   },
@@ -79,7 +79,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "2.5 feet each",
     tags: ["New Work", "Monochrome"]
   },
@@ -89,7 +89,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
-    materials: ["Metal Casting (SS)"],
+    materials: ["Metal Casting (Stainless Steel)"],
     dimensions: "4 feet",
     tags: ["New Work", "Luminous"]
   },
@@ -109,7 +109,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Resin", "Mechanism", "SS"],
+    materials: ["Resin", "Mechanism", "Stainless Steel"],
     dimensions: "6 feet",
     tags: ["New Work", "Oceanic"]
   },
@@ -161,7 +161,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "9 feet",
     tags: ["New Work", "Wonder"]
   },
@@ -223,7 +223,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Chrome"],
+    materials: ["Resin", "Chromium"],
     dimensions: "6 feet",
     tags: ["New Work", "Avian"]
   },
@@ -234,7 +234,7 @@ const artworksRaw: Artwork[] = [
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "8 feet",
     tags: ["New Work", "Automotive"]
   },
@@ -244,7 +244,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS", "Resin"],
+    materials: ["Stainless Steel", "Resin"],
     dimensions: "12 feet",
     tags: ["New Work", "Process"]
   },
@@ -254,7 +254,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "9 feet",
     tags: ["New Work", "Surrealism"]
   },
@@ -264,7 +264,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["SS"],
+    materials: ["Stainless Steel"],
     dimensions: "12 feet",
     tags: ["New Work", "Whimsical"]
   },
@@ -274,7 +274,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS", "Resin"],
+    materials: ["Stainless Steel", "Resin"],
     dimensions: "8 feet",
     tags: ["New Work", "Philosophical"]
   },
@@ -284,7 +284,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
-    materials: ["Resin", "Chrome"],
+    materials: ["Resin", "Chromium"],
     dimensions: "7 feet",
     tags: ["New Work", "Mosaic"]
   },
@@ -326,7 +326,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Resin", "Chrome"],
+    materials: ["Resin", "Chromium"],
     dimensions: "6 feet",
     tags: ["New Work", "Study"]
   },
@@ -346,7 +346,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
-    materials: ["Resin", "Chrome"],
+    materials: ["Resin", "Chromium"],
     dimensions: "5 feet",
     tags: ["New Work", "Study"]
   },
@@ -401,7 +401,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-39.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Chrome"],
+    materials: ["Resin", "Chromium"],
     tags: ["New Work", "Study"]
   },
   {
