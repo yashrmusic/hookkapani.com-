@@ -265,56 +265,81 @@ export function Lightbox({
         </div>
 
         <aside
-          className="w-full md:w-[23rem] lg:w-[26rem] bg-gradient-to-b from-[#191919]/95 via-[#131313]/95 to-[#0f0f0f]/95 border-l border-white/10 overflow-y-auto flex-shrink-0"
-          style={{ maxHeight: '40vh' }}
+          className="w-full md:w-[22rem] lg:w-[26rem] max-h-[50vh] md:max-h-full bg-[#0a0a0a] border-t md:border-t-0 md:border-l border-white/[0.06] overflow-y-auto flex-shrink-0 flex flex-col"
           aria-label="Artwork details"
         >
-          <div className="p-4 md:p-6">
-            <div className="border border-white/10 bg-white/[0.03] rounded-2xl p-4 md:p-5">
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/45 mb-2">{artwork.category}</p>
-              <h3 className="text-xl md:text-2xl font-semibold text-white leading-tight">{artwork.title}</h3>
+          {/* Main content area */}
+          <div className="flex-1 p-6 md:p-8 lg:p-10">
+
+            {/* Category badge */}
+            <div className="mb-6 md:mb-8">
+              <span className="inline-block text-[10px] font-mono tracking-[0.35em] uppercase text-accent/90 border border-accent/20 bg-accent/[0.04] px-3 py-1.5">
+                {artwork.category}
+              </span>
             </div>
 
-            <div className="mt-4 md:mt-5 space-y-4">
+            {/* Title */}
+            <h3 className="text-2xl md:text-3xl font-bold text-white leading-[1.15] tracking-tight mb-8 md:mb-10">
+              {artwork.title}
+            </h3>
+
+            {/* Accent divider */}
+            <div className="w-10 h-[2px] bg-accent/60 mb-8 md:mb-10" />
+
+            {/* Info grid */}
+            <div className="space-y-7 md:space-y-8">
+
+              {/* Dimensions — hero treatment */}
+              {artwork.dimensions && (
+                <div>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-2.5">Height</p>
+                  <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
+                    {artwork.dimensions}
+                  </p>
+                </div>
+              )}
+
+              {/* Materials */}
               {artwork.materials && artwork.materials.length > 0 && (
-                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Materials</p>
+                <div>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">Material</p>
                   <div className="flex flex-wrap gap-2">
                     {artwork.materials.map((material: string) => (
                       <span
                         key={material}
-                        className="px-2.5 py-1 rounded-full border border-white/15 bg-white/[0.04] text-[11px] text-white/85"
+                        className="px-3 py-1.5 text-[11px] font-medium text-white/75 border border-white/[0.08] bg-white/[0.03] hover:border-accent/30 hover:text-white/90 transition-all duration-200"
                       >
                         {material}
                       </span>
                     ))}
                   </div>
-                </section>
+                </div>
               )}
 
-              {artwork.dimensions && (
-                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Scale</p>
-                  <p className="text-sm text-white/85">{artwork.dimensions}</p>
-                </section>
-              )}
-
+              {/* Description */}
               {artwork.description && (
-                <section className="border border-white/10 bg-black/20 rounded-xl p-3">
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-white/45 mb-2">Narrative</p>
-                  <p className="text-sm text-white/75 leading-relaxed">{artwork.description}</p>
-                </section>
+                <div>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">About</p>
+                  <p className="text-sm text-white/50 leading-[1.7] font-light">{artwork.description}</p>
+                </div>
               )}
             </div>
           </div>
-        </aside>
-      </div>
 
-      <div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/50"
-        style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}
-      >
-        {currentIndex + 1} / {allArtworks.length}
+          {/* Footer with counter + link */}
+          <div className="border-t border-white/[0.06] px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+            <span className="text-[11px] font-mono text-white/30 tracking-wider">
+              {currentIndex + 1} <span className="text-white/15">/</span> {allArtworks.length}
+            </span>
+            <a
+              href={`/work/${artwork.id}`}
+              className="text-[10px] font-mono tracking-[0.2em] uppercase text-accent/70 hover:text-accent transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Full details →
+            </a>
+          </div>
+        </aside>
       </div>
     </div>
   );

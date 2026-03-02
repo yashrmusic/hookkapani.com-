@@ -20,7 +20,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "5'",
+    dimensions: "5 feet",
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -30,7 +30,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "7'",
+    dimensions: "7 feet",
     tags: ["New Work", "Contemplative"]
   },
   {
@@ -40,8 +40,18 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "5'",
+    dimensions: "5 feet",
     tags: ["New Work", "Goddess"]
+  },
+  {
+    id: "new-work-4",
+    title: "Drowning Man",
+    imageUrl: "/images/new-work-4.jpg",
+    aspectRatio: 0.73,
+    category: "sculpture",
+    materials: ["Resin"],
+    dimensions: "5 feet",
+    tags: ["New Work", "Process"]
   },
   {
     id: "new-work-5",
@@ -50,7 +60,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "12x15'",
+    dimensions: "12x15 feet",
     tags: ["New Work", "Satire"]
   },
   {
@@ -60,7 +70,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "6'",
+    dimensions: "6 feet",
     tags: ["New Work", "Geometric"]
   },
   {
@@ -70,7 +80,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "2.5' each",
+    dimensions: "2.5 feet each",
     tags: ["New Work", "Monochrome"]
   },
   {
@@ -80,8 +90,18 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.778,
     category: "sculpture",
     materials: ["Metal Casting (SS)"],
-    dimensions: "4'",
+    dimensions: "4 feet",
     tags: ["New Work", "Luminous"]
+  },
+  {
+    id: "new-work-9",
+    title: "Gesture of Genius",
+    imageUrl: "/images/new-work-9.jpg",
+    aspectRatio: 0.778,
+    category: "sculpture",
+    materials: ["Resin"],
+    dimensions: "4.5 feet",
+    tags: ["New Work", "Study"]
   },
   {
     id: "new-work-10",
@@ -89,8 +109,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Resin, Mechanism, SS"],
-    dimensions: "6'",
+    materials: ["Resin", "Mechanism", "SS"],
+    dimensions: "6 feet",
     tags: ["New Work", "Oceanic"]
   },
   {
@@ -100,7 +120,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "6x8'",
+    dimensions: "6x8 feet",
     tags: ["New Work", "Peace"]
   },
   {
@@ -110,9 +130,8 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "8 ft",
+    dimensions: "2.5 feet",
     description: "A kinetic-inspired figure balancing industrial heft and fluid posture, built in stainless steel and resin.",
-    dimensions: "2.5'",
     tags: ["New Work", "Geometric"]
   },
   {
@@ -122,9 +141,8 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "12 ft",
+    dimensions: "5x15 feet",
     description: "A vertical stainless-steel statement at monumental scale, designed as a musical and spatial anchor.",
-    dimensions: "5x15'",
     tags: ["New Work", "Mythic"]
   },
   {
@@ -134,7 +152,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "installation",
     materials: ["Fiberglass"],
-    dimensions: "7'",
+    dimensions: "7 feet",
     tags: ["New Work", "Color"]
   },
   {
@@ -144,7 +162,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 1.5,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "9'",
+    dimensions: "9 feet",
     tags: ["New Work", "Wonder"]
   },
   {
@@ -154,7 +172,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Metal Casting"],
-    dimensions: "4'",
+    dimensions: "4 feet",
     tags: ["New Work", "Organic"]
   },
   {
@@ -165,7 +183,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "5x15'",
+    dimensions: "5x15 feet",
     tags: ["New Work", "Power"]
   },
   {
@@ -174,8 +192,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Resin, Craft Stone"],
-    dimensions: "4'",
+    materials: ["Resin", "Craft Stone"],
+    dimensions: "4 feet",
     tags: ["New Work", "Conceptual"]
   },
   {
@@ -185,7 +203,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "17'",
+    dimensions: "17 feet",
     tags: ["New Work", "Digital"]
   },
   {
@@ -194,10 +212,9 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin, Mechanism"],
-    dimensions: "7 ft",
+    materials: ["Resin", "Mechanism"],
+    dimensions: "6 feet",
     description: "A resin-and-chrome reinterpretation of an iconic face, balancing reflective finish with sculptural mass.",
-    dimensions: "6'",
     tags: ["New Work", "Haunting"]
   },
   {
@@ -206,8 +223,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin, Chrome"],
-    dimensions: "6'",
+    materials: ["Resin", "Chrome"],
+    dimensions: "6 feet",
     tags: ["New Work", "Avian"]
   },
   {
@@ -218,7 +235,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "8'",
+    dimensions: "8 feet",
     tags: ["New Work", "Automotive"]
   },
   {
@@ -227,8 +244,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS, Resin"],
-    dimensions: "12'",
+    materials: ["SS", "Resin"],
+    dimensions: "12 feet",
     tags: ["New Work", "Process"]
   },
   {
@@ -238,7 +255,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["SS"],
-    dimensions: "9'",
+    dimensions: "9 feet",
     tags: ["New Work", "Surrealism"]
   },
   {
@@ -248,7 +265,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "installation",
     materials: ["SS"],
-    dimensions: "12'",
+    dimensions: "12 feet",
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -257,8 +274,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["SS, Resin"],
-    dimensions: "8'",
+    materials: ["SS", "Resin"],
+    dimensions: "8 feet",
     tags: ["New Work", "Philosophical"]
   },
   {
@@ -267,8 +284,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
-    materials: ["Resin, Chrome"],
-    dimensions: "7'",
+    materials: ["Resin", "Chrome"],
+    dimensions: "7 feet",
     tags: ["New Work", "Mosaic"]
   },
   {
@@ -279,7 +296,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "kinetic",
     materials: ["Scrap"],
-    dimensions: "5'",
+    dimensions: "5 feet",
     tags: ["New Work", "Luminous"]
   },
   {
@@ -288,8 +305,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin, Mechanism"],
-    dimensions: "12'",
+    materials: ["Resin", "Mechanism"],
+    dimensions: "12 feet",
     tags: ["New Work", "Alien"]
   },
   {
@@ -300,34 +317,37 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "8'",
+    dimensions: "8 feet",
     tags: ["New Work", "Study"]
   },
   {
     id: "new-work-31",
-    title: "Golden Petals",
+    title: "Untitled",
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Stainless Steel"],
+    materials: ["Resin", "Chrome"],
+    dimensions: "6 feet",
     tags: ["New Work", "Study"]
   },
   {
     id: "new-work-32",
-    title: "Koi Fish",
+    title: "Untitled",
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Acrylic Sheet"],
+    materials: ["Acrylic", "Mechanism"],
+    dimensions: "15 feet",
     tags: ["New Work", "Study"]
   },
   {
     id: "new-work-33",
-    title: "The Apple Cage",
+    title: "Untitled",
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
-    materials: ["Resin", "Stainless Steel"],
+    materials: ["Resin", "Chrome"],
+    dimensions: "5 feet",
     tags: ["New Work", "Study"]
   },
   {
@@ -397,7 +417,7 @@ const artworksRaw: Artwork[] = [
 
 function materialPriority(materials: string[]) {
   const normalized = materials.map((m) => m.toLowerCase());
-  if (normalized.includes('stainless steel')) return 0;
+  if (normalized.includes('stainless steel') || normalized.includes('ss')) return 0;
   if (normalized.includes('resin') || normalized.includes('clear resin')) return 1;
   return 2;
 }
