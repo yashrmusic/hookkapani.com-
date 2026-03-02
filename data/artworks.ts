@@ -54,16 +54,6 @@ const artworksRaw: Artwork[] = [
     tags: ["New Work", "Goddess"]
   },
   {
-    id: "new-work-4",
-    title: "Drowning Man",
-    imageUrl: "/images/new-work-4.jpg",
-    aspectRatio: 0.73,
-    category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "5 feet",
-    tags: ["New Work", "Process"]
-  },
-  {
     id: "new-work-5",
     title: "Sitting Bear",
     imageUrl: "/images/new-work-5.jpg",
@@ -102,16 +92,6 @@ const artworksRaw: Artwork[] = [
     materials: ["Metal Casting (Stainless Steel)"],
     dimensions: "4 feet",
     tags: ["New Work", "Luminous"]
-  },
-  {
-    id: "new-work-9",
-    title: "Gesture of Genius",
-    imageUrl: "/images/new-work-9.jpg",
-    aspectRatio: 0.778,
-    category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "4.5 feet",
-    tags: ["New Work", "Study"]
   },
   {
     id: "new-work-10",

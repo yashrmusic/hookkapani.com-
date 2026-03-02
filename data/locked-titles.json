@@ -1,7 +1,7 @@
 {
   "_warning": "⚠️ LOCKED — artwork titles and image mappings. Do not modify programmatically.",
   "_usage": "Run 'pnpm validate:titles' to check, 'pnpm lock:titles' to update after intentional changes.",
-  "_lockedAt": "2026-03-02T10:02:48.873Z",
+  "_lockedAt": "2026-03-02T10:10:10.907Z",
   "artworks": {
     "new-work-1": {
       "title": "Sitting Monkey",
@@ -14,10 +14,6 @@
     "new-work-3": {
       "title": "Rebirth in Silence",
       "imageUrl": "/images/new-work-3.jpg"
-    },
-    "new-work-4": {
-      "title": "Drowning Man",
-      "imageUrl": "/images/new-work-4.jpg"
     },
     "new-work-5": {
       "title": "Sitting Bear",
@@ -34,10 +30,6 @@
     "new-work-8": {
       "title": "The Open Gates Soul",
       "imageUrl": "/images/new-work-8.jpg"
-    },
-    "new-work-9": {
-      "title": "Gesture of Genius",
-      "imageUrl": "/images/new-work-9.jpg"
     },
     "new-work-10": {
       "title": "Formless",
