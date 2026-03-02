@@ -12,6 +12,16 @@ export interface Artwork {
   modelUrl?: string;
 }
 
+/**
+ * ⚠️  ARTWORK TITLES ARE LOCKED
+ * 
+ * The `title` field for each artwork below is protected by data/locked-titles.json.
+ * Do NOT change titles programmatically. If you need to update a title:
+ *   1. Edit the title here manually
+ *   2. Run: node scripts/validate-titles.js --lock
+ * 
+ * To verify titles haven't drifted: node scripts/validate-titles.js
+ */
 const artworksRaw: Artwork[] = [
   {
     id: "new-work-1",
