@@ -15,7 +15,7 @@ export interface Artwork {
 const artworksRaw: Artwork[] = [
   {
     id: "new-work-1",
-    title: "The Tiger Man",
+    title: "Sitting Monkey",
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -25,7 +25,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-2",
-    title: "Steel Balls",
+    title: "The Bear",
     imageUrl: "/images/new-work-2.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -35,7 +35,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-3",
-    title: "Relaxing Buddha",
+    title: "Rebirth in Silence",
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -55,7 +55,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-5",
-    title: "The Open Gate of Soul",
+    title: "Sitting Bear",
     imageUrl: "/images/new-work-5.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -65,7 +65,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-6",
-    title: "Throne of Steel",
+    title: "Steel Balls",
     imageUrl: "/images/new-work-6.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -75,7 +75,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-7",
-    title: "Golden Petals",
+    title: "Metal Sphere",
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -85,7 +85,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-8",
-    title: "Rebirth in Silence",
+    title: "The Open Gates Soul",
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
@@ -105,7 +105,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-10",
-    title: "Table Horse",
+    title: "Formless",
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
@@ -115,7 +115,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-11",
-    title: "The Strawberry",
+    title: "Chrome Drop",
     imageUrl: "/images/new-work-11.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -125,7 +125,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-12",
-    title: "Sitting Monkey",
+    title: "Bowling Man",
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
@@ -136,7 +136,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-13",
-    title: "The Monk",
+    title: "Sangeeta",
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -147,7 +147,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-14",
-    title: "The Cactus",
+    title: "Throne of Steel",
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -157,7 +157,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-15",
-    title: "The Bear",
+    title: "Formula 1",
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -167,7 +167,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-16",
-    title: "Metal Sphere",
+    title: "The Owl",
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -177,7 +177,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-17",
-    title: "Forest Panther",
+    title: "The Strawberry",
     imageUrl: "/images/new-work-17.jpg",
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
@@ -188,7 +188,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-18",
-    title: "The Color of Fabric",
+    title: "Chilled Owl",
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -198,7 +198,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-19",
-    title: "The Bull",
+    title: "Gesture of Genius",
     imageUrl: "/images/new-work-19.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -208,7 +208,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-20",
-    title: "The Yearning Heart",
+    title: "Mona Lisa",
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -219,7 +219,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-21",
-    title: "The Bunny",
+    title: "Reclining Buddha",
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -229,7 +229,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-22",
-    title: "The Apple Cage",
+    title: "Forest Lady",
     imageUrl: "/images/new-work-22.jpg",
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
@@ -240,7 +240,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-23",
-    title: "Sitting Bear",
+    title: "Tiger Man",
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -250,7 +250,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-24",
-    title: "Untitled",
+    title: "The Bunny",
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -260,7 +260,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-25",
-    title: "Sangeetha",
+    title: "Drowning Man",
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
@@ -270,7 +270,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-26",
-    title: "Bowling Man",
+    title: "The Bull",
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -280,7 +280,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-27",
-    title: "Mona Lisa",
+    title: "Table Horse",
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
@@ -301,7 +301,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-29",
-    title: "The Owl",
+    title: "The Moon",
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -311,7 +311,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-30",
-    title: "Standing Owl",
+    title: "The Hearing Heart",
     imageUrl: "/images/new-work-30.jpg",
     videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
@@ -322,7 +322,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-31",
-    title: "Untitled",
+    title: "Golden Petals",
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
@@ -332,7 +332,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-32",
-    title: "Untitled",
+    title: "Koi Fish",
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
@@ -342,7 +342,7 @@ const artworksRaw: Artwork[] = [
   },
   {
     id: "new-work-33",
-    title: "Untitled",
+    title: "The Apple Cage",
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
