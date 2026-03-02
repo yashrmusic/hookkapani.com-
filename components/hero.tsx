@@ -2,38 +2,17 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/hooks/use-intersection-observer';
-import type { CmsHeroCard } from '@/lib/cms-content';
+import Image from 'next/image';
 
-interface HeroProps {
-  title?: string;
-  subtitle?: string;
-  infoCards?: CmsHeroCard[];
-}
-
-const defaultCards: CmsHeroCard[] = [
-  {
-    number: '01',
-    title: 'Kinetic Sculpture',
-  },
-  {
-    number: '02',
-    title: 'Industrial Aesthetic',
-  },
-  {
-    number: '03',
-    title: 'Temporal Art',
-  },
+const heroVideos = [
+  { src: '/videos/video1.mp4', label: 'Kinetic Motion 1' },
+  { src: '/videos/video2.mp4', label: 'Kinetic Motion 2' },
 ];
 
-export function Hero({
-  title = 'HOOKKAPANI\nSTUDIO',
-  subtitle = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.',
-  infoCards = defaultCards,
-}: HeroProps) {
+export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [titleRef, titleInView] = useInView({ threshold: 0.1 });
   const [scrollY, setScrollY] = useState(0);
-  const [opacity, setOpacity] = useState(1);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -42,105 +21,97 @@ export function Hero({
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setOpacity(Math.max(0, 1 - currentScrollY / 300));
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const parallaxY = scrollY * 0.3;
+  const opacity = Math.max(0, 1 - scrollY / 400);
 
   return (
     <section
       ref={containerRef}
-      className="relative flex items-center justify-center overflow-hidden bg-background industrial-grid"
+      className="relative flex items-center justify-center overflow-hidden bg-background"
       style={{
         minHeight: '100vh',
         ...({ minHeight: '100dvh' } as React.CSSProperties),
         paddingTop: 'max(env(safe-area-inset-top), 0px)',
       }}
     >
-      <div className="absolute inset-0 opacity-5" style={{ transform: `translateY(${parallaxY}px)` }}>
-        <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 border-2 border-accent/20 rotate-45 rounded-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-80 h-40 sm:h-56 md:h-72 lg:h-80 border-2 border-rust/20 -rotate-12 rounded-none" />
-      </div>
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px',
+      }} />
 
-      <div className="container mx-auto px-4 sm:px-6 z-10 pt-20" style={{ opacity }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="z-20">
-            <div
-              ref={titleRef}
-              className={`transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            >
-              <h1 className="text-display mb-4 sm:mb-6 md:mb-8 flex flex-col">
-                {title.split('\n').map((line, i) => (
-                  <span key={i} className="block glitch w-fit" data-text={line}>
-                    {line}
-                  </span>
-                ))}
-              </h1>
-            </div>
+      <div className="container mx-auto px-4 sm:px-6 z-10" style={{ opacity }}>
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
 
-            <div
-              className={`mb-6 sm:mb-8 md:mb-12 transition-all duration-700 delay-200 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            >
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl">{subtitle}</p>
-            </div>
+          {/* Logo */}
+          <div
+            ref={titleRef}
+            className={`mb-10 md:mb-16 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            <Image
+              src="/placeholder-logo.svg"
+              alt="Hookkapaani Studio"
+              width={280}
+              height={80}
+              className="w-[200px] sm:w-[260px] md:w-[320px] h-auto invert"
+              priority
+            />
           </div>
 
-        </div>
-
-        <div className="max-w-7xl mx-auto mt-12 md:mt-20">
+          {/* Video Showcase */}
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl transition-all duration-700 delay-500 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 transition-all duration-700 delay-300 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            {infoCards.map((card) => (
-              <InfoCard
-                key={`${card.number}-${card.title}`}
-                number={card.number}
-                title={card.title}
-              />
+            {heroVideos.map((video, i) => (
+              <div key={video.src} className="group relative">
+                {/* Video container */}
+                <div className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]">
+                  <video
+                    src={video.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  {/* Subtle overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Label */}
+                <div className="mt-4 flex items-center gap-3">
+                  <span className="text-accent/40 text-3xl md:text-4xl font-mono font-bold leading-none">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <p className="text-sm md:text-base font-semibold text-white tracking-tight">
+                      {video.label}
+                    </p>
+                    <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/30 mt-0.5">
+                      Looping · Autoplay
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
 
+          {/* Explore Works CTA */}
           <div
-            className={`mt-12 sm:mt-16 md:mt-20 lg:mt-32 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
+            className={`mt-14 md:mt-20 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
           >
             <p className="text-label text-muted-foreground">Explore Works</p>
             <div className="w-[2px] h-12 sm:h-16 bg-accent origin-top animate-pulse" />
           </div>
+
         </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" />
     </section>
-  );
-}
-
-interface InfoCardProps {
-  number: string;
-  title: string;
-}
-
-function InfoCard({ number, title }: InfoCardProps) {
-  const [ref, inView] = useInView({ threshold: 0.5 });
-
-  return (
-    <div
-      ref={ref}
-      className={`relative group transition-all duration-600 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`}
-    >
-      <div className="text-4xl sm:text-5xl md:text-6xl font-mono font-bold text-accent/20 mb-2 sm:mb-4 transition-colors group-hover:text-accent/40">
-        {number}
-      </div>
-      <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 transition-colors group-hover:text-accent">
-        {title}
-      </h3>
-      <div className="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 translate-x-2 translate-y-2" />
-    </div>
   );
 }

@@ -32,16 +32,12 @@ export default async function Home() {
 
   return (
     <>
-      <Hero
-        title={content.hero.title}
-        subtitle={content.hero.subtitle}
-        infoCards={content.hero.infoCards}
-      />
+      <Hero />
       <ProjectsEnhanced />
       <CapabilityProof />
       <ClientsCollaborations />
       <CaseStudiesPreview />
-      
+
       <section className="py-24 px-6 md:px-10 lg:px-16 bg-zinc-950">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-12 text-white">MOTION</h2>
@@ -61,7 +57,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      
+
       <Manifesto />
       <Practice />
       <CommissionForm />
