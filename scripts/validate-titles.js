@@ -2,15 +2,15 @@
 /**
  * validate-titles.js
  * 
- * Checks that artwork titles in data/artworks.ts match the locked
- * titles in data/locked-titles.json.
+ * Checks that artwork titles AND image mappings in data/artworks.ts
+ * match the locked snapshot in data/locked-titles.json.
  * 
  * Usage:
- *   node scripts/validate-titles.js          # check only
- *   node scripts/validate-titles.js --lock   # update the lock file with current titles
+ *   node scripts/validate-titles.js          # check titles + images
+ *   node scripts/validate-titles.js --lock   # update the lock file
  * 
  * Exit codes:
- *   0 = all titles match (or lock updated)
+ *   0 = everything matches (or lock updated)
  *   1 = mismatches found
  */
 
@@ -21,64 +21,72 @@ const ROOT = path.resolve(__dirname, '..');
 const ARTWORKS_PATH = path.join(ROOT, 'data', 'artworks.ts');
 const LOCK_PATH = path.join(ROOT, 'data', 'locked-titles.json');
 
-function extractTitles(content) {
+function extractArtworks(content) {
     const map = {};
-    const regex = /id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"/g;
+    const regex = /id:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"[\s\S]*?imageUrl:\s*"([^"]+)"/g;
     let m;
     while ((m = regex.exec(content)) !== null) {
-        map[m[1]] = m[2];
+        map[m[1]] = { title: m[2], imageUrl: m[3] };
     }
     return map;
 }
 
-// --lock mode: update the lock file
+// --lock mode: snapshot current state
 if (process.argv.includes('--lock')) {
     const content = fs.readFileSync(ARTWORKS_PATH, 'utf8');
-    const titles = extractTitles(content);
+    const artworks = extractArtworks(content);
     const output = {
-        _warning: "⚠️ LOCKED TITLES — Do not modify unless manually updating artwork names. Run 'node scripts/validate-titles.js' to verify.",
+        _warning: "⚠️ LOCKED — artwork titles and image mappings. Do not modify programmatically.",
+        _usage: "Run 'pnpm validate:titles' to check, 'pnpm lock:titles' to update after intentional changes.",
         _lockedAt: new Date().toISOString(),
-        titles
+        artworks
     };
     fs.writeFileSync(LOCK_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
-    console.log(`✅ Locked ${Object.keys(titles).length} titles → ${path.relative(ROOT, LOCK_PATH)}`);
+    console.log(`🔒 Locked ${Object.keys(artworks).length} artworks (title + image) → ${path.relative(ROOT, LOCK_PATH)}`);
     process.exit(0);
 }
 
 // Validation mode
 if (!fs.existsSync(LOCK_PATH)) {
-    console.error('❌ No locked-titles.json found. Run with --lock first to create one.');
+    console.error('❌ No locked-titles.json found. Run with --lock first.');
     process.exit(1);
 }
 
 const lockData = JSON.parse(fs.readFileSync(LOCK_PATH, 'utf8'));
-const lockedTitles = lockData.titles;
+const locked = lockData.artworks || lockData.titles; // backward compat
 
 const content = fs.readFileSync(ARTWORKS_PATH, 'utf8');
-const currentTitles = extractTitles(content);
+const current = extractArtworks(content);
 
-let mismatches = 0;
-const changes = [];
+let issues = 0;
 
-for (const [id, lockedTitle] of Object.entries(lockedTitles)) {
-    if (currentTitles[id] && currentTitles[id] !== lockedTitle) {
-        changes.push({ id, locked: lockedTitle, current: currentTitles[id] });
-        mismatches++;
+for (const [id, lockedData] of Object.entries(locked)) {
+    if (!current[id]) continue;
+
+    // Handle old format (just string title) vs new format (object)
+    const lockedTitle = typeof lockedData === 'string' ? lockedData : lockedData.title;
+    const lockedImage = typeof lockedData === 'object' ? lockedData.imageUrl : null;
+
+    if (current[id].title !== lockedTitle) {
+        console.error(`❌ TITLE CHANGED — ${id}:`);
+        console.error(`   Locked:  "${lockedTitle}"`);
+        console.error(`   Current: "${current[id].title}"`);
+        issues++;
+    }
+
+    if (lockedImage && current[id].imageUrl !== lockedImage) {
+        console.error(`❌ IMAGE CHANGED — ${id}:`);
+        console.error(`   Locked:  "${lockedImage}"`);
+        console.error(`   Current: "${current[id].imageUrl}"`);
+        issues++;
     }
 }
 
-if (mismatches === 0) {
-    console.log(`✅ All ${Object.keys(lockedTitles).length} artwork titles match the lock file.`);
+if (issues === 0) {
+    const count = Object.keys(locked).length;
+    console.log(`✅ All ${count} artwork titles and image mappings match the lock file.`);
     process.exit(0);
 } else {
-    console.error(`\n❌ ${mismatches} TITLE MISMATCH(ES) DETECTED:\n`);
-    changes.forEach(c => {
-        console.error(`  ${c.id}:`);
-        console.error(`    Locked:  "${c.locked}"`);
-        console.error(`    Current: "${c.current}"  ← CHANGED`);
-        console.error('');
-    });
-    console.error(`To intentionally update titles, manually edit locked-titles.json`);
-    console.error(`or run: node scripts/validate-titles.js --lock\n`);
+    console.error(`\n${issues} issue(s) found. To update intentionally: pnpm lock:titles\n`);
     process.exit(1);
 }

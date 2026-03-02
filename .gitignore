@@ -41,3 +41,6 @@ build.log
 build_utf8.txt
 
 .vercel
+
+# Generated catalogue
+data/artwork-catalogue.html

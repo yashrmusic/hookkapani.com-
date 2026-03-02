@@ -15,6 +15,7 @@
     "generate:portfolio": "node scripts/capture-portfolio-pdf.mjs",
     "validate:titles": "node scripts/validate-titles.js",
     "lock:titles": "node scripts/validate-titles.js --lock",
+    "generate:catalogue": "node scripts/generate-catalogue.js",
     "test:e2e": "playwright test",
     "check:perf-budget": "node scripts/check-perf-budget.mjs"
   },
