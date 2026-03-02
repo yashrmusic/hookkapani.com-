@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useInView } from '@/hooks/use-intersection-observer';
-import Image from 'next/image';
 
 const heroVideos = [
   { src: '/videos/video1.mp4', label: 'Kinetic Motion 1' },
@@ -14,6 +13,7 @@ export function Hero() {
   const [titleRef, titleInView] = useInView({ threshold: 0.1 });
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -24,6 +24,18 @@ export function Hero() {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const goToSlide = useCallback((idx: number) => {
+    setActiveSlide(idx);
+  }, []);
+
+  const goNext = useCallback(() => {
+    setActiveSlide((prev) => (prev + 1) % heroVideos.length);
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setActiveSlide((prev) => (prev - 1 + heroVideos.length) % heroVideos.length);
   }, []);
 
   const opacity = Math.max(0, 1 - scrollY / 400);
@@ -45,64 +57,95 @@ export function Hero() {
       }} />
 
       <div className="container mx-auto px-4 sm:px-6 z-10" style={{ opacity }}>
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
 
-          {/* Logo */}
+          {/* Logo / Brand Text */}
           <div
             ref={titleRef}
-            className={`mb-10 md:mb-16 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`mb-10 md:mb-14 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <Image
-              src="/placeholder-logo.svg"
-              alt="Hookkapaani Studio"
-              width={280}
-              height={80}
-              className="w-[200px] sm:w-[260px] md:w-[320px] h-auto invert"
-              priority
-            />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-white text-center leading-[0.95]">
+              HOOKKAPANI
+            </h1>
+            <p className="text-[10px] sm:text-xs font-mono tracking-[0.4em] uppercase text-white/30 text-center mt-3">
+              Kinetic Sculpture Studio
+            </p>
           </div>
 
-          {/* Video Showcase */}
+          {/* Video Slider */}
           <div
-            className={`w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 transition-all duration-700 delay-300 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`w-full transition-all duration-700 delay-300 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            {heroVideos.map((video, i) => (
-              <div key={video.src} className="group relative">
-                {/* Video container */}
-                <div className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]">
+            {/* Slider container */}
+            <div className="relative">
+              {/* Video area */}
+              <div className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]">
+                {heroVideos.map((video, i) => (
                   <video
+                    key={video.src}
                     src={video.src}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                    style={{ opacity: activeSlide === i ? 1 : 0 }}
                   />
-                  {/* Subtle overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                </div>
+                ))}
 
-                {/* Label */}
-                <div className="mt-4 flex items-center gap-3">
-                  <span className="text-accent/40 text-3xl md:text-4xl font-mono font-bold leading-none">
-                    {String(i + 1).padStart(2, '0')}
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+                {/* Slide label overlay */}
+                <div className="absolute bottom-4 left-5 md:bottom-6 md:left-8 flex items-center gap-3 pointer-events-none">
+                  <span className="text-accent text-2xl md:text-4xl font-mono font-bold leading-none">
+                    {String(activeSlide + 1).padStart(2, '0')}
                   </span>
                   <div>
-                    <p className="text-sm md:text-base font-semibold text-white tracking-tight">
-                      {video.label}
-                    </p>
-                    <p className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/30 mt-0.5">
-                      Looping · Autoplay
+                    <p className="text-sm md:text-lg font-semibold text-white tracking-tight">
+                      {heroVideos[activeSlide].label}
                     </p>
                   </div>
                 </div>
+
+                {/* Nav arrows */}
+                <button
+                  onClick={goPrev}
+                  className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors backdrop-blur-sm"
+                  aria-label="Previous"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={goNext}
+                  className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors backdrop-blur-sm"
+                  aria-label="Next"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
-            ))}
+
+              {/* Dot indicators */}
+              <div className="flex justify-center gap-2.5 mt-4">
+                {heroVideos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goToSlide(i)}
+                    className={`h-[3px] rounded-full transition-all duration-300 ${activeSlide === i ? 'w-8 bg-accent' : 'w-4 bg-white/20 hover:bg-white/40'}`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Explore Works CTA */}
           <div
-            className={`mt-14 md:mt-20 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
+            className={`mt-12 md:mt-16 flex flex-col items-center gap-4 transition-all duration-700 delay-700 ${(titleInView || isLoaded) ? 'opacity-100' : 'opacity-0'}`}
           >
             <p className="text-label text-muted-foreground">Explore Works</p>
             <div className="w-[2px] h-12 sm:h-16 bg-accent origin-top animate-pulse" />
