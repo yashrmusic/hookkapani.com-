@@ -56,7 +56,7 @@ export function Hero() {
         backgroundSize: '60px 60px',
       }} />
 
-      <div className="container mx-auto px-4 sm:px-6 z-10" style={{ opacity }}>
+      <div className="container mx-auto px-4 sm:px-6 z-10 pt-24 md:pt-32" style={{ opacity }}>
         <div className="max-w-5xl mx-auto flex flex-col items-center">
 
           {/* Logo / Brand Text */}
