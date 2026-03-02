@@ -98,8 +98,8 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12">
-          <div className="lg:col-span-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="lg:col-span-1">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
               {artwork.title}
             </h1>
