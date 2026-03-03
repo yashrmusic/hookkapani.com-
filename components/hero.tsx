@@ -15,6 +15,7 @@ export function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -38,6 +39,16 @@ export function Hero() {
   const goPrev = useCallback(() => {
     setActiveSlide((prev) => (prev - 1 + heroVideos.length) % heroVideos.length);
   }, []);
+
+  useEffect(() => {
+    if (isPaused) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroVideos.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const opacity = Math.max(0, 1 - scrollY / 400);
 
@@ -65,8 +76,8 @@ export function Hero() {
             ref={titleRef}
             className={`mb-10 md:mb-14 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-red-500 text-center leading-[0.95]">
-              hookkapani studio
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.03em] text-red-500 text-center leading-[0.95] uppercase">
+              HOOKKAPANI STUDIO
             </h1>
           </div>
 
@@ -77,7 +88,11 @@ export function Hero() {
             {/* Slider container */}
             <div className="relative">
               {/* Video area */}
-              <div className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]">
+              <div
+                className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
                 {heroVideos.map((video, i) => (
                   <video
                     key={video.src}
@@ -95,7 +110,7 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
                 {/* Slide label overlay */}
-                <div className="absolute bottom-4 left-5 md:bottom-6 md:left-8 flex items-center gap-3 pointer-events-none">
+                <div className="absolute bottom-4 left-5 md:bottom-6 md:left-8 flex items-center gap-3 pointer-events-none bg-black/35 border border-white/15 rounded-full px-4 py-2 backdrop-blur-md">
                   <span className="text-accent text-2xl md:text-4xl font-mono font-bold leading-none">
                     {String(activeSlide + 1).padStart(2, '0')}
                   </span>
