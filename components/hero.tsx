@@ -79,7 +79,7 @@ export function Hero() {
             <img
               src="/images/hookkapani-logo-red.png"
               alt="hookkapani"
-              className="w-[260px] sm:w-[360px] md:w-[520px] h-auto object-contain mx-auto"
+              className="w-full h-auto object-contain mx-auto"
             />
           </div>
 
@@ -116,11 +116,6 @@ export function Hero() {
                   <span className="text-accent text-2xl md:text-4xl font-mono font-bold leading-none">
                     {String(activeSlide + 1).padStart(2, '0')}
                   </span>
-                  <div>
-                    <p className="text-sm md:text-lg font-semibold text-white tracking-tight">
-                      {heroVideos[activeSlide].label}
-                    </p>
-                  </div>
                 </div>
 
                 {/* Nav arrows */}
