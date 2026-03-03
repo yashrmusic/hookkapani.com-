@@ -6,6 +6,7 @@ import { useInView } from '@/hooks/use-intersection-observer';
 const heroVideos = [
   { src: '/videos/video1.mp4', label: 'Kinetic Motion 1' },
   { src: '/videos/video2.mp4', label: 'Kinetic Motion 2' },
+  { src: '/videos/video3.mp4', label: 'Kinetic Motion 3' },
 ];
 
 export function Hero() {
@@ -64,7 +65,7 @@ export function Hero() {
             ref={titleRef}
             className={`mb-10 md:mb-14 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-white text-center leading-[0.95]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-red-500 text-center leading-[0.95]">
               HOOKKAPANI
             </h1>
             <p className="text-[10px] sm:text-xs font-mono tracking-[0.4em] uppercase text-white/30 text-center mt-3">
@@ -158,3 +159,4 @@ export function Hero() {
     </section>
   );
 }
+
