@@ -29,8 +29,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Stainless Steel"],
-    dimensions: "7 ft",
+    materials: ["Resin"],
+    dimensions: "4 ft",
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -40,7 +40,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Stainless Steel"],
-    dimensions: "7 feet",
+    dimensions: "9 ft",
     tags: ["New Work", "Contemplative"]
   },
   {
@@ -49,8 +49,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-3.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Stainless Steel"],
-    dimensions: "4 ft",
+    materials: ["Metal Casting (Stainless Steel)"],
+    dimensions: "5 ft",
     tags: ["New Work", "Goddess"]
   },
   {
@@ -79,8 +79,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-7.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Stainless Steel"],
-    dimensions: "2.5 feet each",
+    materials: ["Metal Casting"],
+    dimensions: "5 ft",
     tags: ["New Work", "Monochrome"]
   },
   {
@@ -173,7 +173,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin", "Mechanism"],
-    dimensions: "6.8 ft",
+    dimensions: "6 ft",
     tags: ["New Work", "Power"]
   },
   {
@@ -254,8 +254,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-25.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Stainless Steel"],
-    dimensions: "12 feet",
+    materials: ["Resin"],
+    dimensions: "5 ft",
     tags: ["New Work", "Whimsical"]
   },
   {
@@ -295,8 +295,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-29.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Mechanism"],
-    dimensions: "12 feet",
+    materials: ["Resin"],
+    dimensions: "5x15 ft",
     tags: ["New Work", "Alien"]
   },
   {
@@ -316,8 +316,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-31.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Resin", "Chromium"],
-    dimensions: "6 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "2.5 ft each",
     tags: ["New Work", "Study"]
   },
   {
@@ -356,6 +356,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.705,
     category: "sculpture",
     materials: ["Resin"],
+    dimensions: "6 ft",
     tags: ["New Work", "Cosmic"]
   },
   {
@@ -382,7 +383,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-38.jpg",
     aspectRatio: 1.0,
     category: "sculpture",
-    materials: ["Clear Resin"],
+    materials: ["Fiberglass", "Resin"],
+    dimensions: "4 ft",
     tags: ["New Work", "Legend"]
   },
   {
