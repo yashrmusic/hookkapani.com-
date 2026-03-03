@@ -12,7 +12,6 @@ const heroVideos = [
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [titleRef, titleInView] = useInView({ threshold: 0.1 });
-  const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -20,12 +19,6 @@ export function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const goToSlide = useCallback((idx: number) => {
@@ -50,8 +43,6 @@ export function Hero() {
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  const opacity = Math.max(0, 1 - scrollY / 400);
-
   return (
     <section
       ref={containerRef}
@@ -68,7 +59,7 @@ export function Hero() {
         backgroundSize: '60px 60px',
       }} />
 
-      <div className="container mx-auto px-4 sm:px-6 z-10 pt-24 md:pt-32" style={{ opacity }}>
+      <div className="container mx-auto px-4 sm:px-6 z-10 pt-24 md:pt-32">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
 
           {/* Logo / Brand Text */}
