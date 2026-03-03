@@ -60,7 +60,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Stainless Steel"],
-    dimensions: "12x15 feet",
+    dimensions: "9 ft",
     tags: ["New Work", "Satire"]
   },
   {
@@ -99,8 +99,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Resin"],
-    dimensions: "6 ft",
+    materials: ["Stainless Steel"],
+    dimensions: "0.8 ft",
     tags: ["New Work", "Oceanic"]
   },
   {
@@ -119,8 +119,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-12.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "2.5 feet",
+    materials: ["Stainless Steel", "Resin"],
+    dimensions: "8 ft",
     description: "A kinetic-inspired figure balancing industrial heft and fluid posture, built in stainless steel and resin.",
     tags: ["New Work", "Geometric"]
   },
@@ -130,8 +130,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-13.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "5x15 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "12 ft",
     description: "A vertical stainless-steel statement at monumental scale, designed as a musical and spatial anchor.",
     tags: ["New Work", "Mythic"]
   },
@@ -161,8 +161,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-16.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Metal Casting"],
-    dimensions: "4 feet",
+    materials: ["Resin"],
+    dimensions: "8 ft",
     tags: ["New Work", "Organic"]
   },
   {
@@ -182,8 +182,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-18.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Resin", "Craft Stone"],
-    dimensions: "4 feet",
+    materials: ["Resin", "Chromium"],
+    dimensions: "6 ft",
     tags: ["New Work", "Conceptual"]
   },
   {
@@ -244,8 +244,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-24.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Stainless Steel"],
-    dimensions: "9 feet",
+    materials: ["Resin"],
+    dimensions: "6 ft",
     tags: ["New Work", "Surrealism"]
   },
   {
@@ -264,8 +264,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-26.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Stainless Steel", "Resin"],
-    dimensions: "8 feet",
+    materials: ["Resin"],
+    dimensions: "17 ft",
     tags: ["New Work", "Philosophical"]
   },
   {
@@ -285,8 +285,8 @@ const artworksRaw: Artwork[] = [
     videoUrl: "/videos/video1.mp4",
     aspectRatio: 0.667,
     category: "kinetic",
-    materials: ["Scrap"],
-    dimensions: "5 feet",
+    materials: ["Resin", "Mechanism"],
+    dimensions: "12 ft",
     tags: ["New Work", "Luminous"]
   },
   {
@@ -306,8 +306,8 @@ const artworksRaw: Artwork[] = [
     videoUrl: "/videos/yearning-heart.mov",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "8 feet",
+    materials: ["Resin", "Mechanism"],
+    dimensions: "6 ft",
     tags: ["New Work", "Study"]
   },
   {
@@ -336,8 +336,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-33.jpg",
     aspectRatio: 0.764,
     category: "sculpture",
-    materials: ["Resin", "Chromium"],
-    dimensions: "5 feet",
+    materials: ["Stainless Steel", "Resin"],
+    dimensions: "12 ft",
     tags: ["New Work", "Study"]
   },
   {
@@ -394,6 +394,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin", "Chromium"],
+    dimensions: "7 ft",
     tags: ["New Work", "Study"]
   },
   {
@@ -402,7 +403,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-40.jpg",
     aspectRatio: 0.905,
     category: "sculpture",
-    materials: ["Resin", "Fabric"],
+    materials: ["Resin", "Craft Stone"],
+    dimensions: "4 ft",
     tags: ["New Work", "Study"]
   },
 ];
