@@ -70,7 +70,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Stainless Steel"],
-    dimensions: "6 feet",
+    dimensions: "7 ft",
     tags: ["New Work", "Geometric"]
   },
   {
@@ -89,8 +89,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-8.jpg",
     aspectRatio: 0.778,
     category: "sculpture",
-    materials: ["Metal Casting (Stainless Steel)"],
-    dimensions: "4 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "12 x 15 ft",
     tags: ["New Work", "Luminous"]
   },
   {
@@ -99,8 +99,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Resin", "Mechanism", "Stainless Steel"],
-    dimensions: "6 feet",
+    materials: ["Resin"],
+    dimensions: "6 ft",
     tags: ["New Work", "Oceanic"]
   },
   {
@@ -202,8 +202,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-20.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Mechanism"],
-    dimensions: "6 feet",
+    materials: ["Scrap"],
+    dimensions: "5 ft",
     description: "A resin-and-chrome reinterpretation of an iconic face, balancing reflective finish with sculptural mass.",
     tags: ["New Work", "Haunting"]
   },
@@ -213,8 +213,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-21.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin", "Chromium"],
-    dimensions: "6 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "5 ft",
     tags: ["New Work", "Avian"]
   },
   {
@@ -234,8 +234,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-23.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Stainless Steel", "Resin"],
-    dimensions: "12 feet",
+    materials: ["Resin"],
+    dimensions: "5 ft",
     tags: ["New Work", "Process"]
   },
   {
