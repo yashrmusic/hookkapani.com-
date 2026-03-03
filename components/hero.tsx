@@ -66,11 +66,8 @@ export function Hero() {
             className={`mb-10 md:mb-14 transition-all duration-700 ${(titleInView || isLoaded) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-red-500 text-center leading-[0.95]">
-              HOOKKAPANI
+              hookkapani studio
             </h1>
-            <p className="text-[10px] sm:text-xs font-mono tracking-[0.4em] uppercase text-white/30 text-center mt-3">
-              Kinetic Sculpture Studio
-            </p>
           </div>
 
           {/* Video Slider */}
