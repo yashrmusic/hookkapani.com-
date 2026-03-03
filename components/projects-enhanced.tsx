@@ -46,15 +46,6 @@ export function ProjectsEnhanced() {
     });
   }, [filteredArtworks]);
 
-  const groupedArtworks = useMemo(() => {
-    return {
-      mechanical: orderedFilteredArtworks.filter((a) => getLayerRank(a) === 0),
-      metal: orderedFilteredArtworks.filter((a) => getLayerRank(a) === 1),
-      fiber: orderedFilteredArtworks.filter((a) => getLayerRank(a) === 2),
-      other: orderedFilteredArtworks.filter((a) => getLayerRank(a) === 3),
-    };
-  }, [orderedFilteredArtworks]);
-
   const openLightbox = (artwork: typeof artworks[0]) => {
     setLightboxArtwork(artwork);
     setIsLightboxOpen(true);
@@ -103,45 +94,31 @@ export function ProjectsEnhanced() {
             />
           </div>
 
-          {/* Layered Artwork Groups */}
-          {[
-            { key: 'mechanical', title: 'Mechanical Artworks', items: groupedArtworks.mechanical },
-            { key: 'metal', title: 'Metal', items: groupedArtworks.metal },
-            { key: 'fiber', title: 'Fiber', items: groupedArtworks.fiber },
-            { key: 'other', title: 'Other Materials', items: groupedArtworks.other },
-          ].map((group) => (
-            group.items.length > 0 ? (
-              <div key={group.key} className="mb-14">
-                <h3 className="text-lg md:text-xl font-semibold tracking-wide uppercase text-white/90 mb-6">
-                  {group.title}
-                </h3>
-                <MasonryGrid
-                  gap={24}
-                  columnCount={{ mobile: 1, tablet: 2, desktop: 3 }}
-                >
-                  {group.items.map((artwork, index) => (
-                    <motion.div
-                      key={artwork.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: (index % 12) * 0.05 }}
-                      className="cursor-pointer group mb-6"
-                      onClick={() => openLightbox(artwork)}
-                    >
-                      <ArtworkCard
-                        artwork={artwork}
-                        showInfo={true}
-                        compact={false}
-                        priority={index < 2}
-                      />
-                    </motion.div>
-                  ))}
-                </MasonryGrid>
-              </div>
-            ) : null
-          ))
-          }
+          {/* Ordered Artwork Grid (labels hidden) */}
+          <MasonryGrid
+            gap={24}
+            columnCount={{ mobile: 1, tablet: 2, desktop: 3 }}
+            className="mb-12"
+          >
+            {orderedFilteredArtworks.map((artwork, index) => (
+              <motion.div
+                key={artwork.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: (index % 12) * 0.05 }}
+                className="cursor-pointer group mb-6"
+                onClick={() => openLightbox(artwork)}
+              >
+                <ArtworkCard
+                  artwork={artwork}
+                  showInfo={true}
+                  compact={false}
+                  priority={index < 2}
+                />
+              </motion.div>
+            ))}
+          </MasonryGrid>
 
           {/* No results */}
           {orderedFilteredArtworks.length === 0 && (
