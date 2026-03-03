@@ -50,7 +50,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.73,
     category: "sculpture",
     materials: ["Stainless Steel"],
-    dimensions: "5 feet",
+    dimensions: "4 ft",
     tags: ["New Work", "Goddess"]
   },
   {
@@ -141,8 +141,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-14.jpg",
     aspectRatio: 0.667,
     category: "installation",
-    materials: ["Fiberglass"],
-    dimensions: "7 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "6 ft",
     tags: ["New Work", "Color"]
   },
   {
@@ -172,8 +172,8 @@ const artworksRaw: Artwork[] = [
     videoUrl: "/videos/trippy-strawberry.mp4",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "5x15 feet",
+    materials: ["Resin", "Mechanism"],
+    dimensions: "6.8 ft",
     tags: ["New Work", "Power"]
   },
   {
@@ -193,7 +193,7 @@ const artworksRaw: Artwork[] = [
     aspectRatio: 0.667,
     category: "sculpture",
     materials: ["Resin"],
-    dimensions: "17 feet",
+    dimensions: "4.5 ft",
     tags: ["New Work", "Digital"]
   },
   {
@@ -274,8 +274,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-27.jpg",
     aspectRatio: 1.5,
     category: "installation",
-    materials: ["Resin", "Chromium"],
-    dimensions: "7 feet",
+    materials: ["Resin"],
+    dimensions: "6 ft",
     tags: ["New Work", "Mosaic"]
   },
   {
