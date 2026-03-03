@@ -29,8 +29,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-1.jpg",
     aspectRatio: 0.73,
     category: "sculpture",
-    materials: ["Resin"],
-    dimensions: "5 feet",
+    materials: ["Stainless Steel"],
+    dimensions: "7 ft",
     tags: ["New Work", "Whimsical"]
   },
   {
