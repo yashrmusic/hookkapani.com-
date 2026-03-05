@@ -99,8 +99,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-10.jpg",
     aspectRatio: 1.37,
     category: "installation",
-    materials: ["Stainless Steel"],
-    dimensions: "0.8 ft",
+    materials: ["Resin", "Chromium"],
+    dimensions: "8 ft",
     tags: ["New Work", "Oceanic"]
   },
   {
@@ -151,7 +151,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-15.jpg",
     aspectRatio: 1.5,
     category: "sculpture",
-    materials: ["Stainless Steel"],
+    materials: ["Resin"],
     dimensions: "9 feet",
     tags: ["New Work", "Wonder"]
   },
@@ -223,8 +223,8 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-22.jpg",
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
-    category: "sculpture",
-    materials: ["Stainless Steel"],
+    category: "mechanism",
+    materials: ["Resin"],
     dimensions: "8 feet",
     tags: ["New Work", "Automotive"]
   },
@@ -326,7 +326,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-32.jpg",
     aspectRatio: 0.667,
     category: "sculpture",
-    materials: ["Acrylic", "Mechanism"],
+    materials: ["Resin", "Acrylic"],
     dimensions: "15 feet",
     tags: ["New Work", "Study"]
   },
