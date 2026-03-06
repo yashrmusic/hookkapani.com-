@@ -154,7 +154,7 @@ export default function RootLayout({
                 "jobTitle": "Kinetic Sculptor"
               },
               "sameAs": [
-                "https://instagram.com/hookkapaani"
+                "https://www.instagram.com/hookkapani/"
               ]
             })
           }}
