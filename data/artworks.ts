@@ -13,14 +13,14 @@ export interface Artwork {
 }
 
 /**
- * ⚠️  ARTWORK TITLES ARE LOCKED
- * 
- * The `title` field for each artwork below is protected by data/locked-titles.json.
- * Do NOT change titles programmatically. If you need to update a title:
- *   1. Edit the title here manually
- *   2. Run: node scripts/validate-titles.js --lock
- * 
- * To verify titles haven't drifted: node scripts/validate-titles.js
+ * ARTWORK TITLES ARE LOCKED.
+ *
+ * The `title` field for each artwork below is protected by `data/locked-titles.json`.
+ * Do not change titles programmatically. If you need to update a title:
+ *   1. Edit the title here manually.
+ *   2. Run: `node scripts/validate-titles.js --lock`.
+ *
+ * To verify titles have not drifted: `node scripts/validate-titles.js`.
  */
 const artworksRaw: Artwork[] = [
   {
@@ -223,7 +223,7 @@ const artworksRaw: Artwork[] = [
     imageUrl: "/images/new-work-22.jpg",
     videoUrl: "/videos/video2.mp4",
     aspectRatio: 0.667,
-    category: "mechanism",
+    category: "kinetic",
     materials: ["Resin"],
     dimensions: "8 feet",
     tags: ["New Work", "Automotive"]
