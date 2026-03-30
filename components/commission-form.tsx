@@ -191,8 +191,7 @@ export function CommissionForm() {
               <Field label="Budget Range" id="budget">
                 <select id="budget" name="budget" required value={formData.budget} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
                   <option value="" disabled className={optionClassName}>Select range</option>
-                  <option value="under-200k" className={optionClassName}>Under INR 2,00,000</option>
-                  <option value="200k-500k" className={optionClassName}>INR 2,00,000 - INR 5,00,000</option>
+                  <option value="400k-500k" className={optionClassName}>INR 4,00,000 - INR 5,00,000</option>
                   <option value="500k-2m" className={optionClassName}>INR 5,00,000 - INR 20,00,000</option>
                   <option value="2m-plus" className={optionClassName}>Above INR 20,00,000</option>
                 </select>
