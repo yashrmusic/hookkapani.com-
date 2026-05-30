@@ -26,6 +26,7 @@
 ## Environment
 - [x] `.env.example` added with production variables
 - [ ] Set `COMMISSION_WEBHOOK_URL` in production environment
+- [ ] Set `COMMISSION_BACKUP_WEBHOOK_URL` for failover delivery (recommended)
 - [ ] Set `ANALYTICS_WEBHOOK_URL` in production environment (optional)
 - [ ] Set `ERROR_WEBHOOK_URL` in production environment (optional)
 - [ ] Set `CMS_ADMIN_TOKEN` if using `/admin/content`

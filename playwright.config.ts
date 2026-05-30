@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const includeWebkit = process.env.PLAYWRIGHT_ENABLE_WEBKIT === '1';
+
 export default defineConfig({
   testDir: './tests',
   timeout: 45_000,
@@ -13,14 +15,14 @@ export default defineConfig({
   webServer: process.env.E2E_BASE_URL
     ? undefined
     : {
-        command: 'pnpm dev',
+        command: 'pnpm exec next dev --webpack',
         url: 'http://127.0.0.1:3000',
-        reuseExistingServer: true,
+        reuseExistingServer: !process.env.CI,
         timeout: 120_000,
       },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile-safari', use: { ...devices['iPhone 13'] } },
     { name: 'mobile-chrome', use: { ...devices['Pixel 7'] } },
+    ...(includeWebkit ? [{ name: 'mobile-safari', use: { ...devices['iPhone 13'] } }] : []),
   ],
 });

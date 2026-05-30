@@ -39,6 +39,18 @@ next-env.d.ts
 # Build logs
 build.log
 build_utf8.txt
+build_output.txt
+dev.log
+dev_output.txt
+alias_output.txt
+pdf_log.txt
+
+# Local scratch files
+_git_artworks_check.txt
+_temp_layout.tsx
+output_frame.jpg
+ocr_results.json
+ocr_tesseract_results*.json
 
 .vercel
 

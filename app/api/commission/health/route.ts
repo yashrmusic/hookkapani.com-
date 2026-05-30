@@ -8,6 +8,7 @@ function parseBooleanEnv(value: string | undefined) {
 
 export async function GET() {
   const webhookConfigured = Boolean(process.env.COMMISSION_WEBHOOK_URL?.trim());
+  const backupWebhookConfigured = Boolean(process.env.COMMISSION_BACKUP_WEBHOOK_URL?.trim());
   const smtpConfigured = Boolean(
     process.env.SMTP_HOST &&
       process.env.SMTP_USER &&
@@ -16,7 +17,7 @@ export async function GET() {
   );
 
   const smtpSecure = parseBooleanEnv(process.env.SMTP_SECURE);
-  const deliveryConfigured = webhookConfigured || smtpConfigured;
+  const deliveryConfigured = webhookConfigured || backupWebhookConfigured || smtpConfigured;
 
   return NextResponse.json(
     {
@@ -25,6 +26,7 @@ export async function GET() {
       deliveryConfigured,
       channels: {
         webhook: webhookConfigured,
+        backupWebhook: backupWebhookConfigured,
         smtp: smtpConfigured,
       },
       smtp: smtpConfigured

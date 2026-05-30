@@ -9,11 +9,24 @@ export default function ContentAdminPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const loadContent = async () => {
+    if (!token.trim()) {
+      setStatus('Enter admin token before loading content.');
+      return;
+    }
+
     setIsLoading(true);
     setStatus('');
     try {
-      const response = await fetch('/api/admin/content');
-      const data = await response.json();
+      const response = await fetch('/api/admin/content', {
+        headers: {
+          'x-admin-token': token,
+        },
+      });
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        setStatus(data?.error || 'Failed to load content JSON.');
+        return;
+      }
       setJsonText(JSON.stringify(data, null, 2));
       setStatus('Loaded content JSON.');
     } catch {
@@ -24,10 +37,22 @@ export default function ContentAdminPage() {
   };
 
   const saveContent = async () => {
+    if (!token.trim()) {
+      setStatus('Enter admin token before saving content.');
+      return;
+    }
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(jsonText);
+    } catch {
+      setStatus('Invalid JSON. Please fix formatting.');
+      return;
+    }
+
     setIsLoading(true);
     setStatus('');
     try {
-      const parsed = JSON.parse(jsonText);
       const response = await fetch('/api/admin/content', {
         method: 'PUT',
         headers: {
@@ -43,7 +68,7 @@ export default function ContentAdminPage() {
       }
       setStatus('Saved content JSON successfully.');
     } catch {
-      setStatus('Invalid JSON. Please fix formatting.');
+      setStatus('Failed to save content JSON.');
     } finally {
       setIsLoading(false);
     }
