@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { artworks } from '@/data/artworks'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://hookkapaani.com'
+    const baseUrl = 'https://hookkapani.com'
     const workPages: MetadataRoute.Sitemap = artworks.map((artwork) => ({
         url: `${baseUrl}/work/${artwork.id}`,
         lastModified: new Date(),
