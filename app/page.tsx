@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { ProjectsEnhanced } from "@/components/projects-enhanced";
 import { TextMarquee } from "@/components/text-marquee";
@@ -8,6 +9,12 @@ import { CapabilityProof } from "@/components/capability-proof";
 import { ClientsCollaborations } from "@/components/clients-collaborations";
 import { CaseStudiesPreview } from "@/components/case-studies-preview";
 import { getCmsContent } from "@/lib/cms-content";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const content = await getCmsContent();
