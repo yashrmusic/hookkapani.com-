@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { VideoPlayer } from '@/components/video-player';
+import { AlertsSignup } from '@/components/alerts-signup';
 
 const processVideos = [
   {
@@ -75,23 +76,16 @@ export default function StudioPage() {
           ))}
         </section>
 
-        <footer className="mt-32 border-t border-white/5 pt-12 text-center overflow-hidden">
-          <div className="flex gap-12 animate-[marquee_30s_linear_infinite] whitespace-nowrap overflow-visible">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <span key={i} className="text-8xl font-bold opacity-10 tracking-tighter text-white">
-                MATERIAL LOGIC - HONEST CONSTRUCTION - MECHANICAL TENSION -
-              </span>
-            ))}
-          </div>
+        <section className="container mx-auto px-6 mt-32 max-w-2xl">
+          <AlertsSignup />
+        </section>
+
+        <footer className="mt-24 border-t border-white/5 pt-12 pb-4 text-center">
+          <p className="text-2xl md:text-4xl font-bold opacity-20 tracking-tighter text-white">
+            MATERIAL LOGIC · HONEST CONSTRUCTION · MECHANICAL TENSION
+          </p>
         </footer>
       </div>
-
-      <style jsx global>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 }
