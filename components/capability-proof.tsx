@@ -1,7 +1,7 @@
 const steps = [
   {
     title: 'Brief',
-    detail: 'Share scope, site, budget and timeline through the project brief. Reference works you shortlisted travel with it.',
+    detail: 'Share scope, site and timeline through the project brief. Reference works you shortlisted travel with it.',
   },
   {
     title: 'Site survey',

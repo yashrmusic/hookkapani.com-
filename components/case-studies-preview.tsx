@@ -23,7 +23,6 @@ export function CaseStudiesPreview() {
               <h3 className="text-xl font-semibold mb-3">{study.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{study.summary}</p>
               <p className="text-sm mb-2">{study.outcome}</p>
-              <p className="text-sm text-muted-foreground mb-5">Budget band: {study.budgetBand}</p>
               <Link href={`/case-studies/${study.slug}`} className="text-sm font-medium text-accent hover:text-accent/80">
                 Read case study →
               </Link>

@@ -50,11 +50,11 @@ const inputClassName =
   'w-full bg-transparent border-b-2 border-white/20 focus:border-accent py-3 px-0 outline-none transition-colors text-white placeholder:text-white/40';
 const optionClassName = 'bg-white text-black';
 
-const STEPS = ['About you', 'The site', 'Scope & budget'];
+const STEPS = ['About you', 'The site', 'Scope & timeline'];
 const STEP_FIELDS: (keyof ProjectBriefData)[][] = [
   ['name', 'email', 'decisionRole'],
   ['projectType', 'location', 'dimensions'],
-  ['budget', 'timeline', 'description'],
+  ['timeline', 'description'],
 ];
 
 export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean }) {
@@ -133,7 +133,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
       const response = await fetch('/api/commission', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, referenceWorks }),
+        body: JSON.stringify({ ...formData, budget: 'not-specified', referenceWorks }),
       });
       const result = await response.json().catch(() => null);
 
@@ -143,7 +143,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
 
       trackEvent('project_brief_submitted', {
         projectType: formData.projectType,
-        budget: formData.budget,
+        budget: 'not-specified',
         timeline: formData.timeline,
         referenceWorksCount: referenceIds.length,
       });
@@ -164,7 +164,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
           <div className="text-center mb-16">
             <h2 className="text-headline mb-6">Submit a Project Brief</h2>
             <p className="text-body text-muted-foreground max-w-3xl mx-auto">
-              For serious commissioning inquiries. Share project scope, constraints, timeline, and budget
+              For serious commissioning inquiries. Share project scope, constraints and timeline
               so we can respond with a clear next-step proposal.
             </p>
           </div>
@@ -327,14 +327,6 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
             {step === 2 && (
               <div className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Field label="Budget Range *" id="budget">
-                    <select id="budget" name="budget" required value={formData.budget} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
-                      <option value="" disabled className={optionClassName}>Select range</option>
-                      <option value="400k-500k" className={optionClassName}>INR 4,00,000 - INR 5,00,000</option>
-                      <option value="500k-2m" className={optionClassName}>INR 5,00,000 - INR 20,00,000</option>
-                      <option value="2m-plus" className={optionClassName}>Above INR 20,00,000</option>
-                    </select>
-                  </Field>
                   <Field label="Target Timeline *" id="timeline">
                     <select id="timeline" name="timeline" required value={formData.timeline} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
                       <option value="" disabled className={optionClassName}>Select timeline</option>
@@ -346,8 +338,9 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   </Field>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  For reference, recent commissions: a corporate atrium kinetic installation at
-                  INR 12–18 lakh, and a three-work gallery motion series at INR 8–14 lakh.
+                  For reference: the corporate atrium installation was delivered in 14 weeks
+                  including installation, and the gallery motion series ran to three works.
+                  Commercials are discussed on the reply call, after the studio sees the site.
                 </p>
                 <Field label="Project Goals, Constraints, and Context *" id="description">
                   <textarea
@@ -365,8 +358,8 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   <p className="text-sm font-medium mb-1">What happens next</p>
                   <p className="text-sm text-muted-foreground">
                     1. The studio replies within 2 business days. 2. A site survey follows for
-                    shortlisted projects. 3. You receive a written proposal with scope, timeline
-                    and cost.
+                    shortlisted projects. 3. You receive a written proposal with scope and
+                    timeline.
                   </p>
                 </div>
               </div>

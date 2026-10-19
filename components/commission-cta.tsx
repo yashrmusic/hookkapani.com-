@@ -6,7 +6,7 @@ export function CommissionCta() {
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-headline mb-6">Have a space in mind?</h2>
         <p className="text-body text-muted-foreground mb-4">
-          Send a project brief — scope, site, budget and timeline — and reference the works you
+          Send a project brief — scope, site and timeline — and reference the works you
           shortlisted. The form takes about three minutes, in three short steps.
         </p>
         <p className="text-sm text-muted-foreground mb-10">
