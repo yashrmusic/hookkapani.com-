@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { caseStudies } from '@/data/case-studies';
 
 export const metadata: Metadata = {
   title: 'Case Studies | Hookkapaani Studio',
@@ -8,32 +10,6 @@ export const metadata: Metadata = {
     canonical: '/case-studies',
   },
 };
-
-const caseStudies = [
-  {
-    id: 'atrium-kinetic-installation',
-    title: 'Corporate Atrium Kinetic Installation',
-    context:
-      'A 9-floor corporate atrium requiring a visually calm but mechanically expressive centerpiece.',
-    constraints: ['High airflow variability', 'Low maintenance requirement', 'Tight installation window'],
-    process:
-      'Developed modular fabrication units with balanced moving elements and controlled mass distribution.',
-    outcome:
-      'Completed in 14 weeks including installation, with periodic service interval documented at quarterly checks.',
-    budgetBand: 'INR 12L - 18L',
-  },
-  {
-    id: 'gallery-motion-series',
-    title: 'Gallery Motion Series',
-    context: 'Three linked works for a curated exhibition centered on temporal transformation.',
-    constraints: ['Gallery load limits', 'Quiet operation', 'Flexible layout for curation'],
-    process:
-      'Built lightweight kinetic assemblies using steel, brass, and low-noise motion elements.',
-    outcome:
-      'Increased visitor dwell time and generated multi-publication media coverage for the exhibition.',
-    budgetBand: 'INR 8L - 14L',
-  },
-];
 
 export default function CaseStudiesPage() {
   return (
@@ -46,13 +22,18 @@ export default function CaseStudiesPage() {
 
         <div className="space-y-10">
           {caseStudies.map((study) => (
-            <article key={study.id} id={study.id} className="border border-border p-6 md:p-8 bg-card/30">
+            <article key={study.slug} className="border border-border p-6 md:p-8 bg-card/30">
               <h2 className="text-title mb-4">{study.title}</h2>
-              <p className="text-sm text-muted-foreground mb-5">{study.context}</p>
-              <p className="text-sm mb-3"><span className="text-accent">Constraints:</span> {study.constraints.join(', ')}</p>
-              <p className="text-sm mb-3"><span className="text-accent">Process:</span> {study.process}</p>
-              <p className="text-sm mb-3"><span className="text-accent">Outcome:</span> {study.outcome}</p>
-              <p className="text-sm"><span className="text-accent">Budget Band:</span> {study.budgetBand}</p>
+              <p className="text-sm text-muted-foreground mb-5">{study.summary}</p>
+              <p className="text-sm mb-3">
+                <span className="text-accent">Outcome:</span> {study.outcome}
+              </p>
+              <p className="text-sm mb-6">
+                <span className="text-accent">Budget Band:</span> {study.budgetBand}
+              </p>
+              <Link href={`/case-studies/${study.slug}`} className="text-sm font-medium text-accent hover:text-accent/80">
+                Read the full case study →
+              </Link>
             </article>
           ))}
         </div>
