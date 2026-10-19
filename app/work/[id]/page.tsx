@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Artwork Not Found | Hookkapaani' };
   }
 
-  const url = `https://hookkapaani.com/work/${artwork.id}`;
+  const url = `https://hookkapani.com/work/${artwork.id}`;
   const ogImageUrl = `${url}/opengraph-image`;
 
   const studioDescription = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.';
@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${artwork.title} | Hookkapaani Studio`,
     description: studioDescription,
+    alternates: {
+      canonical: `/work/${artwork.id}`,
+    },
     openGraph: {
       title: `${artwork.title} - Hookkapaani Studio`,
       description: studioDescription,
