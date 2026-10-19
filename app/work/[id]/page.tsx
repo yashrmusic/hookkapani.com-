@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { artworks, getArtworkById } from '@/data/artworks';
+import { relatedWorks } from '@/lib/artwork-utils';
 import { ArtworkDetail } from './artwork-detail';
 
 interface PageProps {
@@ -64,15 +65,7 @@ export default async function ArtworkPage({ params }: PageProps) {
     notFound();
   }
 
-  const currentIndex = artworks.findIndex((a) => a.id === id);
-  const prevArtwork = currentIndex > 0 ? artworks[currentIndex - 1] : null;
-  const nextArtwork = currentIndex < artworks.length - 1 ? artworks[currentIndex + 1] : null;
+  const related = relatedWorks(artworks, artwork, 3);
 
-  return (
-    <ArtworkDetail
-      artwork={artwork}
-      prevArtwork={prevArtwork}
-      nextArtwork={nextArtwork}
-    />
-  );
+  return <ArtworkDetail artwork={artwork} related={related} />;
 }

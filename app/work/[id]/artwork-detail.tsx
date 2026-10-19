@@ -3,24 +3,59 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShareButton } from '@/components/share-button';
-import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { ShortlistButton } from '@/components/shortlist';
+import { WhatsAppButton } from '@/components/whatsapp-button';
 import type { Artwork } from '@/data/artworks';
+import { parseMaxFt, sizeLabel, isMoving, displayTags } from '@/lib/artwork-utils';
 import { trackEvent } from '@/lib/client-analytics';
 
-const ARViewer = dynamic(() => import('@/components/ar-viewer'), { ssr: false });
-
+/* The 3D/AR viewer was removed 2026-10-19: no artwork has a 3D model,
+   and its model-viewer/three.js chunk (~990 KB) single-handedly broke
+   the repo's perf-budget check. Re-add the viewer when models exist. */
 interface ArtworkDetailProps {
   artwork: Artwork;
-  prevArtwork: Artwork | null;
-  nextArtwork: Artwork | null;
+  related: Artwork[];
 }
 
-export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDetailProps) {
-  const [showAR, setShowAR] = useState(false);
+const PERSON_FT = 5.6;
+
+function ScaleFigure({ artwork }: { artwork: Artwork }) {
+  const ft = parseMaxFt(artwork.dimensions);
+  if (!ft) return null;
+  const maxH = 150;
+  const workH = maxH;
+  const personH = Math.max(10, (maxH * PERSON_FT) / Math.max(ft, PERSON_FT));
+  return (
+    <div className="border border-border p-5 bg-card/30">
+      <p className="text-sm font-medium mb-4">Scale</p>
+      <div className="flex items-end gap-10" style={{ height: maxH + 8 }}>
+        <div className="flex flex-col items-center gap-2">
+          <svg width="26" height={personH} viewBox="0 0 26 100" preserveAspectRatio="none" aria-hidden="true">
+            <circle cx="13" cy="8" r="7" fill="currentColor" opacity="0.55" />
+            <rect x="9" y="17" width="8" height="48" fill="currentColor" opacity="0.55" />
+            <rect x="9" y="65" width="3.4" height="35" fill="currentColor" opacity="0.55" />
+            <rect x="13.6" y="65" width="3.4" height="35" fill="currentColor" opacity="0.55" />
+          </svg>
+          <span className="text-xs text-muted-foreground whitespace-nowrap">Person · 5 ft 7 in</span>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <div className="bg-accent/70 border border-accent" style={{ width: 54, height: workH }} />
+          <span className="text-xs text-muted-foreground whitespace-nowrap">
+            This work · {artwork.dimensions}
+          </span>
+        </div>
+      </div>
+      <p className="text-xs text-muted-foreground mt-3">Shown to scale by largest dimension.</p>
+    </div>
+  );
+}
+
+export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
+  const tags = displayTags(artwork);
+  const workUrl = `https://hookkapani.com/work/${artwork.id}`;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
       <div
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border"
         style={{ paddingTop: 'env(safe-area-inset-top)' }}
@@ -36,12 +71,7 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
             Back to Works
           </Link>
 
-          <ShareButton
-            title={artwork.title}
-            text={artwork.title}
-            url={`/work/${artwork.id}`}
-            variant="button"
-          />
+          <ShareButton title={artwork.title} text={artwork.title} url={`/work/${artwork.id}`} variant="button" />
         </div>
       </div>
 
@@ -54,25 +84,7 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
               maxHeight: '85vh',
             }}
           >
-            {artwork.modelUrl && (
-              <button
-                onClick={() => setShowAR(!showAR)}
-                className="absolute top-4 right-4 z-40 px-6 py-3 bg-accent text-white rounded-full font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-                </svg>
-                {showAR ? 'View Static Image' : 'Explore in 3D'}
-              </button>
-            )}
-
-            {showAR && artwork.modelUrl ? (
-              <ARViewer
-                src={artwork.modelUrl}
-                alt={artwork.title}
-                className="w-full h-full"
-              />
-            ) : artwork.videoUrl ? (
+            {artwork.videoUrl ? (
               <video
                 src={artwork.videoUrl}
                 poster={artwork.imageUrl}
@@ -99,24 +111,35 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
 
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          <div className="lg:col-span-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              {artwork.title}
-            </h1>
+          <div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight">{artwork.title}</h1>
+            {artwork.description ? (
+              <p className="text-base text-foreground/85 leading-relaxed mb-6">{artwork.description}</p>
+            ) : (
+              <p className="text-base text-foreground/85 leading-relaxed mb-6">
+                A {artwork.category} in {artwork.materials.join(', ').toLowerCase()}
+                {artwork.dimensions ? `, standing ${artwork.dimensions}` : ''}
+                {isMoving(artwork) ? ' — built around a moving mechanism' : ''}. Full details are in
+                the spec sheet below, and the studio confirms site fit after a technical survey.
+              </p>
+            )}
+            <ScaleFigure artwork={artwork} />
           </div>
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Category</h3>
+              <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Category</h3>
               <p className="text-lg font-medium capitalize">{artwork.category}</p>
             </div>
 
-            {artwork.materials && artwork.materials.length > 0 && (
+            {artwork.materials.length > 0 && (
               <div>
-                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Materials</h3>
+                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Materials</h3>
                 <ul className="space-y-1">
-                  {artwork.materials.map((material: string) => (
-                    <li key={material} className="text-sm text-foreground/80">{material}</li>
+                  {artwork.materials.map((material) => (
+                    <li key={material} className="text-base text-foreground/85">
+                      {material}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -124,23 +147,21 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
 
             {artwork.dimensions && (
               <div>
-                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Dimensions</h3>
-                <p className="text-sm text-foreground/80">{artwork.dimensions}</p>
+                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Size</h3>
+                <p className="text-base text-foreground/85">{sizeLabel(artwork)}</p>
               </div>
             )}
 
-            {artwork.description && (
-              <div>
-                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Description</h3>
-                <p className="text-sm text-foreground/80 leading-relaxed">{artwork.description}</p>
-              </div>
-            )}
+            <div>
+              <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Movement</h3>
+              <p className="text-base text-foreground/85">{isMoving(artwork) ? 'Moving (kinetic)' : 'Static'}</p>
+            </div>
 
-            {artwork.tags && artwork.tags.length > 0 && (
+            {tags.length > 0 && (
               <div>
-                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Tags</h3>
+                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Tags</h3>
                 <div className="flex flex-wrap gap-2">
-                  {artwork.tags.map((tag: string) => (
+                  {tags.map((tag) => (
                     <span key={tag} className="px-2 py-1 bg-accent/10 text-accent text-xs rounded">
                       {tag}
                     </span>
@@ -151,6 +172,16 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
 
             <div className="pt-4 border-t border-border space-y-3">
               <Link
+                href={`/commission?work=${artwork.id}`}
+                className="block text-center py-3 px-6 bg-accent text-accent-foreground text-sm font-medium tracking-wide hover:bg-accent/90 transition-colors min-h-[44px]"
+              >
+                Enquire about this work
+              </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <ShortlistButton artworkId={artwork.id} />
+                <WhatsAppButton artworkTitle={artwork.title} artworkUrl={workUrl} />
+              </div>
+              <Link
                 href={`/work/${artwork.id}/spec-sheet`}
                 prefetch={false}
                 onClick={() =>
@@ -159,45 +190,60 @@ export function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDeta
                     artworkTitle: artwork.title,
                   })
                 }
-                className="block text-center py-3 px-6 border border-border text-sm font-medium uppercase tracking-wider hover:border-accent hover:text-accent transition-colors min-h-[44px]"
+                className="block text-center py-3 px-6 border border-border text-sm font-medium tracking-wide hover:border-accent hover:text-accent transition-colors min-h-[44px]"
               >
-                Download Spec Sheet
-              </Link>
-              <Link
-                href="/#commission"
-                className="block text-center py-3 px-6 bg-accent text-accent-foreground text-sm font-medium uppercase tracking-wider hover:bg-accent/90 transition-colors min-h-[44px]"
-              >
-                Commission Similar Work
+                Download spec sheet (PDF)
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-border pt-8 grid grid-cols-2 gap-4">
-          {prevArtwork ? (
-            <Link
-              href={`/work/${prevArtwork.id}`}
-              className="group flex flex-col gap-1 hover:text-accent transition-colors"
-            >
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Previous</span>
-              <span className="font-medium group-hover:text-accent transition-colors line-clamp-1">
-                {prevArtwork.title}
-              </span>
-            </Link>
-          ) : <div />}
+        {related.length > 0 && (
+          <div className="mt-16 border-t border-border pt-10">
+            <h2 className="text-2xl font-bold mb-6">Related works</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {related.map((rel) => (
+                <Link key={rel.id} href={`/work/${rel.id}`} className="group block">
+                  <div className="relative w-full overflow-hidden bg-secondary" style={{ aspectRatio: rel.aspectRatio || '3/4' }}>
+                    <Image
+                      src={rel.imageUrl}
+                      alt={rel.title}
+                      fill
+                      className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      quality={75}
+                    />
+                  </div>
+                  <h3 className="mt-3 font-semibold group-hover:text-accent transition-colors">{rel.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {[sizeLabel(rel), rel.materials[0], isMoving(rel) ? 'Moves' : null].filter(Boolean).join(' · ')}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
 
-          {nextArtwork ? (
-            <Link
-              href={`/work/${nextArtwork.id}`}
-              className="group flex flex-col gap-1 text-right hover:text-accent transition-colors"
-            >
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Next</span>
-              <span className="font-medium group-hover:text-accent transition-colors line-clamp-1">
-                {nextArtwork.title}
-              </span>
-            </Link>
-          ) : <div />}
-        </div>
+      {/* Sticky enquire bar — mobile only */}
+      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#101010]/97 backdrop-blur border-t border-border px-4 py-3 flex gap-3">
+        <Link
+          href={`/commission?work=${artwork.id}`}
+          className="flex-1 text-center py-3 bg-accent text-accent-foreground text-sm font-medium min-h-[44px] flex items-center justify-center"
+        >
+          Enquire about this work
+        </Link>
+        <a
+          href={`https://wa.me/919540026221?text=${encodeURIComponent(`Hi, I'm interested in "${artwork.title}" — ${workUrl}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 flex items-center justify-center border border-border min-h-[44px]"
+          aria-label="WhatsApp the studio about this work"
+        >
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+          </svg>
+        </a>
       </div>
     </main>
   );
