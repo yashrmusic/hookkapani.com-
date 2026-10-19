@@ -1,91 +1,43 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import { Metadata } from 'next';
 import Link from 'next/link';
-import { VideoPlayer } from '@/components/video-player';
-import { AlertsSignup } from '@/components/alerts-signup';
+import { caseStudies } from '@/data/case-studies';
 
-const processVideos = [
-  {
-    id: 1,
-    title: 'Kinetic Motion I',
-    caption: 'Motion as medium, time as material.',
-    videoUrl: '/videos/video1.mp4',
-    tag: 'Studio',
+export const metadata: Metadata = {
+  title: 'Case Studies | Hookkapaani Studio',
+  description:
+    'Detailed case studies covering constraints, process, engineering approach, and outcomes.',
+  alternates: {
+    canonical: '/case-studies',
   },
-  {
-    id: 2,
-    title: 'Kinetic Motion II',
-    caption: 'The poetry of mechanical movement.',
-    videoUrl: '/videos/video2.mp4',
-    tag: 'Process',
-  },
-];
+};
 
-export default function StudioPage() {
+export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
-        <Link href="/" className="text-xl font-bold tracking-tighter hover:text-accent transition-colors">H/K</Link>
-        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">Studio Process Feed - Vol 01</span>
-      </nav>
+    <main className="min-h-screen bg-background text-foreground py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        <h1 className="text-display mb-6">Case Studies</h1>
+        <p className="text-body text-muted-foreground mb-12">
+          Structured breakdowns of commissioned projects for clients evaluating scope, reliability, and fit.
+        </p>
 
-      <div className="pt-24 pb-32">
-        <header className="container mx-auto px-6 mb-20">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-white"
-          >
-            PROCESS.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-white/60 max-w-2xl font-mono uppercase tracking-widest leading-relaxed"
-          >
-            A raw look into the material logic, mechanical tension, and honest construction of the studio&apos;s latest works.
-          </motion.p>
-        </header>
-
-        <section className="container mx-auto px-6 space-y-32 md:space-y-64">
-          {processVideos.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-20px' }}
-              transition={{ duration: 0.8 }}
-              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
-            >
-              <div className="relative w-full md:w-2/3 aspect-video bg-zinc-800 overflow-hidden group border border-white/5">
-                <VideoPlayer video={video} />
-              </div>
-
-              <div className="w-full md:w-1/3">
-                <span className="inline-block px-3 py-1 border border-white/20 text-[10px] uppercase font-mono tracking-widest mb-6 text-accent">
-                  {video.tag}
-                </span>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter text-white">{video.title}</h3>
-                <p className="text-white/60 leading-relaxed font-mono text-sm underline underline-offset-8 decoration-white/20">
-                  {video.caption}
-                </p>
-              </div>
-            </motion.div>
+        <div className="space-y-10">
+          {caseStudies.map((study) => (
+            <article key={study.slug} className="border border-border p-6 md:p-8 bg-card/30">
+              <h2 className="text-title mb-4">{study.title}</h2>
+              <p className="text-sm text-muted-foreground mb-5">{study.summary}</p>
+              <p className="text-sm mb-3">
+                <span className="text-accent">Outcome:</span> {study.outcome}
+              </p>
+              <p className="text-sm mb-6">
+                <span className="text-accent">Budget Band:</span> {study.budgetBand}
+              </p>
+              <Link href={`/case-studies/${study.slug}`} className="text-sm font-medium text-accent hover:text-accent/80">
+                Read the full case study →
+              </Link>
+            </article>
           ))}
-        </section>
-
-        <section className="container mx-auto px-6 mt-32 max-w-2xl">
-          <AlertsSignup />
-        </section>
-
-        <footer className="mt-24 border-t border-white/5 pt-12 pb-4 text-center">
-          <p className="text-2xl md:text-4xl font-bold opacity-20 tracking-tighter text-white">
-            MATERIAL LOGIC · HONEST CONSTRUCTION · MECHANICAL TENSION
-          </p>
-        </footer>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
