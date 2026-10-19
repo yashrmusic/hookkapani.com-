@@ -31,11 +31,11 @@ const PAGES: AudiencePage[] = [
     body: [
       {
         heading: 'Proven at scale',
-        text: 'The corporate atrium commission — a suspended kinetic work across a 9-floor atrium — was completed in 14 weeks including installation, at a budget band of INR 12–18 lakh, with quarterly service checks documented.',
+        text: 'The corporate atrium commission — a suspended kinetic work across a 9-floor atrium — was completed in 14 weeks including installation, with quarterly service checks documented.',
       },
       {
         heading: 'What the studio needs from you',
-        text: 'Site drawings, the available dimensions, and a budget range. The brief form asks for exactly this, including ceiling height, mounting and power at site.',
+        text: 'Site drawings, the available dimensions, and the project timeline. The brief form asks for exactly this, including ceiling height, mounting and power at site.',
       },
     ],
     cta: { href: '/commission', label: 'Submit a project brief' },
@@ -45,13 +45,13 @@ const PAGES: AudiencePage[] = [
     slug: 'collectors',
     title: 'Collect a work',
     intro:
-      'For private collectors and galleries: existing works from the studio, with dimensions and materials stated plainly. Availability, editions and pricing are confirmed per work directly with the studio — request the price on any piece below and it travels with your brief.',
+      'For private collectors and galleries: existing works from the studio, with dimensions and materials stated plainly. Availability and editions are confirmed per work directly with the studio — enquire on any piece below and it travels with your brief.',
     workIds: ['new-work-22', 'new-work-17', 'new-work-12', 'new-work-3', 'new-work-20', 'new-work-31'],
     priceCta: true,
     body: [
       {
         heading: 'How collecting works here',
-        text: 'Pick a work, request its price through the brief form, and the studio replies within 2 business days with availability, edition details and delivery terms for your city.',
+        text: 'Pick a work, enquire through the brief form, and the studio replies within 2 business days with availability, edition details and delivery terms for your city.',
       },
     ],
     cta: { href: '/portfolio', label: 'Browse all 38 works' },
@@ -129,7 +129,7 @@ function WorkCard({ artwork, priceCta }: { artwork: Artwork; priceCta?: boolean 
             href={`/commission?work=${artwork.id}`}
             className="block text-center py-3 px-4 border border-border text-sm font-medium hover:border-accent hover:text-accent transition-colors min-h-[44px]"
           >
-            Request price
+            Enquire
           </Link>
         </div>
       )}
