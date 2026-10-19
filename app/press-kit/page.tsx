@@ -4,6 +4,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Press Kit | Hookkapaani Studio',
   description: 'Studio bio, media assets, and contact details for press and curatorial use.',
+  alternates: {
+    canonical: '/press-kit',
+  },
 };
 
 export default function PressKitPage() {
