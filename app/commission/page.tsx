@@ -5,7 +5,7 @@ import { WhatsAppButton } from '@/components/whatsapp-button';
 export const metadata: Metadata = {
   title: 'Commission a Work | Hookkapaani Studio',
   description:
-    'Submit a project brief for a kinetic sculpture commission — site, scope, budget and timeline in three short steps. The studio replies within 2 business days.',
+    'Submit a project brief for a kinetic sculpture commission — site, scope and timeline in three short steps. The studio replies within 2 business days.',
   alternates: {
     canonical: '/commission',
   },
@@ -26,7 +26,7 @@ export default function CommissionPage() {
         <div className="text-center mb-12">
           <h1 className="text-headline mb-6">Commission a work</h1>
           <p className="text-body text-muted-foreground max-w-3xl mx-auto">
-            Three short steps: about you, the site, and scope &amp; budget. Works you shortlisted
+            Three short steps: about you, the site, and scope &amp; timeline. Works you shortlisted
             anywhere on this site travel with the brief automatically.
           </p>
         </div>
