@@ -41,7 +41,7 @@ export default async function OpengraphImage({ params }: Props) {
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>{title}</div>
           <div style={{ fontSize: 28, opacity: 0.85 }}>{subtitle}</div>
         </div>
-        <div style={{ fontSize: 24, color: '#ff9500' }}>hookkapaani.com</div>
+        <div style={{ fontSize: 24, color: '#ff9500' }}>hookkapani.com</div>
       </div>
     ),
     {
