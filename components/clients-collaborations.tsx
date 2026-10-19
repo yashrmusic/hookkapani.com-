@@ -1,10 +1,27 @@
-const clients = [
-  'Design Studios',
-  'Hospitality Groups',
-  'Corporate Atriums',
-  'Private Collectors',
-  'Contemporary Galleries',
-  'Public Art Programs',
+import Link from 'next/link';
+
+const paths = [
+  {
+    href: '/for/spaces',
+    title: 'Commission for a space',
+    audience: 'Hospitality groups · Corporate atriums · Public art programs · Design studios',
+    detail: 'A moving centrepiece designed around your site, structure and footfall — surveyed, engineered and installed by the studio.',
+    action: 'Start with the works',
+  },
+  {
+    href: '/for/collectors',
+    title: 'Collect a work',
+    audience: 'Private collectors · Contemporary galleries',
+    detail: 'Existing works and editions, with dimensions, materials and availability discussed directly with the studio.',
+    action: 'Browse collectable works',
+  },
+  {
+    href: '/for/press',
+    title: 'Curate or write about the studio',
+    audience: 'Curators · Editors · Researchers',
+    detail: 'Case studies, high-resolution images, bios and the studio fact sheet — everything needed to file or programme.',
+    action: 'Open the press kit',
+  },
 ];
 
 export function ClientsCollaborations() {
@@ -14,13 +31,20 @@ export function ClientsCollaborations() {
         <h2 className="text-headline mb-4">Clients & Collaborations</h2>
         <p className="text-muted-foreground max-w-3xl mb-10">
           We collaborate across architecture, curation, and fabrication teams to deliver reliable
-          installations from concept to commissioning.
+          installations from concept to commissioning. Start from the path that fits you:
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {clients.map((client) => (
-            <div key={client} className="border border-border px-4 py-5 text-sm uppercase tracking-wider text-muted-foreground bg-card/30">
-              {client}
-            </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {paths.map((path) => (
+            <Link
+              key={path.href}
+              href={path.href}
+              className="group border border-border p-6 bg-card/30 hover:border-accent transition-colors flex flex-col"
+            >
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">{path.title}</h3>
+              <p className="text-sm text-accent mb-3">{path.audience}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">{path.detail}</p>
+              <span className="mt-auto text-sm font-medium text-accent">{path.action} →</span>
+            </Link>
           ))}
         </div>
       </div>

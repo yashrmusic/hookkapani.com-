@@ -6,10 +6,10 @@ import { MagneticButton } from '@/components/magnetic-button';
 
 const navLinks = [
   { href: '/#work', label: 'Works' },
-  { href: '/#commission', label: 'Commission' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/case-studies', label: 'Projects' },
+  { href: '/studio', label: 'Studio' },
+  { href: '/press-kit', label: 'Press' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/portfolio.pdf', label: 'Download PDF' },
 ];
 
 export function Nav() {
@@ -55,7 +55,7 @@ export function Nav() {
           </Link>
 
           {/* Desktop Nav — only visible on lg (1024px+) */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <MagneticButton key={link.href}>
                 {link.href.endsWith('.pdf') ? (
@@ -76,6 +76,12 @@ export function Nav() {
                 )}
               </MagneticButton>
             ))}
+            <Link
+              href="/commission"
+              className="ml-2 px-5 py-2.5 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors min-h-[44px] flex items-center"
+            >
+              Commission
+            </Link>
           </div>
 
           {/* Mobile Menu Button — visible below lg */}
@@ -120,6 +126,13 @@ export function Nav() {
                 </Link>
               )
             ))}
+            <Link
+              href="/commission"
+              className="block py-3 px-2 text-base font-medium bg-accent text-accent-foreground hover:bg-accent/90 transition-colors min-h-[44px] flex items-center rounded"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Commission a work
+            </Link>
           </div>
           {/* Extra padding for bottom safe area on notched phones */}
           <div style={{ paddingBottom: 'env(safe-area-inset-bottom)' }} />

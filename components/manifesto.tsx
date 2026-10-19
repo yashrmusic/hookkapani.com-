@@ -2,11 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const quoteWords =
-  "We don't just make sculptures — we engineer motion. Where steel meets soul, and mechanics become poetry. Art that breathes, moves, and transforms.".split(
-    " "
-  );
-
 export function Manifesto() {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -32,29 +27,19 @@ export function Manifesto() {
         >
           Manifesto
         </p>
-        <blockquote className="font-serif text-3xl leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          {quoteWords.map((word, i) => (
-            <span
-              key={`${word}-${i}`}
-              className="inline-block transition-all ease-out mr-[0.25em]"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible
-                  ? "translateY(0)"
-                  : "translateY(12px)",
-                transitionDuration: "600ms",
-                transitionDelay: `${200 + i * 50}ms`,
-              }}
-            >
-              {word}
-            </span>
-          ))}
+        <blockquote
+          className={`font-serif text-3xl leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl transition-opacity duration-700 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          We don&apos;t just make sculptures — we engineer motion. Where steel meets soul, and
+          mechanics become poetry. Art that breathes, moves, and transforms.
         </blockquote>
         <div
           className={`mt-12 flex items-center justify-center gap-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
-          style={{ transitionDelay: isVisible ? "1.8s" : "0s" }}
+          style={{ transitionDelay: isVisible ? "200ms" : "0s" }}
         >
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">
@@ -68,7 +53,7 @@ export function Manifesto() {
             className={`h-8 w-px bg-border transition-transform duration-700 origin-top ${
               isVisible ? "scale-y-100" : "scale-y-0"
             }`}
-            style={{ transitionDelay: isVisible ? "2s" : "0s" }}
+            style={{ transitionDelay: isVisible ? "300ms" : "0s" }}
           />
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">

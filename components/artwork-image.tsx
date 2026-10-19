@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import type { Artwork } from '../data/artworks';
+import { sizeLabel, isMoving } from '@/lib/artwork-utils';
 
 interface ArtworkImageProps {
   artwork: Artwork;
@@ -93,7 +94,14 @@ export function ArtworkCard({
           {!compact && (
             <>
               <p className="text-sm text-muted-foreground mb-2">
-                {artwork.category}
+                {[
+                  artwork.category.charAt(0).toUpperCase() + artwork.category.slice(1),
+                  sizeLabel(artwork),
+                  artwork.materials?.[0],
+                  isMoving(artwork) ? 'Moves' : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
               </p>
               <Link
                 href={`/work/${artwork.id}`}

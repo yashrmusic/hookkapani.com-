@@ -2,15 +2,17 @@
 
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { artworks } from '../data/artworks';
-import { ArtworkCard } from './artwork-image';
+import { ArtworkCard, ArtworkImage } from './artwork-image';
+import { sizeLabel, isMoving } from '@/lib/artwork-utils';
 import { ArtworkFilters } from './artwork-filters';
 import { Lightbox } from './lightbox';
 import { useInView } from '../hooks/use-intersection-observer';
 import { MasonryGrid } from './masonry-grid';
 import type { Artwork } from '../data/artworks';
 
-export function ProjectsEnhanced() {
+export function ProjectsEnhanced({ featured = false }: { featured?: boolean }) {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.05 });
   const [filteredArtworks, setFilteredArtworks] = useState(artworks);
   const [lightboxArtwork, setLightboxArtwork] = useState<typeof artworks[0] | null>(null);
@@ -69,6 +71,60 @@ export function ProjectsEnhanced() {
     const prevIndex = (currentIndex - 1 + orderedFilteredArtworks.length) % orderedFilteredArtworks.length;
     setLightboxArtwork(orderedFilteredArtworks[prevIndex]);
   };
+
+  if (featured) {
+    const featuredIds = [
+      'new-work-28', // Medusa (video)
+      'new-work-22', // Forest Lady (video)
+      'new-work-17', // The Strawberry (video)
+      'new-work-30', // The Hearing Heart (video)
+      'new-work-26', // The Bull — 17 ft
+      'new-work-32', // Koi Fish — 15 ft
+      'new-work-8', // The Open Gates Soul — 12 x 15 ft
+      'new-work-13', // Sangeeta — 12 ft
+    ];
+    const featuredWorks = featuredIds
+      .map((id) => artworks.find((a) => a.id === id))
+      .filter(Boolean) as Artwork[];
+    return (
+      <section id="work" className="py-16 md:py-32 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Selected Works</h2>
+            <p className="text-body text-muted-foreground max-w-3xl">
+              Eight pieces that show the range — the four that move on film, and the largest works
+              the studio has built.
+            </p>
+          </div>
+          <MasonryGrid gap={24} columnCount={{ mobile: 1, tablet: 2, desktop: 3 }} className="mb-12">
+            {featuredWorks.map((artwork, index) => (
+              <Link key={artwork.id} href={`/work/${artwork.id}`} className="group block mb-6">
+                <ArtworkImage artwork={artwork} priority={index < 2} />
+                <div className="pt-4">
+                  <h3 className="text-lg md:text-xl font-semibold group-hover:text-accent transition-colors">
+                    {artwork.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {[sizeLabel(artwork), artwork.materials[0], isMoving(artwork) ? 'Moves' : null]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </MasonryGrid>
+          <div className="text-center">
+            <Link
+              href="/portfolio"
+              className="inline-block px-8 py-4 border border-border font-medium hover:border-accent hover:text-accent transition-colors min-h-[44px]"
+            >
+              View all {artworks.length} works
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>

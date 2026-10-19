@@ -1,17 +1,17 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { artworks } from '../data/artworks';
 
 const stats = [
-  { value: artworks.length, suffix: "", label: "Works Created" },
-  { value: 3, suffix: "", label: "Categories" },
-  { value: 6, suffix: "+", label: "Years Experience" },
-  { value: 1, suffix: "", label: "Studio, New Delhi" },
+  { value: String(artworks.length), label: "Works Created" },
+  { value: "17 ft", label: "Largest Work — The Bull" },
+  { value: "14 weeks", label: "Atrium Commission, Delivered" },
+  { value: "6+", label: "Years Experience" },
 ];
 
-function AnimatedStat({
+function Stat({
   stat,
   index,
   isVisible,
@@ -20,46 +20,17 @@ function AnimatedStat({
   index: number;
   isVisible: boolean;
 }) {
-  const [count, setCount] = useState(0);
-
-  const animate = useCallback(() => {
-    const duration = 1200;
-    const startTime = Date.now();
-    const target = stat.value;
-
-    const tick = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * target));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, [stat.value]);
-
-  useEffect(() => {
-    if (isVisible) {
-      const timeout = setTimeout(animate, 400 + index * 200);
-      return () => clearTimeout(timeout);
-    }
-  }, [isVisible, animate, index]);
-
   return (
     <div
       className="border-t border-accent-foreground/20 pt-6 transition-all duration-700 ease-out"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
-        transitionDelay: `${400 + index * 150}ms`,
+        transitionDelay: `${index * 120}ms`,
       }}
     >
-      <p className="font-serif text-4xl text-accent-foreground md:text-5xl">
-        {count}
-        {stat.suffix}
-      </p>
-      <p className="mt-2 text-xs tracking-[0.15em] uppercase text-accent-foreground/50">
-        {stat.label}
-      </p>
+      <p className="font-serif text-4xl text-accent-foreground md:text-5xl">{stat.value}</p>
+      <p className="mt-2 text-sm text-accent-foreground/60">{stat.label}</p>
     </div>
   );
 }
@@ -124,7 +95,7 @@ export function Practice() {
 
         <div className="mt-24 grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, i) => (
-            <AnimatedStat
+            <Stat
               key={stat.label}
               stat={stat}
               index={i}

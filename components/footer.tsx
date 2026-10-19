@@ -54,18 +54,28 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#work" className="text-muted-foreground hover:text-accent transition-colors">
+                <Link href="/#work" className="text-muted-foreground hover:text-accent transition-colors">
                   Works
                 </Link>
               </li>
               <li>
-                <Link href="#studio" className="text-muted-foreground hover:text-accent transition-colors">
+                <Link href="/case-studies" className="text-muted-foreground hover:text-accent transition-colors">
+                  Projects & Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/studio" className="text-muted-foreground hover:text-accent transition-colors">
                   Studio
                 </Link>
               </li>
               <li>
-                <Link href="#commission" className="text-muted-foreground hover:text-accent transition-colors">
-                  Commission
+                <Link href="/press-kit" className="text-muted-foreground hover:text-accent transition-colors">
+                  Press Kit
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="text-muted-foreground hover:text-accent transition-colors">
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -74,7 +84,7 @@ export function Footer() {
                   download="Hookkapaani_Portfolio.pdf"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
-                  Download Portfolio
+                  Portfolio PDF (13 MB)
                 </a>
               </li>
             </ul>
@@ -91,7 +101,27 @@ export function Footer() {
                   hookkapani.15@gmail.com
                 </a>
               </li>
-              <li>By appointment only</li>
+              <li>
+                <a href="tel:+919540026221" className="hover:text-accent transition-colors">
+                  +91 95400 26221
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919540026221?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20commission%20with%20Hookkapaani%20Studio."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  WhatsApp the studio
+                </a>
+              </li>
+              <li>
+                Studio visits by appointment —{' '}
+                <Link href="/commission" className="text-accent hover:text-accent/80 transition-colors">
+                  book via a project brief
+                </Link>
+              </li>
             </ul>
           </div>
 
