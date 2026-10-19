@@ -3,10 +3,10 @@
 import { useEffect, useCallback, useState, useRef } from 'react';
 import Image from 'next/image';
 import { ShareButton } from './share-button';
-import dynamic from 'next/dynamic';
 import type { Artwork } from '../data/artworks';
 
-const ARViewer = dynamic(() => import('./ar-viewer'), { ssr: false });
+/* 3D viewer removed 2026-10-19 (dead code — no artwork has a model;
+   its ~990 KB chunk broke the perf-budget check). */
 
 interface LightboxProps {
   artwork: Artwork | null;
@@ -28,7 +28,6 @@ export function Lightbox({
   const [isZoomed, setIsZoomed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [showAR, setShowAR] = useState(false);
   const scrollPosRef = useRef(0);
 
   const currentIndex = artwork ? allArtworks.findIndex((a) => a.id === artwork.id) : -1;
@@ -86,7 +85,6 @@ export function Lightbox({
         window.scrollTo(0, scrollPosRef.current);
         setIsZoomed(false);
         setImageLoaded(false);
-        setShowAR(false);
       }, 200);
     }
     return () => {
@@ -154,18 +152,6 @@ export function Lightbox({
           right: 'max(1rem, env(safe-area-inset-right))',
         }}
       >
-        {artwork.modelUrl && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowAR(!showAR);
-            }}
-            className={`px-4 h-12 flex items-center justify-center gap-2 rounded-full transition-all font-mono text-xs uppercase tracking-widest ${showAR ? 'bg-accent text-white' : 'bg-white/10 text-white hover:bg-white/20'}`}
-          >
-            {showAR ? 'View Image' : 'View in 3D'}
-          </button>
-        )}
-
         <ShareButton
           title={artwork.title}
           text={artwork.title}
@@ -226,13 +212,7 @@ export function Lightbox({
       >
         <div className="flex-1 flex items-center justify-center p-2 pt-16 md:p-8 min-h-0 bg-black/40">
           <div className={`relative w-full h-full ${isZoomed ? 'overflow-auto' : ''}`}>
-            {showAR && artwork.modelUrl ? (
-              <ARViewer
-                src={artwork.modelUrl}
-                alt={artwork.title}
-                className="w-full h-full"
-              />
-            ) : artwork.videoUrl ? (
+            {artwork.videoUrl ? (
               <video
                 src={artwork.videoUrl}
                 poster={artwork.imageUrl}
