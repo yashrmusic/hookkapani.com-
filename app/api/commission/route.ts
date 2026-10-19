@@ -11,6 +11,12 @@ type CommissionPayload = {
   projectType: string;
   location?: string;
   dimensions?: string;
+  ceilingHeight?: string;
+  mounting?: string;
+  environment?: string;
+  powerAvailable?: string;
+  siteMediaLink?: string;
+  referenceWorks?: string;
   budget: string;
   timeline: string;
   description: string;
@@ -36,6 +42,9 @@ const ALLOWED_PROJECT_TYPES = new Set([
 ]);
 const ALLOWED_BUDGETS = new Set(['400k-500k', '500k-2m', '2m-plus', 'not-specified']);
 const ALLOWED_TIMELINES = new Set(['1-3-months', '3-6-months', '6-12-months', '12-plus-months', 'not-specified']);
+const ALLOWED_MOUNTING = new Set(['floor-standing', 'suspended', 'wall-mounted', 'not-sure']);
+const ALLOWED_ENVIRONMENTS = new Set(['indoor', 'outdoor', 'both']);
+const ALLOWED_POWER = new Set(['yes', 'no', 'not-sure']);
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 8;
@@ -172,6 +181,12 @@ function normalizePayload(raw: unknown): { payload?: CommissionPayload; error?: 
     projectType: normalizeSingleLine(input.projectType, 60) || '',
     location: normalizeSingleLine(input.location, 180),
     dimensions: normalizeSingleLine(input.dimensions, 180),
+    ceilingHeight: normalizeSingleLine(input.ceilingHeight, 60),
+    mounting: normalizeSingleLine(input.mounting, 40),
+    environment: normalizeSingleLine(input.environment, 40),
+    powerAvailable: normalizeSingleLine(input.powerAvailable, 40),
+    siteMediaLink: normalizeSingleLine(input.siteMediaLink, 300),
+    referenceWorks: normalizeMultiline(input.referenceWorks, 600),
     budget: normalizeSingleLine(input.budget, 60) || '',
     timeline: normalizeSingleLine(input.timeline, 60) || '',
     description: normalizeMultiline(input.description, 4000) || '',
@@ -203,6 +218,18 @@ function normalizePayload(raw: unknown): { payload?: CommissionPayload; error?: 
     return { error: 'Invalid timeline value.' };
   }
 
+  if (payload.mounting && !ALLOWED_MOUNTING.has(payload.mounting)) {
+    return { error: 'Invalid mounting value.' };
+  }
+
+  if (payload.environment && !ALLOWED_ENVIRONMENTS.has(payload.environment)) {
+    return { error: 'Invalid environment value.' };
+  }
+
+  if (payload.powerAvailable && !ALLOWED_POWER.has(payload.powerAvailable)) {
+    return { error: 'Invalid powerAvailable value.' };
+  }
+
   return { payload };
 }
 
@@ -220,6 +247,12 @@ function commissionEventPayload(ip: string, payload: CommissionPayload) {
       decisionRole: payload.decisionRole || '',
       location: payload.location || '',
       dimensions: payload.dimensions || '',
+      ceilingHeight: payload.ceilingHeight || '',
+      mounting: payload.mounting || '',
+      environment: payload.environment || '',
+      powerAvailable: payload.powerAvailable || '',
+      siteMediaLink: payload.siteMediaLink || '',
+      referenceWorks: payload.referenceWorks || '',
       budget: payload.budget,
       timeline: payload.timeline,
       description: payload.description,
@@ -353,6 +386,12 @@ Role: ${payload.decisionRole || 'N/A'}
 Project Type: ${payload.projectType}
 Location: ${payload.location || 'N/A'}
 Dimensions: ${payload.dimensions || 'N/A'}
+Ceiling Height: ${payload.ceilingHeight || 'N/A'}
+Mounting: ${payload.mounting || 'N/A'}
+Environment: ${payload.environment || 'N/A'}
+Power at Site: ${payload.powerAvailable || 'N/A'}
+Site Photos / Plans: ${payload.siteMediaLink || 'N/A'}
+Reference Works: ${payload.referenceWorks || 'N/A'}
 Budget: ${payload.budget}
 Timeline: ${payload.timeline}
 
@@ -368,6 +407,12 @@ ${payload.description}`,
 <p><strong>Project Type:</strong> ${escapeHtml(payload.projectType)}</p>
 <p><strong>Location:</strong> ${escapeHtml(payload.location || 'N/A')}</p>
 <p><strong>Dimensions:</strong> ${escapeHtml(payload.dimensions || 'N/A')}</p>
+<p><strong>Ceiling Height:</strong> ${escapeHtml(payload.ceilingHeight || 'N/A')}</p>
+<p><strong>Mounting:</strong> ${escapeHtml(payload.mounting || 'N/A')}</p>
+<p><strong>Environment:</strong> ${escapeHtml(payload.environment || 'N/A')}</p>
+<p><strong>Power at Site:</strong> ${escapeHtml(payload.powerAvailable || 'N/A')}</p>
+<p><strong>Site Photos / Plans:</strong> ${escapeHtml(payload.siteMediaLink || 'N/A')}</p>
+<p><strong>Reference Works:</strong> ${escapeHtml(payload.referenceWorks || 'N/A')}</p>
 <p><strong>Budget:</strong> ${escapeHtml(payload.budget)}</p>
 <p><strong>Timeline:</strong> ${escapeHtml(payload.timeline)}</p>
 <hr />
