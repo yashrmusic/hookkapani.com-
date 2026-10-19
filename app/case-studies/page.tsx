@@ -29,7 +29,7 @@ export default function CaseStudiesPage() {
                 <span className="text-accent">Outcome:</span> {study.outcome}
               </p>
               <p className="text-sm mb-6">
-                <span className="text-accent">Budget Band:</span> {study.budgetBand}
+               
               </p>
               <Link href={`/case-studies/${study.slug}`} className="text-sm font-medium text-accent hover:text-accent/80">
                 Read the full case study →
