@@ -1,123 +1,91 @@
-import { Metadata } from 'next';
+'use client';
+
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { getArtworkById } from '@/data/artworks';
-import { sizeLabel } from '@/lib/artwork-utils';
+import { VideoPlayer } from '@/components/video-player';
+import { AlertsSignup } from '@/components/alerts-signup';
 
-export const metadata: Metadata = {
-  title: 'Press Kit | Hookkapaani Studio',
-  description: 'Studio bio, fact sheet, brand assets, selected works and contact details for press and curatorial use.',
-  alternates: {
-    canonical: '/press-kit',
+const processVideos = [
+  {
+    id: 1,
+    title: 'Kinetic Motion I',
+    caption: 'Motion as medium, time as material.',
+    videoUrl: '/videos/video1.mp4',
+    tag: 'Studio',
   },
-};
+  {
+    id: 2,
+    title: 'Kinetic Motion II',
+    caption: 'The poetry of mechanical movement.',
+    videoUrl: '/videos/video2.mp4',
+    tag: 'Process',
+  },
+];
 
-const selectedWorks = ['new-work-28', 'new-work-22', 'new-work-26', 'new-work-32', 'new-work-17', 'new-work-30']
-  .map((id) => getArtworkById(id))
-  .filter(Boolean);
-
-export default function PressKitPage() {
+export default function StudioPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        <h1 className="text-display mb-6">Press Kit</h1>
-        <p className="text-muted-foreground mb-10">
-          A concise media package for editors, curators, and collaborators.
-        </p>
+    <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
+        <Link href="/" className="text-xl font-bold tracking-tighter hover:text-accent transition-colors">H/K</Link>
+        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">Studio Process Feed - Vol 01</span>
+      </nav>
 
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Studio Overview</h2>
-          <p className="text-sm leading-relaxed">
-            Hookkapaani is a kinetic sculpture studio based in New Delhi, focused on industrial materials,
-            controlled motion systems, and site-aware installations.
-          </p>
-        </section>
-
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Fact Sheet</h2>
-          <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-            <div><dt className="text-muted-foreground">Studio</dt><dd className="font-medium">Hookkapaani</dd></div>
-            <div><dt className="text-muted-foreground">Founder</dt><dd className="font-medium">Vishal Gupta — Kinetic Sculptor</dd></div>
-            <div><dt className="text-muted-foreground">Based</dt><dd className="font-medium">New Delhi, India</dd></div>
-            <div><dt className="text-muted-foreground">Works</dt><dd className="font-medium">38 sculptures &amp; installations</dd></div>
-            <div><dt className="text-muted-foreground">Largest work</dt><dd className="font-medium">The Bull — 17 ft</dd></div>
-            <div><dt className="text-muted-foreground">Selected commission</dt><dd className="font-medium">9-floor corporate atrium, delivered in 14 weeks</dd></div>
-          </dl>
-        </section>
-
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Founder Bio</h2>
-          <p className="text-sm leading-relaxed mb-4">
-            <strong>Short:</strong> Vishal Gupta leads the studio&apos;s artistic and fabrication direction, with
-            practice centered on material transformation and mechanical rhythm.
-          </p>
-          <p className="text-sm leading-relaxed">
-            <strong>Long:</strong> Vishal Gupta is a New Delhi-based kinetic sculptor and the founder of
-            Hookkapaani Studio. Working in steel, resin and found industrial material, he builds sculptures
-            whose mechanisms are part of the artwork — engineered to be serviced, not sealed. The studio&apos;s
-            38 works range from tabletop pieces to a 17 ft bull, and its commissions include a suspended
-            kinetic installation for a 9-floor corporate atrium, delivered in 14 weeks, and a three-work
-            motion series for a contemporary gallery programme.
-          </p>
-        </section>
-
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Brand Assets</h2>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="/images/hookkapani-logo-red.png" download className="text-accent hover:text-accent/80">
-                Studio logo (PNG, red on transparent)
-              </a>
-            </li>
-            <li>
-              <a href="/portfolio.pdf" download="Hookkapaani_Portfolio_2026.pdf" className="text-accent hover:text-accent/80">
-                Full portfolio catalogue (PDF, 13 MB)
-              </a>
-            </li>
-            <li>
-              <Link href="/case-studies" className="text-accent hover:text-accent/80">
-                Case studies — atrium installation &amp; gallery series
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Selected Works — Images</h2>
-          <p className="text-sm text-muted-foreground mb-4">
-            High-resolution images open from each work page; captions and credits as listed there.
-          </p>
-          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-            {selectedWorks.map((w) => (
-              <li key={w!.id}>
-                <Link href={`/work/${w!.id}`} className="text-accent hover:text-accent/80">
-                  {w!.title}
-                </Link>{' '}
-                <span className="text-muted-foreground">— {sizeLabel(w!)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mb-10 border border-border p-6 bg-card/30">
-          <h2 className="text-title mb-4">Media Contact</h2>
-          <p className="text-sm">Email: <a className="text-accent" href="mailto:hookkapani.15@gmail.com">hookkapani.15@gmail.com</a></p>
-          <p className="text-sm">Phone: <a className="text-accent" href="tel:+919540026221">+91 95400 26221</a></p>
-          <p className="text-sm">Location: New Delhi, India</p>
-        </section>
-
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="/portfolio.pdf"
-            download="Hookkapaani_Portfolio_2026.pdf"
-            className="px-5 py-3 bg-accent text-accent-foreground text-sm font-medium min-h-[44px] flex items-center"
+      <div className="pt-24 pb-32">
+        <header className="container mx-auto px-6 mb-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-white"
           >
-            Download Portfolio (13 MB)
-          </a>
-          <Link href="/" className="px-5 py-3 border border-border text-sm font-medium min-h-[44px] flex items-center">
-            Back to Website
-          </Link>
-        </div>
+            PROCESS.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/60 max-w-2xl font-mono uppercase tracking-widest leading-relaxed"
+          >
+            A raw look into the material logic, mechanical tension, and honest construction of the studio&apos;s latest works.
+          </motion.p>
+        </header>
+
+        <section className="container mx-auto px-6 space-y-32 md:space-y-64">
+          {processVideos.map((video, index) => (
+            <motion.div
+              key={video.id}
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
+            >
+              <div className="relative w-full md:w-2/3 aspect-video bg-zinc-800 overflow-hidden group border border-white/5">
+                <VideoPlayer video={video} />
+              </div>
+
+              <div className="w-full md:w-1/3">
+                <span className="inline-block px-3 py-1 border border-white/20 text-[10px] uppercase font-mono tracking-widest mb-6 text-accent">
+                  {video.tag}
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter text-white">{video.title}</h3>
+                <p className="text-white/60 leading-relaxed font-mono text-sm underline underline-offset-8 decoration-white/20">
+                  {video.caption}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </section>
+
+        <section className="container mx-auto px-6 mt-32 max-w-2xl">
+          <AlertsSignup />
+        </section>
+
+        <footer className="mt-24 border-t border-white/5 pt-12 pb-4 text-center">
+          <p className="text-2xl md:text-4xl font-bold opacity-20 tracking-tighter text-white">
+            MATERIAL LOGIC · HONEST CONSTRUCTION · MECHANICAL TENSION
+          </p>
+        </footer>
       </div>
-    </main>
+    </div>
   );
 }
