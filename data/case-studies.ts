@@ -5,7 +5,6 @@ export interface CaseStudy {
   constraints: string[];
   process: string;
   outcome: string;
-  budgetBand: string;
   summary: string;
 }
 
@@ -20,7 +19,6 @@ export const caseStudies: CaseStudy[] = [
       'Developed modular fabrication units with balanced moving elements and controlled mass distribution.',
     outcome:
       'Completed in 14 weeks including installation, with periodic service interval documented at quarterly checks.',
-    budgetBand: 'INR 12L - 18L',
     summary: 'Commissioned large-format suspended sculpture for a high-traffic corporate atrium.',
   },
   {
@@ -32,7 +30,6 @@ export const caseStudies: CaseStudy[] = [
       'Built lightweight kinetic assemblies using steel, brass, and low-noise motion elements.',
     outcome:
       'Increased visitor dwell time and generated multi-publication media coverage for the exhibition.',
-    budgetBand: 'INR 8L - 14L',
     summary: 'Three-part kinetic series for a contemporary gallery program.',
   },
 ];
