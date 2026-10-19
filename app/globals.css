@@ -61,9 +61,9 @@
     --muted-foreground: 0 0% 65%;
     /* Muted text #a6a6a6 */
 
-    --accent: 30 100% 50%;
-    /* Kinetic orange #ff9500 */
-    --accent-foreground: 0 0% 5%;
+    --accent: 357 90% 55%;
+    /* Brand red (logo family, lifted for dark-UI contrast) */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -103,7 +103,7 @@
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 30 100% 50%;
+    --accent: 357 100% 47%;
     --accent-foreground: 0 0% 98%;
 
     --border: 0 0% 85%;
@@ -207,7 +207,7 @@
   }
 
   .text-label {
-    @apply text-xs md:text-sm font-medium uppercase tracking-wider;
+    @apply text-sm md:text-base font-medium;
   }
 
   /* Kinetic Effects */

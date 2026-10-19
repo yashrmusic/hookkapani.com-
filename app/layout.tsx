@@ -3,6 +3,7 @@ import { Space_Grotesk, JetBrains_Mono, Cormorant_Garamond } from "next/font/goo
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { ShortlistProvider, ShortlistTray } from "@/components/shortlist";
 import { HydrationHandler } from "@/components/hydration-handler";
 import { ScrollProgress } from "@/components/scroll-progress";
 
@@ -127,9 +128,12 @@ export default function RootLayout({
         />
         <ScrollProgress />
 
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <ShortlistProvider>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+          <ShortlistTray />
+        </ShortlistProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
