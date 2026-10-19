@@ -1,71 +1,33 @@
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { artworks, getArtworkById } from '@/data/artworks';
-import { relatedWorks } from '@/lib/artwork-utils';
-import { ArtworkDetail } from './artwork-detail';
+import type { Metadata } from "next";
+import { Hero } from "@/components/hero";
+import { ProjectsEnhanced } from "@/components/projects-enhanced";
+import { CommissionCta } from "@/components/commission-cta";
+import { Manifesto } from "@/components/manifesto";
+import { Practice } from "@/components/practice";
+import { CapabilityProof } from "@/components/capability-proof";
+import { ClientsCollaborations } from "@/components/clients-collaborations";
+import { CaseStudiesPreview } from "@/components/case-studies-preview";
+import { getCmsContent } from "@/lib/cms-content";
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
-export async function generateStaticParams() {
-  return artworks.map((artwork) => ({
-    id: artwork.id,
-  }));
-}
+export default async function Home() {
+  const content = await getCmsContent();
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const artwork = getArtworkById(id);
-
-  if (!artwork) {
-    return { title: 'Artwork Not Found | Hookkapaani' };
-  }
-
-  const url = `https://hookkapani.com/work/${artwork.id}`;
-  const ogImageUrl = `${url}/opengraph-image`;
-
-  const studioDescription = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.';
-
-  return {
-    title: `${artwork.title} | Hookkapaani Studio`,
-    description: studioDescription,
-    alternates: {
-      canonical: `/work/${artwork.id}`,
-    },
-    openGraph: {
-      title: `${artwork.title} - Hookkapaani Studio`,
-      description: studioDescription,
-      url,
-      siteName: 'Hookkapaani Studio',
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: artwork.title,
-        },
-      ],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${artwork.title} - Hookkapaani`,
-      description: studioDescription,
-      images: [ogImageUrl],
-    },
-  };
-}
-
-export default async function ArtworkPage({ params }: PageProps) {
-  const { id } = await params;
-  const artwork = getArtworkById(id);
-
-  if (!artwork) {
-    notFound();
-  }
-
-  const related = relatedWorks(artworks, artwork, 3);
-
-  return <ArtworkDetail artwork={artwork} related={related} />;
+  return (
+    <>
+      <Hero />
+      <ProjectsEnhanced featured />
+      <CaseStudiesPreview />
+      <CapabilityProof />
+      <Practice />
+      <ClientsCollaborations />
+      <Manifesto />
+      <CommissionCta />
+    </>
+  );
 }
