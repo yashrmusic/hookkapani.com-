@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Case Studies | Hookkapaani Studio',
   description:
     'Detailed case studies covering constraints, process, engineering approach, and outcomes.',
+  alternates: {
+    canonical: '/case-studies',
+  },
 };
 
 const caseStudies = [
