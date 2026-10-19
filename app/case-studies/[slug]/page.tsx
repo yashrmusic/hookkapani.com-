@@ -73,7 +73,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h2 className="text-title mb-4">Outcome</h2>
             <p className="text-base text-foreground/85 leading-relaxed">{study.outcome}</p>
             <p className="text-base mt-4">
-              <span className="text-accent">Budget band:</span> {study.budgetBand}
+             
             </p>
           </section>
         </div>
@@ -81,7 +81,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <div className="mt-14 border border-accent/40 bg-accent/5 p-6 md:p-8 text-center">
           <h2 className="text-title mb-3">Planning something similar?</h2>
           <p className="text-muted-foreground mb-6">
-            Send a brief with your site, scope and budget — the studio replies within 2 business days.
+            Send a brief with your site and scope — the studio replies within 2 business days.
           </p>
           <Link
             href="/commission"
