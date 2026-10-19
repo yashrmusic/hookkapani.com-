@@ -37,7 +37,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hookkapaani.com'),
+  metadataBase: new URL('https://hookkapani.com'),
   title: {
     default: "Hookkapaani | Kinetic Sculpture Studio",
     template: "%s | Hookkapaani Studio"
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     "Delhi Artist",
     "Mechanical Art"
   ],
-  authors: [{ name: "Vishal Gupta", url: "https://hookkapaani.com" }],
+  authors: [{ name: "Vishal Gupta", url: "https://hookkapani.com" }],
   creator: "Hookkapaani",
   publisher: "Hookkapaani Studio",
   formatDetection: {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://hookkapaani.com",
+    url: "https://hookkapani.com",
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
     siteName: "Hookkapaani",
@@ -101,9 +101,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  alternates: {
-    canonical: '/',
   },
 };
 
@@ -140,8 +137,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ArtGallery",
               "name": "Hookkapaani Studio",
-              "image": "https://hookkapaani.com/images/new-work-1.jpg",
-              "url": "https://hookkapaani.com",
+              "image": "https://hookkapani.com/images/new-work-1.jpg",
+              "url": "https://hookkapani.com",
               "telephone": "+91-9540026221",
               "address": {
                 "@type": "PostalAddress",
