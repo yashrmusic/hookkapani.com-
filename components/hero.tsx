@@ -82,12 +82,9 @@ export function Hero() {
             <img src="/images/hookkapani-logo-red.png" alt="Hookkapaani" className="w-full h-auto object-contain mx-auto" />
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center leading-tight max-w-3xl">
-            Kinetic and large-scale sculpture for hotels, public spaces and collectors.
-          </h1>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground text-center max-w-2xl">
-            A New Delhi studio engineering moving sculpture in steel, resin and light — built for real sites, from brief to installation.
-          </p>
+          {/* Owner direction 2026-10-19: no headline copy in the hero —
+              the work speaks first. H1 kept for screen readers/SEO only. */}
+          <h1 className="sr-only">Hookkapaani — kinetic sculpture studio of Vishal Gupta</h1>
 
           <div
             className={`w-full mt-10 md:mt-12 transition-all duration-700 delay-200 ${
