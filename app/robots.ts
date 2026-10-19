@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/private/', '/admin/'],
         },
-        sitemap: 'https://hookkapaani.com/sitemap.xml',
+        sitemap: 'https://hookkapani.com/sitemap.xml',
     }
 }
