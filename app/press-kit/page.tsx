@@ -2,14 +2,14 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getArtworkById } from '@/data/artworks';
 import { sizeLabel } from '@/lib/artwork-utils';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Press Kit | Hookkapaani Studio',
-  description: 'Studio bio, fact sheet, brand assets, selected works and contact details for press and curatorial use.',
-  alternates: {
-    canonical: '/press-kit',
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Press Kit',
+  description:
+    'Hookkapaani press kit: studio and founder bios, fact sheet, logo, portfolio PDF, selected works and media contact for editors and curators.',
+  path: '/press-kit',
+});
 
 const selectedWorks = ['new-work-28', 'new-work-22', 'new-work-26', 'new-work-32', 'new-work-17', 'new-work-30']
   .map((id) => getArtworkById(id))
@@ -17,7 +17,7 @@ const selectedWorks = ['new-work-28', 'new-work-22', 'new-work-26', 'new-work-32
 
 export default function PressKitPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground py-24">
+    <div className="min-h-screen bg-background text-foreground py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <h1 className="text-display mb-6">Press Kit</h1>
         <p className="text-muted-foreground mb-10">
@@ -48,7 +48,7 @@ export default function PressKitPage() {
           <h2 className="text-title mb-4">Founder Bio</h2>
           <p className="text-sm leading-relaxed mb-4">
             <strong>Short:</strong> Vishal Gupta leads the studio&apos;s artistic and fabrication direction, with
-            practice centered on material transformation and mechanical rhythm.
+            a practice centred on material transformation and mechanical rhythm.
           </p>
           <p className="text-sm leading-relaxed">
             <strong>Long:</strong> Vishal Gupta is a New Delhi-based kinetic sculptor and the founder of
@@ -84,7 +84,7 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Selected Works — Images</h2>
           <p className="text-sm text-muted-foreground mb-4">
-            High-resolution images open from each work page; captions and credits as listed there.
+            High-resolution images are available from each work page, with captions and credits as listed there.
           </p>
           <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
             {selectedWorks.map((w) => (
@@ -111,13 +111,13 @@ export default function PressKitPage() {
             download="Hookkapaani_Portfolio_2026.pdf"
             className="px-5 py-3 bg-accent text-accent-foreground text-sm font-medium min-h-[44px] flex items-center"
           >
-            Download Portfolio (13 MB)
+            Download the Portfolio (13 MB)
           </a>
           <Link href="/" className="px-5 py-3 border border-border text-sm font-medium min-h-[44px] flex items-center">
-            Back to Website
+            Return to the Website
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
