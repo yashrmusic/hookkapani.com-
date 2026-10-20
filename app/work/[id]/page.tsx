@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { artworks, getArtworkById } from '@/data/artworks';
-import { relatedWorks } from '@/lib/artwork-utils';
+import type { Artwork } from '@/data/artworks';
+import { displayTags, isMoving, relatedWorks } from '@/lib/artwork-utils';
+import { ORGANIZATION_ID, WEBSITE_ID, absoluteUrl, artworkAlt, categoryLabel, jsonLd, pageMetadata } from '@/lib/seo';
 import { ArtworkDetail } from './artwork-detail';
 
 interface PageProps {
@@ -14,47 +16,31 @@ export async function generateStaticParams() {
   }));
 }
 
+function artworkDescription(artwork: Artwork): string {
+  if (artwork.description) return `${artwork.title}: ${artwork.description}`;
+  const size = artwork.dimensions ? `, ${artwork.dimensions}` : '';
+  // Skip when the category or materials already say it moves.
+  const motionImplied = artwork.category === 'kinetic' || artwork.materials.some((m) => /mechanism/i.test(m));
+  const motion = isMoving(artwork) && !motionImplied ? ', moving' : '';
+  return `${artworkAlt(artwork)}${size}${motion}. By Hookkapaani Studio, New Delhi — with scale, specification sheet and enquiry details.`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const artwork = getArtworkById(id);
 
   if (!artwork) {
-    return { title: 'Artwork Not Found | Hookkapaani' };
+    return { title: 'Artwork Not Found', robots: { index: false } };
   }
 
-  const url = `https://hookkapani.com/work/${artwork.id}`;
-  const ogImageUrl = `${url}/opengraph-image`;
-
-  const studioDescription = 'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.';
-
-  return {
-    title: `${artwork.title} | Hookkapaani Studio`,
-    description: studioDescription,
-    alternates: {
-      canonical: `/work/${artwork.id}`,
-    },
-    openGraph: {
-      title: `${artwork.title} - Hookkapaani Studio`,
-      description: studioDescription,
-      url,
-      siteName: 'Hookkapaani Studio',
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: artwork.title,
-        },
-      ],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${artwork.title} - Hookkapaani`,
-      description: studioDescription,
-      images: [ogImageUrl],
-    },
-  };
+  // Share image comes from the sibling opengraph-image.tsx file convention.
+  return pageMetadata({
+    title: `${artwork.title} — ${categoryLabel(artwork).replace(/^./, (c) => c.toUpperCase())}`,
+    description: artworkDescription(artwork),
+    path: `/work/${artwork.id}`,
+    ogType: 'article',
+    image: null,
+  });
 }
 
 export default async function ArtworkPage({ params }: PageProps) {
@@ -66,6 +52,30 @@ export default async function ArtworkPage({ params }: PageProps) {
   }
 
   const related = relatedWorks(artworks, artwork, 3);
+  const url = absoluteUrl(`/work/${artwork.id}`);
+  const tags = displayTags(artwork);
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'VisualArtwork',
+    '@id': `${url}#artwork`,
+    url,
+    name: artwork.title,
+    image: absoluteUrl(artwork.imageUrl),
+    description: artworkDescription(artwork),
+    artform: categoryLabel(artwork),
+    material: artwork.materials,
+    artMedium: artwork.materials.join(', '),
+    ...(artwork.dimensions ? { size: artwork.dimensions } : {}),
+    ...(tags.length ? { keywords: tags.join(', ') } : {}),
+    creator: { '@id': ORGANIZATION_ID },
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntityOfPage: url,
+  };
 
-  return <ArtworkDetail artwork={artwork} related={related} />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
+      <ArtworkDetail artwork={artwork} related={related} />
+    </>
+  );
 }

@@ -8,6 +8,7 @@ import { WhatsAppButton } from '@/components/whatsapp-button';
 import type { Artwork } from '@/data/artworks';
 import { parseMaxFt, sizeLabel, isMoving, displayTags } from '@/lib/artwork-utils';
 import { trackEvent } from '@/lib/client-analytics';
+import { artworkAlt, categoryLabel } from '@/lib/seo';
 
 /* The 3D/AR viewer was removed 2026-10-19: no artwork has a 3D model,
    and its model-viewer/three.js chunk (~990 KB) single-handedly broke
@@ -18,6 +19,21 @@ interface ArtworkDetailProps {
 }
 
 const PERSON_FT = 5.6;
+
+/** "A kinetic sculpture in resin and mechanism, 12 ft in size." — for works without a written description. */
+function fallbackSummary(artwork: Artwork): string {
+  const label = categoryLabel(artwork);
+  const mats = artwork.materials.map((m) => m.toLowerCase());
+  const matText = mats.length > 1 ? `${mats.slice(0, -1).join(', ')} and ${mats[mats.length - 1]}` : mats[0];
+  const motionImplied = artwork.category === 'kinetic' || mats.some((m) => m.includes('mechanism'));
+  return [
+    `${/^[aeiou]/i.test(label) ? 'An' : 'A'} ${label}`,
+    matText ? ` in ${matText}` : '',
+    artwork.dimensions ? `, ${artwork.dimensions} in size` : '',
+    isMoving(artwork) && !motionImplied ? ', built around a moving mechanism' : '',
+    '.',
+  ].join('');
+}
 
 function ScaleFigure({ artwork }: { artwork: Artwork }) {
   const ft = parseMaxFt(artwork.dimensions);
@@ -55,7 +71,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
   const workUrl = `https://hookkapani.com/work/${artwork.id}`;
 
   return (
-    <main className="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
+    <div className="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
       <div
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border"
         style={{ paddingTop: 'env(safe-area-inset-top)' }}
@@ -68,7 +84,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to Works
+            Back to the Works
           </Link>
 
           <ShareButton title={artwork.title} text={artwork.title} url={`/work/${artwork.id}`} variant="button" />
@@ -88,6 +104,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
               <video
                 src={artwork.videoUrl}
                 poster={artwork.imageUrl}
+                aria-label={artworkAlt(artwork)}
                 autoPlay
                 loop
                 muted
@@ -97,7 +114,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
             ) : (
               <Image
                 src={artwork.imageUrl}
-                alt={artwork.title}
+                alt={artworkAlt(artwork)}
                 fill
                 className="object-contain"
                 quality={82}
@@ -117,10 +134,8 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
               <p className="text-base text-foreground/85 leading-relaxed mb-6">{artwork.description}</p>
             ) : (
               <p className="text-base text-foreground/85 leading-relaxed mb-6">
-                A {artwork.category} in {artwork.materials.join(', ').toLowerCase()}
-                {artwork.dimensions ? `, standing ${artwork.dimensions}` : ''}
-                {isMoving(artwork) ? ' — built around a moving mechanism' : ''}. Full details are in
-                the spec sheet below, and the studio confirms site fit after a technical survey.
+                {fallbackSummary(artwork)} Full details are in
+                the spec sheet below; the studio confirms suitability for your site after a technical survey.
               </p>
             )}
             <ScaleFigure artwork={artwork} />
@@ -128,13 +143,13 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Category</h3>
+              <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Category</h2>
               <p className="text-lg font-medium capitalize">{artwork.category}</p>
             </div>
 
             {artwork.materials.length > 0 && (
               <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Materials</h3>
+                <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Materials</h2>
                 <ul className="space-y-1">
                   {artwork.materials.map((material) => (
                     <li key={material} className="text-base text-foreground/85">
@@ -147,19 +162,19 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
 
             {artwork.dimensions && (
               <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Size</h3>
+                <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Size</h2>
                 <p className="text-base text-foreground/85">{sizeLabel(artwork)}</p>
               </div>
             )}
 
             <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Movement</h3>
+              <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Movement</h2>
               <p className="text-base text-foreground/85">{isMoving(artwork) ? 'Moving (kinetic)' : 'Static'}</p>
             </div>
 
             {tags.length > 0 && (
               <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-1.5">Tags</h3>
+                <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Tags</h2>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <span key={tag} className="px-2 py-1 bg-accent/10 text-accent text-xs rounded">
@@ -194,6 +209,17 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
               >
                 Download spec sheet (PDF)
               </Link>
+              <p className="text-sm text-muted-foreground pt-2">
+                Planning a commission?{' '}
+                <Link href="/case-studies" className="text-accent hover:text-accent/80">
+                  See how the studio delivers projects
+                </Link>{' '}
+                or{' '}
+                <Link href="/portfolio" className="text-accent hover:text-accent/80">
+                  browse all works
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
@@ -207,7 +233,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
                   <div className="relative w-full overflow-hidden bg-secondary" style={{ aspectRatio: rel.aspectRatio || '3/4' }}>
                     <Image
                       src={rel.imageUrl}
-                      alt={rel.title}
+                      alt={artworkAlt(rel)}
                       fill
                       className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -245,6 +271,6 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
           </svg>
         </a>
       </div>
-    </main>
+    </div>
   );
 }
