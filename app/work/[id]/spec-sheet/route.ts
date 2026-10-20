@@ -50,11 +50,11 @@ export async function GET(_: Request, { params }: Params) {
 
   lines.push(
     { text: 'Installation notes', size: 13, bold: true, gapBefore: 16 },
-    { text: '- Site and load requirements are finalized after a technical survey.', size: 11.5 },
+    { text: '- Site and load requirements are finalised after a technical survey.', size: 11.5 },
     { text: '- Mounting and motion systems require scheduled preventive checks.', size: 11.5 },
-    { text: '- Indoor / outdoor suitability depends on the selected material finish.', size: 11.5 },
-    { text: '- Weight, power draw and lead time are confirmed per site on enquiry.', size: 11.5 },
-    { text: 'Availability and pricing', size: 13, bold: true, gapBefore: 16 },
+    { text: '- Suitability for indoor or outdoor display depends on the selected material finish.', size: 11.5 },
+    { text: '- Weight, power requirements and lead time are confirmed for each site on enquiry.', size: 11.5 },
+    { text: 'Availability', size: 13, bold: true, gapBefore: 16 },
     { text: 'Confirmed directly with the studio on enquiry.', size: 11.5 },
     { text: 'Studio contact', size: 13, bold: true, gapBefore: 16 },
     { text: 'hookkapani.15@gmail.com  ·  +91 95400 26221  ·  New Delhi, India', size: 11.5 },
