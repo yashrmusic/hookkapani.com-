@@ -121,7 +121,7 @@ const artworksRaw: Artwork[] = [
     category: "sculpture",
     materials: ["Stainless Steel", "Resin"],
     dimensions: "8 ft",
-    description: "A kinetic-inspired figure balancing industrial heft and fluid posture, built in stainless steel and resin.",
+    description: "A figure that balances industrial heft against a fluid, kinetic-inspired posture, built in stainless steel and resin.",
     tags: ["New Work", "Geometric"]
   },
   {
@@ -132,7 +132,7 @@ const artworksRaw: Artwork[] = [
     category: "sculpture",
     materials: ["Stainless Steel"],
     dimensions: "12 ft",
-    description: "A vertical stainless-steel statement at monumental scale, designed as a musical and spatial anchor.",
+    description: "A monumental vertical work in stainless steel, conceived as both a musical and a spatial anchor.",
     tags: ["New Work", "Mythic"]
   },
   {
@@ -204,7 +204,7 @@ const artworksRaw: Artwork[] = [
     category: "sculpture",
     materials: ["Scrap"],
     dimensions: "5 ft",
-    description: "A resin-and-chrome reinterpretation of an iconic face, balancing reflective finish with sculptural mass.",
+    description: "A reinterpretation of an iconic face in resin and chrome, balancing a reflective finish with sculptural mass.",
     tags: ["New Work", "Haunting"]
   },
   {
