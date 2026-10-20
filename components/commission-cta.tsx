@@ -6,12 +6,12 @@ export function CommissionCta() {
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-headline mb-6">Have a space in mind?</h2>
         <p className="text-body text-muted-foreground mb-4">
-          Send a project brief — scope, site and timeline — and reference the works you
-          shortlisted. The form takes about three minutes, in three short steps.
+          Send a project brief outlining scope, site and timeline, along with any works you have
+          shortlisted. The form has three short steps and takes about three minutes.
         </p>
         <p className="text-sm text-muted-foreground mb-10">
-          What happens next: the studio replies within 2 business days, followed by a site survey
-          and a written proposal.
+          The studio replies within two business days; a site survey and a written proposal
+          follow.
         </p>
         <Link
           href="/commission"

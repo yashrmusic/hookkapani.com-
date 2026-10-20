@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import type { Artwork } from '../data/artworks';
 import { sizeLabel, isMoving } from '@/lib/artwork-utils';
+import { artworkAlt } from '@/lib/seo';
 
 interface ArtworkImageProps {
   artwork: Artwork;
@@ -31,7 +32,7 @@ export function ArtworkImage({
     >
       <Image
         src={artwork.imageUrl}
-        alt={artwork.title}
+        alt={artworkAlt(artwork)}
         fill
         sizes={sizes}
         priority={priority}

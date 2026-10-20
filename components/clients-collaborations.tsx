@@ -4,7 +4,7 @@ const paths = [
   {
     href: '/for/spaces',
     title: 'Commission for a space',
-    audience: 'Hospitality groups · Corporate atriums · Public art programs · Design studios',
+    audience: 'Hospitality groups · Corporate atriums · Public art programmes · Design studios',
     detail: 'A moving centrepiece designed around your site, structure and footfall — surveyed, engineered and installed by the studio.',
     action: 'Start with the works',
   },
@@ -19,7 +19,7 @@ const paths = [
     href: '/for/press',
     title: 'Curate or write about the studio',
     audience: 'Curators · Editors · Researchers',
-    detail: 'Case studies, high-resolution images, bios and the studio fact sheet — everything needed to file or programme.',
+    detail: 'Case studies, high-resolution images, biographies and the studio fact sheet — everything needed to write or programme.',
     action: 'Open the press kit',
   },
 ];
@@ -30,8 +30,8 @@ export function ClientsCollaborations() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-headline mb-4">Clients & Collaborations</h2>
         <p className="text-muted-foreground max-w-3xl mb-10">
-          We collaborate across architecture, curation, and fabrication teams to deliver reliable
-          installations from concept to commissioning. Start from the path that fits you:
+          We work alongside architects, curators and fabrication teams to deliver dependable
+          installations from concept to commissioning. Choose the path that suits you:
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {paths.map((path) => (

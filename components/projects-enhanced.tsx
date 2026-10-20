@@ -92,8 +92,8 @@ export function ProjectsEnhanced({ featured = false }: { featured?: boolean }) {
           <div className="mb-8 md:mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Selected Works</h2>
             <p className="text-body text-muted-foreground max-w-3xl">
-              Eight pieces that show the range — the four that move on film, and the largest works
-              the studio has built.
+              Eight pieces that show the breadth of the practice: four works filmed in motion, and
+              the largest works the studio has built.
             </p>
           </div>
           <MasonryGrid gap={24} columnCount={{ mobile: 1, tablet: 2, desktop: 3 }} className="mb-12">

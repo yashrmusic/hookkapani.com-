@@ -68,7 +68,7 @@ export function ShortlistButton({ artworkId, className = '' }: { artworkId: stri
           : 'border-border hover:border-accent hover:text-accent'
       } ${className}`}
     >
-      {active ? 'Shortlisted ✓ — tap to remove' : 'Add to shortlist'}
+      {active ? 'Shortlisted ✓ — select to remove' : 'Add to shortlist'}
     </button>
   );
 }

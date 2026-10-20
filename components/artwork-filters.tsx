@@ -111,7 +111,7 @@ export function ArtworkFilters({ artworks, onFilterChange }: ArtworkFiltersProps
       <div className="relative max-w-xl">
         <input
           type="text"
-          placeholder="Search works, materials, tags..."
+          placeholder="Search works, materials or tags…"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full px-4 py-3 pl-12 bg-secondary border-2 border-border focus:border-accent focus:outline-none transition-colors"

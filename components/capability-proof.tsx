@@ -1,7 +1,7 @@
 const steps = [
   {
     title: 'Brief',
-    detail: 'Share scope, site and timeline through the project brief. Reference works you shortlisted travel with it.',
+    detail: 'Share scope, site and timeline through the project brief. Any works you have shortlisted are attached to it.',
   },
   {
     title: 'Site survey',
@@ -9,7 +9,7 @@ const steps = [
   },
   {
     title: 'Design & engineering',
-    detail: 'Material testing and load-aware structure, reviewed and signed off with you before fabrication starts.',
+    detail: 'Material testing and a structure designed around its loads, reviewed and approved with you before fabrication begins.',
   },
   {
     title: 'Fabrication',
@@ -21,7 +21,7 @@ const steps = [
   },
   {
     title: 'Service',
-    detail: 'Maintenance guidance, a replacement part strategy and a post-install review, so the work keeps moving.',
+    detail: 'Maintenance guidance, a replacement-parts plan and a post-installation review, so the work keeps moving.',
   },
 ];
 
@@ -32,7 +32,7 @@ export function CapabilityProof() {
         <h2 className="text-headline mb-4">How a commission works</h2>
         <p className="text-muted-foreground max-w-3xl mb-10">
           Six steps from first brief to a moving work on site — the same process behind the corporate
-          atrium delivered in 14 weeks and every gallery series since.
+          atrium delivered in 14 weeks, and behind every gallery series since.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((step, i) => (

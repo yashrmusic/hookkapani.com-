@@ -4,6 +4,7 @@ import { useEffect, useCallback, useState, useRef } from 'react';
 import Image from 'next/image';
 import { ShareButton } from './share-button';
 import type { Artwork } from '../data/artworks';
+import { artworkAlt } from '@/lib/seo';
 
 /* 3D viewer removed 2026-10-19 (dead code — no artwork has a model;
    its ~990 KB chunk broke the perf-budget check). */
@@ -231,7 +232,7 @@ export function Lightbox({
                 )}
                 <Image
                   src={artwork.imageUrl}
-                  alt={artwork.title}
+                  alt={artworkAlt(artwork)}
                   fill
                   className={`object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   quality={80}
@@ -272,7 +273,7 @@ export function Lightbox({
               {/* Dimensions — hero treatment */}
               {artwork.dimensions && (
                 <div>
-                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-2.5">Height</p>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-2.5">Size</p>
                   <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
                     {artwork.dimensions}
                   </p>
@@ -282,7 +283,7 @@ export function Lightbox({
               {/* Materials */}
               {artwork.materials && artwork.materials.length > 0 && (
                 <div>
-                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">Material</p>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">Materials</p>
                   <div className="flex flex-wrap gap-2">
                     {artwork.materials.map((material: string) => (
                       <span

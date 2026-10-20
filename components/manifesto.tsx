@@ -32,8 +32,8 @@ export function Manifesto() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          We don&apos;t just make sculptures — we engineer motion. Where steel meets soul, and
-          mechanics become poetry. Art that breathes, moves, and transforms.
+          We do not simply make sculpture; we engineer motion. Steel is given intent, mechanism
+          becomes a form of poetry, and the work is made to breathe, move and transform.
         </blockquote>
         <div
           className={`mt-12 flex items-center justify-center gap-8 transition-all duration-700 ${

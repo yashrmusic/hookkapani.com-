@@ -8,7 +8,7 @@ const stats = [
   { value: String(artworks.length), label: "Works Created" },
   { value: "17 ft", label: "Largest Work — The Bull" },
   { value: "14 weeks", label: "Atrium Commission, Delivered" },
-  { value: "6+", label: "Years Experience" },
+  { value: "6+", label: "Years of Practice" },
 ];
 
 function Stat({
@@ -84,11 +84,11 @@ export function Practice() {
             }}
           >
             <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
-              Operating from our workshop in New Delhi, Hookkapaani explores the intersection
-              of industrial fabrication and artistic expression. We work with steel, bronze,
-              aluminum, and found materials to create sculptures that move, breathe, and evolve.
-              Each piece is a dialogue between mechanical precision and organic fluidity—
-              celebrating the beauty of raw materials, honest construction, and the passage of time.
+              From its workshop in New Delhi, Hookkapaani works at the meeting point of industrial
+              fabrication and artistic expression. We work with steel, bronze, aluminium and found
+              materials to create sculptures that move, breathe and evolve. Each piece is a dialogue
+              between mechanical precision and organic fluidity — a celebration of raw material,
+              honest construction and the passage of time.
             </p>
           </div>
         </div>

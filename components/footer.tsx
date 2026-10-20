@@ -31,7 +31,7 @@ export function Footer() {
           >
             <h3 className="text-2xl font-bold mb-4">Hookkapaani</h3>
             <p className="text-muted-foreground mb-6">
-              Kinetic sculpture studio exploring industrial materials, mechanical motion, and temporal transformation.
+              A kinetic sculpture studio exploring industrial materials, mechanical motion and temporal transformation.
             </p>
             <div className="flex space-x-4">
               <a
@@ -119,7 +119,7 @@ export function Footer() {
               <li>
                 Studio visits by appointment —{' '}
                 <Link href="/commission" className="text-accent hover:text-accent/80 transition-colors">
-                  book via a project brief
+                  arrange one through a project brief
                 </Link>
               </li>
             </ul>
@@ -130,8 +130,8 @@ export function Footer() {
           >
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Studio Hours</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>Monday - Saturday</li>
-              <li>10:00 AM - 7:00 PM IST</li>
+              <li>Monday – Saturday</li>
+              <li>10:00 AM – 7:00 PM IST</li>
               <li className="pt-2 text-sm">Visits by appointment</li>
             </ul>
           </div>
@@ -140,7 +140,7 @@ export function Footer() {
         <div
           className={`mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          <p className="text-sm text-muted-foreground">(c) {new Date().getFullYear()} Hookkapaani. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Hookkapaani. All rights reserved.</p>
           <p className="text-sm text-muted-foreground">
             Crafting movement. Carving meaning.
           </p>

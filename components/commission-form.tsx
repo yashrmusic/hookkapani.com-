@@ -164,19 +164,18 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
           <div className="text-center mb-16">
             <h2 className="text-headline mb-6">Submit a Project Brief</h2>
             <p className="text-body text-muted-foreground max-w-3xl mx-auto">
-              For serious commissioning inquiries. Share project scope, constraints and timeline
-              so we can respond with a clear next-step proposal.
+              For commissioning enquiries. Share the project scope, constraints and timeline, and
+              the studio will respond with a clear proposal for the next steps.
             </p>
           </div>
         )}
 
         {isSubmitted ? (
           <div className="text-center py-16 border border-accent/30 bg-accent/5">
-            <div className="text-5xl mb-4">Success</div>
-            <h3 className="text-title mb-2">Project Brief Received</h3>
+            <h3 className="text-title mb-2">Thank you — your brief has been received</h3>
             <p className="text-muted-foreground">
-              What happens next: the studio responds within 2 business days, followed by a site
-              survey and a written proposal.
+              The studio will respond within two business days; a site survey and a written
+              proposal follow.
             </p>
           </div>
         ) : (
@@ -213,7 +212,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
 
             {referenceIds.length > 0 && (
               <div className="border border-accent/40 bg-accent/5 p-4">
-                <p className="text-sm font-medium mb-2">Reference works travelling with this brief</p>
+                <p className="text-sm font-medium mb-2">Reference works attached to this brief</p>
                 <div className="flex flex-wrap gap-2">
                   {referenceIds.map((id) => {
                     const a = artworks.find((x) => x.id === id);
@@ -251,10 +250,10 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                     <input id="phone" name="phone" value={formData.phone} onChange={handleChange} className={inputClassName} placeholder="+91 ..." />
                   </Field>
                   <Field label="Company / Institution" id="companyName">
-                    <input id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} className={inputClassName} placeholder="Organization name" />
+                    <input id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} className={inputClassName} placeholder="Organisation name" />
                   </Field>
                 </div>
-                <Field label="Your Role in Decision *" id="decisionRole">
+                <Field label="Your Role in the Decision *" id="decisionRole">
                   <select id="decisionRole" name="decisionRole" required value={formData.decisionRole} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
                     <option value="" disabled className={optionClassName}>Select role</option>
                     <option value="owner" className={optionClassName}>Owner / Founder</option>
@@ -330,17 +329,17 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   <Field label="Target Timeline *" id="timeline">
                     <select id="timeline" name="timeline" required value={formData.timeline} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
                       <option value="" disabled className={optionClassName}>Select timeline</option>
-                      <option value="1-3-months" className={optionClassName}>1-3 months</option>
-                      <option value="3-6-months" className={optionClassName}>3-6 months</option>
-                      <option value="6-12-months" className={optionClassName}>6-12 months</option>
+                      <option value="1-3-months" className={optionClassName}>1–3 months</option>
+                      <option value="3-6-months" className={optionClassName}>3–6 months</option>
+                      <option value="6-12-months" className={optionClassName}>6–12 months</option>
                       <option value="12-plus-months" className={optionClassName}>12+ months</option>
                     </select>
                   </Field>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  For reference: the corporate atrium installation was delivered in 14 weeks
-                  including installation, and the gallery motion series ran to three works.
-                  Commercials are discussed on the reply call, after the studio sees the site.
+                  For reference, the corporate atrium commission was delivered in 14 weeks,
+                  including installation, and the gallery motion series comprised three works.
+                  Commercial terms are discussed on a follow-up call once the studio has reviewed the site.
                 </p>
                 <Field label="Project Goals, Constraints, and Context *" id="description">
                   <textarea
@@ -357,9 +356,9 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                 <div className="border border-border p-5 bg-card/30">
                   <p className="text-sm font-medium mb-1">What happens next</p>
                   <p className="text-sm text-muted-foreground">
-                    1. The studio replies within 2 business days. 2. A site survey follows for
-                    shortlisted projects. 3. You receive a written proposal with scope and
-                    timeline.
+                    1. The studio replies within two business days. 2. Shortlisted projects
+                    proceed to a site survey. 3. You receive a written proposal setting out scope
+                    and timeline.
                   </p>
                 </div>
               </div>
@@ -396,7 +395,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   disabled={isSubmitting}
                   className="px-8 py-4 bg-accent text-accent-foreground font-medium tracking-wide hover:bg-accent/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Project Brief'}
+                  {isSubmitting ? 'Sending…' : 'Send Project Brief'}
                 </button>
               )}
               <span className="text-sm text-muted-foreground">

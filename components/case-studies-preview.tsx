@@ -9,7 +9,7 @@ export function CaseStudiesPreview() {
           <div>
             <h2 className="text-headline mb-3">Case Studies</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Structured project breakdowns for collectors, curators, and design teams evaluating fit.
+              Detailed accounts of commissioned projects for collectors, curators and design teams assessing fit.
             </p>
           </div>
           <Link href="/case-studies" className="text-sm font-medium text-accent hover:text-accent/80 whitespace-nowrap">

@@ -29,7 +29,7 @@ export function AlertsSignup() {
       if (!res.ok) throw new Error('Signup failed');
       setDone(true);
     } catch {
-      setError('Could not sign you up just now — please try again, or email the studio.');
+      setError('We could not complete your sign-up. Please try again, or email the studio directly.');
     } finally {
       setBusy(false);
     }
@@ -38,8 +38,8 @@ export function AlertsSignup() {
   if (done) {
     return (
       <div className="border border-accent/40 bg-accent/5 p-6 text-center">
-        <p className="font-medium">You are on the list.</p>
-        <p className="text-sm text-muted-foreground mt-1">New works and shows, straight to your inbox.</p>
+        <p className="font-medium">Thank you — you are now subscribed.</p>
+        <p className="text-sm text-muted-foreground mt-1">You will hear from us when new works or exhibitions are announced.</p>
       </div>
     );
   }
@@ -48,7 +48,7 @@ export function AlertsSignup() {
     <form onSubmit={submit} className="border border-border p-6 bg-card/30">
       <p className="font-medium mb-1">New-work alerts</p>
       <p className="text-sm text-muted-foreground mb-5">
-        A short email when a new work is finished or a show opens. No noise in between.
+        A brief email when a new work is completed or an exhibition opens — nothing more.
       </p>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
         <input
@@ -73,7 +73,7 @@ export function AlertsSignup() {
         disabled={busy}
         className="px-6 py-3 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors disabled:opacity-50 min-h-[44px]"
       >
-        {busy ? 'Signing up...' : 'Sign up for alerts'}
+        {busy ? 'Signing up…' : 'Sign up for alerts'}
       </button>
     </form>
   );
