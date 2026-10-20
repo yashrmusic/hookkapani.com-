@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { caseStudies, getCaseStudy } from '@/data/case-studies';
+import { ORGANIZATION_ID, WEBSITE_ID, absoluteUrl, jsonLd, pageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,21 +15,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
-  if (!study) return { title: 'Case Study Not Found | Hookkapaani Studio' };
-  return {
-    title: `${study.title} | Hookkapaani Studio`,
-    description: study.summary,
-    alternates: {
-      canonical: `/case-studies/${study.slug}`,
-    },
-    openGraph: {
-      title: `${study.title} - Hookkapaani Studio`,
-      description: study.summary,
-      url: `https://hookkapani.com/case-studies/${study.slug}`,
-      siteName: 'Hookkapaani Studio',
-      type: 'article',
-    },
-  };
+  if (!study) return { title: 'Case Study Not Found', robots: { index: false } };
+  return pageMetadata({
+    title: `${study.title} — Case Study`,
+    description: `${study.summary} ${study.outcome}`,
+    path: `/case-studies/${study.slug}`,
+    ogType: 'article',
+  });
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
@@ -37,9 +30,27 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (!study) notFound();
 
   const others = caseStudies.filter((s) => s.slug !== study.slug);
+  const url = absoluteUrl(`/case-studies/${study.slug}`);
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `${url}#case-study`,
+    url,
+    name: study.title,
+    headline: study.title,
+    description: study.summary,
+    abstract: study.context,
+    genre: 'Case study',
+    inLanguage: 'en-IN',
+    author: { '@id': ORGANIZATION_ID },
+    publisher: { '@id': ORGANIZATION_ID },
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntityOfPage: url,
+  };
 
   return (
-    <main className="min-h-screen bg-background text-foreground py-24">
+    <div className="min-h-screen bg-background text-foreground py-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <Link href="/case-studies" className="text-sm text-muted-foreground hover:text-accent transition-colors">
           ← All case studies
@@ -72,16 +83,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <section className="border border-border p-6 md:p-8 bg-card/30">
             <h2 className="text-title mb-4">Outcome</h2>
             <p className="text-base text-foreground/85 leading-relaxed">{study.outcome}</p>
-            <p className="text-base mt-4">
-             
-            </p>
           </section>
         </div>
 
         <div className="mt-14 border border-accent/40 bg-accent/5 p-6 md:p-8 text-center">
           <h2 className="text-title mb-3">Planning something similar?</h2>
           <p className="text-muted-foreground mb-6">
-            Send a brief with your site and scope — the studio replies within 2 business days.
+            Send a brief describing your site and scope; the studio replies within two business days.
           </p>
           <Link
             href="/commission"
@@ -89,6 +97,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
           >
             Submit a project brief
           </Link>
+          <p className="text-sm text-muted-foreground mt-5">
+            Or{' '}
+            <Link href="/portfolio" className="text-accent hover:text-accent/80">
+              browse the studio&apos;s full portfolio of works
+            </Link>
+            .
+          </p>
         </div>
 
         {others.length > 0 && (
@@ -103,6 +118,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }
