@@ -27,7 +27,7 @@ export default function StudioPage() {
     <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
         <Link href="/" className="text-xl font-bold tracking-tighter hover:text-accent transition-colors">H/K</Link>
-        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">Studio Process Feed - Vol 01</span>
+        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">Studio Process · Vol. 01</span>
       </nav>
 
       <div className="pt-24 pb-32">
@@ -45,7 +45,7 @@ export default function StudioPage() {
             transition={{ delay: 0.1 }}
             className="text-lg text-white/60 max-w-2xl font-mono uppercase tracking-widest leading-relaxed"
           >
-            A raw look into the material logic, mechanical tension, and honest construction of the studio&apos;s latest works.
+            An unvarnished look at the material logic, mechanical tension and honest construction behind the studio&apos;s latest works.
           </motion.p>
         </header>
 
@@ -67,7 +67,7 @@ export default function StudioPage() {
                 <span className="inline-block px-3 py-1 border border-white/20 text-[10px] uppercase font-mono tracking-widest mb-6 text-accent">
                   {video.tag}
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter text-white">{video.title}</h3>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter text-white">{video.title}</h2>
                 <p className="text-white/60 leading-relaxed font-mono text-sm underline underline-offset-8 decoration-white/20">
                   {video.caption}
                 </p>
