@@ -1,23 +1,29 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { artworks } from '@/data/artworks';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { AutoPrint } from '@/components/auto-print';
+import { artworkAlt } from '@/lib/seo';
 
 function PortfolioInner() {
   const searchParams = useSearchParams();
   const isPrintMode = searchParams.get('print') === 'true';
   const isCaptureMode = searchParams.get('capture') === 'true';
 
+  return <PortfolioBody isPrintMode={isPrintMode} isCaptureMode={isCaptureMode} />;
+}
+
+function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; isCaptureMode: boolean }) {
   return (
     <div className="min-h-screen bg-white text-black font-sans p-8 md:p-16 print:p-0">
       {!isCaptureMode && <AutoPrint />}
       <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page section-page">
         <div className="mt-20">
-          <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
-          <h2 className="text-4xl font-light tracking-widest uppercase">Hookkapaani Studio</h2>
+          <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K<span className="sr-only"> — Hookkapaani Studio portfolio of selected works</span></h1>
+          <p className="text-4xl font-light tracking-widest uppercase">Hookkapaani Studio</p>
         </div>
 
         <div className="w-full flex justify-between items-end text-sm uppercase tracking-wider">
@@ -32,11 +38,11 @@ function PortfolioInner() {
       </div>
 
       <div className="mb-16 max-w-2xl break-after-auto section-page">
-        <h3 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>Manifesto</h3>
+        <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>Manifesto</h2>
         <p className="text-lg leading-relaxed text-gray-800 mb-4 font-serif">
-          We are a kinetic sculpture studio exploring the intersection of industrial materials,
-          mechanical motion, and temporal transformation. Our work seeks to find the rhythm within
-          the static, creating objects that breathe, move, and evolve.
+          We are a kinetic sculpture studio working at the intersection of industrial materials,
+          mechanical motion and temporal transformation. Our work seeks the rhythm within the
+          static, creating objects that breathe, move and evolve.
         </p>
       </div>
 
@@ -46,7 +52,7 @@ function PortfolioInner() {
             <div className="relative mb-4 w-full" style={{ aspectRatio: artwork.aspectRatio }}>
               <Image
                 src={artwork.imageUrl}
-                alt={artwork.title}
+                alt={artworkAlt(artwork)}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
@@ -58,15 +64,17 @@ function PortfolioInner() {
             </div>
 
             <div className="border-t border-black pt-3">
-              <h4 className="text-xl font-bold uppercase" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>{artwork.title}</h4>
-              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide text-xs mb-2">{artwork.category} - {artwork.materials.join(', ')}</p>
+              <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>
+                <Link href={`/work/${artwork.id}`}>{artwork.title}</Link>
+              </h3>
+              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide text-xs mb-2">{artwork.category} · {artwork.materials.join(', ')}</p>
             </div>
           </div>
         ))}
       </div>
 
       <div className="mt-24 pt-12 border-t-2 border-black break-before-page flex flex-col items-center justify-center text-center h-[50vh] section-page">
-        <h1 className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</h1>
+        <p className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</p>
         <p className="text-xl mb-2 font-serif">hookkapani.15@gmail.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
         <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© Hookkapaani Studio</p>
@@ -154,7 +162,9 @@ function PortfolioInner() {
 
 export default function PortfolioContent() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+    // The fallback is what gets prerendered, so it carries the full catalogue
+    // (crawlers see every work); print/capture flags apply after hydration.
+    <Suspense fallback={<PortfolioBody isPrintMode={false} isCaptureMode />}>
       <PortfolioInner />
     </Suspense>
   );
