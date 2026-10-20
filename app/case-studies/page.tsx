@@ -1,23 +1,22 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { caseStudies } from '@/data/case-studies';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Case Studies | Hookkapaani Studio',
+export const metadata: Metadata = pageMetadata({
+  title: 'Case Studies — Commissioned Kinetic Installations',
   description:
-    'Detailed case studies covering constraints, process, engineering approach, and outcomes.',
-  alternates: {
-    canonical: '/case-studies',
-  },
-};
+    'How Hookkapaani delivers commissions: a 9-floor corporate atrium installation and a gallery motion series, with constraints, process and outcomes.',
+  path: '/case-studies',
+});
 
 export default function CaseStudiesPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground py-24">
+    <div className="min-h-screen bg-background text-foreground py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <h1 className="text-display mb-6">Case Studies</h1>
         <p className="text-body text-muted-foreground mb-12">
-          Structured breakdowns of commissioned projects for clients evaluating scope, reliability, and fit.
+          Detailed accounts of commissioned projects, for clients assessing scope, reliability and fit.
         </p>
 
         <div className="space-y-10">
@@ -28,16 +27,25 @@ export default function CaseStudiesPage() {
               <p className="text-sm mb-3">
                 <span className="text-accent">Outcome:</span> {study.outcome}
               </p>
-              <p className="text-sm mb-6">
-               
-              </p>
               <Link href={`/case-studies/${study.slug}`} className="text-sm font-medium text-accent hover:text-accent/80">
                 Read the full case study →
               </Link>
             </article>
           ))}
         </div>
+
+        <p className="text-sm text-muted-foreground mt-12">
+          Planning a project?{' '}
+          <Link href="/commission" className="text-accent hover:text-accent/80">
+            Submit a commission brief
+          </Link>{' '}
+          or{' '}
+          <Link href="/portfolio" className="text-accent hover:text-accent/80">
+            browse all works
+          </Link>
+          .
+        </p>
       </div>
-    </main>
+    </div>
   );
 }
