@@ -8,6 +8,7 @@ import { HydrationHandler } from "@/components/hydration-handler";
 import { ScrollProgress } from "@/components/scroll-progress";
 
 import { SiteTelemetry } from "@/components/site-telemetry";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, jsonLd } from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -72,24 +73,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://hookkapani.com",
+    url: "/",
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
-    siteName: "Hookkapaani",
-    images: [
-      {
-        url: "/images/new-work-1.jpg",
-        width: 1200,
-        height: 800,
-        alt: "Luminous Leviathan - Kinetic Sculpture by Hookkapaani",
-      },
-    ],
+    siteName: "Hookkapaani Studio",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hookkapaani | Kinetic Sculpture Studio",
     description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
-    images: ["/images/new-work-1.jpg"],
+    images: [DEFAULT_OG_IMAGE.url],
     creator: "@hookkapaani",
   },
   robots: {
@@ -103,6 +97,44 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Hookkapaani Studio",
+      alternateName: "Hookkapaani",
+      url: SITE_URL,
+      logo: `${SITE_URL}/images/hookkapani-logo-red.png`,
+      image: `${SITE_URL}${DEFAULT_OG_IMAGE.url}`,
+      description:
+        "A kinetic sculpture studio in New Delhi working with industrial materials, mechanical motion and site-specific installations.",
+      email: "hookkapani.15@gmail.com",
+      telephone: "+91-9540026221",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "New Delhi",
+        addressCountry: "IN",
+      },
+      founder: {
+        "@type": "Person",
+        name: "Vishal Gupta",
+        jobTitle: "Kinetic Sculptor",
+      },
+      sameAs: ["https://www.instagram.com/hookkapani/"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: SITE_URL,
+      name: "Hookkapaani Studio",
+      inLanguage: "en-IN",
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -136,29 +168,7 @@ export default function RootLayout({
         </ShortlistProvider>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ArtGallery",
-              "name": "Hookkapaani Studio",
-              "image": "https://hookkapani.com/images/new-work-1.jpg",
-              "url": "https://hookkapani.com",
-              "telephone": "+91-9540026221",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "New Delhi",
-                "addressCountry": "IN"
-              },
-              "founder": {
-                "@type": "Person",
-                "name": "Vishal Gupta",
-                "jobTitle": "Kinetic Sculptor"
-              },
-              "sameAs": [
-                "https://www.instagram.com/hookkapani/"
-              ]
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(siteJsonLd) }}
         />
         <SiteTelemetry />
         {/* Clear timeout on hydration */}

@@ -10,6 +10,7 @@ import { CaseStudiesPreview } from "@/components/case-studies-preview";
 import { getCmsContent } from "@/lib/cms-content";
 
 export const metadata: Metadata = {
+  title: { absolute: "Hookkapaani | Kinetic Sculpture Studio" },
   alternates: {
     canonical: "/",
   },
