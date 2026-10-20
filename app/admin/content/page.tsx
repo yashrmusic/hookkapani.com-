@@ -75,7 +75,7 @@ export default function ContentAdminPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground px-6 py-24">
+    <div className="min-h-screen bg-background text-foreground px-6 py-24">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">Content Admin</h1>
         <p className="text-muted-foreground mb-8">
@@ -121,6 +121,6 @@ export default function ContentAdminPage() {
 
         {status && <p className="mt-4 text-sm text-muted-foreground">{status}</p>}
       </div>
-    </main>
+    </div>
   );
 }
