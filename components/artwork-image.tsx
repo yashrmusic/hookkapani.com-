@@ -30,27 +30,42 @@ export function ArtworkImage({
       className={`relative w-full overflow-hidden bg-secondary shadow-[0_0_0_0_rgba(0,0,0,0)] group-hover:shadow-2xl ${className} transition-all duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       style={{ paddingBottom }}
     >
-      <Image
-        src={artwork.imageUrl}
-        alt={artworkAlt(artwork)}
-        fill
-        sizes={sizes}
-        priority={priority}
-        quality={75}
-        loading={priority ? 'eager' : 'lazy'}
-        fetchPriority={priority ? 'high' : 'auto'}
-        className={`
-          object-contain
-          transition-transform duration-500
-          ${onClick ? 'cursor-pointer hover:scale-[1.02]' : ''}
-        `}
-        onClick={onClick}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)}
-      />
-
-      {onClick && (
-        <div className="absolute inset-0 bg-accent/0 hover:bg-accent/10 transition-colors duration-300 pointer-events-none" />
+      {onClick ? (
+        <button
+          type="button"
+          onClick={onClick}
+          aria-label={`Open ${artwork.title} in the image viewer`}
+          className="absolute inset-0 block h-full w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+        >
+          <Image
+            src={artwork.imageUrl}
+            alt={artworkAlt(artwork)}
+            fill
+            sizes={sizes}
+            priority={priority}
+            quality={75}
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            className="object-contain transition-transform duration-500 hover:scale-[1.02]"
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setIsLoaded(true)}
+          />
+          <span className="absolute inset-0 bg-accent/0 hover:bg-accent/10 transition-colors duration-300 pointer-events-none" />
+        </button>
+      ) : (
+        <Image
+          src={artwork.imageUrl}
+          alt={artworkAlt(artwork)}
+          fill
+          sizes={sizes}
+          priority={priority}
+          quality={75}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          className="object-contain transition-transform duration-500"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setIsLoaded(true)}
+        />
       )}
     </div>
   );

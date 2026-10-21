@@ -26,7 +26,7 @@ export default function StudioPage() {
     <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
       <div className="pt-28 md:pt-32 pb-32">
         <header className="container mx-auto px-6 mb-20">
-          <span className="block text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
+          <span className="block text-[10px] font-mono uppercase tracking-[0.3em] text-white/60 mb-6">
             Studio Process · Vol. 01
           </span>
           <motion.h1
@@ -78,7 +78,7 @@ export default function StudioPage() {
         </section>
 
         <footer className="mt-24 border-t border-white/5 pt-12 pb-4 text-center">
-          <p className="text-2xl md:text-4xl font-bold opacity-20 tracking-tighter text-white">
+          <p className="text-2xl md:text-4xl font-bold opacity-40 tracking-tighter text-white">
             MATERIAL LOGIC · HONEST CONSTRUCTION · MECHANICAL TENSION
           </p>
         </footer>

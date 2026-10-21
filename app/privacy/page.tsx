@@ -22,11 +22,11 @@ export default function PrivacyPage() {
             <p>
               Hookkapaani Studio, New Delhi, India. For any question about this notice or your
               data, write to{' '}
-              <a href="mailto:hookkapani.15@gmail.com" className="text-accent hover:text-accent/80">
+              <a href="mailto:hookkapani.15@gmail.com" className="text-accent hover:text-accent/80 underline underline-offset-4">
                 hookkapani.15@gmail.com
               </a>{' '}
               or call{' '}
-              <a href="tel:+919540026221" className="text-accent hover:text-accent/80">
+              <a href="tel:+919540026221" className="text-accent hover:text-accent/80 underline underline-offset-4">
                 +91 95400 26221
               </a>
               .

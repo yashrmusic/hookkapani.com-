@@ -118,7 +118,7 @@ export function Footer() {
               </li>
               <li>
                 Studio visits by appointment —{' '}
-                <Link href="/commission" className="text-accent hover:text-accent/80 transition-colors">
+                <Link href="/commission" className="text-accent-bright hover:text-accent-bright/80 transition-colors">
                   arrange one through a project brief
                 </Link>
               </li>

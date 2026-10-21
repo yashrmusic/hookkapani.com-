@@ -14,6 +14,7 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-bright: hsl(var(--accent-bright));
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-border: hsl(var(--border));
@@ -63,7 +64,9 @@
 
     --accent: 357 90% 55%;
     /* Brand red (logo family, lifted for dark-UI contrast) */
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 5%;
+    --accent-bright: 357 100% 66%;
+    /* Small accent text on dark surfaces (>= 4.5:1) */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;

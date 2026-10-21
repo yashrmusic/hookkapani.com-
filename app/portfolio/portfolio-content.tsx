@@ -76,7 +76,7 @@ function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; i
         <p className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</p>
         <p className="text-xl mb-2 font-serif">hookkapani.15@gmail.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
-        <p className="mt-12 text-sm text-gray-400 uppercase tracking-widest">© Hookkapaani Studio</p>
+        <p className="mt-12 text-sm text-gray-600 uppercase tracking-widest">© Hookkapaani Studio</p>
       </div>
 
       <style jsx global>{`

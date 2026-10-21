@@ -30,7 +30,7 @@ function Stat({
       }}
     >
       <p className="font-serif text-4xl text-accent-foreground md:text-5xl">{stat.value}</p>
-      <p className="mt-2 text-sm text-accent-foreground/60">{stat.label}</p>
+      <p className="mt-2 text-sm text-accent-foreground">{stat.label}</p>
     </div>
   );
 }
@@ -53,7 +53,7 @@ export function Practice() {
   return (
     <section
       id="practice"
-      className="bg-accent py-32 px-6 md:px-10 lg:px-16"
+      className="overflow-x-hidden bg-accent py-32 px-6 md:px-10 lg:px-16"
     >
       <div ref={ref} className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
@@ -65,7 +65,7 @@ export function Practice() {
               transitionDuration: "800ms",
             }}
           >
-            <p className="mb-3 text-xs tracking-[0.4em] uppercase text-accent-foreground/50">
+            <p className="mb-3 text-xs tracking-[0.4em] uppercase text-accent-foreground">
               About the Studio
             </p>
             <h2 className="font-serif text-4xl tracking-tight text-accent-foreground md:text-5xl">
@@ -83,7 +83,7 @@ export function Practice() {
               transitionDelay: "200ms",
             }}
           >
-            <p className="text-base leading-relaxed text-accent-foreground/70 md:text-lg">
+            <p className="text-base leading-relaxed text-accent-foreground md:text-lg">
               From its workshop in New Delhi, Hookkapaani works at the meeting point of industrial
               fabrication and artistic expression. We work with steel, bronze, aluminium and found
               materials to create sculptures that move, breathe and evolve. Each piece is a dialogue

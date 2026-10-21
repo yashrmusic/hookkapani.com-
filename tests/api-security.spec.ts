@@ -1,8 +1,14 @@
 import { expect, test } from '@playwright/test';
 
+// The commission endpoint limits submissions per client IP. Give each request a
+// throwaway TEST-NET-2 address so repeat runs test validation instead of the limiter.
+function forwardedFor() {
+  return { 'x-forwarded-for': `198.51.100.${Math.floor(Math.random() * 250) + 1}` };
+}
+
 test('commission endpoint rejects invalid content-type', async ({ request }) => {
   const response = await request.post('/api/commission', {
-    headers: { 'Content-Type': 'text/plain' },
+    headers: { 'Content-Type': 'text/plain', ...forwardedFor() },
     data: 'hello',
   });
 
@@ -11,7 +17,7 @@ test('commission endpoint rejects invalid content-type', async ({ request }) => 
 
 test('commission endpoint validates required fields', async ({ request }) => {
   const response = await request.post('/api/commission', {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...forwardedFor() },
     data: { name: 'Only Name' },
   });
 
@@ -20,7 +26,7 @@ test('commission endpoint validates required fields', async ({ request }) => {
 
 test('commission endpoint blocks oversized payloads', async ({ request }) => {
   const response = await request.post('/api/commission', {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...forwardedFor() },
     data: {
       name: 'Load Test',
       email: 'load@test.com',

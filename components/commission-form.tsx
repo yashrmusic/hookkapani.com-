@@ -66,6 +66,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [isHydrated, setIsHydrated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -73,6 +74,10 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
   useEffect(() => {
     if (isSubmitted) successRef.current?.focus();
   }, [isSubmitted]);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const goToStep = (next: number) => {
     setStep(next);
@@ -196,7 +201,12 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-10" aria-busy={isSubmitting}>
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-10"
+            aria-busy={isSubmitting}
+            data-hydrated={isHydrated}
+          >
             <input
               type="text"
               name="website"

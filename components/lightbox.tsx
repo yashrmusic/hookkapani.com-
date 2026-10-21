@@ -289,7 +289,7 @@ export function Lightbox({
 
             {/* Category badge */}
             <div className="mb-6 md:mb-8">
-              <span className="inline-block text-[10px] font-mono tracking-[0.35em] uppercase text-accent/90 border border-accent/20 bg-accent/[0.04] px-3 py-1.5">
+              <span className="inline-block text-[10px] font-mono tracking-[0.35em] uppercase text-accent-bright border border-accent/20 bg-accent/[0.04] px-3 py-1.5">
                 {artwork.category}
               </span>
             </div>
@@ -308,7 +308,7 @@ export function Lightbox({
               {/* Dimensions — hero treatment */}
               {artwork.dimensions && (
                 <div>
-                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-2.5">Size</p>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/60 mb-2.5">Size</p>
                   <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
                     {artwork.dimensions}
                   </p>
@@ -318,7 +318,7 @@ export function Lightbox({
               {/* Materials */}
               {artwork.materials && artwork.materials.length > 0 && (
                 <div>
-                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">Materials</p>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/60 mb-3">Materials</p>
                   <div className="flex flex-wrap gap-2">
                     {artwork.materials.map((material: string) => (
                       <span
@@ -335,7 +335,7 @@ export function Lightbox({
               {/* Description */}
               {artwork.description && (
                 <div>
-                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/35 mb-3">About</p>
+                  <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-white/60 mb-3">About</p>
                   <p className="text-sm text-white/50 leading-[1.7] font-light">{artwork.description}</p>
                 </div>
               )}
@@ -344,12 +344,12 @@ export function Lightbox({
 
           {/* Footer with counter + link */}
           <div className="border-t border-white/[0.06] px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
-            <span className="text-[11px] font-mono text-white/30 tracking-wider">
-              {currentIndex + 1} <span className="text-white/15">/</span> {allArtworks.length}
+            <span className="text-[11px] font-mono text-white/60 tracking-wider">
+              {currentIndex + 1} <span className="text-white/60">/</span> {allArtworks.length}
             </span>
             <a
               href={`/work/${artwork.id}`}
-              className="text-[10px] font-mono tracking-[0.2em] uppercase text-accent/70 hover:text-accent transition-colors"
+              className="text-[10px] font-mono tracking-[0.2em] uppercase text-accent-bright hover:text-accent-bright/80 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               Full details →

@@ -31,8 +31,15 @@ test('mobile menu opens and closes with Escape', async ({ page }) => {
   await expect(page.locator('#mobile-menu')).toHaveAttribute('aria-hidden', 'true');
 });
 
-test('commission form submits a complete brief', async ({ page }) => {
+test('commission form submits a complete brief', async ({ page }, testInfo) => {
+  // Isolate each run from the production spam limiter (8 submissions / 10 min / IP)
+  // so repeat runs exercise the form instead of the 429 guard.
+  await page.setExtraHTTPHeaders({
+    'x-forwarded-for': `198.51.100.${(Date.now() + testInfo.workerIndex) % 250 + 1}`,
+  });
   await page.goto('/commission');
+  // Wait for the client component to mount so early input events are not lost on slower engines.
+  await page.locator('form[data-hydrated="true"]').waitFor();
 
   // Step 1 — about you
   await page.fill('#name', 'Smoke Test');

@@ -18,6 +18,7 @@ export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const closeMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
@@ -27,7 +28,26 @@ export function Nav() {
   useEffect(() => {
     if (!isMobileMenuOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(
+        navRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ) || []
+      ).filter((el) => el.getClientRects().length > 0);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
@@ -56,6 +76,7 @@ export function Nav() {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${isScrolled
         ? 'bg-[#0d0d0d] border-b border-border'
         : 'bg-[#0d0d0d]/95'

@@ -177,7 +177,7 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
                 <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Tags</h2>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-accent/10 text-accent text-xs rounded">
+                    <span key={tag} className="px-2 py-1 bg-accent/10 text-accent-bright text-xs rounded">
                       {tag}
                     </span>
                   ))}

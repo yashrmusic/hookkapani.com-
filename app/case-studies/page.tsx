@@ -36,7 +36,7 @@ export default function CaseStudiesPage() {
 
         <p className="text-sm text-muted-foreground mt-12">
           Planning a project?{' '}
-          <Link href="/commission" className="text-accent hover:text-accent/80">
+          <Link href="/commission" className="text-accent-bright hover:text-accent-bright/80">
             Submit a commission brief
           </Link>{' '}
           or{' '}
