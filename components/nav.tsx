@@ -101,7 +101,7 @@ export function Nav() {
 
         {/* Mobile Menu — slides down with solid bg */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}
+          className={`lg:hidden overflow-hidden bg-[#0d0d0d] transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}
         >
           <div className="py-4 space-y-1">
             {navLinks.map((link) => (
