@@ -30,6 +30,9 @@ export function Lightbox({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const scrollPosRef = useRef(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const currentIndex = artwork ? allArtworks.findIndex((a) => a.id === artwork.id) : -1;
   const hasPrev = currentIndex > 0;
@@ -43,6 +46,26 @@ export function Lightbox({
         case 'Escape':
           onClose();
           break;
+        case 'Tab': {
+          const root = dialogRef.current;
+          if (!root) break;
+          const focusable = Array.from(
+            root.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), video[controls], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )
+          ).filter((el) => el.offsetParent !== null);
+          if (focusable.length === 0) break;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+          break;
+        }
         case 'ArrowLeft':
           if (hasPrev && onPrev) onPrev();
           break;
@@ -65,6 +88,7 @@ export function Lightbox({
 
   useEffect(() => {
     if (isOpen) {
+      previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
       scrollPosRef.current = window.scrollY;
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.position = 'fixed';
@@ -73,7 +97,10 @@ export function Lightbox({
       document.body.style.right = '0';
       document.body.style.paddingRight = `${scrollbarWidth}px`;
       document.body.style.overflow = 'hidden';
-      setTimeout(() => setIsVisible(true), 10);
+      setTimeout(() => {
+        setIsVisible(true);
+        closeButtonRef.current?.focus();
+      }, 10);
     } else {
       setIsVisible(false);
       setTimeout(() => {
@@ -86,6 +113,7 @@ export function Lightbox({
         window.scrollTo(0, scrollPosRef.current);
         setIsZoomed(false);
         setImageLoaded(false);
+        previouslyFocusedRef.current?.focus();
       }, 200);
     }
     return () => {
@@ -135,6 +163,12 @@ export function Lightbox({
 
   return (
     <div
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${artwork.title} — artwork viewer`}
+      aria-hidden={!isOpen}
+      inert={!isOpen}
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'} ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       onClick={onClose}
       onTouchStart={handleTouchStart}
@@ -161,6 +195,7 @@ export function Lightbox({
         />
 
         <button
+          ref={closeButtonRef}
           onClick={(e) => {
             e.stopPropagation();
             onClose();

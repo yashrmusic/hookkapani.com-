@@ -57,7 +57,6 @@ function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; i
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
                 quality={90}
-                unoptimized
                 loading={isPrintMode ? "eager" : "lazy"}
                 priority={isPrintMode}
               />

@@ -1,22 +1,25 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from '@/hooks/use-intersection-observer';
 
 const heroSlides = [
-  { src: '/videos/video1.mp4', caption: 'Medusa', detail: '12 ft · moving sculpture', href: '/work/new-work-28' },
-  { src: '/videos/video2.mp4', caption: 'Forest Lady', detail: '8 ft · moving sculpture', href: '/work/new-work-22' },
-  { src: '/videos/video3.mp4', caption: 'Works in motion', detail: 'Hookkapaani Studio, New Delhi', href: '/#work' },
+  { src: '/videos/video1-720.mp4', poster: '/images/new-work-28.jpg', caption: 'Medusa', detail: '12 ft · moving sculpture', href: '/work/new-work-28' },
+  { src: '/videos/video2-720.mp4', poster: '/images/new-work-22.jpg', caption: 'Forest Lady', detail: '8 ft · moving sculpture', href: '/work/new-work-22' },
+  { src: '/videos/video3-720.mp4', poster: '/images/new-work-36.jpg', caption: 'Works in motion', detail: 'Hookkapaani Studio, New Delhi', href: '/#work' },
 ];
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const [titleRef, titleInView] = useInView({ threshold: 0.1 });
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isUserPaused, setIsUserPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -30,27 +33,54 @@ export function Hero() {
   useEffect(() => {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
-      if (i === activeSlide && !reducedMotion) {
+      if (i === activeSlide && !reducedMotion && !isUserPaused) {
         video.play().catch(() => {});
       } else {
         video.pause();
       }
     });
-  }, [activeSlide, reducedMotion]);
+  }, [activeSlide, reducedMotion, isUserPaused]);
 
   const goToSlide = useCallback((idx: number) => setActiveSlide(idx), []);
   const goNext = useCallback(() => setActiveSlide((p) => (p + 1) % heroSlides.length), []);
   const goPrev = useCallback(() => setActiveSlide((p) => (p - 1 + heroSlides.length) % heroSlides.length), []);
 
   useEffect(() => {
-    if (isPaused || reducedMotion) return;
+    if (isHovered || isUserPaused || reducedMotion) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [isPaused, reducedMotion]);
+  }, [isHovered, isUserPaused, reducedMotion]);
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      goPrev();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      goNext();
+    }
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    if (!start) return;
+    const dx = e.changedTouches[0].clientX - start.x;
+    const dy = e.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx > 0) goPrev();
+      else goNext();
+    }
+  };
 
   const slide = heroSlides[activeSlide];
+  const isPaused = isUserPaused || reducedMotion;
 
   return (
     <section
@@ -71,15 +101,23 @@ export function Hero() {
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 z-10 pt-24 md:pt-32 pb-16">
-        <div className="max-w-5xl mx-auto flex flex-col items-center">
+      <div className="container mx-auto px-4 sm:px-6 z-10 pt-24 md:pt-28 pb-16">
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
           <div
             ref={titleRef}
             className={`w-full max-w-xl mb-8 md:mb-10 transition-all duration-700 ${
               titleInView || isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <img src="/images/hookkapani-logo-red.png" alt="Hookkapaani" className="w-full h-auto object-contain mx-auto" />
+            <Image
+              src="/images/hookkapani-logo-red.png"
+              alt="Hookkapaani"
+              width={1119}
+              height={246}
+              priority
+              sizes="(max-width: 768px) 90vw, 576px"
+              className="w-full h-auto object-contain mx-auto"
+            />
           </div>
 
           {/* Owner direction 2026-10-19: no headline copy in the hero —
@@ -87,15 +125,26 @@ export function Hero() {
           <h1 className="sr-only">Hookkapaani — kinetic sculpture studio of Vishal Gupta</h1>
 
           <div
-            className={`w-full mt-10 md:mt-12 transition-all duration-700 delay-200 ${
+            className={`w-full mt-8 md:mt-10 transition-all duration-700 delay-200 ${
               titleInView || isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="relative">
+            <div
+              className="relative"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Featured works"
+              tabIndex={0}
+              onKeyDown={onKeyDown}
+              onFocusCapture={() => setIsHovered(true)}
+              onBlurCapture={() => setIsHovered(false)}
+            >
               <div
-                className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06]"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+                className="relative aspect-video overflow-hidden bg-black/40 border border-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
               >
                 {heroSlides.map((s, i) => (
                   <video
@@ -104,10 +153,12 @@ export function Hero() {
                       videoRefs.current[i] = el;
                     }}
                     src={s.src}
+                    poster={s.poster}
                     loop
                     muted
                     playsInline
-                    preload={i === 0 ? 'auto' : 'metadata'}
+                    preload="metadata"
+                    aria-hidden={activeSlide !== i}
                     className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                     style={{ opacity: activeSlide === i ? 1 : 0 }}
                   />
@@ -129,41 +180,62 @@ export function Hero() {
                 </Link>
 
                 <button
+                  type="button"
                   onClick={goPrev}
                   className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors backdrop-blur-sm"
-                  aria-label="Previous"
+                  aria-label="Previous artwork"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 <button
+                  type="button"
                   onClick={goNext}
                   className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors backdrop-blur-sm"
-                  aria-label="Next"
+                  aria-label="Next artwork"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsUserPaused((p) => !p)}
+                  className="absolute top-3 right-3 md:top-5 md:right-5 w-9 h-9 flex items-center justify-center bg-black/35 hover:bg-black/55 text-white rounded-full transition-colors backdrop-blur-sm"
+                  aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
+                >
+                  {isPaused ? (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+                    </svg>
+                  )}
                 </button>
               </div>
 
               <div className="flex justify-center gap-2.5 mt-4">
                 {heroSlides.map((_, i) => (
                   <button
+                    type="button"
                     key={i}
                     onClick={() => goToSlide(i)}
                     className={`h-[3px] rounded-full transition-all duration-300 ${
                       activeSlide === i ? 'w-8 bg-accent' : 'w-4 bg-white/20 hover:bg-white/40'
                     }`}
                     aria-label={`Go to slide ${i + 1}`}
+                    aria-current={activeSlide === i ? 'true' : undefined}
                   />
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/commission"
               className="px-8 py-4 bg-accent text-accent-foreground font-medium tracking-wide hover:bg-accent/90 transition-colors min-h-[44px] flex items-center"

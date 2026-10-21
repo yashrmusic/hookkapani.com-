@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { VideoPlayer } from '@/components/video-player';
 import { AlertsSignup } from '@/components/alerts-signup';
 
@@ -25,13 +24,11 @@ const processVideos = [
 export default function StudioPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
-        <Link href="/" className="text-xl font-bold tracking-tighter hover:text-accent transition-colors">H/K</Link>
-        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">Studio Process · Vol. 01</span>
-      </nav>
-
-      <div className="pt-24 pb-32">
+      <div className="pt-28 md:pt-32 pb-32">
         <header className="container mx-auto px-6 mb-20">
+          <span className="block text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
+            Studio Process · Vol. 01
+          </span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

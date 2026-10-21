@@ -54,8 +54,9 @@ const STEPS = ['About you', 'The site', 'Scope & timeline'];
 const STEP_FIELDS: (keyof ProjectBriefData)[][] = [
   ['name', 'email', 'decisionRole'],
   ['projectType', 'location', 'dimensions'],
-  ['timeline', 'description'],
+  ['timeline', 'budget', 'description'],
 ];
+const STEP_FIRST_FIELD = ['name', 'projectType', 'timeline'];
 
 export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean }) {
   const [formData, setFormData] = useState<ProjectBriefData>(initialFormData);
@@ -66,7 +67,17 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const sectionRef = useRef<HTMLElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isSubmitted) successRef.current?.focus();
+  }, [isSubmitted]);
+
+  const goToStep = (next: number) => {
+    setStep(next);
+    requestAnimationFrame(() => document.getElementById(STEP_FIRST_FIELD[next])?.focus());
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -133,7 +144,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
       const response = await fetch('/api/commission', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, budget: 'not-specified', referenceWorks }),
+        body: JSON.stringify({ ...formData, referenceWorks }),
       });
       const result = await response.json().catch(() => null);
 
@@ -143,7 +154,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
 
       trackEvent('project_brief_submitted', {
         projectType: formData.projectType,
-        budget: 'not-specified',
+        budget: formData.budget,
         timeline: formData.timeline,
         referenceWorksCount: referenceIds.length,
       });
@@ -171,7 +182,13 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
         )}
 
         {isSubmitted ? (
-          <div className="text-center py-16 border border-accent/30 bg-accent/5">
+          <div
+            ref={successRef}
+            tabIndex={-1}
+            role="status"
+            aria-live="polite"
+            className="text-center py-16 border border-accent/30 bg-accent/5"
+          >
             <h3 className="text-title mb-2">Thank you — your brief has been received</h3>
             <p className="text-muted-foreground">
               The studio will respond within two business days; a site survey and a written
@@ -179,7 +196,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-10">
+          <form onSubmit={handleSubmit} className="space-y-10" aria-busy={isSubmitting}>
             <input
               type="text"
               name="website"
@@ -198,7 +215,8 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   <button
                     key={label}
                     type="button"
-                    onClick={() => i < step && setStep(i)}
+                    onClick={() => i < step && goToStep(i)}
+                    aria-current={i === step ? 'step' : undefined}
                     className={`text-sm font-medium ${i === step ? 'text-accent' : i < step ? 'text-foreground' : 'text-muted-foreground'}`}
                   >
                     {i + 1}. {label}
@@ -239,18 +257,18 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
               <div className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   <Field label="Full Name *" id="name">
-                    <input id="name" name="name" required value={formData.name} onChange={handleChange} className={inputClassName} placeholder="Your name" />
+                    <input id="name" name="name" required autoComplete="name" value={formData.name} onChange={handleChange} className={inputClassName} placeholder="Your name" />
                   </Field>
                   <Field label="Work Email *" id="email">
-                    <input id="email" type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClassName} placeholder="name@company.com" />
+                    <input id="email" type="email" name="email" required autoComplete="email" value={formData.email} onChange={handleChange} className={inputClassName} placeholder="name@company.com" />
                   </Field>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <Field label="Phone" id="phone">
-                    <input id="phone" name="phone" value={formData.phone} onChange={handleChange} className={inputClassName} placeholder="+91 ..." />
+                    <input id="phone" type="tel" name="phone" autoComplete="tel" value={formData.phone} onChange={handleChange} className={inputClassName} placeholder="+91 ..." />
                   </Field>
                   <Field label="Company / Institution" id="companyName">
-                    <input id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} className={inputClassName} placeholder="Organisation name" />
+                    <input id="companyName" name="companyName" autoComplete="organization" value={formData.companyName} onChange={handleChange} className={inputClassName} placeholder="Organisation name" />
                   </Field>
                 </div>
                 <Field label="Your Role in the Decision *" id="decisionRole">
@@ -279,7 +297,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                     </select>
                   </Field>
                   <Field label="Project Location *" id="location">
-                    <input id="location" name="location" required value={formData.location} onChange={handleChange} className={inputClassName} placeholder="City, Country" />
+                    <input id="location" name="location" required autoComplete="address-level2" value={formData.location} onChange={handleChange} className={inputClassName} placeholder="City, Country" />
                   </Field>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -318,7 +336,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   </Field>
                 </div>
                 <Field label="Site Photos / Plans (link)" id="siteMediaLink">
-                  <input id="siteMediaLink" name="siteMediaLink" value={formData.siteMediaLink} onChange={handleChange} className={inputClassName} placeholder="Google Drive, WeTransfer or similar link to site photos, plans or drawings" />
+                  <input id="siteMediaLink" type="url" name="siteMediaLink" autoComplete="url" value={formData.siteMediaLink} onChange={handleChange} className={inputClassName} placeholder="Google Drive, WeTransfer or similar link to site photos, plans or drawings" />
                 </Field>
               </div>
             )}
@@ -333,6 +351,15 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                       <option value="3-6-months" className={optionClassName}>3–6 months</option>
                       <option value="6-12-months" className={optionClassName}>6–12 months</option>
                       <option value="12-plus-months" className={optionClassName}>12+ months</option>
+                    </select>
+                  </Field>
+                  <Field label="Budget Range *" id="budget">
+                    <select id="budget" name="budget" required value={formData.budget} onChange={handleChange} className={selectClassName} style={{ colorScheme: 'light' }}>
+                      <option value="" disabled className={optionClassName}>Select budget range</option>
+                      <option value="400k-500k" className={optionClassName}>₹4–5 lakh</option>
+                      <option value="500k-2m" className={optionClassName}>₹5 lakh – ₹20 lakh</option>
+                      <option value="2m-plus" className={optionClassName}>₹20 lakh+</option>
+                      <option value="not-specified" className={optionClassName}>Prefer to discuss</option>
                     </select>
                   </Field>
                 </div>
@@ -364,7 +391,11 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
               </div>
             )}
 
-            {stepError && <p className="text-sm text-red-400">{stepError}</p>}
+            {stepError && (
+              <p id="step-error" role="alert" aria-live="assertive" className="text-sm text-red-400">
+                {stepError}
+              </p>
+            )}
 
             <div className="flex flex-wrap items-center gap-4">
               {step > 0 && (
@@ -372,7 +403,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                   type="button"
                   onClick={() => {
                     setStepError('');
-                    setStep(step - 1);
+                    goToStep(step - 1);
                   }}
                   className="px-8 py-4 border border-border font-medium tracking-wide hover:border-accent hover:text-accent transition-colors min-h-[44px]"
                 >
@@ -383,7 +414,7 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                 <button
                   type="button"
                   onClick={() => {
-                    if (validateStep(step)) setStep(step + 1);
+                    if (validateStep(step)) goToStep(step + 1);
                   }}
                   className="px-8 py-4 bg-accent text-accent-foreground font-medium tracking-wide hover:bg-accent/90 transition-colors min-h-[44px]"
                 >
@@ -402,7 +433,11 @@ export function CommissionForm({ hideHeader = false }: { hideHeader?: boolean })
                 Step {step + 1} of {STEPS.length}
               </span>
             </div>
-            {submitError && <p className="text-sm text-red-400">{submitError}</p>}
+            {submitError && (
+              <p role="alert" aria-live="assertive" className="text-sm text-red-400">
+                {submitError}
+              </p>
+            )}
           </form>
         )}
       </div>

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MagneticButton } from '@/components/magnetic-button';
 
 const navLinks = [
@@ -13,8 +14,24 @@ const navLinks = [
 ];
 
 export function Nav() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+    menuButtonRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeMenu();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isMobileMenuOpen, closeMenu]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -32,6 +49,10 @@ export function Nav() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
+
+  // Work detail pages carry their own back/share bar, so the global nav would
+  // otherwise sit on top of it.
+  if (pathname?.startsWith('/work/')) return null;
 
   return (
     <nav
@@ -86,10 +107,13 @@ export function Nav() {
 
           {/* Mobile Menu Button — visible below lg */}
           <button
+            ref={menuButtonRef}
+            type="button"
             className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            onClick={() => (isMobileMenuOpen ? closeMenu() : setIsMobileMenuOpen(true))}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 flex flex-col gap-1.5">
               <span className={`block h-[2px] w-full bg-foreground transition-all duration-300 origin-center ${isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
@@ -101,7 +125,13 @@ export function Nav() {
 
         {/* Mobile Menu — slides down with solid bg */}
         <div
-          className={`lg:hidden overflow-hidden bg-[#0d0d0d] transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}
+          id="mobile-menu"
+          aria-hidden={!isMobileMenuOpen}
+          className={`lg:hidden overflow-y-auto bg-background transition-all duration-300 ${
+            isMobileMenuOpen
+              ? 'visible h-[calc(100dvh-4rem)] opacity-100'
+              : 'invisible h-0 opacity-0'
+          }`}
         >
           <div className="py-4 space-y-1">
             {navLinks.map((link) => (

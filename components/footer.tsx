@@ -140,7 +140,12 @@ export function Footer() {
         <div
           className={`mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Hookkapaani. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Hookkapaani. All rights reserved.{' '}
+            <Link href="/privacy" className="hover:text-accent transition-colors underline underline-offset-4">
+              Privacy
+            </Link>
+          </p>
           <p className="text-sm text-muted-foreground">
             Crafting movement. Carving meaning.
           </p>
