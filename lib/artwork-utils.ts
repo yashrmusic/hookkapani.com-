@@ -76,3 +76,31 @@ export function relatedWorks(all: Artwork[], current: Artwork, count = 3): Artwo
     .sort((x, y) => y.score - x.score);
   return scored.slice(0, count).map((s) => s.a);
 }
+/**
+ * Readable work slug derived from the locked title, e.g. "The Strawberry"
+ * becomes "the-strawberry". Titles are never changed; the slug is computed
+ * so the internal artwork id stays the identifier for shortlist,
+ * commission and audience/case-study lookups.
+ */
+export function artworkSlug(artwork: Artwork): string {
+  return artwork.title
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/** Public work URL, e.g. "/work/the-strawberry". */
+export function artworkUrl(artwork: Artwork): string {
+  return `/work/${artworkSlug(artwork)}`;
+}
+
+/**
+ * Find a work by its readable slug. The old numbered id is accepted as a
+ * fallback only; the permanent redirects in next.config.mjs are the
+ * canonical route from old URLs to slug URLs.
+ */
+export function getArtworkBySlug(all: Artwork[], slug: string): Artwork | undefined {
+  return all.find((a) => artworkSlug(a) === slug) ?? all.find((a) => a.id === slug);
+}
