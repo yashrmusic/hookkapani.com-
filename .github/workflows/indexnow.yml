@@ -1,0 +1,26 @@
+name: Submit URLs to IndexNow
+
+# Runs on pushes to main (after a merge, when the deployed sitemap and
+# key file are live) and on manual dispatch. It does not run for pull
+# requests, so this branch itself submits nothing to IndexNow.
+# IndexNow is free and needs no account or secret: the key is public
+# and is served at https://hookkapani.com/a7c3e9f1b2d84a6f0e5c7a9d3b1f6e28.txt
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Submit production sitemap URLs to IndexNow
+        run: node scripts/submit-indexnow.mjs
