@@ -72,7 +72,7 @@ function sanitizePayload(raw: Record<string, unknown>) {
     metric: sanitizeSingleLine(raw.metric, 20),
     userAgent: sanitizeSingleLine(raw.userAgent, 280),
     viewport: sanitizeSingleLine(raw.viewport, 40),
-    sessionId: sanitizeSingleLine(raw.sessionId, 80),
+    sessionId: sanitizeSingleLine(raw.sessionId, 80), referrer: sanitizeSingleLine(raw.referrer, 512), referrerHost: sanitizeSingleLine(raw.referrerHost, 128), source: sanitizeSingleLine(raw.source, 128), utmSource: sanitizeSingleLine(raw.utmSource, 128), utmMedium: sanitizeSingleLine(raw.utmMedium, 128), utmCampaign: sanitizeSingleLine(raw.utmCampaign, 128), utmContent: sanitizeSingleLine(raw.utmContent, 128), utmTerm: sanitizeSingleLine(raw.utmTerm, 128),
     ts: sanitizeSingleLine(raw.ts, 64),
   };
 

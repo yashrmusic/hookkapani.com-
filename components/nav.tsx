@@ -103,7 +103,7 @@ export function Nav() {
                 {link.href.endsWith('.pdf') ? (
                   <a
                     href={link.href}
-                    download="Hookkapaani_Portfolio_2026.pdf"
+                    download="Hookkapani_Portfolio_2026.pdf"
                     className="text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors py-2 px-4 block"
                   >
                     {link.label}
@@ -160,7 +160,7 @@ export function Nav() {
                 <a
                   key={link.href}
                   href={link.href}
-                  download="Hookkapaani_Portfolio_2026.pdf"
+                  download="Hookkapani_Portfolio_2026.pdf"
                   className="block py-3 px-2 text-base font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors min-h-[44px] flex items-center rounded"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

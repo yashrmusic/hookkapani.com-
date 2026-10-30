@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Content Admin',
-  description: 'Internal content editor for the Hookkapaani site.',
+  description: 'Internal content editor for the Hookkapani site.',
   robots: { index: false, follow: false },
 };
 

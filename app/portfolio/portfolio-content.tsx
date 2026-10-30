@@ -22,8 +22,8 @@ function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; i
       {!isCaptureMode && <AutoPrint />}
       <div className="h-screen flex flex-col justify-between items-start border-b-2 border-black pb-8 mb-16 break-after-page section-page">
         <div className="mt-20">
-          <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K<span className="sr-only"> — Hookkapaani Studio portfolio of selected works</span></h1>
-          <p className="text-4xl font-light tracking-widest uppercase">Hookkapaani Studio</p>
+          <h1 className="text-9xl font-bold tracking-tighter mb-4" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K<span className="sr-only"> — Hookkapani Studio portfolio of selected works</span></h1>
+          <p className="text-4xl font-light tracking-widest uppercase">Hookkapani Studio</p>
         </div>
 
         <div className="w-full flex justify-between items-end text-sm uppercase tracking-wider">
@@ -76,7 +76,7 @@ function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; i
         <p className="text-8xl font-bold mb-8" style={{ fontFamily: 'var(--font-cormorant-garamond), serif' }}>H/K</p>
         <p className="text-xl mb-2 font-serif">hookkapani.15@gmail.com</p>
         <p className="text-xl font-serif">+91-9540026221</p>
-        <p className="mt-12 text-sm text-gray-600 uppercase tracking-widest">© Hookkapaani Studio</p>
+        <p className="mt-12 text-sm text-gray-600 uppercase tracking-widest">© Hookkapani Studio</p>
       </div>
 
       <style jsx global>{`
@@ -134,7 +134,7 @@ function PortfolioBody({ isPrintMode, isCaptureMode }: { isPrintMode: boolean; i
       {/* Floating Download Button */}
       <a
         href="/portfolio.pdf"
-        download="Hookkapaani_Portfolio.pdf"
+        download="Hookkapani_Portfolio.pdf"
         className="fixed bottom-8 right-8 bg-black text-white px-6 py-4 rounded-full print:hidden z-50 hover:bg-neutral-800 transition-all shadow-2xl font-bold uppercase tracking-widest text-sm flex items-center gap-3 border border-white/10 group active:scale-95"
       >
         <svg

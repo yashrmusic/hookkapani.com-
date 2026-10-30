@@ -5,7 +5,7 @@ import { ORGANIZATION_ID, WEBSITE_ID, absoluteUrl, jsonLd, pageMetadata } from '
 
 export const metadata: Metadata = pageMetadata({
     title: 'Portfolio — All Works',
-    description: `The full Hookkapaani catalogue: all ${artworks.length} sculptures, kinetic works and installations in steel, resin and mixed media, with materials and a PDF catalogue.`,
+    description: `The full Hookkapani catalogue: all ${artworks.length} sculptures, kinetic works and installations in steel, resin and mixed media, with materials and a PDF catalogue.`,
     path: '/portfolio',
 });
 
@@ -13,7 +13,7 @@ const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     url: absoluteUrl('/portfolio'),
-    name: 'Hookkapaani Studio portfolio',
+    name: 'Hookkapani Studio portfolio',
     isPartOf: { '@id': WEBSITE_ID },
     publisher: { '@id': ORGANIZATION_ID },
     mainEntity: {

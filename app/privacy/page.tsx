@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy',
   description:
-    'What Hookkapaani Studio collects when you use this site or send a project brief, why it is collected, and how to have it removed.',
+    'What Hookkapani Studio collects when you use this site or send a project brief, why it is collected, and how to have it removed.',
   path: '/privacy',
 });
 
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-title mb-3">Who we are</h2>
             <p>
-              Hookkapaani Studio, New Delhi, India. For any question about this notice or your
+              Hookkapani Studio, New Delhi, India. For any question about this notice or your
               data, write to{' '}
               <a href="mailto:hookkapani.15@gmail.com" className="text-accent hover:text-accent/80 underline underline-offset-4">
                 hookkapani.15@gmail.com
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Usage measurement.</strong> The pages you visit, your browser user agent,
-                viewport size, a random per-visit session identifier, and page-load timing. This is
+                viewport size, a random per-visit session identifier, page-load timing, the referring page and campaign parameters (such as utm_source). This is
                 aggregate technical data used to understand which works and pages are useful.
               </li>
               <li>

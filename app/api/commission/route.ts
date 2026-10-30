@@ -371,7 +371,7 @@ export async function POST(request: NextRequest) {
       const safeProjectType = sanitizeMailHeader(payload.projectType);
 
       const mailOptions = {
-        from: smtpFrom || '"Hookkapaani Website" <no-reply@hookkapani.com>',
+        from: smtpFrom || '"Hookkapani Website" <no-reply@hookkapani.com>',
         to: recipientEmail,
         replyTo: payload.email,
         subject: `New Commission Inquiry: ${safeName} - ${safeProjectType}`,

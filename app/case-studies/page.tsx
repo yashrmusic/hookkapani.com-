@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Case Studies — Commissioned Kinetic Installations',
   description:
-    'How Hookkapaani delivers commissions: a 9-floor corporate atrium installation and a gallery motion series, with constraints, process and outcomes.',
+    'How Hookkapani delivers commissions: a 9-floor corporate atrium installation and a gallery motion series, with constraints, process and outcomes.',
   path: '/case-studies',
 });
 
