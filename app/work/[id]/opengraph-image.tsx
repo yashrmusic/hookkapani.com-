@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
-import { getArtworkById } from '@/data/artworks';
+import { artworks } from '@/data/artworks';
+import { getArtworkBySlug } from '@/lib/artwork-utils';
 
 export const size = {
   width: 1200,
@@ -14,9 +15,11 @@ interface Props {
 
 export default async function OpengraphImage({ params }: Props) {
   const { id } = await params;
-  const artwork = getArtworkById(id);
+  // The route parameter is now the readable slug, with the old numbered id
+  // accepted as a fallback by getArtworkBySlug.
+  const artwork = getArtworkBySlug(artworks, id);
 
-  const title = artwork?.title ?? 'Hookkapaani Studio';
+  const title = artwork?.title ?? 'Hookkapani Studio';
   const subtitle = artwork
     ? artwork.category.toUpperCase()
     : 'Kinetic Sculpture Studio';
@@ -36,7 +39,7 @@ export default async function OpengraphImage({ params }: Props) {
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, opacity: 0.75 }}>HOOKKAPAANI</div>
+        <div style={{ fontSize: 28, letterSpacing: 6, opacity: 0.75 }}>HOOKKAPANI</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20, maxWidth: '80%' }}>
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>{title}</div>
           <div style={{ fontSize: 28, opacity: 0.85 }}>{subtitle}</div>
