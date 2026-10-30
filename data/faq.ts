@@ -13,7 +13,7 @@ export const studioFaq: FaqItem[] = [
   {
     question: 'Who is behind Hookkapani?',
     answer:
-      'Vishal Gupta, founder and lead artist of Hookkapaani Studio, a kinetic sculpture studio based in New Delhi, India.',
+      'Vishal Gupta, founder and lead artist of Hookkapani Studio, a kinetic sculpture studio based in New Delhi, India.',
   },
   {
     question: 'How long does a commission take?',
