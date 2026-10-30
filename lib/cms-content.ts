@@ -23,7 +23,7 @@ const MAX_INFO_CARDS = 6;
 
 const defaultContent: CmsContent = {
   hero: {
-    title: 'HOOKKAPAANI',
+    title: 'HOOKKAPANI',
     subtitle:
       'Kinetic sculpture studio exploring the intersection of industrial materials, mechanical motion, and temporal transformation.',
     infoCards: [
