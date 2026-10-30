@@ -18,6 +18,50 @@ const contentSecurityPolicy = [
   "worker-src 'self' blob:",
 ].join('; ');
 
+// Permanent redirects from the old numbered work URLs to the readable
+// slug URLs (and the same for each work's spec-sheet download). Slugs are
+// derived from the locked work titles; see lib/artwork-utils.ts.
+const workRedirects = [
+  ['new-work-1', 'sitting-monkey'],
+  ['new-work-2', 'the-bear'],
+  ['new-work-3', 'rebirth-in-silence'],
+  ['new-work-5', 'sitting-bear'],
+  ['new-work-6', 'steel-balls'],
+  ['new-work-7', 'metal-sphere'],
+  ['new-work-8', 'the-open-gates-soul'],
+  ['new-work-10', 'formless'],
+  ['new-work-11', 'chrome-drop'],
+  ['new-work-12', 'bowling-man'],
+  ['new-work-13', 'sangeeta'],
+  ['new-work-14', 'throne-of-steel'],
+  ['new-work-15', 'formula-1'],
+  ['new-work-16', 'the-owl'],
+  ['new-work-17', 'the-strawberry'],
+  ['new-work-18', 'chilled-owl'],
+  ['new-work-19', 'gesture-of-genius'],
+  ['new-work-20', 'mona-lisa'],
+  ['new-work-21', 'reclining-buddha'],
+  ['new-work-22', 'forest-lady'],
+  ['new-work-23', 'tiger-man'],
+  ['new-work-24', 'the-bunny'],
+  ['new-work-25', 'drowning-man'],
+  ['new-work-26', 'the-bull'],
+  ['new-work-27', 'table-horse'],
+  ['new-work-28', 'medusa'],
+  ['new-work-29', 'the-moon'],
+  ['new-work-30', 'the-hearing-heart'],
+  ['new-work-31', 'golden-petals'],
+  ['new-work-32', 'koi-fish'],
+  ['new-work-33', 'the-apple-cage'],
+  ['new-work-34', 'metalic-wave'],
+  ['new-work-35', 'forest-panther'],
+  ['new-work-36', 'fish-in-spectrum'],
+  ['new-work-37', 'king-kong'],
+  ['new-work-38', 'the-cactus'],
+  ['new-work-39', 'astronaut'],
+  ['new-work-40', 'the-color-of-fabric'],
+];
+
 const nextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: ['127.0.0.1'],
@@ -29,6 +73,12 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   serverExternalPackages: ['nodemailer'],
+  async redirects() {
+    return workRedirects.flatMap(([oldId, slug]) => [
+      { source: `/work/${oldId}`, destination: `/work/${slug}`, permanent: true },
+      { source: `/work/${oldId}/spec-sheet`, destination: `/work/${slug}/spec-sheet`, permanent: true },
+    ]);
+  },
   async headers() {
     return [
       {

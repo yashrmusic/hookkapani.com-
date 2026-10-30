@@ -2,19 +2,18 @@ import type { Metadata } from 'next';
 import type { Artwork } from '@/data/artworks';
 
 export const SITE_URL = 'https://hookkapani.com';
-export const SITE_NAME = 'Hookkapaani Studio';
+export const SITE_NAME = 'Hookkapani Studio';
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const FOUNDER_ID = `${SITE_URL}/#founder`;
 /**
- * Spellings of the studio name in use across the web: the site says "Hookkapaani",
- * while the domain, Instagram handle, email and press coverage say "Hookkapani".
- * Listing both lets search engines and AI assistants treat them as one studio.
+ * The single official spelling is "Hookkapani", matching the domain,
+ * Instagram handle, email and press coverage.
  */
-export const SITE_ALTERNATE_NAMES = ['Hookkapaani', 'Hookkapani', 'Hookkapani Studio'];
+export const SITE_ALTERNATE_NAMES = ['Hookkapani', 'Hookkapani Studio'];
 
 /** Homepage title and description: what the studio makes, for whom, and where. */
-export const HOME_TITLE = 'Hookkapaani | Kinetic Sculpture & Art Installations, New Delhi';
+export const HOME_TITLE = 'Hookkapani | Kinetic Sculpture & Art Installations, New Delhi';
 export const HOME_DESCRIPTION =
   'Kinetic sculptures and art installations for restaurants, hotels, malls and public spaces, designed, engineered, built and installed by one New Delhi studio.';
 
@@ -23,7 +22,7 @@ export const DEFAULT_OG_IMAGE = {
   url: '/images/new-work-36.jpg',
   width: 1536,
   height: 1024,
-  alt: 'Fish in Spectrum — resin installation by Hookkapaani Studio',
+  alt: 'Fish in Spectrum — resin installation by Hookkapani Studio',
 };
 
 export function absoluteUrl(path: string): string {

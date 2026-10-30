@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { artworks } from '../data/artworks';
 import { ArtworkCard, ArtworkImage } from './artwork-image';
-import { sizeLabel, isMoving } from '@/lib/artwork-utils';
+import { sizeLabel, isMoving, artworkUrl } from '@/lib/artwork-utils';
 import { ArtworkFilters } from './artwork-filters';
 import { Lightbox } from './lightbox';
 import { useInView } from '../hooks/use-intersection-observer';
@@ -98,7 +98,7 @@ export function ProjectsEnhanced({ featured = false }: { featured?: boolean }) {
           </div>
           <MasonryGrid gap={24} columnCount={{ mobile: 1, tablet: 2, desktop: 3 }} className="mb-12">
             {featuredWorks.map((artwork, index) => (
-              <Link key={artwork.id} href={`/work/${artwork.id}`} className="group block mb-6">
+                          <Link key={artwork.id} href={artworkUrl(artwork)} className="group block mb-6">
                 <ArtworkImage artwork={artwork} priority={index < 2} />
                 <div className="pt-4">
                   <h3 className="text-lg md:text-xl font-semibold group-hover:text-accent transition-colors">
@@ -159,7 +159,7 @@ export function ProjectsEnhanced({ featured = false }: { featured?: boolean }) {
             {orderedFilteredArtworks.map((artwork, index) => (
               <motion.div
                 key={artwork.id}
-                initial={{ opacity: 0, y: 20 }}
+                              initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: (index % 12) * 0.05 }}

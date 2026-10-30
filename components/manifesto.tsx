@@ -1,45 +1,22 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-
+// Server component: manifesto content is rendered at full opacity in
+// the served HTML, so crawlers that do not scroll still see it.
 export function Manifesto() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="py-32 px-6 md:px-10 lg:px-16 bg-background">
-      <div ref={ref} className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <p
-          className={`mb-8 text-xs tracking-[0.4em] uppercase text-muted-foreground transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+          className="mb-8 text-xs tracking-[0.4em] uppercase text-muted-foreground"
         >
           Manifesto
         </p>
         <blockquote
-          className={`font-serif text-3xl leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
+          className="font-serif text-3xl leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl"
         >
           We do not simply make sculpture; we engineer motion. Steel is given intent, mechanism
           becomes a form of poetry, and the work is made to breathe, move and transform.
         </blockquote>
         <div
-          className={`mt-12 flex items-center justify-center gap-8 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: isVisible ? "200ms" : "0s" }}
+          className="mt-12 flex items-center justify-center gap-8"
         >
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">
@@ -50,14 +27,11 @@ export function Manifesto() {
             </p>
           </div>
           <div
-            className={`h-8 w-px bg-border transition-transform duration-700 origin-top ${
-              isVisible ? "scale-y-100" : "scale-y-0"
-            }`}
-            style={{ transitionDelay: isVisible ? "300ms" : "0s" }}
+            className="h-8 w-px bg-border"
           />
           <div className="text-center">
             <p className="text-sm font-medium tracking-wide text-foreground">
-              Hookkapaani Studio
+              Hookkapani Studio
             </p>
             <p className="mt-1 text-xs tracking-[0.15em] uppercase text-muted-foreground">
               New Delhi, India

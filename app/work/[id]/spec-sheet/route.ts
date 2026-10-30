@@ -1,6 +1,6 @@
-import { getArtworkById } from '@/data/artworks';
+import { artworks } from '@/data/artworks';
 import { buildSpecPdf, type PdfLine } from '@/lib/spec-pdf';
-import { sizeLabel, isMoving } from '@/lib/artwork-utils';
+import { artworkUrl, getArtworkBySlug, sizeLabel, isMoving } from '@/lib/artwork-utils';
 
 interface Params {
   params: Promise<{ id: string }>;
@@ -27,14 +27,16 @@ function wrap(text: string, max = 88): string[] {
 
 export async function GET(_: Request, { params }: Params) {
   const { id } = await params;
-  const artwork = getArtworkById(id);
+  // The route parameter is now the readable slug, with the old numbered id
+  // accepted as a fallback by getArtworkBySlug.
+  const artwork = getArtworkBySlug(artworks, id);
 
   if (!artwork) {
     return new Response('Not found', { status: 404 });
   }
 
   const lines: PdfLine[] = [
-    { text: 'HOOKKAPAANI STUDIO', size: 11, bold: true, color: [0.85, 0.1, 0.12] },
+    { text: 'HOOKKAPANI STUDIO', size: 11, bold: true, color: [0.85, 0.1, 0.12] },
     { text: 'Artwork Specification Sheet', size: 11, color: [0.4, 0.4, 0.4] },
     { text: artwork.title, size: 22, bold: true, gapBefore: 26 },
     { text: `Category: ${artwork.category}`, size: 12, gapBefore: 10 },
@@ -58,7 +60,7 @@ export async function GET(_: Request, { params }: Params) {
     { text: 'Confirmed directly with the studio on enquiry.', size: 11.5 },
     { text: 'Studio contact', size: 13, bold: true, gapBefore: 16 },
     { text: 'hookkapani.15@gmail.com  ·  +91 95400 26221  ·  New Delhi, India', size: 11.5 },
-    { text: `hookkapani.com/work/${artwork.id}`, size: 10, color: [0.45, 0.45, 0.45], gapBefore: 10 }
+    { text: `hookkapani.com${artworkUrl(artwork)}`, size: 10, color: [0.45, 0.45, 0.45], gapBefore: 10 }
   );
 
   const pdf = buildSpecPdf(lines);

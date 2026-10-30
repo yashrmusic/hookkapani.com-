@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Hookkapaani Studio',
-    short_name: 'Hookkapaani',
+    name: 'Hookkapani Studio',
+    short_name: 'Hookkapani',
     description:
       'Kinetic sculpture studio in New Delhi working with industrial materials, mechanical motion and site-specific installations.',
     start_url: '/',

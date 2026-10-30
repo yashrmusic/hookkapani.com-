@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { useInView } from '@/hooks/use-intersection-observer';
 
 const heroSlides = [
-  { src: '/videos/video1-720.mp4', poster: '/images/new-work-28.jpg', caption: 'Medusa', detail: '12 ft · moving sculpture', href: '/work/new-work-28' },
-  { src: '/videos/video2-720.mp4', poster: '/images/new-work-22.jpg', caption: 'Forest Lady', detail: '8 ft · moving sculpture', href: '/work/new-work-22' },
-  { src: '/videos/video3-720.mp4', poster: '/images/new-work-36.jpg', caption: 'Works in motion', detail: 'Hookkapaani Studio, New Delhi', href: '/#work' },
+  { src: '/videos/video1-720.mp4', poster: '/images/new-work-28.jpg', caption: 'Medusa', detail: '12 ft · moving sculpture', href: '/work/medusa' },
+  { src: '/videos/video2-720.mp4', poster: '/images/new-work-22.jpg', caption: 'Forest Lady', detail: '8 ft · moving sculpture', href: '/work/forest-lady' },
+  { src: '/videos/video3-720.mp4', poster: '/images/new-work-36.jpg', caption: 'Works in motion', detail: 'Hookkapani Studio, New Delhi', href: '/#work' },
 ];
 
 export function Hero() {
@@ -16,7 +16,9 @@ export function Hero() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const [titleRef, titleInView] = useInView({ threshold: 0.1 });
-  const [isLoaded, setIsLoaded] = useState(false);
+  // Start visible so the served HTML is at full opacity for crawlers
+  // that do not scroll or run the load timer.
+  const [isLoaded, setIsLoaded] = useState(true);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isUserPaused, setIsUserPaused] = useState(false);
@@ -111,7 +113,7 @@ export function Hero() {
           >
             <Image
               src="/images/hookkapani-logo-red.png"
-              alt="Hookkapaani"
+              alt="Hookkapani"
               width={1119}
               height={246}
               priority
@@ -122,7 +124,7 @@ export function Hero() {
 
           {/* Owner direction 2026-10-19: no headline copy in the hero —
               the work speaks first. H1 kept for screen readers/SEO only. */}
-          <h1 className="sr-only">Hookkapaani — kinetic sculpture studio of Vishal Gupta</h1>
+          <h1 className="sr-only">Hookkapani — kinetic sculpture studio of Vishal Gupta</h1>
 
           <div
             className={`w-full mt-8 md:mt-10 transition-all duration-700 delay-200 ${
