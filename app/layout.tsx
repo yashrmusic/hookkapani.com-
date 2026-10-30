@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://hookkapani.com'),
   title: {
     default: HOME_TITLE,
-    template: "%s | Hookkapaani Studio"
+    template: "%s | Hookkapani Studio"
   },
   description: HOME_DESCRIPTION,
   keywords: [
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     "Mechanical Art"
   ],
   authors: [{ name: "Vishal Gupta", url: "https://hookkapani.com" }],
-  creator: "Hookkapaani",
-  publisher: "Hookkapaani Studio",
+  creator: "Hookkapani",
+  publisher: "Hookkapani Studio",
   formatDetection: {
     telephone: true,
     email: true,
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Hookkapaani',
+    title: 'Hookkapani',
   },
   openGraph: {
     type: "website",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     url: "/",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
-    siteName: "Hookkapaani Studio",
+    siteName: "Hookkapani Studio",
     images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE.url],
-    creator: "@hookkapaani",
+    creator: "@hookkapani",
   },
   robots: {
     index: true,
@@ -109,7 +109,7 @@ const siteJsonLd = {
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
-      name: "Hookkapaani Studio",
+      name: "Hookkapani Studio",
       alternateName: SITE_ALTERNATE_NAMES,
       url: SITE_URL,
       logo: `${SITE_URL}/images/hookkapani-logo-red.png`,
@@ -156,7 +156,7 @@ const siteJsonLd = {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       url: SITE_URL,
-      name: "Hookkapaani Studio",
+      name: "Hookkapani Studio",
       alternateName: SITE_ALTERNATE_NAMES,
       inLanguage: "en-IN",
       publisher: { "@id": ORGANIZATION_ID },
