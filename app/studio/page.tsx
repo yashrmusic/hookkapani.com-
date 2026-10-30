@@ -81,7 +81,7 @@ export default function StudioPage() {
             Vishal Gupta, founder and lead artist
           </h2>
           <p className="text-white/75 leading-relaxed mb-4">
-            Vishal Gupta is the founder and lead artist of Hookkapaani Studio (also written Hookkapani), a
+            Vishal Gupta is the founder and lead artist of Hookkapani Studio, a
             kinetic sculpture studio based in New Delhi, India. {FOUNDER_TRAINING} {STUDIO_REACH}
           </p>
           <p className="text-sm text-white/60 leading-relaxed">
