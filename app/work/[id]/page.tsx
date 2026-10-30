@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { artworks, getArtworkById } from '@/data/artworks';
+import { artworks } from '@/data/artworks';
 import type { Artwork } from '@/data/artworks';
 import { audiencePages } from '@/data/audience-pages';
 import { getCaseStudyForWork } from '@/data/case-studies';
-import { displayTags, isMoving, relatedWorks } from '@/lib/artwork-utils';
+import { artworkSlug, artworkUrl, displayTags, getArtworkBySlug, isMoving, relatedWorks } from '@/lib/artwork-utils';
 import { FOUNDER_ID, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, absoluteUrl, artworkAlt, categoryLabel, jsonLd, pageMetadata } from '@/lib/seo';
 import { ArtworkDetail } from './artwork-detail';
 
@@ -12,9 +12,12 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+// The route parameter is the readable slug (the folder stays [id] so the
+// internal identifier is untouched); old numbered ids are handled by the
+// permanent redirects in next.config.mjs, with a fallback lookup here.
 export async function generateStaticParams() {
   return artworks.map((artwork) => ({
-    id: artwork.id,
+    id: artworkSlug(artwork),
   }));
 }
 
@@ -24,12 +27,12 @@ function artworkDescription(artwork: Artwork): string {
   // Skip when the category or materials already say it moves.
   const motionImplied = artwork.category === 'kinetic' || artwork.materials.some((m) => /mechanism/i.test(m));
   const motion = isMoving(artwork) && !motionImplied ? ', moving' : '';
-  return `${artworkAlt(artwork)}${size}${motion}. By Hookkapaani Studio, New Delhi — with scale, specification sheet and enquiry details.`;
+  return `${artworkAlt(artwork)}${size}${motion}. By Hookkapani Studio, New Delhi — with scale, specification sheet and enquiry details.`;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const artwork = getArtworkById(id);
+  const artwork = getArtworkBySlug(artworks, id);
 
   if (!artwork) {
     return { title: 'Artwork Not Found', robots: { index: false } };
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return pageMetadata({
     title: `${artwork.title} — ${categoryLabel(artwork).replace(/^./, (c) => c.toUpperCase())}`,
     description: artworkDescription(artwork),
-    path: `/work/${artwork.id}`,
+    path: artworkUrl(artwork),
     ogType: 'article',
     image: null,
   });
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArtworkPage({ params }: PageProps) {
   const { id } = await params;
-  const artwork = getArtworkById(id);
+  const artwork = getArtworkBySlug(artworks, id);
 
   if (!artwork) {
     notFound();
@@ -61,7 +64,7 @@ export default async function ArtworkPage({ params }: PageProps) {
     .map((page) => ({ href: `/for/${page.slug}`, label: page.title }));
   const study = getCaseStudyForWork(artwork.id);
   const caseStudyLink = study ? { href: `/case-studies/${study.slug}`, label: `Case study: ${study.title}` } : null;
-  const url = absoluteUrl(`/work/${artwork.id}`);
+  const url = absoluteUrl(artworkUrl(artwork));
   const tags = displayTags(artwork);
   const structuredData = {
     '@context': 'https://schema.org',
@@ -73,7 +76,7 @@ export default async function ArtworkPage({ params }: PageProps) {
       '@type': 'ImageObject',
       url: absoluteUrl(artwork.imageUrl),
       contentUrl: absoluteUrl(artwork.imageUrl),
-      name: `${artwork.title} — ${categoryLabel(artwork)} by Hookkapaani Studio`,
+      name: `${artwork.title} — ${categoryLabel(artwork)} by Hookkapani Studio`,
     },
     description: artworkDescription(artwork),
     artform: categoryLabel(artwork),
