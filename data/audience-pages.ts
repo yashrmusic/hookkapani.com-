@@ -7,6 +7,16 @@ export interface AudiencePage {
   workIds: string[];
   priceCta?: boolean;
   body: { heading: string; text: string }[];
+  /**
+   * One short section per setting, headed with the search it answers. Site facts
+   * only: where the site has no setting-specific fact, the text says so plainly
+   * ("as on every site") rather than inventing a difference.
+   */
+  settings?: { heading: string; text: string; link?: { href: string; label: string } }[];
+  /** "What affects the cost" — factors only. Never figures, ranges or a price list. */
+  costFactors?: { intro: string; factors: { label: string; text: string }[] };
+  /** Show the studio Q&A block (with its FAQPage schema) on this page. */
+  showFaq?: boolean;
   cta: { href: string; label: string };
   secondary?: { href: string; label: string };
 }
@@ -30,6 +40,40 @@ export const audiencePages: AudiencePage[] = [
         text: 'Site drawings, the available dimensions and the project timeline. The brief form asks for precisely this, including ceiling height, mounting and power supply on site.',
       },
     ],
+    settings: [
+      {
+        heading: 'Kinetic installations for restaurants',
+        text: "Restaurants are one of the settings the studio designs, engineers, fabricates and installs for. As on every site, the work is designed around the room's structure, ceiling, power and footfall, and the brief form asks for the ceiling height, the mounting (floor-standing, suspended or wall-mounted) and the power supply on site.",
+      },
+      {
+        heading: 'Kinetic installations for hotels',
+        text: 'Hotels are one of the settings the studio designs, engineers, fabricates and installs for. As on every site, the studio works from your site drawings and checks power, anchoring points and transport access before anything is built, then provides transport and rigging support, installs the work and commissions its motion system on site.',
+      },
+      {
+        heading: 'Kinetic installations for malls',
+        text: 'Malls are one of the settings the studio designs, engineers, fabricates and installs for. As on every site, the work is built as serviceable assemblies — mechanisms designed to be opened, checked and repaired — and followed by maintenance guidance, a replacement-parts plan and a post-installation review.',
+      },
+      {
+        heading: 'Kinetic installations for corporate atriums',
+        text: 'For a 9-floor corporate atrium, the studio had to plan for high airflow variability, a low maintenance requirement and a tight installation window. The result was a large-format suspended sculpture built from modular fabrication units, with balanced moving elements and a carefully controlled distribution of mass.',
+        link: { href: '/case-studies/atrium-kinetic-installation', label: 'Read the atrium case study' },
+      },
+    ],
+    costFactors: {
+      intro:
+        'Commercial terms are discussed once the studio has reviewed the site, and the written proposal sets out scope and timeline. These are the factors that shape the cost:',
+      factors: [
+        { label: 'Size and scale', text: 'the overall dimensions of the work.' },
+        { label: 'Materials', text: 'steel, bronze, aluminium or found material.' },
+        { label: 'Mechanism complexity', text: 'how much of the work moves and how involved its motion system is.' },
+        {
+          label: 'Site conditions',
+          text: 'ceiling height, anchoring points, power on site, and the rigging and transport needed to bring the work in and install it.',
+        },
+        { label: 'Timeline', text: 'the time available for design, fabrication and installation.' },
+      ],
+    },
+    showFaq: true,
     cta: { href: '/commission', label: 'Submit a project brief' },
     secondary: { href: '/case-studies/atrium-kinetic-installation', label: 'Read the atrium case study' },
   },

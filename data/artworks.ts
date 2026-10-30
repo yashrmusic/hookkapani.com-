@@ -10,6 +10,12 @@ export interface Artwork {
   description?: string;
   tags: string[];
   modelUrl?: string;
+  /**
+   * How the work moves and what powers it, shown as "How it moves" on the work
+   * page. Only set when the studio has stated it — never inferred from a video
+   * or from "Mechanism" in the materials list.
+   */
+  motion?: string;
 }
 
 /**

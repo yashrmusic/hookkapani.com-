@@ -8,6 +8,7 @@ import { HydrationHandler } from "@/components/hydration-handler";
 import { ScrollProgress } from "@/components/scroll-progress";
 
 import { SiteTelemetry } from "@/components/site-telemetry";
+import { SCALE_INTERVIEW } from "@/data/founder";
 import {
   DEFAULT_OG_IMAGE,
   FOUNDER_ID,
@@ -148,6 +149,8 @@ const siteJsonLd = {
       jobTitle: "Kinetic Sculptor",
       worksFor: { "@id": ORGANIZATION_ID },
       url: `${SITE_URL}/press-kit`,
+      // The Scale interview identifies this Vishal Gupta; the bio on /press-kit and /studio cites it.
+      sameAs: [SCALE_INTERVIEW.url],
     },
     {
       "@type": "WebSite",

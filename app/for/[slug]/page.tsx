@@ -6,6 +6,7 @@ import { artworks, getArtworkById } from '@/data/artworks';
 import { sizeLabel, isMoving } from '@/lib/artwork-utils';
 import type { Artwork } from '@/data/artworks';
 import { audiencePages, getAudiencePage } from '@/data/audience-pages';
+import { StudioFaq } from '@/components/studio-faq';
 import { artworkAlt, pageMetadata } from '@/lib/seo';
 
 interface PageProps {
@@ -82,6 +83,22 @@ export default async function AudiencePage({ params }: PageProps) {
           ))}
         </div>
 
+        {page.settings && (
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
+            {page.settings.map((setting) => (
+              <section key={setting.heading} className="border border-border p-6 bg-card/30">
+                <h2 className="text-lg font-semibold mb-3">{setting.heading}</h2>
+                <p className="text-sm text-foreground/85 leading-relaxed">{setting.text}</p>
+                {setting.link && (
+                  <Link href={setting.link.href} className="inline-block mt-4 text-sm font-medium text-accent hover:text-accent/80">
+                    {setting.link.label} →
+                  </Link>
+                )}
+              </section>
+            ))}
+          </div>
+        )}
+
         <div className="grid md:grid-cols-2 gap-6 mb-14">
           {page.body.map((block) => (
             <section key={block.heading} className="border border-border p-6 bg-card/30">
@@ -90,6 +107,22 @@ export default async function AudiencePage({ params }: PageProps) {
             </section>
           ))}
         </div>
+
+        {page.costFactors && (
+          <section aria-labelledby="cost-heading" className="border border-border p-6 md:p-8 bg-card/30 mb-14">
+            <h2 id="cost-heading" className="text-2xl font-semibold mb-4">What affects the cost</h2>
+            <p className="text-sm text-foreground/85 leading-relaxed mb-4 max-w-3xl">{page.costFactors.intro}</p>
+            <ul className="space-y-2 text-sm text-foreground/85 leading-relaxed">
+              {page.costFactors.factors.map((factor) => (
+                <li key={factor.label}>
+                  <strong className="font-semibold text-foreground">{factor.label}</strong> — {factor.text}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {page.showFaq && <StudioFaq path={`/for/${page.slug}`} embedded />}
 
         <div className="flex flex-wrap gap-4">
           <Link

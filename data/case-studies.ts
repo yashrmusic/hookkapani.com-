@@ -6,6 +6,11 @@ export interface CaseStudy {
   process: string;
   outcome: string;
   summary: string;
+  /**
+   * Work pages that belong to this commission; each of those pages links here.
+   * Left unset until the studio confirms which works (if any) the case study covers.
+   */
+  workIds?: string[];
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -36,4 +41,8 @@ export const caseStudies: CaseStudy[] = [
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((s) => s.slug === slug);
+}
+
+export function getCaseStudyForWork(workId: string): CaseStudy | undefined {
+  return caseStudies.find((s) => s.workIds?.includes(workId));
 }

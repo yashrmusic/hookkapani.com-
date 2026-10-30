@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getArtworkById } from '@/data/artworks';
+import { FOUNDER_TRAINING, SCALE_INTERVIEW, STUDIO_REACH } from '@/data/founder';
 import { sizeLabel } from '@/lib/artwork-utils';
 import { pageMetadata } from '@/lib/seo';
 
@@ -47,16 +48,24 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Founder Bio</h2>
           <p className="text-sm leading-relaxed mb-4">
-            <strong>Short:</strong> Vishal Gupta leads the studio&apos;s artistic and fabrication direction, with
-            a practice centred on material transformation and mechanical rhythm.
+            <strong>Short:</strong> Vishal Gupta, founder and lead artist of Hookkapaani Studio, is a New Delhi
+            kinetic sculptor trained as a painter at Delhi College of Art. He leads the studio&apos;s artistic and
+            fabrication direction, with a practice centred on material transformation and mechanical rhythm.
           </p>
           <p className="text-sm leading-relaxed">
             <strong>Long:</strong> Vishal Gupta is a New Delhi-based kinetic sculptor and the founder of
-            Hookkapaani Studio. Working in steel, resin and found industrial material, he builds sculptures
-            whose mechanisms are part of the artwork — engineered to be serviced, not sealed. The studio&apos;s
-            38 works range from tabletop pieces to a 17 ft bull, and its commissions include a suspended
-            kinetic installation for a 9-floor corporate atrium, delivered in 14 weeks, and a three-work
-            motion series for a contemporary gallery programme.
+            Hookkapaani Studio. {FOUNDER_TRAINING} Working in steel, resin and found industrial material, he
+            builds sculptures whose mechanisms are part of the artwork — engineered to be serviced, not sealed.
+            The studio&apos;s 38 works range from tabletop pieces to a 17 ft bull, and its commissions include a
+            suspended kinetic installation for a 9-floor corporate atrium, delivered in 14 weeks, and a
+            three-work motion series for a contemporary gallery programme. {STUDIO_REACH}
+          </p>
+          <p className="text-xs text-muted-foreground mt-4">
+            Training and background as told to{' '}
+            <a href={SCALE_INTERVIEW.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80">
+              {SCALE_INTERVIEW.publication} ({SCALE_INTERVIEW.date})
+            </a>
+            .
           </p>
         </section>
 
