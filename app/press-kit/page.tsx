@@ -27,8 +27,8 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Studio Overview</h2>
           <p className="text-sm leading-relaxed">
-            Hookkapaani is a kinetic sculpture studio based in New Delhi, focused on industrial materials,
-            controlled motion systems, and site-aware installations.
+            Hookkapaani (also written Hookkapani) is a kinetic sculpture studio based in New Delhi, focused
+            on industrial materials, controlled motion systems, and site-aware installations.
           </p>
         </section>
 
@@ -58,6 +58,23 @@ export default function PressKitPage() {
             kinetic installation for a 9-floor corporate atrium, delivered in 14 weeks, and a three-work
             motion series for a contemporary gallery programme.
           </p>
+        </section>
+
+        <section className="mb-10 border border-border p-6 bg-card/30">
+          <h2 className="text-title mb-4">Coverage</h2>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a
+                href="https://scalemag.online/art/in-focus/hookkapani-the-kinetic-world-of-vishal-gupta/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-accent/80"
+              >
+                Hookkapani: The Kinetic World of Vishal Gupta
+              </a>{' '}
+              <span className="text-muted-foreground">— Scale, interview by Aishwarya Kulkarni, 16 April 2026</span>
+            </li>
+          </ul>
         </section>
 
         <section className="mb-10 border border-border p-6 bg-card/30">

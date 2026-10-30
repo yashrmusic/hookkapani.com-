@@ -8,9 +8,10 @@ import { CapabilityProof } from "@/components/capability-proof";
 import { ClientsCollaborations } from "@/components/clients-collaborations";
 import { CaseStudiesPreview } from "@/components/case-studies-preview";
 import { getCmsContent } from "@/lib/cms-content";
+import { HOME_TITLE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Hookkapaani | Kinetic Sculpture Studio" },
+  title: { absolute: HOME_TITLE },
   alternates: {
     canonical: "/",
   },

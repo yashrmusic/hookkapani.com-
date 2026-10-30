@@ -8,7 +8,17 @@ import { HydrationHandler } from "@/components/hydration-handler";
 import { ScrollProgress } from "@/components/scroll-progress";
 
 import { SiteTelemetry } from "@/components/site-telemetry";
-import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, jsonLd } from "@/lib/seo";
+import {
+  DEFAULT_OG_IMAGE,
+  FOUNDER_ID,
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  ORGANIZATION_ID,
+  SITE_ALTERNATE_NAMES,
+  SITE_URL,
+  WEBSITE_ID,
+  jsonLd,
+} from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -34,10 +44,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://hookkapani.com'),
   title: {
-    default: "Hookkapaani | Kinetic Sculpture Studio",
+    default: HOME_TITLE,
     template: "%s | Hookkapaani Studio"
   },
-  description: "A kinetic sculpture studio exploring industrial materials, mechanical motion, and temporal transformation through honest construction and material research.",
+  description: HOME_DESCRIPTION,
   keywords: [
     "kinetic sculpture",
     "industrial art",
@@ -67,15 +77,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "/",
-    title: "Hookkapaani | Kinetic Sculpture Studio",
-    description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     siteName: "Hookkapaani Studio",
     images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hookkapaani | Kinetic Sculpture Studio",
-    description: "Exploring industrial materials, mechanical motion, and temporal transformation.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE.url],
     creator: "@hookkapaani",
   },
@@ -99,12 +109,12 @@ const siteJsonLd = {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
       name: "Hookkapaani Studio",
-      alternateName: "Hookkapaani",
+      alternateName: SITE_ALTERNATE_NAMES,
       url: SITE_URL,
       logo: `${SITE_URL}/images/hookkapani-logo-red.png`,
       image: `${SITE_URL}${DEFAULT_OG_IMAGE.url}`,
       description:
-        "A kinetic sculpture studio in New Delhi working with industrial materials, mechanical motion and site-specific installations.",
+        "Kinetic sculpture and art installation studio in New Delhi, India. Designs, engineers, fabricates and installs large-scale sculptures for restaurants, hotels, malls and public spaces.",
       email: "hookkapani.15@gmail.com",
       telephone: "+91-9540026221",
       address: {
@@ -112,18 +122,39 @@ const siteJsonLd = {
         addressLocality: "New Delhi",
         addressCountry: "IN",
       },
-      founder: {
-        "@type": "Person",
-        name: "Vishal Gupta",
-        jobTitle: "Kinetic Sculptor",
-      },
+      areaServed: "India",
+      knowsAbout: [
+        "Kinetic sculpture",
+        "Art installations",
+        "Hospitality art installations",
+        "Large-scale sculpture fabrication",
+      ],
+      founder: { "@id": FOUNDER_ID },
       sameAs: ["https://www.instagram.com/hookkapani/"],
+      // Independent coverage, also listed on the press kit page.
+      subjectOf: {
+        "@type": "Article",
+        headline: "Hookkapani: The Kinetic World of Vishal Gupta",
+        url: "https://scalemag.online/art/in-focus/hookkapani-the-kinetic-world-of-vishal-gupta/",
+        datePublished: "2026-04-16",
+        author: { "@type": "Person", name: "Aishwarya Kulkarni" },
+        publisher: { "@type": "Organization", name: "Scale" },
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": FOUNDER_ID,
+      name: "Vishal Gupta",
+      jobTitle: "Kinetic Sculptor",
+      worksFor: { "@id": ORGANIZATION_ID },
+      url: `${SITE_URL}/press-kit`,
     },
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       url: SITE_URL,
       name: "Hookkapaani Studio",
+      alternateName: SITE_ALTERNATE_NAMES,
       inLanguage: "en-IN",
       publisher: { "@id": ORGANIZATION_ID },
     },

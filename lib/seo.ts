@@ -5,6 +5,18 @@ export const SITE_URL = 'https://hookkapani.com';
 export const SITE_NAME = 'Hookkapaani Studio';
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
+export const FOUNDER_ID = `${SITE_URL}/#founder`;
+/**
+ * Spellings of the studio name in use across the web: the site says "Hookkapaani",
+ * while the domain, Instagram handle, email and press coverage say "Hookkapani".
+ * Listing both lets search engines and AI assistants treat them as one studio.
+ */
+export const SITE_ALTERNATE_NAMES = ['Hookkapaani', 'Hookkapani', 'Hookkapani Studio'];
+
+/** Homepage title and description: what the studio makes, for whom, and where. */
+export const HOME_TITLE = 'Hookkapaani | Kinetic Sculpture & Art Installations, New Delhi';
+export const HOME_DESCRIPTION =
+  'Kinetic sculptures and art installations for restaurants, hotels, malls and public spaces, designed, engineered, built and installed by one New Delhi studio.';
 
 /** Fallback share image: a landscape work photo that exists in public/images. */
 export const DEFAULT_OG_IMAGE = {

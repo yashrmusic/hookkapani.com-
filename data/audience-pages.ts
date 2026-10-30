@@ -16,9 +16,9 @@ export const audiencePages: AudiencePage[] = [
     slug: 'spaces',
     title: 'Commission for a space',
     description:
-      'Kinetic centrepieces for hotels, corporate atriums and public spaces — surveyed, engineered, fabricated and installed by one New Delhi studio.',
+      'Kinetic centrepieces for restaurants, hotels, corporate atriums and public spaces — surveyed, engineered, fabricated and installed by one New Delhi studio.',
     intro:
-      'For hotels, corporate atriums, public spaces and the design studios behind them: a moving centrepiece designed around your site — its structure, ceiling, power and footfall — then surveyed, engineered, fabricated and installed by a single studio.',
+      'For restaurants, hotels, corporate atriums, public spaces and the design studios behind them: a moving centrepiece designed around your site — its structure, ceiling, power and footfall — then surveyed, engineered, fabricated and installed by a single studio.',
     workIds: ['new-work-26', 'new-work-32', 'new-work-8', 'new-work-28', 'new-work-33', 'new-work-13'],
     body: [
       {
