@@ -260,7 +260,7 @@ export function ArtworkDetail({ artwork, related, caseStudyLink = null, audience
             <h2 className="text-2xl font-bold mb-6">Related works</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {related.map((rel) => (
-                            <Link key={rel.id} href={artworkUrl(rel)} className="group block"></Link>
+                            <Link key={rel.id} href={artworkUrl(rel)} className="group block">
                   <div className="relative w-full overflow-hidden bg-secondary" style={{ aspectRatio: rel.aspectRatio || '3/4' }}>
                     <Image
                       src={rel.imageUrl}
