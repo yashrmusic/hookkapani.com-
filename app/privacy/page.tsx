@@ -43,7 +43,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Usage measurement.</strong> The pages you visit, your browser user agent,
-                viewport size, a random per-visit session identifier, and page-load timing. This is
+                viewport size, a random per-visit session identifier, page-load timing, the referring page and campaign parameters (such as utm_source). This is
                 aggregate technical data used to understand which works and pages are useful.
               </li>
               <li>
