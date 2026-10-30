@@ -98,7 +98,7 @@ export function ProjectsEnhanced({ featured = false }: { featured?: boolean }) {
           </div>
           <MasonryGrid gap={24} columnCount={{ mobile: 1, tablet: 2, desktop: 3 }} className="mb-12">
             {featuredWorks.map((artwork, index) => (
-                          <Link key={artwork.id} href={artworkUrl(artwork)} className="group block mb-6"></Link>
+                          <Link key={artwork.id} href={artworkUrl(artwork)} className="group block mb-6">
                 <ArtworkImage artwork={artwork} priority={index < 2} />
                 <div className="pt-4">
                   <h3 className="text-lg md:text-xl font-semibold group-hover:text-accent transition-colors">
