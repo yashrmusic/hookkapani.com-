@@ -213,7 +213,7 @@ export function ArtworkDetail({ artwork, related, caseStudyLink = null, audience
                 <WhatsAppButton artworkTitle={artwork.title} artworkUrl={workUrl} />
               </div>
               <Link
-                                href=`${artworkUrl(artwork)}/spec-sheet`
+                                href=`${artworkUrl(artwork)}/spec-sheet`}
                 prefetch={false}
                                                 onClick={() =>
                   trackEvent('spec_sheet_download_requested', {
