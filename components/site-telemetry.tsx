@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';import { readAttribution } from '@/lib/attribution';
 
 type TelemetryPayload = Record<string, unknown>;
 
@@ -36,7 +36,7 @@ export function SiteTelemetry() {
       pathname,
       userAgent: navigator.userAgent,
       viewport: `${window.innerWidth}x${window.innerHeight}`,
-      sessionId,
+      sessionId, ...readAttribution(),
     });
   }, [pathname, sessionId]);
 
