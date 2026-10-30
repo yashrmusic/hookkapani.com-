@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import type { Artwork } from '../data/artworks';
-import { sizeLabel, isMoving } from '@/lib/artwork-utils';
+import { sizeLabel, isMoving, artworkUrl } from '@/lib/artwork-utils';
 import { artworkAlt } from '@/lib/seo';
 
 interface ArtworkImageProps {
@@ -83,7 +83,6 @@ export function ArtworkCard({
   ...imageProps
 }: ArtworkCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
       className="group relative transition-transform duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 hover:z-10"
@@ -91,7 +90,6 @@ export function ArtworkCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       <ArtworkImage artwork={artwork} {...imageProps} />
-
       {showInfo && (
         <div
           className={`
@@ -106,7 +104,6 @@ export function ArtworkCard({
           <h3 className="text-lg md:text-xl font-semibold mb-1 text-balance">
             {artwork.title}
           </h3>
-
           {!compact && (
             <>
               <p className="text-sm text-muted-foreground mb-2">
@@ -120,7 +117,7 @@ export function ArtworkCard({
                   .join(' · ')}
               </p>
               <Link
-                href={`/work/${artwork.id}`}
+                href={artworkUrl(artwork)}
                 className="inline-block text-xs font-semibold uppercase tracking-wider text-accent hover:text-accent/80 transition-colors border-b border-accent/50 hover:border-accent pb-0.5"
                 onClick={(e) => e.stopPropagation()}
               >
