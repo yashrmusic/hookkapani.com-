@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { VideoPlayer } from '@/components/video-player';
 import { AlertsSignup } from '@/components/alerts-signup';
+import { FOUNDER_TRAINING, SCALE_INTERVIEW, STUDIO_REACH } from '@/data/founder';
 
 const processVideos = [
   {
@@ -71,6 +73,33 @@ export default function StudioPage() {
               </div>
             </motion.div>
           ))}
+        </section>
+
+        {/* Plain markup, no entrance animation: the bio must be readable without JavaScript. */}
+        <section aria-labelledby="founder-heading" className="container mx-auto px-6 mt-32 max-w-3xl">
+          <h2 id="founder-heading" className="text-3xl md:text-4xl font-bold mb-6 tracking-tighter text-white">
+            Vishal Gupta, founder and lead artist
+          </h2>
+          <p className="text-white/75 leading-relaxed mb-4">
+            Vishal Gupta is the founder and lead artist of Hookkapaani Studio (also written Hookkapani), a
+            kinetic sculpture studio based in New Delhi, India. {FOUNDER_TRAINING} {STUDIO_REACH}
+          </p>
+          <p className="text-sm text-white/60 leading-relaxed">
+            Source:{' '}
+            <a
+              href={SCALE_INTERVIEW.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80"
+            >
+              {SCALE_INTERVIEW.title}
+            </a>{' '}
+            — {SCALE_INTERVIEW.publication}, {SCALE_INTERVIEW.date}. Full biographies are in the{' '}
+            <Link href="/press-kit" className="text-accent hover:text-accent/80">
+              press kit
+            </Link>
+            .
+          </p>
         </section>
 
         <section className="container mx-auto px-6 mt-32 max-w-2xl">

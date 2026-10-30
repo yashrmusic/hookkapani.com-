@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { artworks, getArtworkById } from '@/data/artworks';
 import type { Artwork } from '@/data/artworks';
+import { audiencePages } from '@/data/audience-pages';
+import { getCaseStudyForWork } from '@/data/case-studies';
 import { displayTags, isMoving, relatedWorks } from '@/lib/artwork-utils';
 import { FOUNDER_ID, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, absoluteUrl, artworkAlt, categoryLabel, jsonLd, pageMetadata } from '@/lib/seo';
 import { ArtworkDetail } from './artwork-detail';
@@ -52,6 +54,13 @@ export default async function ArtworkPage({ params }: PageProps) {
   }
 
   const related = relatedWorks(artworks, artwork, 3);
+  // Cross-links come only from the site's own data: the /for/* pages that list
+  // this work, and a case study that names it. No list, no link.
+  const audienceLinks = audiencePages
+    .filter((page) => page.workIds.includes(artwork.id))
+    .map((page) => ({ href: `/for/${page.slug}`, label: page.title }));
+  const study = getCaseStudyForWork(artwork.id);
+  const caseStudyLink = study ? { href: `/case-studies/${study.slug}`, label: `Case study: ${study.title}` } : null;
   const url = absoluteUrl(`/work/${artwork.id}`);
   const tags = displayTags(artwork);
   const structuredData = {
@@ -93,7 +102,7 @@ export default async function ArtworkPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbData) }} />
-      <ArtworkDetail artwork={artwork} related={related} />
+      <ArtworkDetail artwork={artwork} related={related} caseStudyLink={caseStudyLink} audienceLinks={audienceLinks} />
     </>
   );
 }

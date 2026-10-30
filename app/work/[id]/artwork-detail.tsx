@@ -13,9 +13,18 @@ import { artworkAlt, categoryLabel } from '@/lib/seo';
 /* The 3D/AR viewer was removed 2026-10-19: no artwork has a 3D model,
    and its model-viewer/three.js chunk (~990 KB) single-handedly broke
    the repo's perf-budget check. Re-add the viewer when models exist. */
+interface PageLink {
+  href: string;
+  label: string;
+}
+
 interface ArtworkDetailProps {
   artwork: Artwork;
   related: Artwork[];
+  /** The case study that names this work, when one does. */
+  caseStudyLink?: PageLink | null;
+  /** The /for/* audience pages that list this work. */
+  audienceLinks?: PageLink[];
 }
 
 const PERSON_FT = 5.6;
@@ -66,9 +75,10 @@ function ScaleFigure({ artwork }: { artwork: Artwork }) {
   );
 }
 
-export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
+export function ArtworkDetail({ artwork, related, caseStudyLink = null, audienceLinks = [] }: ArtworkDetailProps) {
   const tags = displayTags(artwork);
   const workUrl = `https://hookkapani.com/work/${artwork.id}`;
+  const pageLinks = caseStudyLink ? [caseStudyLink, ...audienceLinks] : audienceLinks;
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
@@ -137,6 +147,12 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
                 {fallbackSummary(artwork)} Full details are in
                 the spec sheet below; the studio confirms suitability for your site after a technical survey.
               </p>
+            )}
+            {artwork.motion && (
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold mb-2">How it moves</h2>
+                <p className="text-base text-foreground/85 leading-relaxed">{artwork.motion}</p>
+              </div>
             )}
             <ScaleFigure artwork={artwork} />
           </div>
@@ -221,6 +237,21 @@ export function ArtworkDetail({ artwork, related }: ArtworkDetailProps) {
                 .
               </p>
             </div>
+
+            {pageLinks.length > 0 && (
+              <nav aria-label="Related pages">
+                <h2 className="text-sm font-medium text-muted-foreground mb-1.5">Related pages</h2>
+                <ul className="space-y-1">
+                  {pageLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-base text-accent hover:text-accent/80">
+                        {link.label} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
           </div>
         </div>
 

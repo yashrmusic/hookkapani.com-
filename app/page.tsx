@@ -7,6 +7,7 @@ import { Practice } from "@/components/practice";
 import { CapabilityProof } from "@/components/capability-proof";
 import { ClientsCollaborations } from "@/components/clients-collaborations";
 import { CaseStudiesPreview } from "@/components/case-studies-preview";
+import { StudioFaq } from "@/components/studio-faq";
 import { getCmsContent } from "@/lib/cms-content";
 import { HOME_TITLE } from "@/lib/seo";
 
@@ -29,6 +30,7 @@ export default async function Home() {
       <Practice />
       <ClientsCollaborations />
       <Manifesto />
+      <StudioFaq path="/" />
       <CommissionCta />
     </>
   );
