@@ -8,7 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Press Kit',
   description:
-    'Hookkapaani press kit: studio and founder bios, fact sheet, logo, portfolio PDF, selected works and media contact for editors and curators.',
+    'Hookkapani press kit: studio and founder bios, fact sheet, logo, portfolio PDF, selected works and media contact for editors and curators.',
   path: '/press-kit',
 });
 
@@ -28,7 +28,7 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Studio Overview</h2>
           <p className="text-sm leading-relaxed">
-            Hookkapaani (also written Hookkapani) is a kinetic sculpture studio based in New Delhi, focused
+            Hookkapani is a kinetic sculpture studio based in New Delhi, focused
             on industrial materials, controlled motion systems, and site-aware installations.
           </p>
         </section>
@@ -36,7 +36,7 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Fact Sheet</h2>
           <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-            <div><dt className="text-muted-foreground">Studio</dt><dd className="font-medium">Hookkapaani</dd></div>
+            <div><dt className="text-muted-foreground">Studio</dt><dd className="font-medium">Hookkapani</dd></div>
             <div><dt className="text-muted-foreground">Founder</dt><dd className="font-medium">Vishal Gupta — Kinetic Sculptor</dd></div>
             <div><dt className="text-muted-foreground">Based</dt><dd className="font-medium">New Delhi, India</dd></div>
             <div><dt className="text-muted-foreground">Works</dt><dd className="font-medium">38 sculptures &amp; installations</dd></div>
@@ -48,13 +48,13 @@ export default function PressKitPage() {
         <section className="mb-10 border border-border p-6 bg-card/30">
           <h2 className="text-title mb-4">Founder Bio</h2>
           <p className="text-sm leading-relaxed mb-4">
-            <strong>Short:</strong> Vishal Gupta, founder and lead artist of Hookkapaani Studio, is a New Delhi
+            <strong>Short:</strong> Vishal Gupta, founder and lead artist of Hookkapani Studio, is a New Delhi
             kinetic sculptor trained as a painter at Delhi College of Art. He leads the studio&apos;s artistic and
             fabrication direction, with a practice centred on material transformation and mechanical rhythm.
           </p>
           <p className="text-sm leading-relaxed">
             <strong>Long:</strong> Vishal Gupta is a New Delhi-based kinetic sculptor and the founder of
-            Hookkapaani Studio. {FOUNDER_TRAINING} Working in steel, resin and found industrial material, he
+            Hookkapani Studio. {FOUNDER_TRAINING} Working in steel, resin and found industrial material, he
             builds sculptures whose mechanisms are part of the artwork — engineered to be serviced, not sealed.
             The studio&apos;s 38 works range from tabletop pieces to a 17 ft bull, and its commissions include a
             suspended kinetic installation for a 9-floor corporate atrium, delivered in 14 weeks, and a
@@ -95,7 +95,7 @@ export default function PressKitPage() {
               </a>
             </li>
             <li>
-              <a href="/portfolio.pdf" download="Hookkapaani_Portfolio_2026.pdf" className="text-accent hover:text-accent/80">
+              <a href="/portfolio.pdf" download="Hookkapani_Portfolio_2026.pdf" className="text-accent hover:text-accent/80">
                 Full portfolio catalogue (PDF, 13 MB)
               </a>
             </li>
@@ -134,7 +134,7 @@ export default function PressKitPage() {
         <div className="flex flex-wrap gap-4">
           <a
             href="/portfolio.pdf"
-            download="Hookkapaani_Portfolio_2026.pdf"
+            download="Hookkapani_Portfolio_2026.pdf"
             className="px-5 py-3 bg-accent text-accent-foreground text-sm font-medium min-h-[44px] flex items-center"
           >
             Download the Portfolio (13 MB)
