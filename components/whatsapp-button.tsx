@@ -11,7 +11,7 @@ export function WhatsAppButton({
 }) {
   const text = artworkTitle
     ? `Hi, I'm interested in "${artworkTitle}"${artworkUrl ? ` — ${artworkUrl}` : ''}`
-    : "Hi, I'd like to discuss a commission with Hookkapaani Studio.";
+    : "Hi, I'd like to discuss a commission with Hookkapani Studio.";
   const href = `https://wa.me/${STUDIO_WHATSAPP}?text=${encodeURIComponent(text)}`;
   return (
     <a
