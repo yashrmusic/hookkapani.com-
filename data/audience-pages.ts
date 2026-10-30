@@ -81,7 +81,7 @@ export const audiencePages: AudiencePage[] = [
     slug: 'collectors',
     title: 'Collect a work',
     description:
-      'For private collectors and galleries: existing Hookkapaani sculptures with dimensions and materials stated plainly. Enquire on any work for availability.',
+      'For private collectors and galleries: existing Hookkapani sculptures with dimensions and materials stated plainly. Enquire on any work for availability.',
     intro:
       'For private collectors and galleries: existing works from the studio, with dimensions and materials stated plainly. Availability and editions are confirmed directly with the studio for each work — enquire about any piece below and it will be attached to your brief.',
     workIds: ['new-work-22', 'new-work-17', 'new-work-12', 'new-work-3', 'new-work-20', 'new-work-31'],
@@ -99,14 +99,14 @@ export const audiencePages: AudiencePage[] = [
     slug: 'press',
     title: 'Curate or write about the studio',
     description:
-      'For curators, editors and researchers: Hookkapaani fact sheet, case studies, press kit with bios and brand assets, and high-resolution work images.',
+      'For curators, editors and researchers: Hookkapani fact sheet, case studies, press kit with bios and brand assets, and high-resolution work images.',
     intro:
       'For curators, editors and researchers: everything needed to programme an exhibition or write about the studio — case studies, the press kit with biographies and brand assets, high-resolution images and the studio fact sheet.',
     workIds: ['new-work-28', 'new-work-22', 'new-work-30'],
     body: [
       {
         heading: 'Fact sheet',
-        text: 'Studio: Hookkapaani. Founder: Vishal Gupta, kinetic sculptor. Based: New Delhi, India. Works: 38. Largest work: The Bull, 17 ft. Commissions delivered for corporate atriums and gallery programmes; a 9-floor atrium installation completed in 14 weeks.',
+        text: 'Studio: Hookkapani. Founder: Vishal Gupta, kinetic sculptor. Based: New Delhi, India. Works: 38. Largest work: The Bull, 17 ft. Commissions delivered for corporate atriums and gallery programmes; a 9-floor atrium installation completed in 14 weeks.',
       },
       {
         heading: 'Assets',
