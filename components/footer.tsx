@@ -1,35 +1,17 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
+// Server component: footer content is rendered at full opacity in the
+// served HTML, so crawlers that do not scroll still see it.
 export function Footer() {
-  const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <footer
-      ref={ref}
       id="contact"
       className="bg-secondary/30 border-t border-border"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div
-            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            <h3 className="text-2xl font-bold mb-4">Hookkapaani</h3>
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Hookkapani</h3>
             <p className="text-muted-foreground mb-6">
               A kinetic sculpture studio exploring industrial materials, mechanical motion and temporal transformation.
             </p>
@@ -48,9 +30,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div
-            className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
+          <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h4>
             <ul className="space-y-2">
               <li>
@@ -81,7 +61,7 @@ export function Footer() {
               <li>
                 <a
                   href="/portfolio.pdf"
-                  download="Hookkapaani_Portfolio.pdf"
+                  download="Hookkapani_Portfolio.pdf"
                   className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   Portfolio PDF (13 MB)
@@ -90,9 +70,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div
-            className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
+          <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Contact</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>New Delhi, India</li>
@@ -108,7 +86,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/919540026221?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20commission%20with%20Hookkapaani%20Studio."
+                  href="https://wa.me/919540026221?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20commission%20with%20Hookkapani%20Studio."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"
@@ -125,9 +103,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div
-            className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
+          <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Studio Hours</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>Monday – Saturday</li>
@@ -138,10 +114,10 @@ export function Footer() {
         </div>
 
         <div
-          className={`mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Hookkapaani. All rights reserved.{' '}
+            © {new Date().getFullYear()} Hookkapani. All rights reserved.{' '}
             <Link href="/privacy" className="hover:text-accent transition-colors underline underline-offset-4">
               Privacy
             </Link>
