@@ -6,7 +6,7 @@ import { ShareButton } from '@/components/share-button';
 import { ShortlistButton } from '@/components/shortlist';
 import { WhatsAppButton } from '@/components/whatsapp-button';
 import type { Artwork } from '@/data/artworks';
-import { parseMaxFt, sizeLabel, isMoving, displayTags } from '@/lib/artwork-utils';
+import { parseMaxFt, sizeLabel, isMoving, displayTags, artworkUrl } from '@/lib/artwork-utils';
 import { trackEvent } from '@/lib/client-analytics';
 import { artworkAlt, categoryLabel } from '@/lib/seo';
 
@@ -77,7 +77,7 @@ function ScaleFigure({ artwork }: { artwork: Artwork }) {
 
 export function ArtworkDetail({ artwork, related, caseStudyLink = null, audienceLinks = [] }: ArtworkDetailProps) {
   const tags = displayTags(artwork);
-  const workUrl = `https://hookkapani.com/work/${artwork.id}`;
+    const workUrl = `https://hookkapani.com${artworkUrl(artwork)}`;
   const pageLinks = caseStudyLink ? [caseStudyLink, ...audienceLinks] : audienceLinks;
 
   return (
@@ -97,7 +97,7 @@ export function ArtworkDetail({ artwork, related, caseStudyLink = null, audience
             Back to the Works
           </Link>
 
-          <ShareButton title={artwork.title} text={artwork.title} url={`/work/${artwork.id}`} variant="button" />
+                  <ShareButton title={artwork.title} text={artwork.title} url={artworkUrl(artwork)} variant="button" />
         </div>
       </div>
 
@@ -213,9 +213,9 @@ export function ArtworkDetail({ artwork, related, caseStudyLink = null, audience
                 <WhatsAppButton artworkTitle={artwork.title} artworkUrl={workUrl} />
               </div>
               <Link
-                href={`/work/${artwork.id}/spec-sheet`}
+                                href=`${artworkUrl(artwork)}/spec-sheet`
                 prefetch={false}
-                onClick={() =>
+                                                onClick={() =>
                   trackEvent('spec_sheet_download_requested', {
                     artworkId: artwork.id,
                     artworkTitle: artwork.title,
@@ -260,7 +260,7 @@ export function ArtworkDetail({ artwork, related, caseStudyLink = null, audience
             <h2 className="text-2xl font-bold mb-6">Related works</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {related.map((rel) => (
-                <Link key={rel.id} href={`/work/${rel.id}`} className="group block">
+                            <Link key={rel.id} href={artworkUrl(rel)} className="group block"></Link>
                   <div className="relative w-full overflow-hidden bg-secondary" style={{ aspectRatio: rel.aspectRatio || '3/4' }}>
                     <Image
                       src={rel.imageUrl}
